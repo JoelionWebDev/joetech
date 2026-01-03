@@ -39,7 +39,7 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "Facebook",
-      href: "https://facebook.com/joetech",
+      href: "https://www.facebook.com/profile.php?id=100094879577107",
       ariaLabel: "Follow Joetech on Facebook",
       icon: (
         <svg
@@ -53,25 +53,24 @@ const Footer = () => {
       ),
     },
     {
-      name: "Instagram",
-      href: "https://instagram.com/joetech",
-      ariaLabel: "Follow Joetech on Instagram",
+      name: "Whatsapp",
+      href: "https://wa.me/message/RKDWPWCNYQKTG1",
+      ariaLabel: "Follow Joetech on Whatsapp",
       icon: (
         <svg
-          className="w-6 h-6"
-          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
-          aria-hidden="true"
+          fill="currentColor"
         >
-          <path d="M12.017 0C5.396 0 .029 5.367 .029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-2.458 0-4.467-2.01-4.467-4.468 0-2.458 2.01-4.467 4.467-4.467s4.468 2.01 4.468 4.467c0 2.458-2.01 4.468-4.468 4.468zm7.83 0c-2.458 0-4.467-2.01-4.467-4.468 0-2.458 2.01-4.467 4.467-4.467s4.468 2.01 4.468 4.467c0 2.458-2.01 4.468-4.468 4.468z" />
-          <path d="M12.017 7.056c-2.754 0-4.986 2.233-4.986 4.987s2.233 4.987 4.986 4.987 4.987-2.233 4.987-4.987-2.233-4.987-4.987-4.987zm0 8.235c-1.794 0-3.248-1.454-3.248-3.248s1.454-3.248 3.248-3.248 3.248 1.454 3.248 3.248-1.454 3.248-3.248 3.248z" />
-          <circle cx="17.007" cy="6.993" r="1.184" />
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.93.51 3.82 1.48 5.48L2 22l4.75-1.55a9.86 9.86 0 005.29 1.53h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.77 14.1c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.12.08-1.8-.11-.41-.13-.94-.3-1.62-.59-2.85-1.23-4.7-4.09-4.85-4.3-.15-.2-1.16-1.54-1.16-2.94s.74-2.09 1-2.38c.26-.3.57-.37.77-.37h.55c.18 0 .42-.07.65.5.24.58.8 1.99.87 2.13.07.15.12.33.02.53-.1.2-.15.33-.3.5-.15.18-.31.4-.44.54-.15.15-.31.31-.13.62.18.3.8 1.32 1.72 2.14 1.18 1.05 2.17 1.38 2.47 1.53.3.15.48.13.66-.08.18-.2.77-.9.98-1.21.2-.3.41-.25.69-.15.28.1 1.77.84 2.08.99.3.15.5.23.57.36.07.13.07.75-.17 1.43z" />
         </svg>
       ),
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/company/joetech",
+      href: "https://www.linkedin.com/in/igono-joel-88b680185/",
       ariaLabel: "Connect with Joetech on LinkedIn",
       icon: (
         <svg
@@ -86,7 +85,7 @@ const Footer = () => {
     },
     {
       name: "YouTube",
-      href: "https://youtube.com/joetech",
+      href: "https://www.youtube.com/@joetechstudio",
       ariaLabel: "Subscribe to Joetech YouTube channel",
       icon: (
         <svg
