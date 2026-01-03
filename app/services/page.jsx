@@ -63,7 +63,7 @@ const ServiceCard = ({ service, index, inView }) => (
       ))}
     </ul>
     <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group-hover:shadow-lg flex items-center justify-center">
-      Learn More
+      ---
       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
     </button>
   </article>
@@ -403,7 +403,7 @@ const JoetechServicesPage = () => {
                   href="tel:+15551234567"
                   className="inline-flex items-center border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
                 >
-                  Call Now: +1 (555) 123-4567
+                  Call Now: + (234) 8167 - 099131
                 </a>
               </div>
 
@@ -506,8 +506,8 @@ const JoetechServicesPage = () => {
             <div>
               <h4 className="font-semibold mb-4">Get in Touch</h4>
               <div className="space-y-2 text-gray-400">
-                <p>📧 hello@joetech.com</p>
-                <p>📞 +1 (555) 123-4567</p>
+                <p>📧 joelionjoe10@gmail.com</p>
+                <p>📞 + (234) 8167 - 099131</p>
                 <p>📍 Lagos, Nigeria</p>
                 <p className="mt-4 text-sm">Available 24/7 for support</p>
               </div>

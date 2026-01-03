@@ -52,14 +52,7 @@ const CTABanner = () => {
               aria-label="Book a free consultation with Joetech to discuss your business needs"
               className="group relative inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-blue-300/50 focus:ring-offset-2 focus:ring-offset-transparent overflow-hidden"
               onClick={() => {
-                // Scroll to contact form or navigate to contact page
-                const contactForm = document.getElementById("contact-form");
-                if (contactForm) {
-                  contactForm.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  // If no contact form on page, you can navigate to contact page
-                  console.log("Navigate to contact page or form");
-                }
+                window.open("https://wa.me/message/RKDWPWCNYQKTG1", "_blank");
               }}
             >
               {/* Button background animation */}

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   ChevronRight,
   Users,
@@ -107,36 +108,32 @@ const JoetechAboutPage = () => {
 
   const team = [
     {
-      name: "Joseph Tech",
+      name: "Igono Joel",
       role: "CEO & Founder",
       description:
-        "Visionary leader with 10+ years in digital transformation and web development.",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+        "Visionary leader with 6+ years in digital transformation and web development.",
+      image: "/site.jpg",
     },
     {
-      name: "Sarah Johnson",
+      name: "Grace OJ",
       role: "Creative Director",
       description:
         "Award-winning designer specializing in user experience and brand innovation.",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b88c2a0c?w=300&h=300&fit=crop&crop=face",
+      image: "/designer.jpeg",
     },
     {
-      name: "Mike Chen",
+      name: "Joelion",
       role: "Lead Developer",
       description:
         "Full-stack expert in modern web technologies and scalable digital solutions.",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+      image: "joelion2.png",
     },
     {
-      name: "Emily Rodriguez",
+      name: "Blessing Eze",
       role: "Marketing Strategist",
       description:
         "Data-driven marketing professional focused on digital growth and SEO optimization.",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
+      image: "/blessing.png",
     },
   ];
 

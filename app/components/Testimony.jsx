@@ -11,38 +11,38 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
+      name: "Enemona Samuel",
       company: "TechCorp Solutions",
       position: "CEO",
       feedback:
         "Joetech transformed our online presence with exceptional web development expertise. Their attention to detail and modern approach exceeded our expectations. The results speak for themselves with a 200% increase in conversions.",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+        "https://image.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&=80",
       type: "text",
     },
     {
       id: 2,
-      name: "Michael Chen",
-      company: "GreenLeaf Ventures",
-      position: "Marketing Director",
+      name: "Johnson Monasoko",
+      company: "TechStart Inc.",
+      position: "CEO at TechStart",
       feedback:
-        "The branding design work from Joetech was outstanding. They captured our company's vision perfectly and delivered a cohesive brand identity that resonates with our target audience.",
+        "Working with this team has been transformative for our business. They delivered a robust solution that exceeded our expectations and helped us scale efficiently.",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+        "https://image.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8Hx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
       type: "text",
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      company: "RestaurantPro",
-      position: "Owner",
+      name: "Sunday Michael",
+      company: "InnovateCo",
+      position: "Product Manager",
       feedback:
-        "Their digital marketing campaigns and video editing skills helped us reach new customers effectively. Joetech's strategic approach resulted in incredible growth for our restaurant chain.",
+        "The level of professionalism and technical expertise is outstanding. Our project was completed on time and the results speak for themselves.",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+        "https://image.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
       type: "text",
     },
     {
@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
         "Working with Joetech was a game-changer for our healthcare platform. Their technical expertise in web development and user experience design created a solution that our patients love using.",
       rating: 5,
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+        "https://image.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
       type: "video",
       videoThumbnail:
         "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",

@@ -76,17 +76,11 @@ const JoetechHero = () => {
               aria-label="Get started with Joetech today - scroll to contact form"
               className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white font-bold text-lg rounded-2xl shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-blue-400 focus:ring-opacity-50 overflow-hidden min-w-[240px]"
               onClick={() => {
-                // Scroll to contact form
-                const contactSection = document.getElementById("contact");
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  console.log("Navigate to contact form");
-                }
+                window.location.href = "/contact";
               }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Get Started Today
+                Start a Project
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -108,18 +102,10 @@ const JoetechHero = () => {
             <button
               aria-label="View Joetech portfolio and previous work"
               className="group px-10 py-5 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-bold text-lg rounded-2xl hover:bg-white hover:text-blue-900 hover:border-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50 min-w-[220px]"
-              onClick={() => {
-                // Scroll to portfolio section
-                const portfolioSection = document.getElementById("portfolio");
-                if (portfolioSection) {
-                  portfolioSection.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  console.log("Navigate to portfolio section");
-                }
-              }}
+              onClick={() => (window.location.href = "/about")}
             >
               <span className="group-hover:text-blue-900 transition-colors duration-300 flex items-center justify-center gap-2">
-                View Our Work
+                View Our Portfolio
                 <svg
                   className="w-5 h-5 group-hover:scale-110 transition-transform"
                   fill="none"

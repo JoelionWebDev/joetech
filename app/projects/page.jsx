@@ -105,7 +105,7 @@ const ProjectCard = ({ project, index, inView }) => (
           {project.year}
         </div>
         <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center group-hover:shadow-lg">
-          View Project
+          ----
           <ExternalLink className="w-4 h-4 ml-2" />
         </button>
       </div>

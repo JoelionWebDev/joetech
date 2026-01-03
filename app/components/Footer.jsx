@@ -262,7 +262,7 @@ const Footer = () => {
                     className="text-gray-400 hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-400 focus:underline"
                     aria-label="Send email to joetechorg@gmail.com"
                   >
-                    joetechorg@gmail.com
+                    joelionjoe10@gmail.com
                   </a>
                 </div>
               </div>
