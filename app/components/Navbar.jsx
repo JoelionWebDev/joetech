@@ -14,6 +14,7 @@ export default function Navbar() {
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
+    { name: "Learn Tech", href: "/learnTech" },
     { name: "Blog", href: "/blog" },
     { name: "Testimonials", href: "/testimonials" },
     { name: "Contact", href: "/contact" },
@@ -146,11 +147,9 @@ export default function Navbar() {
               aria-expanded={isMenuOpen}
               aria-label="Toggle navigation menu"
             >
-              {isMenuOpen ? (
+              {isMenuOpen ?
                 <X className="block h-6 w-6" />
-              ) : (
-                <Menu className="block h-6 w-6" />
-              )}
+              : <Menu className="block h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -159,9 +158,9 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div
         className={`lg:hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen
-            ? "block opacity-100 translate-y-0"
-            : "hidden opacity-0 -translate-y-4"
+          isMenuOpen ?
+            "block opacity-100 translate-y-0"
+          : "hidden opacity-0 -translate-y-4"
         }`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100 shadow-lg">

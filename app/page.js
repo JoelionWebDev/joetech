@@ -8,6 +8,7 @@ import Howwwework from "./components/Howwework";
 import TestimonialsSection from "./components/Testimony";
 import ContactSection from "./components/Contact";
 import CTABanner from "./components/CalltoAction";
+import LearnTech from "./components/LearnTech";
 
 const page = () => {
   return (
@@ -15,6 +16,8 @@ const page = () => {
       <Hero />
       {/* Additional content can be added here */}
       <FeaturedServices />
+      {/* Learn Tech */}
+      <LearnTech />
       {/* You can add more components or sections as needed */}
       <AboutSection />
       <ProjectsPortfolio />

@@ -1,739 +1,988 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import {
-  ChevronRight,
-  ChevronLeft,
-  ExternalLink,
-  ArrowRight,
-  Filter,
-  Calendar,
-  Globe,
-  Smartphone,
-  Palette,
-  TrendingUp,
-  ShoppingCart,
-  Building,
-  Star,
-  Users,
-  Eye,
-  BarChart3,
-} from "lucide-react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import Head from "next/head";
 
-// Intersection Observer Hook for Animations
+// ─── Intersection Observer Hook ───────────────────────────────────────────────
 const useInView = (threshold = 0.1) => {
-  const [ref, setRef] = useState(null);
+  const ref = useRef(null);
   const [inView, setInView] = useState(false);
-
   useEffect(() => {
-    if (!ref) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold }
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setInView(true);
+          obs.disconnect();
+        }
+      },
+      { threshold },
     );
-
-    observer.observe(ref);
-    return () => observer.disconnect();
-  }, [ref, threshold]);
-
-  return [setRef, inView];
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return [ref, inView];
 };
 
-// Project Card Component
+// ─── Data ─────────────────────────────────────────────────────────────────────
+const PROJECTS = [
+  {
+    id: 1,
+    title: "EcoMart E-commerce Platform",
+    description:
+      "A full-featured e-commerce solution for sustainable products with advanced inventory management, customer analytics, and payment integration.",
+    category: "Web",
+    service: "Web Development",
+    tags: ["E-commerce", "React", "Node.js", "Payments"],
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=480&fit=crop&q=80",
+    year: "2024",
+    featured: true,
+    challenge:
+      "The client needed a scalable e-commerce platform handling high traffic without sacrificing speed or user experience.",
+    solution:
+      "We built a custom React platform with server-side rendering, optimised payment flows, and a comprehensive admin dashboard.",
+    results:
+      "40% uplift in conversion rate and 60% reduction in page load time — driving significant revenue growth within 3 months.",
+    metrics: { views: "50K+", conversion: "+40%" },
+  },
+  {
+    id: 2,
+    title: "FinTech Mobile Banking App",
+    description:
+      "Secure mobile banking app with biometric authentication, real-time transaction monitoring, and instant transfer capabilities.",
+    category: "App",
+    service: "Mobile App Development",
+    tags: ["React Native", "Biometrics", "Security", "Banking"],
+    image:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=700&h=480&fit=crop&q=80",
+    year: "2024",
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "Luxury Brand Identity System",
+    description:
+      "Complete visual identity and digital marketing campaign for a premium lifestyle brand — logo, guidelines, and campaign assets.",
+    category: "Branding",
+    service: "Brand Strategy & Design",
+    tags: ["Brand Identity", "Logo Design", "Guidelines", "Marketing"],
+    image:
+      "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=700&h=480&fit=crop&q=80",
+    year: "2023",
+    featured: true,
+    challenge:
+      "Design a sophisticated identity that resonates with luxury consumers across every digital and physical touchpoint.",
+    solution:
+      "Developed a comprehensive brand system with bespoke typography, refined colour palette, and versatile logo suite.",
+    results:
+      "200% increase in brand recognition; social media engagement up 150% within 6 months of launch.",
+    metrics: { views: "100K+", conversion: "+200%" },
+  },
+  {
+    id: 4,
+    title: "Healthcare Digital Marketing",
+    description:
+      "Multi-channel strategy for a healthcare provider — SEO, content marketing, and social media management to boost patient acquisition.",
+    category: "Marketing",
+    service: "Digital Marketing",
+    tags: ["SEO", "Content Marketing", "Social Media", "Healthcare"],
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=700&h=480&fit=crop&q=80",
+    year: "2023",
+    featured: false,
+  },
+  {
+    id: 5,
+    title: "Restaurant Management System",
+    description:
+      "Integrated web platform for a restaurant chain — inventory tracking, staff scheduling, and a full CRM built for daily ops.",
+    category: "Web",
+    service: "Web Development",
+    tags: ["Management System", "Inventory", "CRM", "Dashboard"],
+    image:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&h=480&fit=crop&q=80",
+    year: "2023",
+    featured: false,
+  },
+  {
+    id: 6,
+    title: "Fitness Tracker Mobile App",
+    description:
+      "Cross-platform app for fitness enthusiasts with workout logging, nutrition planning, and a social challenge feed.",
+    category: "App",
+    service: "Mobile App Development",
+    tags: ["Fitness", "Cross-platform", "Real-time", "Social"],
+    image:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&h=480&fit=crop&q=80",
+    year: "2024",
+    featured: false,
+  },
+];
+
+const CLIENTS = [
+  { name: "TechCorp Nigeria", abbr: "TC", color: "#2563eb" },
+  { name: "Lagos Business Hub", abbr: "LBH", color: "#059669" },
+  { name: "Fintech Solutions", abbr: "FS", color: "#7c3aed" },
+  { name: "EcoMart", abbr: "EM", color: "#dc2626" },
+  { name: "Healthcare Plus", abbr: "H+", color: "#ea580c" },
+  { name: "Luxury Brands Co.", abbr: "LB", color: "#1f2937" },
+];
+
+const CATEGORIES = ["All", "Web", "App", "Branding", "Marketing"];
+
+const CATEGORY_META = {
+  Web: { color: "bg-blue-100 text-blue-800", dot: "bg-blue-500" },
+  App: { color: "bg-emerald-100 text-emerald-800", dot: "bg-emerald-500" },
+  Branding: { color: "bg-violet-100 text-violet-800", dot: "bg-violet-500" },
+  Marketing: { color: "bg-orange-100 text-orange-800", dot: "bg-orange-500" },
+};
+
+const STATS = [
+  { value: "50+", label: "Projects Delivered" },
+  { value: "98%", label: "Client Satisfaction" },
+  { value: "25+", label: "Happy Clients" },
+  { value: "5★", label: "Average Rating" },
+];
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+const CategoryBadge = ({ category, size = "sm" }) => {
+  const meta = CATEGORY_META[category] || {};
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full font-semibold ${
+        size === "sm" ? "text-xs px-2.5 py-1" : "text-sm px-3 py-1.5"
+      } ${meta.color}`}
+    >
+      <span className={`w-1.5 h-1.5 rounded-full ${meta.dot}`} />
+      {category}
+    </span>
+  );
+};
+
 const ProjectCard = ({ project, index, inView }) => (
   <article
-    className={`bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group ${
-      inView ? `opacity-100 translate-y-0` : "opacity-0 translate-y-8"
-    }`}
-    style={{ transitionDelay: `${index * 100}ms` }}
+    role="article"
+    aria-label={`${project.title} — ${project.service} project`}
+    className="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1.5 flex flex-col"
+    style={{
+      opacity: inView ? 1 : 0,
+      transform: inView ? "none" : "translateY(24px)",
+      transition: `opacity 0.5s ease ${index * 80}ms, transform 0.5s ease ${index * 80}ms, box-shadow 0.3s ease, translate 0.3s ease`,
+    }}
   >
-    <div className="relative overflow-hidden">
+    {/* Image */}
+    <div className="relative overflow-hidden aspect-[16/10]">
       <img
         src={project.image}
-        alt={`${project.title} - ${
-          project.service
-        } project by Joetech showcasing ${project.category.toLowerCase()} solutions`}
-        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+        alt={`${project.title} — ${project.service} portfolio example by Joetech, Lagos`}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        loading="lazy"
+        decoding="async"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div className="absolute top-4 left-4">
-        <span
-          className={`px-3 py-1 rounded-full text-xs font-semibold ${
-            project.category === "Web"
-              ? "bg-blue-100 text-blue-800"
-              : project.category === "App"
-              ? "bg-green-100 text-green-800"
-              : project.category === "Branding"
-              ? "bg-purple-100 text-purple-800"
-              : "bg-orange-100 text-orange-800"
-          }`}
-        >
-          {project.category}
-        </span>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+      <div className="absolute top-3 left-3 flex gap-2">
+        <CategoryBadge category={project.category} />
       </div>
       {project.featured && (
-        <div className="absolute top-4 right-4">
-          <span className="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-bold">
-            Featured
+        <div className="absolute top-3 right-3">
+          <span className="inline-flex items-center gap-1 bg-amber-400 text-amber-950 text-xs font-bold px-2.5 py-1 rounded-full shadow">
+            ★ Featured
           </span>
         </div>
       )}
     </div>
 
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+    {/* Body */}
+    <div className="p-5 sm:p-6 flex flex-col flex-1">
+      <h3 className="font-bold text-slate-900 text-lg leading-snug mb-2 group-hover:text-blue-600 transition-colors duration-200">
         {project.title}
       </h3>
-      <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+      <p className="text-slate-500 text-sm leading-relaxed mb-4 flex-1">
         {project.description}
       </p>
 
-      <div className="flex flex-wrap gap-2 mb-4">
-        {project.tags.map((tag, idx) => (
+      <div className="flex flex-wrap gap-1.5 mb-5">
+        {project.tags.map((tag) => (
           <span
-            key={idx}
-            className="bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-xs"
+            key={tag}
+            className="bg-slate-100 text-slate-600 text-xs px-2.5 py-1 rounded-lg font-medium"
           >
             {tag}
           </span>
         ))}
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center text-sm text-gray-500">
-          <Calendar className="w-4 h-4 mr-1" />
+      <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+        <span className="text-xs text-slate-400 font-medium">
           {project.year}
-        </div>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center group-hover:shadow-lg">
-          ----
-          <ExternalLink className="w-4 h-4 ml-2" />
-        </button>
+        </span>
+        <a
+          href={`/projects/${project.id}`}
+          aria-label={`View case study for ${project.title}`}
+          className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 text-sm font-semibold transition-colors group/link"
+        >
+          View Case Study
+          <svg
+            className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2.5}
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
+          </svg>
+        </a>
       </div>
     </div>
   </article>
 );
 
-// Featured Project Component
-const FeaturedProject = ({ project, reverse = false }) => (
-  <div
-    className={`grid lg:grid-cols-2 gap-12 items-center ${
-      reverse ? "lg:grid-flow-col-dense" : ""
-    }`}
-  >
-    <div className={reverse ? "lg:col-start-2" : ""}>
-      <div className="relative">
-        <img
-          src={project.image}
-          alt={`${
-            project.title
-          } - Featured ${project.category.toLowerCase()} project showcasing Joetech's expertise in ${
-            project.service
-          }`}
-          className="w-full h-80 object-cover rounded-2xl shadow-2xl"
-        />
-        <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
-          <div className="flex items-center space-x-4">
+const FeaturedCaseStudy = ({ project, reverse }) => {
+  const [ref, inView] = useInView(0.15);
+  return (
+    <div
+      ref={ref}
+      className={`grid lg:grid-cols-2 gap-10 xl:gap-16 items-center transition-all duration-700 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
+      {/* Image side */}
+      <div className={`relative ${reverse ? "lg:order-2" : ""}`}>
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+          <img
+            src={project.image}
+            alt={`${project.title} case study preview — ${project.service} by Joetech`}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        </div>
+
+        {/* Floating metrics card */}
+        <div className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-6 bg-white rounded-xl shadow-xl p-4 border border-slate-100">
+          <div className="flex items-center gap-5">
             <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">
+              <p className="text-xl sm:text-2xl font-extrabold text-blue-600 leading-none">
                 {project.metrics.views}
-              </div>
-              <div className="text-xs text-gray-500">Page Views</div>
+              </p>
+              <p className="text-xs text-slate-500 mt-0.5">Page Views</p>
             </div>
+            <div className="w-px h-10 bg-slate-200" />
             <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">
+              <p className="text-xl sm:text-2xl font-extrabold text-emerald-600 leading-none">
                 {project.metrics.conversion}
-              </div>
-              <div className="text-xs text-gray-500">Conversion</div>
+              </p>
+              <p className="text-xs text-slate-500 mt-0.5">Growth</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div className={reverse ? "lg:col-start-1" : ""}>
-      <div className="flex items-center mb-4">
-        <span
-          className={`px-3 py-1 rounded-full text-sm font-semibold mr-3 ${
-            project.category === "Web"
-              ? "bg-blue-100 text-blue-800"
-              : project.category === "App"
-              ? "bg-green-100 text-green-800"
-              : project.category === "Branding"
-              ? "bg-purple-100 text-purple-800"
-              : "bg-orange-100 text-orange-800"
-          }`}
-        >
-          {project.category}
-        </span>
-        <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-bold">
-          Featured Case Study
-        </span>
-      </div>
-
-      <h3 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h3>
-      <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-        {project.description}
-      </p>
-
-      <div className="space-y-4 mb-6">
-        <div>
-          <h4 className="font-semibold text-gray-900 mb-2">Challenge</h4>
-          <p className="text-gray-600">{project.challenge}</p>
-        </div>
-        <div>
-          <h4 className="font-semibold text-gray-900 mb-2">Solution</h4>
-          <p className="text-gray-600">{project.solution}</p>
-        </div>
-        <div>
-          <h4 className="font-semibold text-gray-900 mb-2">Results</h4>
-          <p className="text-gray-600">{project.results}</p>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap gap-2 mb-6">
-        {project.tags.map((tag, idx) => (
-          <span
-            key={idx}
-            className="bg-gray-100 text-gray-700 px-3 py-1 rounded-md text-sm"
-          >
-            {tag}
+      {/* Text side */}
+      <div className={reverse ? "lg:order-1" : ""}>
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <CategoryBadge category={project.category} size="md" />
+          <span className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+            ★ Featured Case Study
           </span>
-        ))}
+        </div>
+
+        <h3 className="font-extrabold text-slate-900 text-2xl sm:text-3xl mb-3 leading-tight">
+          {project.title}
+        </h3>
+        <p className="text-slate-500 text-base leading-relaxed mb-7">
+          {project.description}
+        </p>
+
+        <div className="space-y-5 mb-7">
+          {[
+            ["Challenge", project.challenge],
+            ["Solution", project.solution],
+            ["Results", project.results],
+          ].map(([label, text]) => (
+            <div key={label} className="flex gap-3">
+              <div className="flex-shrink-0 w-1 rounded-full bg-gradient-to-b from-blue-500 to-violet-500" />
+              <div>
+                <p className="font-bold text-slate-900 text-sm mb-0.5">
+                  {label}
+                </p>
+                <p className="text-slate-500 text-sm leading-relaxed">{text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-2 mb-7">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="bg-slate-100 text-slate-600 text-xs px-3 py-1.5 rounded-lg font-medium"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <a
+          href={`/projects/${project.id}`}
+          aria-label={`Read full case study for ${project.title}`}
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold px-6 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-0.5"
+        >
+          Read Full Case Study
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2.5}
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
+          </svg>
+        </a>
       </div>
-
-      <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center">
-        View Full Case Study
-        <ArrowRight className="w-4 h-4 ml-2" />
-      </button>
     </div>
-  </div>
-);
+  );
+};
 
-const JoetechProjectsPage = () => {
-  const [heroRef, heroInView] = useInView(0.3);
-  const [projectsRef, projectsInView] = useInView(0.2);
-  const [featuredRef, featuredInView] = useInView(0.3);
-  const [clientsRef, clientsInView] = useInView(0.3);
-  const [ctaRef, ctaInView] = useInView(0.3);
-
+// ─── Main Page ────────────────────────────────────────────────────────────────
+export default function JoetechProjectsPage() {
   const [filterCategory, setFilterCategory] = useState("All");
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const projects = [
-    {
-      id: 1,
-      title: "EcoMart E-commerce Platform",
-      description:
-        "A comprehensive e-commerce solution for sustainable products with advanced inventory management and customer analytics. Built with modern web development technologies for optimal performance.",
-      category: "Web",
-      service: "Web Development",
-      tags: ["E-commerce", "React", "Node.js", "Payment Integration"],
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      year: "2024",
-      featured: true,
-      challenge:
-        "The client needed a modern e-commerce platform that could handle high traffic while maintaining fast loading speeds and seamless user experience.",
-      solution:
-        "We developed a custom React-based platform with optimized performance, integrated payment systems, and comprehensive admin dashboard.",
-      results:
-        "Achieved 40% increase in conversion rates and 60% reduction in page load times, resulting in significant revenue growth.",
-      metrics: { views: "50K+", conversion: "+40%" },
-    },
-    {
-      id: 2,
-      title: "FinTech Mobile Banking App",
-      description:
-        "Secure mobile banking application with biometric authentication and real-time transaction monitoring. Comprehensive mobile app development project focusing on security and user experience.",
-      category: "App",
-      service: "Mobile App Development",
-      tags: ["React Native", "Biometrics", "Security", "Banking"],
-      image:
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
-      year: "2024",
-    },
-    {
-      id: 3,
-      title: "Luxury Brand Identity Design",
-      description:
-        "Complete brand identity and digital marketing campaign for premium lifestyle brand. Professional branding services including logo design, brand guidelines, and marketing materials.",
-      category: "Branding",
-      service: "Brand Strategy & Design",
-      tags: ["Brand Identity", "Logo Design", "Guidelines", "Marketing"],
-      image:
-        "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=600&h=400&fit=crop",
-      year: "2023",
-      featured: true,
-      challenge:
-        "Create a sophisticated brand identity that appeals to luxury consumers while maintaining accessibility across digital platforms.",
-      solution:
-        "Developed a comprehensive brand system with elegant typography, premium color palette, and versatile logo applications.",
-      results:
-        "Brand recognition increased by 200% and social media engagement grew by 150% within 6 months of launch.",
-      metrics: { views: "100K+", conversion: "+200%" },
-    },
-    {
-      id: 4,
-      title: "Healthcare Digital Marketing Campaign",
-      description:
-        "Multi-channel digital marketing strategy for healthcare provider including SEO optimization, content marketing, and social media management to increase patient engagement.",
-      category: "Marketing",
-      service: "Digital Marketing",
-      tags: ["SEO", "Content Marketing", "Social Media", "Healthcare"],
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
-      year: "2023",
-    },
-    {
-      id: 5,
-      title: "Restaurant Management System",
-      description:
-        "Comprehensive web development solution for restaurant chain management including inventory tracking, staff scheduling, and customer relationship management.",
-      category: "Web",
-      service: "Web Development",
-      tags: ["Management System", "Inventory", "CRM", "Dashboard"],
-      image:
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
-      year: "2023",
-    },
-    {
-      id: 6,
-      title: "Fitness Tracking Mobile App",
-      description:
-        "Cross-platform mobile application for fitness enthusiasts with workout tracking, nutrition planning, and social features. Advanced mobile app development with real-time data synchronization.",
-      category: "App",
-      service: "Mobile App Development",
-      tags: ["Fitness", "Cross-platform", "Real-time", "Social"],
-      image:
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
-      year: "2024",
-    },
-  ];
-
-  const clients = [
-    {
-      name: "TechCorp Nigeria",
-      logo: "https://via.placeholder.com/150x80/2563eb/ffffff?text=TechCorp",
-    },
-    {
-      name: "Lagos Business Hub",
-      logo: "https://via.placeholder.com/150x80/059669/ffffff?text=LBH",
-    },
-    {
-      name: "Fintech Solutions",
-      logo: "https://via.placeholder.com/150x80/7c3aed/ffffff?text=FinTech",
-    },
-    {
-      name: "EcoMart",
-      logo: "https://via.placeholder.com/150x80/dc2626/ffffff?text=EcoMart",
-    },
-    {
-      name: "Healthcare Plus",
-      logo: "https://via.placeholder.com/150x80/ea580c/ffffff?text=Health+",
-    },
-    {
-      name: "Luxury Brands",
-      logo: "https://via.placeholder.com/150x80/1f2937/ffffff?text=Luxury",
-    },
-  ];
-
-  const categories = ["All", "Web", "App", "Branding", "Marketing"];
+  const [heroRef, heroInView] = useInView(0.2);
+  const [projectsRef, projectsInView] = useInView(0.1);
+  const [clientsRef, clientsInView] = useInView(0.2);
+  const [ctaRef, ctaInView] = useInView(0.2);
 
   const filteredProjects =
-    filterCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === filterCategory);
+    filterCategory === "All" ? PROJECTS : (
+      PROJECTS.filter((p) => p.category === filterCategory)
+    );
 
-  const featuredProjects = projects.filter((project) => project.featured);
+  const featuredProjects = PROJECTS.filter((p) => p.featured);
 
+  // Auto-scroll clients ticker
+  const tickerRef = useRef(null);
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % Math.ceil(clients.length / 3));
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [clients.length]);
+    const el = tickerRef.current;
+    if (!el) return;
+    let raf;
+    let pos = 0;
+    const speed = 0.4;
+    const step = () => {
+      pos += speed;
+      if (pos >= el.scrollWidth / 2) pos = 0;
+      el.style.transform = `translateX(-${pos}px)`;
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const schemaOrg = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Joetech Portfolio — Projects & Case Studies",
+    description:
+      "Portfolio of web development, mobile app, branding, and digital marketing projects delivered by Joetech, Lagos, Nigeria.",
+    url: "https://joetech.com/projects",
+    creator: {
+      "@type": "Organization",
+      name: "Joetech",
+      url: "https://joetech.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Lekki",
+        addressRegion: "Lagos",
+        addressCountry: "NG",
+      },
+    },
+    hasPart: PROJECTS.map((p) => ({
+      "@type": "CreativeWork",
+      name: p.title,
+      description: p.description,
+      dateCreated: p.year,
+    })),
+  });
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* SEO Head Section */}
-      <head>
+    <>
+      <Head>
         <title>
-          Our Projects & Portfolio - Web Development, Apps & Digital Marketing |
-          Joetech
+          Portfolio & Projects — Web Dev, Apps & Digital Marketing | Joetech
+          Lagos
         </title>
         <meta
           name="description"
-          content="Explore Joetech's portfolio of innovative projects across web development, branding, and digital marketing. See how we help businesses grow with technology in Lekki, Nigeria."
+          content="Explore Joetech's portfolio of 50+ projects across web development, mobile apps, brand design, and digital marketing. See real results for Nigerian and global businesses."
         />
         <meta
           name="keywords"
-          content="portfolio, projects, web development, mobile apps, branding, digital marketing, Nigeria, Lekki, case studies"
+          content="Joetech portfolio, web development Nigeria, mobile app development Lagos, brand design, digital marketing agency, Lekki Lagos, case studies, e-commerce development"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Joetech Portfolio - Innovative Tech Projects & Digital Solutions"
+          content="Joetech Portfolio — Innovative Digital Projects, Lagos Nigeria"
         />
         <meta
           property="og:description"
-          content="Discover our award-winning projects in web development, mobile apps, and digital marketing. See the results we deliver for businesses."
+          content="Award-worthy web development, mobile apps, branding and marketing projects. Real results for real businesses."
+        />
+        <meta property="og:url" content="https://joetech.com/projects" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Joetech Portfolio — Digital Projects & Case Studies"
         />
         <link rel="canonical" href="https://joetech.com/projects" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CreativeWork",
-            name: "Joetech Portfolio",
-            description:
-              "Portfolio showcasing web development, mobile app, and digital marketing projects",
-            creator: {
-              "@type": "Organization",
-              name: "Joetech",
-            },
-          })}
-        </script>
-      </head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@300;400;500&display=swap"
+          rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: schemaOrg }}
+        />
+        <style>{`
+          :root { --font-display:'Bricolage Grotesque',sans-serif; --font-body:'Instrument Sans',sans-serif; }
+          body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+          h1,h2,h3,h4,.font-display { font-family: var(--font-display); }
+          @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+          @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+          .animate-fadeup { animation: fadeUp 0.7s ease forwards; }
+          .delay-100 { animation-delay:0.1s; opacity:0; }
+          .delay-200 { animation-delay:0.2s; opacity:0; }
+          .delay-300 { animation-delay:0.3s; opacity:0; }
+          .delay-400 { animation-delay:0.4s; opacity:0; }
+          .filter-btn-active { box-shadow: 0 0 0 3px rgba(37,99,235,0.25); }
+          :focus-visible { outline: 3px solid #3b82f6; outline-offset: 3px; }
+        `}</style>
+      </Head>
 
-      {/* Breadcrumb Navigation */}
-      <nav
-        className="bg-gray-50 py-3 px-4 sm:px-6 lg:px-8"
-        aria-label="Breadcrumb"
+      <div
+        className="min-h-screen bg-slate-50 text-slate-900"
+        style={{ fontFamily: "var(--font-body)" }}
       >
-        <div className="max-w-7xl mx-auto">
-          <ol className="flex items-center space-x-2 text-sm">
-            <li>
+        {/* ── BREADCRUMB ── */}
+        <nav
+          className="bg-white border-b border-slate-100 py-3 px-4 sm:px-6 lg:px-8"
+          aria-label="Breadcrumb"
+        >
+          <ol
+            className="max-w-7xl mx-auto flex items-center gap-2 text-sm"
+            itemScope
+            itemType="https://schema.org/BreadcrumbList"
+          >
+            <li
+              itemScope
+              itemType="https://schema.org/ListItem"
+              itemProp="itemListElement"
+            >
               <a
                 href="/"
-                className="text-gray-500 hover:text-blue-600 transition-colors"
+                itemProp="item"
+                className="text-slate-400 hover:text-blue-600 transition-colors font-medium"
               >
-                Home
+                <span itemProp="name">Home</span>
               </a>
+              <meta itemProp="position" content="1" />
             </li>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
-            <li>
-              <span className="text-gray-900 font-medium">Projects</span>
+            <svg
+              className="w-4 h-4 text-slate-300 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+            <li
+              itemScope
+              itemType="https://schema.org/ListItem"
+              itemProp="itemListElement"
+            >
+              <span itemProp="name" className="text-slate-800 font-semibold">
+                Projects
+              </span>
+              <meta itemProp="position" content="2" />
             </li>
           </ol>
-        </div>
-      </nav>
+        </nav>
 
-      {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="relative h-96 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-800 flex items-center justify-center overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-white bg-opacity-10 rounded-full animate-pulse hidden lg:block"></div>
-          <div className="absolute bottom-20 right-20 w-16 h-16 bg-white bg-opacity-10 rounded-full animate-bounce hidden lg:block"></div>
-          <div className="absolute top-40 right-40 w-12 h-12 bg-white bg-opacity-5 rounded-full animate-ping hidden lg:block"></div>
-        </div>
-
-        <div
-          className={`relative z-10 text-center text-white px-4 transition-all duration-1000 ${
-            heroInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Our Projects & Portfolio
-          </h1>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-            Showcasing Innovation, Design, and Technology at Work.
-          </p>
-          <div className="mt-8 flex justify-center space-x-8 text-sm">
-            <div className="text-center">
-              <div className="text-2xl font-bold">50+</div>
-              <div className="opacity-80">Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold">98%</div>
-              <div className="opacity-80">Client Satisfaction</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold">25+</div>
-              <div className="opacity-80">Happy Clients</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Filter Section */}
-        <section className="py-12">
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilterCategory(category)}
-                className={`px-6 py-3 rounded-full font-medium transition-all ${
-                  filterCategory === category
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* Projects Grid */}
-        <section ref={projectsRef} className="pb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Recent Projects
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our latest work across web development, mobile
-              applications, branding, and digital marketing campaigns.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-                inView={projectsInView}
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* Featured Projects Section */}
+        {/* ── HERO ── */}
         <section
-          ref={featuredRef}
-          className={`py-20 bg-gray-50 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
-            featuredInView
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
-          }`}
+          ref={heroRef}
+          aria-labelledby="portfolio-heading"
+          className="relative bg-slate-900 overflow-hidden py-20 sm:py-28"
         >
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Featured Case Studies
-              </h2>
-              <p className="text-xl text-gray-600">
-                Deep dives into our most successful projects and the results we
-                achieved.
-              </p>
-            </div>
-
-            <div className="space-y-20">
-              {featuredProjects.map((project, index) => (
-                <FeaturedProject
-                  key={project.id}
-                  project={project}
-                  reverse={index % 2 === 1}
-                />
-              ))}
-            </div>
-
-            {/* Callout Box */}
-            <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white">
-              <h3 className="text-2xl font-bold mb-4">
-                Want to Start Your Own Project?
-              </h3>
-              <p className="text-lg opacity-90 mb-6">
-                Let's discuss how we can bring your vision to life with our
-                expert team and proven process.
-              </p>
-              <a
-                href="/contact"
-                className="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Contact Us Today
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Client Logos Section */}
-        <section
-          ref={clientsRef}
-          className={`py-20 transition-all duration-1000 ${
-            clientsInView
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Trusted by Leading Brands
-            </h2>
-            <p className="text-xl text-gray-600">
-              We're proud to work with innovative companies across Nigeria and
-              beyond.
-            </p>
-          </div>
-
-          <div className="relative overflow-hidden">
+          {/* bg decoration */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 pointer-events-none"
+          >
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-[100px]" />
+            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/15 rounded-full blur-[100px]" />
             <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
+                backgroundSize: "40px 40px",
+              }}
+            />
+          </div>
+
+          <div
+            className={`relative max-w-5xl mx-auto px-6 sm:px-10 text-center`}
+          >
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-slate-300 text-xs font-medium px-4 py-2 rounded-full mb-6 animate-fadeup">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              50+ Projects Delivered Across Nigeria & Beyond
+            </div>
+
+            <h1
+              id="portfolio-heading"
+              className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05] tracking-tight mb-5 animate-fadeup delay-100"
+              itemProp="headline"
             >
-              {clients.map((client, index) => (
-                <div key={index} className="flex-shrink-0 w-1/3 px-4">
-                  <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center h-20">
-                    <img
-                      src={client.logo}
-                      alt={`${client.name} - Joetech client logo`}
-                      className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity"
-                    />
-                  </div>
+              Our Projects &
+              <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
+                Portfolio
+              </span>
+            </h1>
+
+            <p
+              className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10 animate-fadeup delay-200"
+              itemProp="description"
+            >
+              Real work. Measurable results. Explore how we've helped businesses
+              grow through web development, mobile apps, brand design, and
+              digital marketing.
+            </p>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto animate-fadeup delay-300">
+              {STATS.map((s) => (
+                <div
+                  key={s.label}
+                  className="bg-white/5 border border-white/10 rounded-2xl py-4 px-3"
+                >
+                  <p className="font-display font-extrabold text-2xl text-white leading-none mb-1">
+                    {s.value}
+                  </p>
+                  <p className="text-slate-400 text-xs">{s.label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section
-          ref={ctaRef}
-          className={`py-20 transition-all duration-1000 ${
-            ctaInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-700 rounded-3xl p-12 lg:p-16 text-center text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-black opacity-10"></div>
-
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-40 h-40 bg-white rounded-full -translate-x-20 -translate-y-20"></div>
-              <div className="absolute bottom-0 right-0 w-60 h-60 bg-white rounded-full translate-x-30 translate-y-30"></div>
-            </div>
-
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Let's Build Something Amazing Together
+        <main id="main-content">
+          {/* ── FILTER + PROJECTS GRID ── */}
+          <section
+            aria-labelledby="recent-projects-heading"
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20"
+          >
+            {/* Section header */}
+            <div className="text-center mb-10">
+              <h2
+                id="recent-projects-heading"
+                className="font-display font-bold text-3xl sm:text-4xl text-slate-900 mb-3"
+              >
+                Recent Projects
               </h2>
-              <p className="text-xl lg:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
-                Ready to start your next project? Our team in Lekki, Nigeria is
-                excited to bring your vision to life with cutting-edge
-                technology and creative solutions.
+              <p className="text-slate-500 text-lg max-w-xl mx-auto">
+                Browse our latest work across every service area.
               </p>
+            </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a
-                  href="/contact"
-                  className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
+            {/* Filter pills */}
+            <div
+              role="group"
+              aria-label="Filter projects by category"
+              className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10"
+            >
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setFilterCategory(cat)}
+                  aria-pressed={filterCategory === cat}
+                  className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+                    filterCategory === cat ?
+                      "bg-blue-600 text-white shadow-md filter-btn-active"
+                    : "bg-white text-slate-600 border border-slate-200 hover:border-blue-300 hover:text-blue-600"
+                  }`}
                 >
-                  Get Started with Joetech
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
+                  {cat}
+                  <span className="ml-1.5 text-xs opacity-70">
+                    (
+                    {cat === "All" ?
+                      PROJECTS.length
+                    : PROJECTS.filter((p) => p.category === cat).length}
+                    )
+                  </span>
+                </button>
+              ))}
+            </div>
 
-                <a
-                  href="/services"
-                  className="inline-flex items-center border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
+            {/* Grid */}
+            <div
+              ref={projectsRef}
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {filteredProjects.map((project, i) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={i}
+                  inView={projectsInView}
+                />
+              ))}
+            </div>
+          </section>
+
+          {/* ── FEATURED CASE STUDIES ── */}
+          <section
+            aria-labelledby="case-studies-heading"
+            className="bg-white border-y border-slate-100 py-16 sm:py-24"
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-14">
+                <span className="inline-block bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+                  Deep Dives
+                </span>
+                <h2
+                  id="case-studies-heading"
+                  className="font-display font-bold text-3xl sm:text-4xl text-slate-900 mb-3"
                 >
-                  View Our Services
-                </a>
+                  Featured Case Studies
+                </h2>
+                <p className="text-slate-500 text-lg max-w-xl mx-auto">
+                  A closer look at the challenge, solution, and results behind
+                  our best work.
+                </p>
+              </div>
+
+              <div className="space-y-24 sm:space-y-32">
+                {featuredProjects.map((project, i) => (
+                  <FeaturedCaseStudy
+                    key={project.id}
+                    project={project}
+                    reverse={i % 2 === 1}
+                  />
+                ))}
+              </div>
+
+              {/* Start a project callout */}
+              <div className="mt-20 bg-gradient-to-br from-blue-600 to-violet-700 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)",
+                    backgroundSize: "32px 32px",
+                  }}
+                />
+                <div className="relative">
+                  <h3 className="font-display font-extrabold text-2xl sm:text-3xl mb-3">
+                    Ready to Start Your Own Project?
+                  </h3>
+                  <p className="text-blue-100 text-base sm:text-lg mb-7 max-w-xl mx-auto">
+                    Let's discuss how we can bring your vision to life with our
+                    expert team and proven process.
+                  </p>
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold px-7 py-3.5 rounded-xl hover:bg-blue-50 transition-all hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    Get in Touch
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 -mx-4 sm:-mx-6 lg:-mx-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Joetech</h3>
-              <p className="text-gray-400 mb-4">
-                Creating innovative digital solutions from our office in Lekki,
-                Nigeria.
+          {/* ── CLIENTS TICKER ── */}
+          <section
+            ref={clientsRef}
+            aria-labelledby="clients-heading"
+            className="py-16 sm:py-20 bg-slate-50 overflow-hidden"
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+              <h2
+                id="clients-heading"
+                className="font-display font-bold text-2xl sm:text-3xl text-slate-900 mb-2"
+              >
+                Trusted by Leading Brands
+              </h2>
+              <p className="text-slate-500">
+                Innovative companies across Nigeria and beyond.
               </p>
-              <div className="flex items-center text-sm text-gray-400">
-                <Building className="w-4 h-4 mr-2" />
-                Lekki, Lagos, Nigeria
+            </div>
+
+            <div className="relative" aria-hidden="true">
+              {/* fade masks */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+
+              <div className="overflow-hidden">
+                <div ref={tickerRef} className="flex will-change-transform">
+                  {[...CLIENTS, ...CLIENTS].map((client, i) => (
+                    <div key={i} className="flex-shrink-0 mx-4">
+                      <div className="bg-white border border-slate-200 rounded-2xl px-6 py-4 flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow w-44 sm:w-52">
+                        <div
+                          className="w-9 h-9 rounded-lg flex items-center justify-center text-white text-xs font-extrabold flex-shrink-0"
+                          style={{ backgroundColor: client.color }}
+                        >
+                          {client.abbr}
+                        </div>
+                        <span className="text-sm font-semibold text-slate-700 truncate">
+                          {client.name}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ── FINAL CTA ── */}
+          <section
+            ref={ctaRef}
+            aria-labelledby="cta-heading"
+            className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
+          >
+            <div
+              className={`max-w-5xl mx-auto bg-slate-900 rounded-3xl p-8 sm:p-14 text-center text-white overflow-hidden relative transition-all duration-700 ${
+                ctaInView ?
+                  "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+              }`}
+            >
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 pointer-events-none"
+              >
+                <div className="absolute -top-20 -left-20 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl" />
+                <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-violet-600/20 rounded-full blur-3xl" />
+              </div>
+              <div className="relative">
+                <h2
+                  id="cta-heading"
+                  className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl mb-5 leading-tight"
+                >
+                  Let's Build Something
+                  <br />
+                  <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+                    Amazing Together
+                  </span>
+                </h2>
+                <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                  Our team in Lekki, Lagos is ready to bring your vision to life
+                  with cutting-edge technology and creative solutions that drive
+                  real results.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-xl hover:shadow-blue-900/40 hover:-translate-y-0.5"
+                  >
+                    Get Started Today
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="/services"
+                    className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 hover:bg-white/15 text-white font-semibold px-8 py-4 rounded-xl transition-all"
+                  >
+                    See Our Services
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        {/* ── FOOTER ── */}
+        <footer className="bg-slate-900 text-white" role="contentinfo">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+              <div className="sm:col-span-2 lg:col-span-1">
+                <p className="font-display font-extrabold text-2xl mb-3">
+                  Joe<span className="text-blue-400">tech</span>
+                </p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                  Creating innovative digital solutions from our office in
+                  Lekki, Lagos, Nigeria.
+                </p>
+                <address className="not-italic text-slate-400 text-sm space-y-1">
+                  <p>📍 Lekki Phase 1, Lagos, Nigeria</p>
+                  <p>
+                    📧{" "}
+                    <a
+                      href="mailto:projects@joetech.com"
+                      className="hover:text-white transition-colors"
+                    >
+                      projects@joetech.com
+                    </a>
+                  </p>
+                  <p>
+                    📞{" "}
+                    <a
+                      href="tel:+2349012345678"
+                      className="hover:text-white transition-colors"
+                    >
+                      +234 901 234 5678
+                    </a>
+                  </p>
+                </address>
+              </div>
+              <nav aria-label="Portfolio links">
+                <p className="font-display font-semibold text-sm uppercase tracking-widest text-slate-400 mb-4">
+                  Portfolio
+                </p>
+                <ul className="space-y-2 text-sm">
+                  {[
+                    ["Web Development", "/projects/web"],
+                    ["Mobile Apps", "/projects/mobile"],
+                    ["Branding", "/projects/branding"],
+                    ["Digital Marketing", "/projects/marketing"],
+                  ].map(([label, href]) => (
+                    <li key={label}>
+                      <a
+                        href={href}
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <nav aria-label="Company links">
+                <p className="font-display font-semibold text-sm uppercase tracking-widest text-slate-400 mb-4">
+                  Company
+                </p>
+                <ul className="space-y-2 text-sm">
+                  {[
+                    ["Home", "/"],
+                    ["About", "/about"],
+                    ["Services", "/services"],
+                    ["Blog", "/blog"],
+                    ["Contact", "/contact"],
+                  ].map(([label, href]) => (
+                    <li key={label}>
+                      <a
+                        href={href}
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <div>
+                <p className="font-display font-semibold text-sm uppercase tracking-widest text-slate-400 mb-4">
+                  Follow Us
+                </p>
+                <div className="flex gap-3">
+                  {[
+                    { label: "Twitter/X", path: "M18 6 6 18M6 6l12 12" },
+                    {
+                      label: "LinkedIn",
+                      path: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z",
+                    },
+                    {
+                      label: "Instagram",
+                      path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z",
+                    },
+                  ].map(({ label, path }) => (
+                    <a
+                      key={label}
+                      href="#"
+                      aria-label={`Follow Joetech on ${label}`}
+                      className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-colors"
+                    >
+                      <svg
+                        className="w-4 h-4 text-slate-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d={path}
+                        />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div>
-              <h4 className="font-semibold mb-4">Portfolio</h4>
-              <nav className="space-y-2">
-                <a
-                  href="/projects/web"
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  Web Development
-                </a>
-                <a
-                  href="/projects/mobile"
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  Mobile Apps
-                </a>
-                <a
-                  href="/projects/branding"
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  Branding
-                </a>
-                <a
-                  href="/projects/marketing"
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  Digital Marketing
-                </a>
-              </nav>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <nav className="space-y-2">
-                <a
-                  href="/"
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  Home
-                </a>
-                <a
-                  href="/about"
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  About
-                </a>
-                <a
-                  href="/services"
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  Services
-                </a>
-                <a
-                  href="/contact"
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  Contact
-                </a>
-              </nav>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Get in Touch</h4>
-              <div className="space-y-2 text-gray-400">
-                <p>📧 projects@joetech.com</p>
-                <p>📞 +234 (0) 901 234 5678</p>
-                <p>📍 Lekki Phase 1, Lagos, Nigeria</p>
-              </div>
+            <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-sm">
+              <p>© {new Date().getFullYear()} Joetech. All rights reserved.</p>
+              <p>Proudly serving clients from Lagos, Nigeria 🇳🇬</p>
             </div>
           </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>
-              &copy; 2025 Joetech. All rights reserved. | Proudly serving
-              clients from Lagos, Nigeria
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </>
   );
-};
-
-export default JoetechProjectsPage;
+}
