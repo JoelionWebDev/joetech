@@ -103,7 +103,7 @@ export default function Navbar() {
               className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md px-2 py-1"
               aria-label="Joetech homepage"
             >
-              <img src="/logo.jpeg" alt="missing logo" width="46px" />
+              <img src="/logo.png" alt="missing logo" width="46px" />
             </a>
           </div>
 

@@ -23,7 +23,7 @@ const AboutSection = () => {
       {
         threshold: 0.1,
         rootMargin: "50px 0px -50px 0px",
-      }
+      },
     );
 
     if (sectionRef.current) {
@@ -85,14 +85,14 @@ const AboutSection = () => {
           {/* Image Section */}
           <div
             className={`relative transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-8"
+              isVisible ?
+                "opacity-100 translate-x-0"
+              : "opacity-0 -translate-x-8"
             }`}
           >
             <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-blue-100 to-indigo-100">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="joelion2.jpg"
                 alt="Diverse team of professionals collaborating on digital solutions at Joetech, representing teamwork, creativity, and modern technology expertise"
                 className="w-full h-80 md:h-96 object-cover"
                 loading="lazy"
@@ -115,9 +115,9 @@ const AboutSection = () => {
           {/* Content Section */}
           <div
             className={`space-y-8 transition-all duration-700 delay-300 ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 translate-x-8"
+              isVisible ?
+                "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-8"
             }`}
           >
             {/* Introduction Paragraph */}
@@ -152,9 +152,9 @@ const AboutSection = () => {
                   <li
                     key={index}
                     className={`flex items-start space-x-4 transition-all duration-500 ${
-                      isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-4"
+                      isVisible ?
+                        "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
                     }`}
                     style={{ transitionDelay: `${400 + index * 100}ms` }}
                   >
@@ -172,9 +172,9 @@ const AboutSection = () => {
             {/* CTA Button */}
             <div
               className={`pt-6 transition-all duration-700 delay-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
+                isVisible ?
+                  "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
               }`}
             >
               <a

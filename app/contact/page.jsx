@@ -283,9 +283,9 @@ function ContactForm() {
     try {
       // Option 1: Using mailto (simple, no backend needed)
       const mailtoLink = `mailto:info@joetech.org.ng?subject=Contact from ${encodeURIComponent(
-        formData.fullName
+        formData.fullName,
       )}&body=${encodeURIComponent(
-        `Name: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nMessage:\n${formData.message}`
+        `Name: ${formData.fullName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nMessage:\n${formData.message}`,
       )}`;
 
       window.location.href = mailtoLink;
@@ -333,7 +333,7 @@ function ContactForm() {
           onChange={handleChange}
           required
           className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-          placeholder="John Doe"
+          placeholder="Joelion"
         />
       </div>
 
@@ -426,7 +426,7 @@ function ContactForm() {
         disabled={status === "loading"}
         className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center space-x-2"
       >
-        {status === "loading" ? (
+        {status === "loading" ?
           <>
             <svg
               className="animate-spin h-5 w-5"
@@ -449,9 +449,7 @@ function ContactForm() {
             </svg>
             <span>Sending...</span>
           </>
-        ) : (
-          <span>Send Message</span>
-        )}
+        : <span>Send Message</span>}
       </button>
 
       {/* Status Messages */}

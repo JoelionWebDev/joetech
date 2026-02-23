@@ -55,7 +55,7 @@ const useInView = (threshold = 0.1) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => setInView(entry.isIntersecting),
-      { threshold }
+      { threshold },
     );
 
     observer.observe(ref);
@@ -112,21 +112,21 @@ const JoetechAboutPage = () => {
       role: "CEO & Founder",
       description:
         "Visionary leader with 6+ years in digital transformation and web development.",
-      image: "/site.jpg",
+      image: "/ceo.jpg",
     },
     {
-      name: "Grace OJ",
+      name: "Simeon Peter",
       role: "Creative Director",
       description:
         "Award-winning designer specializing in user experience and brand innovation.",
-      image: "/designer.jpeg",
+      image: "/designer.png",
     },
     {
-      name: "Joelion",
+      name: "Joe Dev",
       role: "Lead Developer",
       description:
         "Full-stack expert in modern web technologies and scalable digital solutions.",
-      image: "joelion2.png",
+      image: "dev.jpg",
     },
     {
       name: "Blessing Eze",
@@ -201,23 +201,167 @@ const JoetechAboutPage = () => {
       {/* Hero Banner */}
       <section
         ref={heroRef}
-        className="relative h-96 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 flex items-center justify-center overflow-hidden"
+        className="relative h-96 flex items-center justify-center overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)",
+        }}
       >
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+        {/* Aurora blobs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            style={{
+              position: "absolute",
+              top: "-20%",
+              left: "-10%",
+              width: "60%",
+              height: "160%",
+              background:
+                "radial-gradient(ellipse, rgba(120,80,255,0.45) 0%, transparent 70%)",
+              animation: "drift1 8s ease-in-out infinite alternate",
+              filter: "blur(40px)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: "-30%",
+              right: "-15%",
+              width: "55%",
+              height: "160%",
+              background:
+                "radial-gradient(ellipse, rgba(0,200,255,0.35) 0%, transparent 70%)",
+              animation: "drift2 10s ease-in-out infinite alternate",
+              filter: "blur(50px)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: "-20%",
+              left: "30%",
+              width: "50%",
+              height: "120%",
+              background:
+                "radial-gradient(ellipse, rgba(255,60,180,0.3) 0%, transparent 70%)",
+              animation: "drift3 12s ease-in-out infinite alternate",
+              filter: "blur(45px)",
+            }}
+          />
+        </div>
+
+        {/* Floating particles */}
+        {[...Array(18)].map((_, i) => (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              width: i % 3 === 0 ? "6px" : "3px",
+              height: i % 3 === 0 ? "6px" : "3px",
+              borderRadius: "50%",
+              background:
+                i % 3 === 0 ? "rgba(255,255,255,0.8)"
+                : i % 3 === 1 ? "rgba(120,200,255,0.7)"
+                : "rgba(200,100,255,0.7)",
+              left: `${(i * 5.8 + 3) % 100}%`,
+              top: `${(i * 7.3 + 10) % 100}%`,
+              animation: `float ${4 + (i % 5)}s ease-in-out infinite`,
+              animationDelay: `${(i * 0.4) % 3}s`,
+              boxShadow:
+                i % 3 === 0 ?
+                  "0 0 8px rgba(255,255,255,0.9)"
+                : "0 0 6px rgba(120,200,255,0.8)",
+            }}
+          />
+        ))}
+
+        {/* Grid overlay */}
         <div
-          className={`relative z-10 text-center text-white px-4 transition-all duration-1000 ${
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+
+        {/* Content */}
+        <div
+          className={`relative z-10 text-center px-4 transition-all duration-1000 ${
             heroInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          {/* Glowing badge */}
+          <div
+            style={{
+              display: "inline-block",
+              marginBottom: "1rem",
+              padding: "4px 18px",
+              borderRadius: "999px",
+              border: "1px solid rgba(120,200,255,0.4)",
+              background: "rgba(120,200,255,0.1)",
+              color: "rgba(180,230,255,0.9)",
+              fontSize: "0.75rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            ✦ Digital Transformation
+          </div>
+
+          <h1
+            className="text-4xl md:text-6xl font-bold mb-6"
+            style={{
+              background:
+                "linear-gradient(135deg, #ffffff 0%, #a78bfa 40%, #38bdf8 70%, #f472b6 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textShadow: "none",
+              filter: "drop-shadow(0 0 30px rgba(167,139,250,0.5))",
+              lineHeight: 1.1,
+            }}
+          >
             About Joetech – Driving Digital Transformation
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+
+          <p
+            className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
+            style={{ color: "rgba(200,220,255,0.85)" }}
+          >
             We combine innovation, creativity, and technology to help businesses
             succeed online.
           </p>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white opacity-10"></div>
+
+        {/* Bottom fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0"
+          style={{
+            height: "80px",
+            background:
+              "linear-gradient(to top, rgba(15,12,41,0.6), transparent)",
+          }}
+        />
+
+        <style>{`
+    @keyframes drift1 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(40px, 20px) scale(1.1); }
+    }
+    @keyframes drift2 {
+      from { transform: translate(0, 0) scale(1.05); }
+      to   { transform: translate(-30px, 30px) scale(0.95); }
+    }
+    @keyframes drift3 {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(20px, -25px) scale(1.08); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+      50%       { transform: translateY(-14px) scale(1.2); opacity: 1; }
+    }
+  `}</style>
       </section>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -225,9 +369,9 @@ const JoetechAboutPage = () => {
         <section
           ref={storyRef}
           className={`py-16 transition-all duration-1000 ${
-            storyInView
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
+            storyInView ?
+              "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8"
           }`}
         >
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -261,7 +405,7 @@ const JoetechAboutPage = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                src="team.png"
                 alt="Joetech team collaborating on digital solutions and web development projects"
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
@@ -322,9 +466,9 @@ const JoetechAboutPage = () => {
         <section
           ref={statsRef}
           className={`py-16 transition-all duration-1000 ${
-            statsInView
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
+            statsInView ?
+              "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8"
           }`}
         >
           <div className="text-center mb-12">
@@ -343,11 +487,9 @@ const JoetechAboutPage = () => {
                 className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                  {statsInView ? (
+                  {statsInView ?
                     <AnimatedCounter end={stat.number} suffix={stat.suffix} />
-                  ) : (
-                    "0"
-                  )}
+                  : "0"}
                 </div>
                 <p className="text-gray-700 font-medium">{stat.label}</p>
               </div>
@@ -359,9 +501,9 @@ const JoetechAboutPage = () => {
         <section
           ref={valuesRef}
           className={`py-16 bg-gray-50 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
-            valuesInView
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
+            valuesInView ?
+              "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8"
           }`}
         >
           <div className="max-w-7xl mx-auto">
