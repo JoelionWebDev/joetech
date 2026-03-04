@@ -495,44 +495,60 @@
 
 /* ── Mobile ──────────────────────────────────────────────────── */
 @media (max-width: 480px) {
+  /* Full screen chat window */
   .chatWindow {
     right: 0;
     bottom: 0;
-    width: 100vw;
-    max-width: 100vw;
-    height: 100dvh;
-    max-height: 100dvh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    /* Use small viewport height so window shrinks when keyboard opens */
+    height: 100svh;
+    max-height: 100svh;
     border-radius: 0;
     border: none;
   }
+
   .chatButton {
     bottom: 20px;
     right: 16px;
   }
-}
 
-/* ── Mobile input bar fix — send button always visible ───────── */
-@media (max-width: 480px) {
+  /* Input bar — always stuck to bottom, above keyboard */
   .inputBar {
-    padding: 10px;
-    padding-bottom: env(safe-area-inset-bottom, 10px);
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    flex-wrap: nowrap;
     gap: 8px;
+    padding: 8px 10px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    background: #05091a;
+    border-top: 1px solid #1e2d50;
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 
+  /* Textarea grows but never pushes button away */
   .textarea {
-    font-size: 16px; /* prevents iOS auto-zoom on focus */
+    flex: 1 1 0%;
+    min-width: 0; /* critical — prevents overflow */
+    width: 0; /* lets flex do the sizing */
+    font-size: 16px; /* stops iOS Safari auto-zoom */
     min-height: 42px;
-    max-height: 100px;
+    max-height: 90px;
     padding: 10px 12px;
-    flex: 1;
-    min-width: 0; /* stops textarea pushing button off screen */
+    box-sizing: border-box;
   }
 
+  /* Send button — never shrinks, never hides */
   .sendButton {
+    flex: 0 0 42px; /* fixed 42px, no grow, no shrink */
     width: 42px;
     height: 42px;
-    min-width: 42px; /* never shrink */
-    flex-shrink: 0; /* never let flexbox squash the button */
+    min-width: 42px;
+    min-height: 42px;
   }
 }
