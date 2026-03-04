@@ -510,3 +510,29 @@
     right: 16px;
   }
 }
+
+/* ── Mobile input bar fix — send button always visible ───────── */
+@media (max-width: 480px) {
+  .inputBar {
+    padding: 10px;
+    padding-bottom: env(safe-area-inset-bottom, 10px);
+    align-items: center;
+    gap: 8px;
+  }
+
+  .textarea {
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+    min-height: 42px;
+    max-height: 100px;
+    padding: 10px 12px;
+    flex: 1;
+    min-width: 0; /* stops textarea pushing button off screen */
+  }
+
+  .sendButton {
+    width: 42px;
+    height: 42px;
+    min-width: 42px; /* never shrink */
+    flex-shrink: 0; /* never let flexbox squash the button */
+  }
+}
