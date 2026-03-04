@@ -1,3 +1,24 @@
+/* ─────────────────────────────────────────────────────────────
+   Joetech Chat Widget — CSS Variables
+   Paste this block into your existing app/globals.css file.
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  --jt-navy: #05091a;
+  --jt-navy-mid: #0b1229;
+  --jt-navy-light: #111c3a;
+  --jt-blue: #1d6ef5;
+  --jt-blue-bright: #3b82f6;
+  --jt-blue-glow: #1d6ef533;
+  --jt-cyan: #06b6d4;
+  --jt-text: #e2e8f0;
+  --jt-muted: #64748b;
+  --jt-border: #1e2d50;
+  --jt-radius: 16px;
+  --jt-shadow: 0 24px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--jt-border);
+  --jt-transition: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
 @import "tailwindcss";
 
 :root {
