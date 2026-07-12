@@ -4,9 +4,9 @@ import styles from "./chat.module.css";
 
 /**
  * ChatButton — Floating action button that opens/closes the chat window.
- * Shows a pulse-ring animation to draw attention when chat is closed.
+ * Shows a pulse-ring animation and a notification dot on first load.
  */
-export default function ChatButton({ isOpen, onClick }) {
+export default function ChatButton({ isOpen, onClick, showNotification }) {
   return (
     <button
       onClick={onClick}
@@ -16,6 +16,11 @@ export default function ChatButton({ isOpen, onClick }) {
     >
       {/* Pulse ring — visible only when closed */}
       {!isOpen && <span className={styles.pulseRing} aria-hidden="true" />}
+
+      {/* Notification dot — visible only when closed and on first visit */}
+      {!isOpen && showNotification && (
+        <span className={styles.notificationDot} aria-label="Chat with us" />
+      )}
 
       {/* Icon toggles between chat bubble and X */}
       <span className={styles.chatButtonIcon} aria-hidden="true">

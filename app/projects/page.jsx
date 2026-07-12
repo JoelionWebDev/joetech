@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Head from "next/head";
+import Image from "next/image";
 
 // ─── Intersection Observer Hook ───────────────────────────────────────────────
 const useInView = (threshold = 0.1) => {
@@ -174,12 +175,12 @@ const ProjectCard = ({ project, index, inView }) => (
   >
     {/* Image */}
     <div className="relative overflow-hidden aspect-[16/10]">
-      <img
+      <Image
         src={project.image}
         alt={`${project.title} — ${project.service} portfolio example by Joetech, Lagos`}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-        loading="lazy"
-        decoding="async"
+        fill
+        className="object-cover group-hover:scale-105 transition-transform duration-700"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -257,11 +258,12 @@ const FeaturedCaseStudy = ({ project, reverse }) => {
       {/* Image side */}
       <div className={`relative ${reverse ? "lg:order-2" : ""}`}>
         <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
-          <img
+          <Image
             src={project.image}
             alt={`${project.title} case study preview — ${project.service} by Joetech`}
-            className="w-full h-full object-cover"
-            loading="lazy"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
@@ -396,7 +398,7 @@ export default function JoetechProjectsPage() {
     name: "Joetech Portfolio — Projects & Case Studies",
     description:
       "Portfolio of web development, mobile app, branding, and digital marketing projects delivered by Joetech, Lagos, Nigeria.",
-    url: "https://joetech.com/projects",
+    url: "https://joetech.name.ng/projects",
     creator: {
       "@type": "Organization",
       name: "Joetech",
@@ -441,23 +443,14 @@ export default function JoetechProjectsPage() {
           property="og:description"
           content="Award-worthy web development, mobile apps, branding and marketing projects. Real results for real businesses."
         />
-        <meta property="og:url" content="https://joetech.com/projects" />
+        <meta property="og:url" content="https://joetech.name.ng/projects" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
           content="Joetech Portfolio — Digital Projects & Case Studies"
         />
-        <link rel="canonical" href="https://joetech.com/projects" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="canonical" href="https://joetech.name.ng/projects" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: schemaOrg }}

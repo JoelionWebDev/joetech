@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import {
   ChevronRight,
   Users,
@@ -126,7 +125,7 @@ const JoetechAboutPage = () => {
       role: "Lead Developer",
       description:
         "Full-stack expert in modern web technologies and scalable digital solutions.",
-      image: "dev.jpg",
+      image: "/dev.jpg",
     },
     {
       name: "Blessing Eze",
@@ -141,36 +140,21 @@ const JoetechAboutPage = () => {
     <div className="min-h-screen bg-white">
       {/* SEO Head Section */}
       <head>
-        <title>
-          About Joetech - Digital Solutions & Web Development Company
-        </title>
+        <title>About Joetech — Web Dev, Design & Digital Marketing Agency in Lagos</title>
         <meta
           name="description"
-          content="Learn about Joetech's mission to drive digital transformation through innovative web development, design, and marketing solutions. Meet our expert team and discover our values."
+          content="Learn about Joetech's story, values, and expert team. We are a Lagos-based web development, branding, and digital marketing agency driving digital transformation."
         />
-        <meta
-          name="keywords"
-          content="digital solutions, web development, design, innovation, marketing, tech company, digital transformation"
-        />
-        <meta
-          property="og:title"
-          content="About Joetech - Digital Solutions & Web Development"
-        />
-        <meta
-          property="og:description"
-          content="Discover how Joetech combines innovation, creativity, and technology to help businesses succeed online."
-        />
-        <link rel="canonical" href="https://joetech.com/about" />
+        <link rel="canonical" href="https://joetech.name.ng/about" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Joetech",
             description:
-              "Digital solutions company specializing in web development, design, and marketing",
-            url: "https://joetech.com",
+              "Web development, design, and digital marketing agency in Lagos, Nigeria",
+            url: "https://joetech.name.ng",
             foundingDate: "2019",
-            numberOfEmployees: "10-50",
           })}
         </script>
       </head>
@@ -632,8 +616,8 @@ const JoetechAboutPage = () => {
             <div>
               <h4 className="font-semibold mb-4">Contact Info</h4>
               <div className="space-y-2 text-gray-400">
-                <p>hello@joetech.com</p>
-                <p>+1 (555) 123-4567</p>
+                <p>joetechorg@gmail.com</p>
+                <p>+234 816 709 9131</p>
                 <p>Lagos, Nigeria</p>
               </div>
             </div>

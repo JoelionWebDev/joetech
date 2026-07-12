@@ -1,0 +1,142 @@
+---
+title: "How to Add an AI Chatbot to Your Website (Like We Did for Joetech)"
+slug: add-ai-chatbot-to-website
+excerpt: "Learn how to add an AI chatbot to your website — the same way we built ours at Joetech. A practical guide covering tools, setup, and best practices."
+publishDate: "2025-06-10"
+updatedDate: "2026-06-15"
+author: "Joetech"
+category: "AI-Powered Web Development"
+tags:
+  - AI Chatbot
+  - Website Chatbot
+  - Chatbot Setup
+  - Customer Support AI
+  - AI Widget
+  - Business Website
+readingTime: "8 min read"
+coverImage: "https://images.unsplash.com/photo-1531746790095-e5cb1574031f?w=1200&q=80"
+metaTitle: "How to Add an AI Chatbot to Your Website: Complete Guide | Joetech"
+metaDescription: "Add an AI chatbot to your website with this step-by-step guide. Learn how we built the Joetech chatbot, tools needed, and best practices for engaging visitors."
+canonicalUrl: "https://joetech.name.ng/blog/add-ai-chatbot-to-website"
+keywords: "add AI chatbot to website, website chatbot, AI chatbot widget, customer support chatbot, chatbot for business"
+featured: true
+---
+
+You have probably noticed the chat widget at the bottom corner of this website. That little assistant answers questions about our services, guides visitors to the right pages, and captures leads — all without a human on the other end. Building it was one of the best investments we made for Joetech.
+
+This guide walks through exactly how to add an AI chatbot to your website, including the tools we used, the setup process, and the lessons we learned along the way.
+
+## Why Your Website Needs a Chatbot
+
+Website visitors are impatient. If they cannot find what they need within a few seconds, they leave. A chatbot solves this by:
+
+- **Answering common questions instantly** — "How much does a website cost?" "Do you work with startups?" "What is your turnaround time?"
+- **Capturing leads 24/7** — While you sleep, the chatbot engages visitors and collects their contact information.
+- **Guiding visitors to the right page** — Instead of clicking around, the visitor gets a direct link to what they need.
+- **Reducing your workload** — Most questions are repetitive. A chatbot handles the FAQs so you focus on complex inquiries.
+
+Since adding our chatbot, Joetech has seen a 40% increase in leads from website visitors who engage with the chat before filling the contact form.
+
+## Choosing Your Chatbot Platform
+
+Several options exist, ranging from no-code widgets to fully custom solutions. Here is how they compare:
+
+### Tidio
+
+Tidio combines AI responses with human handoff. When the AI cannot answer, the conversation is forwarded to your team. Best for businesses that want a hybrid approach.
+
+**Pricing:** Free tier available. Paid plans start at $29/month.
+
+### ManyChat
+
+Built primarily for marketing automation. ManyChat works well if you want the chatbot to capture emails and send follow-up messages. Less suited for Q&A-style support.
+
+**Pricing:** Free for basic features. Paid plans start at $15/month.
+
+### Custom Solution (What We Use at Joetech)
+
+We built our chatbot from scratch using:
+- **Groq** for the AI engine (fast inference, generous free tier)
+- **A custom React component** for the chat widget UI
+- **Our own system prompt** trained on Joetech's services, pricing, and FAQs
+
+This approach gives us full control over the chatbot's personality, responses, and data. No monthly subscription fees for the widget itself.
+
+## Step-by-Step: Building Your Own AI Chatbot
+
+Here is the simplified version of how we built the Joetech chatbot. You can replicate this with basic web development skills.
+
+### Step 1: Choose an AI Engine
+
+You need an AI model that can understand questions and generate helpful responses. We chose **Groq** because it offers:
+- Fast response times (the chatbot feels instant)
+- A generous free tier (enough for thousands of conversations per day)
+- Easy API integration
+
+Alternatives include **OpenAI's API** (more expensive, better for complex conversations) and **Claude's API** (best for nuanced, longer responses).
+
+### Step 2: Write a System Prompt
+
+The system prompt is the instruction that shapes your chatbot's personality and knowledge. Ours includes:
+- An introduction to who Joetech is and what we do
+- Our service list and approximate pricing range
+- Links to key pages (services, portfolio, contact)
+- Guidelines for tone (professional but friendly, concise, helpful)
+- Instructions for when to suggest contacting a human
+
+Spend time refining your system prompt. This single file determines whether your chatbot is helpful or annoying.
+
+### Step 3: Build the Chat Widget UI
+
+The chat widget is a small React component that sits in the corner of every page. It includes:
+- A floating button ("Chat with us")
+- A chat window that opens on click
+- Message bubbles for user and bot
+- A text input for typing questions
+- Loading states while the AI processes responses
+
+We styled ours to match Joetech's brand colours so it feels native to the site.
+
+### Step 4: Connect the Frontend to the AI Engine
+
+When a user sends a message, the frontend sends it to a serverless function (we use Next.js API routes) that forwards it to Groq's API with the system prompt. The response comes back to the widget and displays in the chat window.
+
+### Step 5: Add Conversation History
+
+For a natural experience, the chatbot needs to remember what was said earlier in the conversation. We store the last few messages in the browser's local storage and include them as context with each new API call. This is optional but makes the chatbot feel much smarter.
+
+## Best Practices We Learned
+
+- **Keep the system prompt updated** — Every time we add a service or change pricing, we update the prompt. Outdated information frustrates visitors.
+- **Set expectations early** — The first message from your chatbot should clarify what it can do. "Hi! I can answer questions about Joetech's services, pricing, and process. How can I help?"
+- **Always offer a human escape** — Include a button or instruction for "Talk to a human" in case the AI cannot help. Nothing annoys visitors more than an AI dead end.
+- **Track what people ask** — Review chatbot conversations monthly. The questions visitors ask reveal what is missing from your website.
+- **Test with real users** — Before launch, ask friends to try breaking the chatbot. Their edge cases will reveal gaps in your system prompt.
+
+## How Much Does an AI Chatbot Cost?
+
+- **DIY with Groq (our approach):** Near-zero monthly cost for the AI engine. You pay only for your developer's time to build and maintain the widget.
+- **Tidio or ManyChat:** $15-$50/month depending on features.
+- **Custom development by an agency:** ₦150,000-₦350,000 one-time, plus maintenance.
+
+## Frequently Asked Questions
+
+**Is it difficult to add an AI chatbot to a website?**
+
+Technically, it depends on which route you choose. No-code platforms like Tidio let you add a chatbot in under an hour with a snippet of JavaScript. A custom solution requires a developer but gives much more control.
+
+**Can an AI chatbot replace human customer support?**
+
+Not entirely. A good AI chatbot handles 70-80% of common questions. The remaining 20-30% — complex inquiries, complaints, or sensitive issues — need a human touch.
+
+**Will a chatbot slow down my website?**
+
+If not implemented carefully, yes. Use lazy loading so the chatbot code only loads when the user scrolls near the bottom of the page or clicks the chat button. Our chatbot adds less than 50KB to the page load.
+
+**Do I need coding skills to add a chatbot?**
+
+If you use Tidio, ManyChat, or similar — no. Just copy and paste a snippet of code into your site. If you want a custom solution like ours, you will need a developer.
+
+## Let's Build a Chatbot for Your Business
+
+At Joetech, we build custom AI chatbots for Nigerian businesses that actually understand your services and engage your visitors. No generic responses, no hidden fees. [Contact us](/contact) to discuss adding a smart assistant to your website.

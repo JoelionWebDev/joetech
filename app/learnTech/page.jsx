@@ -89,18 +89,8 @@ export default function Home() {
           content="AI-Powered Web & App Development Guide for beginners and intermediate learners. Start your journey today."
         />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://yourdomain.com/" />
+        <link rel="canonical" href="https://joetech.name.ng/learnTech" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-          rel="stylesheet"
-        />
         <style>{`
           :root {
             --font-display: 'Syne', sans-serif;
@@ -133,8 +123,8 @@ export default function Home() {
         {/* NAV */}
         <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
           <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div className="font-display font-800 text-xl tracking-tight text-white">
-              <span className="text-violet-400">AI</span>TechPath
+                <div className="font-display font-800 text-xl tracking-tight text-white">
+              <span className="text-violet-400">Joe</span>tech
             </div>
             <div className="hidden md:flex items-center gap-8 text-sm text-slate-400 font-medium">
               <a href="#web-dev" className="hover:text-white transition-colors">
@@ -798,11 +788,11 @@ export default function Home() {
             <div className="grid md:grid-cols-4 gap-10 mb-10">
               <div className="md:col-span-2">
                 <p className="font-display font-bold text-xl text-white mb-3">
-                  <span className="text-violet-400">AI</span>TechPath
+                  <span className="text-violet-400">Joe</span>tech
                 </p>
                 <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-                  Helping beginners and intermediate learners become tech
-                  experts faster using AI tools and structured guides.
+                  Learn Web Development, App Development, UI/UX, and Digital
+                  Marketing using AI — guided by Joetech.
                 </p>
               </div>
               <div>
@@ -878,8 +868,7 @@ export default function Home() {
             </div>
             <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-slate-500 text-sm">
-                © {new Date().getFullYear()} AITechPath · Built to help you grow
-                with AI
+                © {new Date().getFullYear()} Joetech · Learn Tech with AI
               </p>
               <p className="text-slate-500 text-xs">
                 AI-Powered Web &amp; App Development Guide · Learn Tech with

@@ -62,10 +62,13 @@ const ServiceCard = ({ service, index, inView }) => (
         </li>
       ))}
     </ul>
-    <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group-hover:shadow-lg flex items-center justify-center">
-      ---
-      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-    </button>
+                <a
+                  href="/contact"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group-hover:shadow-lg flex items-center justify-center"
+                >
+                  Get a Quote
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
   </article>
 );
 
@@ -197,7 +200,7 @@ const JoetechServicesPage = () => {
           property="og:description"
           content="Transform your business with our expert tech solutions, web development, and digital marketing services. Get a free consultation today!"
         />
-        <link rel="canonical" href="https://joetech.com/services" />
+        <link rel="canonical" href="https://joetech.name.ng/services" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -400,10 +403,10 @@ const JoetechServicesPage = () => {
                 </a>
 
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+2348167099131"
                   className="inline-flex items-center border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
                 >
-                  Call Now: + (234) 8167 - 099131
+                  Call Now: +234 816 709 9131
                 </a>
               </div>
 
@@ -506,8 +509,8 @@ const JoetechServicesPage = () => {
             <div>
               <h4 className="font-semibold mb-4">Get in Touch</h4>
               <div className="space-y-2 text-gray-400">
-                <p>📧 joelionjoe10@gmail.com</p>
-                <p>📞 + (234) 8167 - 099131</p>
+                <p>📧 joetechorg@gmail.com</p>
+                <p>📞 +234 816 709 9131</p>
                 <p>📍 Lagos, Nigeria</p>
                 <p className="mt-4 text-sm">Available 24/7 for support</p>
               </div>

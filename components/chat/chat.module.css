@@ -59,6 +59,24 @@
   pointer-events: none;
 }
 
+.notificationDot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: 2px solid #0b1229;
+  animation: notificationBounce 1s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes notificationBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
 @keyframes pulseRing {
   0% {
     opacity: 0.7;

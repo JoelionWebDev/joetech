@@ -16,14 +16,14 @@ export const metadata = {
     "beginner freelancer Nigeria",
   ],
   alternates: {
-    canonical: "https://aitechpath.com/blog/first-freelance-client",
+    canonical: "https://joetech.name.ng/blog/first-freelance-client",
   },
   openGraph: {
     type: "article",
     title: "How to Land Your First Tech Freelance Client Using AI",
     description:
       "8-step beginner guide: use AI to learn tech faster, build a portfolio, write proposals, and land your first paying freelance client.",
-    url: "https://aitechpath.com/blog/first-freelance-client",
+    url: "https://joetech.name.ng/blog/first-freelance-client",
     publishedTime: "2025-01-01T00:00:00Z",
     modifiedTime: new Date().toISOString(),
   },

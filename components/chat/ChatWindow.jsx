@@ -5,6 +5,8 @@ import ChatMessage from "./ChatMessage";
 import TypingIndicator from "./TypingIndicator";
 import styles from "./chat.module.css";
 
+const SESSION_KEY = "joetech-chat-history";
+
 const WELCOME_MESSAGE = {
   id: "welcome",
   role: "assistant",
@@ -12,6 +14,33 @@ const WELCOME_MESSAGE = {
     "Hello 👋 Welcome to **Joetech**. How can we help you grow digitally today?",
   timestamp: new Date(),
 };
+
+function loadSession() {
+  if (typeof window === "undefined") return null;
+  try {
+    const saved = sessionStorage.getItem(SESSION_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed.map((m) => ({
+          ...m,
+          timestamp: new Date(m.timestamp),
+        }));
+      }
+    }
+  } catch {
+    /* ignore corrupt session */
+  }
+  return null;
+}
+
+function saveSession(messages) {
+  try {
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(messages));
+  } catch {
+    /* storage full — ignore */
+  }
+}
 
 /** Simple client-side rate limiter: max N requests per window (ms) */
 const RATE_LIMIT = { maxRequests: 8, windowMs: 60_000 };
@@ -32,17 +61,23 @@ function useRateLimit() {
 
 /**
  * ChatWindow — The main chat panel. Manages message history,
- * API calls, loading state, and auto-scroll behaviour.
+ * API calls with streaming, loading state, and auto-scroll behaviour.
  */
 export default function ChatWindow({ isOpen, onClose }) {
-  const [messages, setMessages] = useState([WELCOME_MESSAGE]);
+  const [messages, setMessages] = useState(() => loadSession() || [WELCOME_MESSAGE]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const streamRef = useRef(null);
   const checkRateLimit = useRateLimit();
+
+  /* Persist messages to sessionStorage on change */
+  useEffect(() => {
+    saveSession(messages);
+  }, [messages]);
 
   /* Auto-scroll to bottom whenever messages update */
   useEffect(() => {
@@ -56,11 +91,17 @@ export default function ChatWindow({ isOpen, onClose }) {
     }
   }, [isOpen]);
 
-  const sendMessage = useCallback(async () => {
-    const text = inputValue.trim();
+  /* Cleanup stream on unmount */
+  useEffect(() => {
+    return () => {
+      streamRef.current?.abort();
+    };
+  }, []);
+
+  const sendMessage = useCallback(async (textOverride) => {
+    const text = (textOverride || inputValue).trim();
     if (!text || isLoading) return;
 
-    // Rate limit check
     if (!checkRateLimit()) {
       setError("You're sending messages too quickly. Please wait a moment.");
       return;
@@ -79,8 +120,16 @@ export default function ChatWindow({ isOpen, onClose }) {
     setInputValue("");
     setIsLoading(true);
 
+    const assistantId = `ai-${Date.now()}`;
+    const assistantMessage = {
+      id: assistantId,
+      role: "assistant",
+      content: "",
+      timestamp: new Date(),
+    };
+    setMessages((prev) => [...prev, assistantMessage]);
+
     try {
-      // Build conversation history for the API (exclude the static welcome msg)
       const history = [
         ...messages.filter((m) => m.id !== "welcome"),
         userMessage,
@@ -100,16 +149,34 @@ export default function ChatWindow({ isOpen, onClose }) {
         throw new Error(data.error || `Server error ${res.status}`);
       }
 
-      const data = await res.json();
-      const assistantMessage = {
-        id: `ai-${Date.now()}`,
-        role: "assistant",
-        content: data.content,
-        timestamp: new Date(),
-      };
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
 
-      setMessages((prev) => [...prev, assistantMessage]);
+      while (!done) {
+        const { value, done: isDone } = await reader.read();
+        done = isDone;
+        if (value) {
+          const chunk = decoder.decode(value, { stream: !done });
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === assistantId
+                ? { ...m, content: (m.content || "") + chunk }
+                : m,
+            ),
+          );
+        }
+      }
+
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === assistantId && !m.content
+            ? { ...m, content: "I'm sorry, I received an empty response. Please try again." }
+            : m,
+        ),
+      );
     } catch (err) {
+      setMessages((prev) => prev.filter((m) => m.id !== assistantId));
       setError(err.message || "Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
@@ -135,7 +202,7 @@ export default function ChatWindow({ isOpen, onClose }) {
       aria-label="Joetech AI Assistant"
       aria-modal="true"
     >
-      {/* ── Header ───────────────────────────────────────── */}
+      {/* ── Header ─────────────────────────────────────────────── */}
       <header className={styles.chatHeader}>
         <div className={styles.headerLeft}>
           <div className={styles.agentAvatar} aria-hidden="true">
@@ -147,7 +214,7 @@ export default function ChatWindow({ isOpen, onClose }) {
             <span className={styles.agentName}>Joetech AI Assistant</span>
             <span className={styles.agentStatus}>
               <span className={styles.statusDot} aria-hidden="true" />
-              Online · joetech.org.ng
+              Online · joetech.name.ng
             </span>
           </div>
         </div>
@@ -171,7 +238,7 @@ export default function ChatWindow({ isOpen, onClose }) {
         </button>
       </header>
 
-      {/* ── Message List ─────────────────────────────────── */}
+      {/* ── Message List ───────────────────────────────────────── */}
       <div className={styles.messageList} role="log" aria-live="polite">
         {messages.map((msg) => (
           <ChatMessage key={msg.id} message={msg} />
@@ -197,28 +264,26 @@ export default function ChatWindow({ isOpen, onClose }) {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* ── Quick Reply Chips ─────────────────────────────── */}
+      {/* ── Quick Reply Chips (click sends immediately) ─────────── */}
       <div className={styles.quickReplies} aria-label="Quick questions">
         {[
-          "💻 Website Dev",
-          "📱 Mobile App",
-          "🎯 Paid Ads",
-          "💰 Get a Quote",
+          { label: "💻 Website Dev", text: "Tell me about your website development services" },
+          { label: "📱 Mobile App", text: "What do you offer for mobile app development?" },
+          { label: "🎯 Paid Ads", text: "How can your paid ads service help my business?" },
+          { label: "💰 Get a Quote", text: "I'd like to get a quote for a project" },
         ].map((chip) => (
           <button
-            key={chip}
+            key={chip.label}
             className={styles.chip}
-            onClick={() => {
-              setInputValue(chip.replace(/^.{2}\s/, ""));
-              inputRef.current?.focus();
-            }}
+            onClick={() => sendMessage(chip.text)}
+            disabled={isLoading}
           >
-            {chip}
+            {chip.label}
           </button>
         ))}
       </div>
 
-      {/* ── Input Bar ────────────────────────────────────── */}
+      {/* ── Input Bar ──────────────────────────────────────────── */}
       <div className={styles.inputBar}>
         <textarea
           ref={inputRef}
@@ -232,7 +297,7 @@ export default function ChatWindow({ isOpen, onClose }) {
           disabled={isLoading}
         />
         <button
-          onClick={sendMessage}
+          onClick={() => sendMessage()}
           disabled={!inputValue.trim() || isLoading}
           className={styles.sendButton}
           aria-label="Send message"
@@ -243,11 +308,11 @@ export default function ChatWindow({ isOpen, onClose }) {
         </button>
       </div>
 
-      {/* ── Footer ───────────────────────────────────────── */}
+      {/* ── Footer ─────────────────────────────────────────────── */}
       <div className={styles.chatFooter}>
         Powered by{" "}
         <a
-          href="https://www.joetech.org.ng"
+          href="https://www.joetech.name.ng"
           target="_blank"
           rel="noopener noreferrer"
         >
