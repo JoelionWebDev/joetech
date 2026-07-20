@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   verification: {
-    google: "9c849142ed97adc4",
+    google: "017dd4ca92c4e3ae",
   },
   title: {
     default: "Joetech — Web Dev, Branding & Digital Marketing Agency in Lagos, Nigeria",
