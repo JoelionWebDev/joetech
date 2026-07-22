@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const ProjectsPortfolio = () => {
   const [visibleCards, setVisibleCards] = useState(new Set());
@@ -10,82 +12,47 @@ const ProjectsPortfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "TechCorp E-commerce Platform",
+      title: "De Phantom Continental Hotel Group",
       description:
-        "A comprehensive web development project featuring a modern e-commerce platform with custom shopping cart functionality, payment integration, and responsive design optimized for mobile commerce.",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["Web Development", "E-commerce", "React"],
-      category: "web-development",
+        "Multi-property website for De Phantom Continental Hotel Group, covering two Lagos locations. Built as a clean, fast-loading informational and booking-inquiry site for each hotel branch.",
+      image: "/images/dephantom.png",
+      tags: ["Web Development", "Hospitality"],
+      category: "Hospitality",
+      url: "https://www.dephantomhotelgroup.com",
     },
     {
       id: 2,
-      title: "GreenLeaf Brand Identity",
+      title: "First Choice Afro Villa",
       description:
-        "Complete branding design package including logo creation, color palette development, and brand guidelines for an eco-friendly startup focused on sustainable living solutions.",
-      image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["Branding", "Logo Design", "Brand Identity"],
-      category: "branding",
+        "Real estate and land investment website featuring active property listings, an FAQ system, WhatsApp-integrated inquiries, and a full contact form covering all 36 Nigerian states.",
+      image: "/images/firstchoiceafrovilla.png",
+      tags: ["Web Development", "Real Estate"],
+      category: "Real Estate",
+      url: "https://www.firstchoiceafrovilla.com",
     },
     {
       id: 3,
-      title: "FinanceFlow Mobile App",
+      title: "Enamis Systems",
       description:
-        "Innovative web development project creating a progressive web app for personal finance management with real-time analytics, budget tracking, and seamless user experience across devices.",
-      image:
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["Web Development", "Mobile App", "PWA"],
-      category: "web-development",
-    },
-    {
-      id: 4,
-      title: "RestaurantPro Marketing Campaign",
-      description:
-        "Comprehensive digital marketing campaigns including social media strategy, video editing for promotional content, and SEO optimization resulting in 300% increase in online engagement.",
-      image:
-        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["Digital Marketing", "Video Editing", "Social Media"],
-      category: "marketing",
-    },
-    {
-      id: 5,
-      title: "HealthTech Dashboard",
-      description:
-        "Advanced web development project featuring a healthcare management dashboard with data visualization, patient tracking systems, and HIPAA-compliant security measures.",
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["Web Development", "Dashboard", "Healthcare"],
-      category: "web-development",
-    },
-    {
-      id: 6,
-      title: "Luxury Resort Branding",
-      description:
-        "Premium branding design project encompassing visual identity, marketing collateral, and digital assets for a high-end resort chain with focus on elegant and sophisticated aesthetics.",
-      image:
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      tags: ["Branding", "Luxury Design", "Marketing"],
-      category: "branding",
+        "Company website for a Lagos-based electrical and smart technology solutions provider. Showcases six core services with a detailed quote-request form segmented by service and property type.",
+      image: "/images/enamissystems.png",
+      tags: ["Web Development", "Electrical & Smart Tech"],
+      category: "Electrical & Smart Tech",
+      url: "https://www.enamissystems.name.ng",
     },
   ];
 
   const tagColors = {
     "Web Development": "bg-blue-100 text-blue-800",
-    Branding: "bg-purple-100 text-purple-800",
-    "Digital Marketing": "bg-green-100 text-green-800",
-    "Video Editing": "bg-red-100 text-red-800",
-    "E-commerce": "bg-indigo-100 text-indigo-800",
-    "Logo Design": "bg-pink-100 text-pink-800",
-    "Brand Identity": "bg-yellow-100 text-yellow-800",
-    "Mobile App": "bg-cyan-100 text-cyan-800",
-    PWA: "bg-teal-100 text-teal-800",
-    "Social Media": "bg-orange-100 text-orange-800",
-    Dashboard: "bg-gray-100 text-gray-800",
-    Healthcare: "bg-emerald-100 text-emerald-800",
-    "Luxury Design": "bg-amber-100 text-amber-800",
-    Marketing: "bg-lime-100 text-lime-800",
-    React: "bg-sky-100 text-sky-800",
+    "Real Estate": "bg-emerald-100 text-emerald-800",
+    Hospitality: "bg-amber-100 text-amber-800",
+    "Electrical & Smart Tech": "bg-cyan-100 text-cyan-800",
+    Construction: "bg-orange-100 text-orange-800",
+    "E-commerce": "bg-purple-100 text-purple-800",
+    "Music & Media": "bg-pink-100 text-pink-800",
+    Blog: "bg-indigo-100 text-indigo-800",
+    "Travel & Hospitality": "bg-teal-100 text-teal-800",
+    Technology: "bg-slate-100 text-slate-800",
   };
 
   useEffect(() => {
@@ -115,18 +82,6 @@ const ProjectsPortfolio = () => {
     };
   }, []);
 
-  const handleViewProject = (projectId) => {
-    // In a real application, this would navigate to the project detail page
-    console.log(`Viewing project ${projectId}`);
-  };
-
-  const handleKeyPress = (event, projectId) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      handleViewProject(projectId);
-    }
-  };
-
   return (
     <section
       ref={sectionRef}
@@ -134,7 +89,6 @@ const ProjectsPortfolio = () => {
       aria-labelledby="projects-heading"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <h2
             id="projects-heading"
@@ -143,13 +97,12 @@ const ProjectsPortfolio = () => {
             Our Projects
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Showcasing Joetech's work in web development, branding design, video
+            Showcasing Joetech&apos;s work in web development, branding design, video
             editing, and digital marketing campaigns that drive results for our
             clients.
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <article
@@ -167,20 +120,17 @@ const ProjectsPortfolio = () => {
                   : "0ms",
               }}
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <img
+              <div className="relative overflow-hidden aspect-[16/10]">
+                <Image
                   src={project.image}
-                  alt={`${project.title} - ${
-                    project.category
-                  } project showcasing Joetech's expertise in ${project.tags[0].toLowerCase()}`}
-                  className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
+                  alt={`${project.title} project showcasing Joetech's expertise`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
-              {/* Project Content */}
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
                   {project.title}
@@ -190,7 +140,6 @@ const ProjectsPortfolio = () => {
                   {project.description}
                 </p>
 
-                {/* Project Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
                     <span
@@ -204,32 +153,33 @@ const ProjectsPortfolio = () => {
                   ))}
                 </div>
 
-                {/* View Project Button */}
-                <button
-                  onClick={() => handleViewProject(project.id)}
-                  onKeyDown={(e) => handleKeyPress(e, project.id)}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                  aria-label={`View details for ${project.title} project`}
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 gap-2"
+                  aria-label={`View ${project.title} live website`}
                 >
-                  -------
-                </button>
+                  View Project
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <p className="text-lg text-gray-600 mb-6">
-            Ready to start your next project with Joetech?
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
-            aria-label="Contact Joetech to discuss your project requirements"
+        <div className="text-center mt-12">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors group"
           >
-            Get In Touch
-          </a>
+            View Full Portfolio
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

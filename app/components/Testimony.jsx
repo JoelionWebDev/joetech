@@ -216,6 +216,19 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
+        {/* See All Link */}
+        <div className="text-center mt-10">
+          <a
+            href="/testimonials"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors group"
+          >
+            Read All Testimonials
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
         {/* Call to Action */}
         <div className="text-center mt-12">
           <p className="text-lg text-gray-600 mb-6">
