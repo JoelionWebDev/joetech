@@ -4,57 +4,37 @@ import { TestimonialCard } from "./TestimonialCard";
 const testimonials = [
   {
     id: 1,
-    name: "Johnson Monasoko",
-    role: "CEO at TechStart",
-    company: "TechStart Inc.",
+    name: "Mr Olusola Sanni",
+    role: "Manager, De Phantom Continental Hotel Group",
+    company: "De Phantom Continental Hotel Group",
     message:
-      "Working with this team has been transformative for our business. They delivered a robust solution that exceeded our expectations and helped us scale efficiently.",
+      "The website Joetech built for us is fantastic. It's beautiful, and we love how it turned out.",
     rating: 5,
+    image: "/testimony/dephantom-rep.jpeg",
+    url: "https://www.dephantomhotelgroup.com",
   },
   {
     id: 2,
-    name: "Sunday Michael",
-    role: "Product Manager",
-    company: "InnovateCo",
+    name: "Engr. (Dr.) Jerry Patrick",
+    role: "CEO, First Choice Afro Villa",
+    company: "First Choice Afro Villa",
     message:
-      "The level of professionalism and technical expertise is outstanding. Our project was completed on time and the results speak for themselves.",
+      "What Joetech built for us is beautiful — we love everything about it.",
     rating: 5,
+    image: "/testimony/firstchoice-rep.jpeg",
+    url: "https://www.firstchoiceafrovilla.com",
   },
   {
     id: 3,
-    name: "Emily Phillip",
-    role: "Founder",
-    company: "StartupHub",
+    name: "Mr Victor Ajaye",
+    role: "Enamis Systems",
+    company: "Enamis Systems",
     message:
-      "I couldn't be happier with the web application they built for us. The attention to detail and user experience is phenomenal.",
+      "This is wonderful. Beautiful work from Joetech — we love what they built for us.",
     rating: 5,
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    role: "CTO at DataFlow",
-    company: "DataFlow Systems",
-    message:
-      "Their deep understanding of modern web technologies made our complex project seem effortless. Highly recommended!",
-    rating: 5,
-  },
-  {
-    id: 5,
-    name: "Lisa Okafor",
-    role: "Marketing Director",
-    company: "GrowthLabs",
-    message:
-      "From concept to deployment, the process was smooth and collaborative. They truly care about delivering quality work.",
-    rating: 5,
-  },
-  {
-    id: 6,
-    name: "James Wilson",
-    role: "Operations Manager",
-    company: "LogiTech Solutions",
-    message:
-      "The custom dashboard they created has streamlined our operations significantly. Worth every penny!",
-    rating: 4,
+    image: "/testimony/enamis-logo.png",
+    useLogo: true,
+    url: "https://www.enamissystems.name.ng",
   },
 ];
 

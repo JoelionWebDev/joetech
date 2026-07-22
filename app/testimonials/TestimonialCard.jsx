@@ -1,10 +1,31 @@
 // app/testimonials/TestimonialCard.jsx
 
 export function TestimonialCard({ testimonial }) {
-  const { name, role, company, message, rating } = testimonial;
+  const { name, role, company, message, rating, image, useLogo, url } = testimonial;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col">
+      {/* Image / Logo */}
+      {image && (
+        <div className={useLogo ? "flex justify-center mb-6" : "mb-4"}>
+          {useLogo ? (
+            <img
+              src={image}
+              alt={`${company} logo`}
+              className="h-16 object-contain"
+              loading="lazy"
+            />
+          ) : (
+            <img
+              src={image}
+              alt={`${name}, ${role}`}
+              className="w-14 h-14 rounded-full object-cover ring-2 ring-gray-100"
+              loading="lazy"
+            />
+          )}
+        </div>
+      )}
+
       {/* Star Rating */}
       <div className="flex items-center mb-4">
         {[...Array(5)].map((_, index) => (
@@ -31,8 +52,19 @@ export function TestimonialCard({ testimonial }) {
       {/* Client Info */}
       <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
         <p className="font-semibold text-gray-900 dark:text-white">{name}</p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">{role}</p>
-        <p className="text-sm text-gray-500 dark:text-gray-500">{company}</p>
+        {role && <p className="text-sm text-gray-600 dark:text-gray-400">{role}</p>}
+        {url ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
+          >
+            {company} ↗
+          </a>
+        ) : (
+          <p className="text-sm text-gray-500 dark:text-gray-500">{company}</p>
+        )}
       </div>
     </div>
   );

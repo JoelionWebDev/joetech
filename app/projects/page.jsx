@@ -29,114 +29,150 @@ const useInView = (threshold = 0.1) => {
 const PROJECTS = [
   {
     id: 1,
-    title: "EcoMart E-commerce Platform",
+    title: "De Phantom Continental Hotel Group",
     description:
-      "A full-featured e-commerce solution for sustainable products with advanced inventory management, customer analytics, and payment integration.",
-    category: "Web",
+      "Multi-property website for De Phantom Continental Hotel Group, covering two Lagos locations (Chevron and Lekki/Ikate). Built as a clean, fast-loading informational and booking-inquiry site for each hotel branch, with dedicated subdomains per property.",
+    category: "Hospitality",
     service: "Web Development",
-    tags: ["E-commerce", "React", "Node.js", "Payments"],
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=480&fit=crop&q=80",
-    year: "2024",
-    featured: true,
-    challenge:
-      "The client needed a scalable e-commerce platform handling high traffic without sacrificing speed or user experience.",
-    solution:
-      "We built a custom React platform with server-side rendering, optimised payment flows, and a comprehensive admin dashboard.",
-    results:
-      "40% uplift in conversion rate and 60% reduction in page load time — driving significant revenue growth within 3 months.",
-    metrics: { views: "50K+", conversion: "+40%" },
+    tags: ["Web Development", "Hospitality"],
+    image: "/images/dephantom.png",
+    year: "2025",
+    url: "https://www.dephantomhotelgroup.com",
   },
   {
     id: 2,
-    title: "FinTech Mobile Banking App",
+    title: "Mburubu Construction",
     description:
-      "Secure mobile banking app with biometric authentication, real-time transaction monitoring, and instant transfer capabilities.",
-    category: "App",
-    service: "Mobile App Development",
-    tags: ["React Native", "Biometrics", "Security", "Banking"],
-    image:
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=700&h=480&fit=crop&q=80",
-    year: "2024",
-    featured: false,
+      "Full company website for Mburubu Construction, an Enugu-based construction firm. Includes services pages (building construction, renovations, project management, architectural design, road construction, machinery hiring), a projects showcase, and a quote request system. Built with a modern Next.js stack.",
+    category: "Construction",
+    service: "Web Development",
+    tags: ["Web Development", "Construction"],
+    image: "/images/mburubuconstruction.png",
+    year: "2025",
+    url: "https://www.mburubuconstruction.com.ng/",
   },
   {
     id: 3,
-    title: "Luxury Brand Identity System",
+    title: "First Choice Afro Villa",
     description:
-      "Complete visual identity and digital marketing campaign for a premium lifestyle brand — logo, guidelines, and campaign assets.",
-    category: "Branding",
-    service: "Brand Strategy & Design",
-    tags: ["Brand Identity", "Logo Design", "Guidelines", "Marketing"],
-    image:
-      "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=700&h=480&fit=crop&q=80",
-    year: "2023",
-    featured: true,
-    challenge:
-      "Design a sophisticated identity that resonates with luxury consumers across every digital and physical touchpoint.",
-    solution:
-      "Developed a comprehensive brand system with bespoke typography, refined colour palette, and versatile logo suite.",
-    results:
-      "200% increase in brand recognition; social media engagement up 150% within 6 months of launch.",
-    metrics: { views: "100K+", conversion: "+200%" },
+      "Real estate and land investment website for First Choice Afro Villa Limited, featuring active property listings (including the Enugu Smart City Estate), an FAQ system, WhatsApp-integrated inquiries, and a full contact/lead capture form covering all 36 Nigerian states.",
+    category: "Real Estate",
+    service: "Web Development",
+    tags: ["Web Development", "Real Estate"],
+    image: "/images/firstchoiceafrovilla.png",
+    year: "2025",
+    url: "https://www.firstchoiceafrovilla.com/",
   },
   {
     id: 4,
-    title: "Healthcare Digital Marketing",
+    title: "Enamis Systems",
     description:
-      "Multi-channel strategy for a healthcare provider — SEO, content marketing, and social media management to boost patient acquisition.",
-    category: "Marketing",
-    service: "Digital Marketing",
-    tags: ["SEO", "Content Marketing", "Social Media", "Healthcare"],
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=700&h=480&fit=crop&q=80",
-    year: "2023",
-    featured: false,
+      "Company website for Enamis Systems, a Lagos-based electrical and smart technology solutions provider. Showcases six core services (electrical installation, solar/inverter systems, CCTV, access control, fire alarm, home automation) with a detailed quote-request form segmented by service type and property type.",
+    category: "Electrical & Smart Tech",
+    service: "Web Development",
+    tags: ["Web Development", "Electrical & Smart Tech"],
+    image: "/images/enamissystems.png",
+    year: "2025",
+    url: "https://www.enamissystems.name.ng/",
   },
   {
     id: 5,
-    title: "Restaurant Management System",
+    title: "Franklyn Technologies",
     description:
-      "Integrated web platform for a restaurant chain — inventory tracking, staff scheduling, and a full CRM built for daily ops.",
-    category: "Web",
+      "Corporate website and online shop for Franklyn Technologies Limited, a technology company offering secure web solutions and digital products, including a full e-commerce storefront with cart and checkout functionality.",
+    category: "E-commerce",
     service: "Web Development",
-    tags: ["Management System", "Inventory", "CRM", "Dashboard"],
-    image:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&h=480&fit=crop&q=80",
-    year: "2023",
-    featured: false,
+    tags: ["Web Development", "E-commerce", "Technology"],
+    image: "/images/franklyntechnologies.png",
+    year: "2025",
+    url: "https://www.franklyntechnologies.com.ng",
   },
   {
     id: 6,
-    title: "Fitness Tracker Mobile App",
+    title: "Godsfame Music",
     description:
-      "Cross-platform app for fitness enthusiasts with workout logging, nutrition planning, and a social challenge feed.",
-    category: "App",
-    service: "Mobile App Development",
-    tags: ["Fitness", "Cross-platform", "Real-time", "Social"],
-    image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&h=480&fit=crop&q=80",
-    year: "2024",
-    featured: false,
+      "Official artist website for Godsfame Music, a gospel artist and worship minister. Built on WordPress with music release pages, a gospel blog, lyrics section, music video gallery, and an integrated shop. Built in collaboration with Franklyn Technologies.",
+    category: "Music & Media",
+    service: "Web Development",
+    tags: ["Web Development", "Music & Media", "WordPress"],
+    image: "/images/godsfamemusic.png",
+    year: "2025",
+    url: "https://www.godsfamemusic.com",
+  },
+  {
+    id: 7,
+    title: "Henthisel Consults Limited",
+    description:
+      "Real estate listings website for Henthisel Consults Limited, a Lekki, Lagos-based property agency specializing in fully detached duplexes and high-value residential listings across Lekki and Ajah.",
+    category: "Real Estate",
+    service: "Web Development",
+    tags: ["Web Development", "Real Estate"],
+    image: "/images/hcltd.png",
+    year: "2025",
+    url: "https://www.hcltd.com.ng",
+  },
+  {
+    id: 8,
+    title: "Growth Tech Daily",
+    description:
+      "WordPress blog site built for Growth Tech Daily, publishing ongoing content in the tech space with a lightweight, fast-loading blog structure.",
+    category: "Blog",
+    service: "Web Development",
+    tags: ["Web Development", "Blog", "WordPress"],
+    image: "/images/growthtechdaily.png",
+    year: "2025",
+    url: "https://www.growthtechdaily.com.ng/",
+  },
+  {
+    id: 9,
+    title: "Easy Hotel Search",
+    description:
+      "WordPress-built online hotel directory for Easy Hotel Search, helping travelers discover accommodation options across Nigeria for business trips, family holidays, and weekend getaways — covering business, family, romantic, and short-stay travel needs.",
+    category: "Travel & Hospitality",
+    service: "Web Development",
+    tags: ["Web Development", "Travel & Hospitality", "WordPress", "Directory"],
+    image: "/images/easyhotelsearch.png",
+    year: "2025",
+    url: "https://www.easyhotelsearch.com.ng/",
+  },
+  {
+    id: 10,
+    title: "Joetech.name.ng",
+    description:
+      "My personal portfolio and business website — the site you are currently on. Built to showcase my web development services, completed projects, and technical expertise from Lekki, Lagos.",
+    category: "Technology",
+    service: "Web Development",
+    tags: ["Web Development", "Portfolio", "Technology"],
+    image: "/images/joetech.name.ng.png",
+    year: "2025",
+    url: "https://joetech.name.ng",
   },
 ];
 
 const CLIENTS = [
-  { name: "TechCorp Nigeria", abbr: "TC", color: "#2563eb" },
-  { name: "Lagos Business Hub", abbr: "LBH", color: "#059669" },
-  { name: "Fintech Solutions", abbr: "FS", color: "#7c3aed" },
-  { name: "EcoMart", abbr: "EM", color: "#dc2626" },
-  { name: "Healthcare Plus", abbr: "H+", color: "#ea580c" },
-  { name: "Luxury Brands Co.", abbr: "LB", color: "#1f2937" },
+  { name: "De Phantom Continental Hotel Group", abbr: "DP", color: "#1e3a5f" },
+  { name: "Mburubu Construction", abbr: "MC", color: "#d97706" },
+  { name: "First Choice Afro Villa", abbr: "FC", color: "#059669" },
+  { name: "Enamis Systems", abbr: "ES", color: "#2563eb" },
+  { name: "Franklyn Technologies", abbr: "FT", color: "#7c3aed" },
+  { name: "Godsfame Music", abbr: "GM", color: "#dc2626" },
+  { name: "Henthisel Consults Ltd", abbr: "HC", color: "#0891b2" },
+  { name: "Growth Tech Daily", abbr: "GT", color: "#ea580c" },
+  { name: "Easy Hotel Search", abbr: "EH", color: "#1f2937" },
 ];
 
-const CATEGORIES = ["All", "Web", "App", "Branding", "Marketing"];
+const CATEGORIES = ["All", "Hospitality", "Construction", "Real Estate", "Electrical & Smart Tech", "E-commerce", "Music & Media", "Blog", "Travel & Hospitality", "Technology"];
 
 const CATEGORY_META = {
-  Web: { color: "bg-blue-100 text-blue-800", dot: "bg-blue-500" },
-  App: { color: "bg-emerald-100 text-emerald-800", dot: "bg-emerald-500" },
-  Branding: { color: "bg-violet-100 text-violet-800", dot: "bg-violet-500" },
-  Marketing: { color: "bg-orange-100 text-orange-800", dot: "bg-orange-500" },
+  Hospitality: { color: "bg-amber-100 text-amber-800", dot: "bg-amber-500" },
+  Construction: { color: "bg-orange-100 text-orange-800", dot: "bg-orange-500" },
+  "Real Estate": { color: "bg-emerald-100 text-emerald-800", dot: "bg-emerald-500" },
+  "Electrical & Smart Tech": { color: "bg-cyan-100 text-cyan-800", dot: "bg-cyan-500" },
+  "E-commerce": { color: "bg-purple-100 text-purple-800", dot: "bg-purple-500" },
+  "Music & Media": { color: "bg-pink-100 text-pink-800", dot: "bg-pink-500" },
+  Blog: { color: "bg-indigo-100 text-indigo-800", dot: "bg-indigo-500" },
+  "Travel & Hospitality": { color: "bg-teal-100 text-teal-800", dot: "bg-teal-500" },
+  Technology: { color: "bg-slate-100 text-slate-800", dot: "bg-slate-500" },
 };
 
 const STATS = [
@@ -187,10 +223,10 @@ const ProjectCard = ({ project, index, inView }) => (
       <div className="absolute top-3 left-3 flex gap-2">
         <CategoryBadge category={project.category} />
       </div>
-      {project.featured && (
+      {project.url && (
         <div className="absolute top-3 right-3">
-          <span className="inline-flex items-center gap-1 bg-amber-400 text-amber-950 text-xs font-bold px-2.5 py-1 rounded-full shadow">
-            ★ Featured
+          <span className="inline-flex items-center gap-1 bg-blue-500/80 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow backdrop-blur-sm">
+            ↗ Live
           </span>
         </div>
       )}
@@ -221,11 +257,13 @@ const ProjectCard = ({ project, index, inView }) => (
           {project.year}
         </span>
         <a
-          href={`/projects/${project.id}`}
-          aria-label={`View case study for ${project.title}`}
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View ${project.title} live website`}
           className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 text-sm font-semibold transition-colors group/link"
         >
-          View Case Study
+          View Project
           <svg
             className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform"
             fill="none"
@@ -246,118 +284,7 @@ const ProjectCard = ({ project, index, inView }) => (
   </article>
 );
 
-const FeaturedCaseStudy = ({ project, reverse }) => {
-  const [ref, inView] = useInView(0.15);
-  return (
-    <div
-      ref={ref}
-      className={`grid lg:grid-cols-2 gap-10 xl:gap-16 items-center transition-all duration-700 ${
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      {/* Image side */}
-      <div className={`relative ${reverse ? "lg:order-2" : ""}`}>
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
-          <Image
-            src={project.image}
-            alt={`${project.title} case study preview — ${project.service} by Joetech`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-        </div>
 
-        {/* Floating metrics card */}
-        <div className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-6 bg-white rounded-xl shadow-xl p-4 border border-slate-100">
-          <div className="flex items-center gap-5">
-            <div className="text-center">
-              <p className="text-xl sm:text-2xl font-extrabold text-blue-600 leading-none">
-                {project.metrics.views}
-              </p>
-              <p className="text-xs text-slate-500 mt-0.5">Page Views</p>
-            </div>
-            <div className="w-px h-10 bg-slate-200" />
-            <div className="text-center">
-              <p className="text-xl sm:text-2xl font-extrabold text-emerald-600 leading-none">
-                {project.metrics.conversion}
-              </p>
-              <p className="text-xs text-slate-500 mt-0.5">Growth</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Text side */}
-      <div className={reverse ? "lg:order-1" : ""}>
-        <div className="flex flex-wrap items-center gap-2 mb-4">
-          <CategoryBadge category={project.category} size="md" />
-          <span className="inline-flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-full">
-            ★ Featured Case Study
-          </span>
-        </div>
-
-        <h3 className="font-extrabold text-slate-900 text-2xl sm:text-3xl mb-3 leading-tight">
-          {project.title}
-        </h3>
-        <p className="text-slate-500 text-base leading-relaxed mb-7">
-          {project.description}
-        </p>
-
-        <div className="space-y-5 mb-7">
-          {[
-            ["Challenge", project.challenge],
-            ["Solution", project.solution],
-            ["Results", project.results],
-          ].map(([label, text]) => (
-            <div key={label} className="flex gap-3">
-              <div className="flex-shrink-0 w-1 rounded-full bg-gradient-to-b from-blue-500 to-violet-500" />
-              <div>
-                <p className="font-bold text-slate-900 text-sm mb-0.5">
-                  {label}
-                </p>
-                <p className="text-slate-500 text-sm leading-relaxed">{text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-wrap gap-2 mb-7">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="bg-slate-100 text-slate-600 text-xs px-3 py-1.5 rounded-lg font-medium"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <a
-          href={`/projects/${project.id}`}
-          aria-label={`Read full case study for ${project.title}`}
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold px-6 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-0.5"
-        >
-          Read Full Case Study
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2.5}
-              d="M13 7l5 5m0 0l-5 5m5-5H6"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
-  );
-};
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function JoetechProjectsPage() {
@@ -371,8 +298,6 @@ export default function JoetechProjectsPage() {
     filterCategory === "All" ? PROJECTS : (
       PROJECTS.filter((p) => p.category === filterCategory)
     );
-
-  const featuredProjects = PROJECTS.filter((p) => p.featured);
 
   // Auto-scroll clients ticker
   const tickerRef = useRef(null);
@@ -427,7 +352,7 @@ export default function JoetechProjectsPage() {
         </title>
         <meta
           name="description"
-          content="Explore Joetech's portfolio of 50+ projects across web development, mobile apps, brand design, and digital marketing. See real results for Nigerian and global businesses."
+          content="Explore Joetech's portfolio of web development projects for hospitality, real estate, construction, e-commerce, and more. See live sites for Nigerian businesses."
         />
         <meta
           name="keywords"
@@ -573,8 +498,7 @@ export default function JoetechProjectsPage() {
               itemProp="description"
             >
               Real work. Measurable results. Explore how we've helped businesses
-              grow through web development, mobile apps, brand design, and
-              digital marketing.
+              grow through modern web development and digital solutions.
             </p>
 
             {/* Stats row */}
@@ -655,82 +579,6 @@ export default function JoetechProjectsPage() {
                   inView={projectsInView}
                 />
               ))}
-            </div>
-          </section>
-
-          {/* ── FEATURED CASE STUDIES ── */}
-          <section
-            aria-labelledby="case-studies-heading"
-            className="bg-white border-y border-slate-100 py-16 sm:py-24"
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-14">
-                <span className="inline-block bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-                  Deep Dives
-                </span>
-                <h2
-                  id="case-studies-heading"
-                  className="font-display font-bold text-3xl sm:text-4xl text-slate-900 mb-3"
-                >
-                  Featured Case Studies
-                </h2>
-                <p className="text-slate-500 text-lg max-w-xl mx-auto">
-                  A closer look at the challenge, solution, and results behind
-                  our best work.
-                </p>
-              </div>
-
-              <div className="space-y-24 sm:space-y-32">
-                {featuredProjects.map((project, i) => (
-                  <FeaturedCaseStudy
-                    key={project.id}
-                    project={project}
-                    reverse={i % 2 === 1}
-                  />
-                ))}
-              </div>
-
-              {/* Start a project callout */}
-              <div className="mt-20 bg-gradient-to-br from-blue-600 to-violet-700 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)",
-                    backgroundSize: "32px 32px",
-                  }}
-                />
-                <div className="relative">
-                  <h3 className="font-display font-extrabold text-2xl sm:text-3xl mb-3">
-                    Ready to Start Your Own Project?
-                  </h3>
-                  <p className="text-blue-100 text-base sm:text-lg mb-7 max-w-xl mx-auto">
-                    Let's discuss how we can bring your vision to life with our
-                    expert team and proven process.
-                  </p>
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold px-7 py-3.5 rounded-xl hover:bg-blue-50 transition-all hover:shadow-lg hover:-translate-y-0.5"
-                  >
-                    Get in Touch
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
             </div>
           </section>
 

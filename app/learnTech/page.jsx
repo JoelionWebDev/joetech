@@ -123,9 +123,9 @@ export default function Home() {
         {/* NAV */}
         <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
           <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-                <div className="font-display font-800 text-xl tracking-tight text-white">
+                <a href="/" className="font-display font-800 text-xl tracking-tight text-white hover:opacity-80 transition-opacity">
               <span className="text-violet-400">Joe</span>tech
-            </div>
+            </a>
             <div className="hidden md:flex items-center gap-8 text-sm text-slate-400 font-medium">
               <a href="#web-dev" className="hover:text-white transition-colors">
                 Web Dev
