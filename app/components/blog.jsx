@@ -1,81 +1,26 @@
 import React from "react";
+import { getAllPosts } from "../../lib/blog";
+
+function formatDate(dateStr) {
+  if (!dateStr) return "";
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
 
 const BlogInsights = () => {
-  // Sample blog post data with SEO-optimized content
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Top 10 Tech Trends Shaping 2025: AI, Web3, and Beyond",
-      excerpt:
-        "Discover the revolutionary tech trends that are transforming businesses worldwide. From artificial intelligence breakthroughs to emerging Web3 technologies, explore how these innovations can accelerate your digital transformation journey.",
-      image:
-        "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Tech Trends",
-      readTime: "5 min read",
-      publishDate: "Dec 15, 2024",
-      slug: "top-tech-trends-2025",
-    },
-    {
-      id: 2,
-      title: "Digital Marketing Strategies That Drive Real ROI",
-      excerpt:
-        "Learn proven digital marketing techniques that generate measurable results for tech companies. From SEO optimization to social media automation, discover actionable strategies to boost your online presence and customer acquisition.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Digital Marketing",
-      readTime: "7 min read",
-      publishDate: "Dec 12, 2024",
-      slug: "digital-marketing-roi-strategies",
-    },
-    {
-      id: 3,
-      title: "Brand Identity Design: Creating Memorable Tech Brands",
-      excerpt:
-        "Master the art of branding tips for technology companies. Explore design principles, color psychology, and visual storytelling techniques that help tech startups and established companies build powerful brand recognition.",
-      image:
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Branding Tips",
-      readTime: "6 min read",
-      publishDate: "Dec 10, 2024",
-      slug: "brand-identity-design-tech",
-    },
-    {
-      id: 4,
-      title: "Cloud Infrastructure Security: Best Practices for 2025",
-      excerpt:
-        "Navigate the complex landscape of cloud security with expert insights. Learn essential cybersecurity measures, compliance frameworks, and risk management strategies to protect your digital assets and customer data.",
-      image:
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Tech Trends",
-      readTime: "8 min read",
-      publishDate: "Dec 8, 2024",
-      slug: "cloud-infrastructure-security",
-    },
-    {
-      id: 5,
-      title: "Content Marketing Automation Tools for Tech Companies",
-      excerpt:
-        "Streamline your content creation and distribution with cutting-edge automation tools. Discover how AI-powered platforms and marketing automation can scale your digital marketing efforts while maintaining quality and engagement.",
-      image:
-        "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Digital Marketing",
-      readTime: "6 min read",
-      publishDate: "Dec 5, 2024",
-      slug: "content-marketing-automation",
-    },
-    {
-      id: 6,
-      title: "User Experience Design Principles for Tech Products",
-      excerpt:
-        "Create intuitive and engaging user experiences that drive conversion and retention. Learn fundamental UX design principles, user research methodologies, and interface design best practices for technology products.",
-      image:
-        "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "Branding Tips",
-      readTime: "9 min read",
-      publishDate: "Dec 3, 2024",
-      slug: "ux-design-principles-tech",
-    },
-  ];
+  const allPosts = getAllPosts();
+
+  const blogPosts = allPosts
+    .sort(
+      (a, b) =>
+        new Date(b.updatedDate || b.publishDate) -
+        new Date(a.updatedDate || a.publishDate)
+    )
+    .slice(0, 6);
 
   return (
     <section
@@ -106,28 +51,32 @@ const BlogInsights = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {blogPosts.map((post) => (
             <article
-              key={post.id}
+              key={post.slug}
               className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out transform hover:-translate-y-2 overflow-hidden"
               itemScope
               itemType="https://schema.org/BlogPosting"
             >
               {/* Blog Thumbnail */}
               <div className="relative overflow-hidden aspect-video">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
-                  itemProp="image"
-                  loading="lazy"
-                />
+                {post.coverImage && (
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                    itemProp="image"
+                    loading="lazy"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 shadow-sm">
-                    {post.category}
-                  </span>
-                </div>
+                {post.category && (
+                  <div className="absolute top-4 left-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 shadow-sm">
+                      {post.category}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Content */}
@@ -152,24 +101,32 @@ const BlogInsights = () => {
                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                       />
                     </svg>
-                    {post.publishDate}
+                    {formatDate(post.publishDate)}
+                    {post.updatedDate &&
+                      post.updatedDate !== post.publishDate && (
+                        <span className="ml-1">
+                          · Updated {formatDate(post.updatedDate)}
+                        </span>
+                      )}
                   </time>
-                  <span className="flex items-center">
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {post.readTime}
-                  </span>
+                  {post.readingTime && (
+                    <span className="flex items-center">
+                      <svg
+                        className="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      {post.readingTime}
+                    </span>
+                  )}
                 </div>
 
                 {/* Title */}
@@ -181,12 +138,14 @@ const BlogInsights = () => {
                 </h3>
 
                 {/* Excerpt */}
-                <p
-                  className="text-gray-600 mb-6 leading-relaxed line-clamp-3"
-                  itemProp="description"
-                >
-                  {post.excerpt}
-                </p>
+                {post.excerpt && (
+                  <p
+                    className="text-gray-600 mb-6 leading-relaxed line-clamp-3"
+                    itemProp="description"
+                  >
+                    {post.excerpt}
+                  </p>
+                )}
 
                 {/* Read More Link */}
                 <a
@@ -197,7 +156,7 @@ const BlogInsights = () => {
                 >
                   <span>Read More</span>
                   <svg
-                    className="ml-2 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300"
+                    className="ml-2 w-5 h-5 transform group-hover/link:translate-x-1 transition-transform duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -222,6 +181,9 @@ const BlogInsights = () => {
               >
                 <span itemProp="name">Joetech</span>
               </div>
+              {post.updatedDate && post.updatedDate !== post.publishDate && (
+                <meta itemProp="dateModified" content={post.updatedDate} />
+              )}
             </article>
           ))}
         </div>
