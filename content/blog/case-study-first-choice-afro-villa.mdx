@@ -1,0 +1,186 @@
+---
+title: "Case Study: How We Built First Choice Afro Villa's Booking Website in 3 Weeks"
+slug: case-study-first-choice-afro-villa
+excerpt: "A behind-the-scenes look at how we designed, developed, and launched a custom booking website for First Choice Afro Villa — including the WhatsApp API integration that transformed their customer communication."
+publishDate: "2026-07-27"
+updatedDate: "2026-07-27"
+author: "Igono Joel"
+category: "Web Development"
+tags:
+  - Case Study
+  - Web Development Case Study
+  - Lagos Web Developer
+  - First Choice Afro Villa
+  - Booking Website
+  - WhatsApp API Integration
+  - Hospitality Website Nigeria
+  - Joetech Portfolio
+readingTime: "7 min read"
+coverImage: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80"
+metaTitle: "Case Study: First Choice Afro Villa Booking Website — Built in 3 Weeks | Joetech"
+metaDescription: "See how Joetech built a custom booking website with WhatsApp API integration for First Choice Afro Villa, Lagos. From discovery to launch in 3 weeks — including challenges, solutions, and results."
+canonicalUrl: "https://joetech.name.ng/blog/case-study-first-choice-afro-villa"
+keywords: "First Choice Afro Villa website, booking website case study, Lagos web development portfolio, hospitality website Nigeria, WhatsApp API integration case study, Joetech case study"
+featured: true
+---
+
+This is the story of how we built First Choice Afro Villa's booking website from scratch — in three weeks, with a custom WhatsApp API integration that transformed their customer communication.
+
+We are sharing this not to show off, but to give you an honest, behind-the-scenes look at how a real web development project works: the challenges, the decisions, the trade-offs, and the results.
+
+## The Client
+
+First Choice Afro Villa is a hospitality brand based in Lagos. They offer short-let villa accommodations for individuals, families, and small groups. Their target customers include:
+
+- Business travellers needing comfortable short-term stays
+- Families looking for weekend getaways
+- Groups attending events in Lagos
+- Customers who prefer villa accommodation over hotels for privacy and space
+
+Before coming to us, they managed everything manually: booking inquiries came via phone calls and WhatsApp messages, availability was tracked in a spreadsheet, and confirmations were sent one by one. As their business grew, this manual system became a bottleneck.
+
+## The Problem
+
+First Choice Afro Villa had three specific problems:
+
+### 1. Booking Management Was Overwhelming
+
+Every inquiry meant a phone call or WhatsApp exchange that averaged 15-20 messages. Staff spent hours answering the same questions — "Is the villa available on these dates?", "What is the price?", "How many people can it sleep?", "Is there WiFi?" — and manually checking availability against a spreadsheet.
+
+### 2. Response Times Were Slow
+
+Because all inquiries hit a single phone, response time during busy periods stretched to 4 hours or more. Potential guests got frustrated and booked elsewhere.
+
+### 3. There Was No Online Presence
+
+They had no website. When potential guests searched for "short let in Lagos" or "villa accommodation near Lekki," First Choice Afro Villa did not appear. All bookings came through word-of-mouth and repeat customers. Growth was capped.
+
+## Our Approach
+
+We proposed a three-week build with a clear scope: a booking website with an automated inquiry system powered by the WhatsApp Business API.
+
+### Week 1: Discovery and Design
+
+The first week was about understanding the business deeply before writing any code.
+
+**What we learned:**
+- Their most popular villas, peak seasons, and pricing structure
+- The most common customer questions (used these to design automated responses)
+- Their existing booking process so we could digitise it without breaking what worked
+- Their brand identity — colours, tone, imagery
+- Their technical comfort level (low — so we needed a simple, intuitive admin interface)
+
+**Design decisions:**
+- Clean, spacious layout that conveyed the luxury and comfort of the villas
+- High-quality imagery as the hero (hospitality is sold through visuals)
+- Prominent WhatsApp CTA — we knew many customers would still prefer WhatsApp for bookings
+- Mobile-first design — most guests would be searching on their phones
+
+### Week 2: Development
+
+The second week was the heaviest building period.
+
+**Frontend (React + Next.js):**
+- Villa listing page with filter by capacity, location, and price range
+- Individual villa pages with photo galleries, amenity lists, and availability calendar
+- Booking flow with date selection and instant quote
+- About page, contact page, FAQ section
+- Fully responsive, optimised for mobile
+
+**Backend:**
+- Custom booking management system
+- Availability calendar with real-time blocking (when a booking is confirmed, those dates become unavailable)
+- Admin dashboard to manage bookings, update villa details, and view inquiries
+- Database for storing booking requests, customer information, and villa data
+
+### Week 3: WhatsApp API Integration and Launch
+
+This was the most technically challenging and most impactful part of the project.
+
+**WhatsApp Business API Integration:**
+
+We integrated the official WhatsApp Cloud API through Meta's platform. Here is what we built:
+
+- **Automated booking acknowledgment** — When a customer submits a booking request on the website, they receive an instant WhatsApp message confirming receipt: "Thank you for your booking request at First Choice Afro Villa. We have received your inquiry and will respond within 2 hours during business hours."
+- **Staff notification** — When a booking request comes in, the admin team receives a WhatsApp message with the customer's details and requested dates. No need to constantly check the dashboard.
+- **Availability checks** — Staff can respond to the WhatsApp notification with "Confirm" or "Suggest Alternative" and the system updates the booking status.
+- **Customer confirmation** — When staff confirms availability, the customer receives a formatted confirmation message with check-in instructions, directions, and a map link.
+- **FAQ automation** — Common questions about check-in time, amenities, and cancellation policy are answered automatically via WhatsApp chatbot.
+
+**The technical challenge:**
+
+The WhatsApp API requires Meta-approved message templates for proactive messages (messages you send first, not replies). Getting templates approved took coordination:
+
+1. We wrote template content that complied with Meta's policies (no promotional language in utility templates)
+2. Submitted templates through Meta's Business Platform
+3. Iterated on templates that were initially rejected
+4. Received approval within 4 days
+
+This was the biggest risk in the timeline. If Meta had delayed template approval, the launch would have slipped. We mitigated this by submitting templates early and writing fallback templates in case of rejection.
+
+### Testing and Launch
+
+The final days were dedicated to testing:
+
+- **Booking flow testing** — 20 test bookings through the website to ensure the flow worked end-to-end
+- **WhatsApp flow testing** — Every automated message tested with multiple scenarios (booking received, confirmed, alternative suggested, rejected)
+- **Mobile testing** — Tested on 8 different phone models common in Nigeria
+- **Staff training** — A 2-hour session with the First Choice Afro Villa team showing them how to use the admin dashboard and respond to WhatsApp notifications
+- **Load testing** — Simulated traffic to ensure the site stayed fast under load
+
+We launched on schedule at the end of week three.
+
+## The Results
+
+Three months after launch, here are the measurable outcomes:
+
+### Before vs After
+
+| Metric | Before | After |
+|---|---|---|
+| **Booking response time** | 4+ hours | Under 5 minutes (automated acknowledgment) |
+| **Website visits per month** | 0 | 1,200+ |
+| **Bookings per month** | 8-10 (all via phone/WhatsApp) | 25+ (15 via website + 10 via WhatsApp) |
+| **Customer inquiries handled** | 30-40/month (one person) | 80+/month (distributed across 3 staff) |
+| **Google search presence** | None | Ranking for "short let Lekki" and "villa Lagos" |
+| **Revenue impact** | Baseline | Estimated 150% increase in booking revenue |
+
+### Qualitative Feedback
+
+The owners reported that the biggest change was not the website itself — it was the WhatsApp integration. The automated acknowledgements meant customers felt heard immediately, even during busy periods. Staff could handle more inquiries in less time because the system did the repetitive work (sending directions, confirming receipt, answering FAQs).
+
+One quote from the client stuck with us: "Before, if I was in a meeting, customers would wait hours for a reply. Now they get an answer in seconds, even if I am asleep. That alone has saved us from losing bookings."
+
+## What We Learned
+
+### What Went Well
+
+- **The WhatsApp API integration was the highest-impact feature** — Far more than the website design or the booking flow, this changed how the business operated. If you run a service business where WhatsApp is your primary customer channel, API integration is worth the investment.
+- **Mobile-first design was essential** — Over 80% of their traffic comes from mobile devices. A desktop-first design would have been a disaster.
+- **Staff training was worth the time** — The admin dashboard is intuitive, but the training session prevented confusion and ensured the team adopted the new system immediately.
+
+### What We Would Do Differently
+
+- **More time for template testing** — WhatsApp template approval took longer than expected. In future projects, we will start the template submission process during week 1 rather than week 3.
+- **Earlier content creation** — We built the website before all the content (photos, villa descriptions, amenity lists) was finalised. Starting content work in parallel with design would have been smoother.
+- **More user testing** — We tested with 5 users. Testing with 15-20 would have caught more edge cases in the booking flow.
+
+## Why We Are Sharing This
+
+Case studies build trust. They show you how we think, how we work, and what we deliver. If you are considering working with us, this is a realistic example of what a project looks like.
+
+Not every project is this smooth. Not every project delivers this level of ROI. But this one did, and we are proud of it.
+
+## Want a Similar Website for Your Business?
+
+If you run a hospitality business, a service business, or any business that relies on customer communication via WhatsApp, we can build you a similar system.
+
+We offer:
+- Custom website development with booking systems
+- WhatsApp Business API integration
+- Admin dashboards for managing customers and orders
+- SEO optimisation for local search
+
+[Contact us](/contact) to discuss your project. We would love to hear about your business and explore how we can help.
+
+**See more of our work:** [Project Portfolio](/projects)
