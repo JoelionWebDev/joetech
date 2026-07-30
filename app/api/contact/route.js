@@ -5,7 +5,7 @@ const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KE
 
 export async function POST(request) {
   try {
-    const { name, email, phone, message } = await request.json();
+    const { name, email, phone, message, service } = await request.json();
 
     if (!name || typeof name !== "string" || name.trim().length < 2) {
       return new Response(
@@ -32,6 +32,7 @@ export async function POST(request) {
       name: name.trim(),
       email: email.trim().toLowerCase(),
       phone: phone ? phone.trim() : "Not provided",
+      service: service ? service.trim() : "Not specified",
       message: message.trim(),
     };
 
@@ -49,6 +50,7 @@ export async function POST(request) {
             <tr><td style="padding:8px;background:#f3f4f6;font-weight:600">Name</td><td style="padding:8px">${sanitized.name}</td></tr>
             <tr><td style="padding:8px;background:#f3f4f6;font-weight:600">Email</td><td style="padding:8px">${sanitized.email}</td></tr>
             <tr><td style="padding:8px;background:#f3f4f6;font-weight:600">Phone</td><td style="padding:8px">${sanitized.phone}</td></tr>
+            <tr><td style="padding:8px;background:#f3f4f6;font-weight:600">Service</td><td style="padding:8px">${sanitized.service}</td></tr>
             <tr><td style="padding:8px;background:#f3f4f6;font-weight:600">Message</td><td style="padding:8px">${sanitized.message}</td></tr>
           </table>
           <p style="margin-top:16px;color:#6b7280;font-size:13px">Sent via joetech.name.ng contact form</p>

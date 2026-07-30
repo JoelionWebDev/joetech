@@ -180,7 +180,21 @@ function ContactForm() {
     }
     setStatus("loading");
     try {
-      window.location.href = `mailto:joetechorg@gmail.com?subject=Contact from ${encodeURIComponent(data.fullName)}&body=${encodeURIComponent(`Name: ${data.fullName}\nEmail: ${data.email}\nPhone: ${data.phone}\nService: ${data.service}\n\nMessage:\n${data.message}`)}`;
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.fullName,
+          email: data.email,
+          phone: data.phone,
+          message: data.message,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) throw new Error(result.error || "Failed to send");
+
       setStatus("success");
       setData({ fullName: "", email: "", phone: "", service: "", message: "" });
       setTimeout(() => setStatus("idle"), 5000);
@@ -215,6 +229,7 @@ function ContactForm() {
           <select id="service" name="service" value={data.service} onChange={handleChange} className={inputClass}>
             <option value="" className="bg-[#0b1229]">Select a service</option>
             <option value="web-development" className="bg-[#0b1229]">Web Development</option>
+            <option value="mobile-app" className="bg-[#0b1229]">Mobile App Development</option>
             <option value="software-solutions" className="bg-[#0b1229]">Software Solutions</option>
             <option value="tech-consultation" className="bg-[#0b1229]">Tech Consultation</option>
             <option value="digital-services" className="bg-[#0b1229]">Digital Services</option>
