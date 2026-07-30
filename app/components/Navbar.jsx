@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { name: "Home", href: "/" },
@@ -55,7 +56,7 @@ export default function Navbar() {
             className="relative z-10 flex items-center gap-2 shrink-0"
             aria-label="Joetech homepage"
           >
-            <img src="/logo.png" alt="Joetech logo — home" width="42" height="42" className="lg:w-[46px]" />
+            <Image src="/logo.png" alt="Joetech logo — home" width="42" height="42" className="lg:w-[46px]" priority />
             <span className="text-white font-bold text-lg lg:text-xl tracking-tight">
               Joetech
             </span>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,6 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   // Handle form input changes
   const handleInputChange = (e) => {
@@ -28,16 +27,19 @@ const ContactSection = () => {
     setSubmitStatus(null);
 
     try {
-      // Simulate API call - replace with actual endpoint
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // Reset form on success
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setFormData({ name: "", email: "", phone: "", message: "" });
       setSubmitStatus("success");
     } catch (error) {
       setSubmitStatus("error");
@@ -45,25 +47,6 @@ const ContactSection = () => {
       setIsSubmitting(false);
     }
   };
-
-  // Intersection Observer for fade-in animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const section = document.getElementById("contact-section");
-    if (section) {
-      observer.observe(section);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const socialLinks = [
     {
@@ -141,9 +124,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact-section"
-      className={`py-16 md:py-24 bg-white transition-all duration-1000 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className="py-16 md:py-24 bg-white"
       aria-labelledby="contact-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

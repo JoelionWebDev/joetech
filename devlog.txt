@@ -1,0 +1,26 @@
+
+> joetch@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Port 3000 is in use by process 5256, using available port 3001 instead.
+   ▲ Next.js 15.4.10 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.1.90:3001
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 4.6s
+ ○ Compiling / ...
+ ✓ Compiled / in 14.9s
+[TypeError: Invalid URL] {
+  code: 'ERR_INVALID_URL',
+  input: 'joelion2.jpg'
+}
+ ⨯ [Error: Failed to parse src "joelion2.jpg" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)] {
+  digest: '1002282444'
+}
+ ✓ Compiled in 711ms
+   Reload env: .env.local
+   Reload env: .env.local
+   Reload env: .env.local
+   Reload env: .env.local

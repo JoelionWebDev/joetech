@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Script from "next/script";
-import ChatWidget from "../components/chat/ChatWidget";
+import DynamicChatWidget from "../components/chat/DynamicChatWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,8 +95,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <script
+        <Script
+          id="schema-org"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         {/* Google Analytics */}
@@ -119,7 +121,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <Footer />
-        <ChatWidget />
+        <DynamicChatWidget />
       </body>
     </html>
   );

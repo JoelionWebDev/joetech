@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { Syne } from "next/font/google";
+
+const syne = Syne({ subsets: ["latin"], weight: ["400", "700", "800"] });
 
 const skills = [
   {
@@ -91,8 +94,7 @@ export default function TechAISection() {
         {/* ── H2 HEADLINE ── */}
         <h2
           id="tech-ai-heading"
-          className="text-center text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6"
-          style={{ fontFamily: "'Syne', sans-serif" }}
+          className={`text-center text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6 ${syne.className}`}
         >
           You Too Can Become a{" "}
           <span className="bg-gradient-to-r from-violet-600 via-pink-500 to-indigo-500 bg-clip-text text-transparent">
@@ -201,10 +203,7 @@ export default function TechAISection() {
                 <div
                   className={`w-16 h-16 rounded-2xl bg-white border-2 border-slate-200 shadow-sm flex items-center justify-center mb-5 z-10 ${step.color}`}
                 >
-                  <span
-                    className="text-2xl font-extrabold"
-                    style={{ fontFamily: "'Syne', sans-serif" }}
-                  >
+                    <span className={`text-2xl font-extrabold ${syne.className}`}>
                     {step.number}
                   </span>
                 </div>

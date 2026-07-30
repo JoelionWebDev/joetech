@@ -1,19 +1,4 @@
-"use client";
-import { useState, useEffect } from "react";
-
 export default function JoetechHero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setMounted(true), 50);
-    return () => clearTimeout(t);
-  }, []);
-
-  const fadeUp = (delay = 0) =>
-    `transition-all duration-700 ease-out ${delay} ${
-      mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-    }`;
-
   return (
     <section
       aria-label="Joetech hero"
@@ -41,31 +26,35 @@ export default function JoetechHero() {
       <div className="relative z-10 w-full max-w-[720px] mx-auto px-6 py-24 text-center">
         {/* Eyebrow */}
         <div
-          className={`inline-flex items-center mb-8 ${fadeUp("delay-[0ms]")}`}
+          className="inline-flex items-center mb-8 animate-fade-up"
+          style={{ animationDelay: "0ms" }}
         >
           <span className="inline-block px-4 py-1.5 text-xs font-medium text-slate-400 border border-white/[0.08] rounded-full tracking-wide uppercase">
             Now accepting new projects
           </span>
         </div>
 
-        {/* Headline — single visual anchor */}
+        {/* Headline */}
         <h1
-          className={`font-sans text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold text-white leading-[1.05] tracking-tight mb-6 ${fadeUp("delay-[100ms]")}`}
+          className="font-sans text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold text-white leading-[1.05] tracking-tight mb-6 animate-fade-up"
+          style={{ animationDelay: "100ms" }}
         >
           Your Brand, Built for the{" "}
           <span className="text-blue-400">Digital</span> World
         </h1>
 
-        {/* Supporting line — one sentence, muted */}
+        {/* Supporting line */}
         <p
-          className={`font-sans text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg mx-auto mb-10 ${fadeUp("delay-[200ms]")}`}
+          className="font-sans text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg mx-auto mb-10 animate-fade-up"
+          style={{ animationDelay: "200ms" }}
         >
           Full-service agency building, designing, and promoting brands that perform in the digital age.
         </p>
 
-        {/* CTAs — one primary, one text link */}
+        {/* CTAs */}
         <div
-          className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 ${fadeUp("delay-[300ms]")}`}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-fade-up"
+          style={{ animationDelay: "300ms" }}
         >
           <a
             href="/contact"

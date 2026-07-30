@@ -1,90 +1,56 @@
-"use client";
-
-import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import StaggerGrid from "../../components/StaggerGrid";
+
+const projects = [
+  {
+    id: 1,
+    title: "De Phantom Continental Hotel Group",
+    description:
+      "Multi-property website for De Phantom Continental Hotel Group, covering two Lagos locations. Built as a clean, fast-loading informational and booking-inquiry site for each hotel branch.",
+    image: "/images/dephantom.png",
+    tags: ["Web Development", "Hospitality"],
+    category: "Hospitality",
+    url: "https://www.dephantomhotelgroup.com",
+  },
+  {
+    id: 2,
+    title: "First Choice Afro Villa",
+    description:
+      "Real estate and land investment website featuring active property listings, an FAQ system, WhatsApp-integrated inquiries, and a full contact form covering all 36 Nigerian states.",
+    image: "/images/firstchoiceafrovilla.png",
+    tags: ["Web Development", "Real Estate"],
+    category: "Real Estate",
+    url: "https://www.firstchoiceafrovilla.com",
+  },
+  {
+    id: 3,
+    title: "Enamis Systems",
+    description:
+      "Company website for a Lagos-based electrical and smart technology solutions provider. Showcases six core services with a detailed quote-request form segmented by service and property type.",
+    image: "/images/enamissystems.png",
+    tags: ["Web Development", "Electrical & Smart Tech"],
+    category: "Electrical & Smart Tech",
+    url: "https://www.enamissystems.name.ng",
+  },
+];
+
+const tagColors = {
+  "Web Development": "bg-blue-100 text-blue-800",
+  "Real Estate": "bg-emerald-100 text-emerald-800",
+  Hospitality: "bg-amber-100 text-amber-800",
+  "Electrical & Smart Tech": "bg-cyan-100 text-cyan-800",
+  Construction: "bg-orange-100 text-orange-800",
+  "E-commerce": "bg-purple-100 text-purple-800",
+  "Music & Media": "bg-pink-100 text-pink-800",
+  Blog: "bg-indigo-100 text-indigo-800",
+  "Travel & Hospitality": "bg-teal-100 text-teal-800",
+  Technology: "bg-slate-100 text-slate-800",
+};
 
 const ProjectsPortfolio = () => {
-  const [visibleCards, setVisibleCards] = useState(new Set());
-  const sectionRef = useRef(null);
-  const cardRefs = useRef([]);
-
-  const projects = [
-    {
-      id: 1,
-      title: "De Phantom Continental Hotel Group",
-      description:
-        "Multi-property website for De Phantom Continental Hotel Group, covering two Lagos locations. Built as a clean, fast-loading informational and booking-inquiry site for each hotel branch.",
-      image: "/images/dephantom.png",
-      tags: ["Web Development", "Hospitality"],
-      category: "Hospitality",
-      url: "https://www.dephantomhotelgroup.com",
-    },
-    {
-      id: 2,
-      title: "First Choice Afro Villa",
-      description:
-        "Real estate and land investment website featuring active property listings, an FAQ system, WhatsApp-integrated inquiries, and a full contact form covering all 36 Nigerian states.",
-      image: "/images/firstchoiceafrovilla.png",
-      tags: ["Web Development", "Real Estate"],
-      category: "Real Estate",
-      url: "https://www.firstchoiceafrovilla.com",
-    },
-    {
-      id: 3,
-      title: "Enamis Systems",
-      description:
-        "Company website for a Lagos-based electrical and smart technology solutions provider. Showcases six core services with a detailed quote-request form segmented by service and property type.",
-      image: "/images/enamissystems.png",
-      tags: ["Web Development", "Electrical & Smart Tech"],
-      category: "Electrical & Smart Tech",
-      url: "https://www.enamissystems.name.ng",
-    },
-  ];
-
-  const tagColors = {
-    "Web Development": "bg-blue-100 text-blue-800",
-    "Real Estate": "bg-emerald-100 text-emerald-800",
-    Hospitality: "bg-amber-100 text-amber-800",
-    "Electrical & Smart Tech": "bg-cyan-100 text-cyan-800",
-    Construction: "bg-orange-100 text-orange-800",
-    "E-commerce": "bg-purple-100 text-purple-800",
-    "Music & Media": "bg-pink-100 text-pink-800",
-    Blog: "bg-indigo-100 text-indigo-800",
-    "Travel & Hospitality": "bg-teal-100 text-teal-800",
-    Technology: "bg-slate-100 text-slate-800",
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const cardIndex = parseInt(entry.target.dataset.index);
-            setVisibleCards((prev) => new Set([...prev, cardIndex]));
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "50px",
-      }
-    );
-
-    cardRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      cardRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
       aria-labelledby="projects-heading"
     >
@@ -97,28 +63,17 @@ const ProjectsPortfolio = () => {
             Our Projects
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Showcasing Joetech&apos;s work in web development, branding design, video
+            Showcasing Joetech's work in web development, branding design, video
             editing, and digital marketing campaigns that drive results for our
             clients.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {projects.map((project, index) => (
+        <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" staggerDelay={100}>
+          {projects.map((project) => (
             <article
               key={project.id}
-              ref={(el) => (cardRefs.current[index] = el)}
-              data-index={index}
-              className={`group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1 ${
-                visibleCards.has(index)
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-              style={{
-                transitionDelay: visibleCards.has(index)
-                  ? `${index * 100}ms`
-                  : "0ms",
-              }}
+              className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
             >
               <div className="relative overflow-hidden aspect-[16/10]">
                 <Image
@@ -168,7 +123,7 @@ const ProjectsPortfolio = () => {
               </div>
             </article>
           ))}
-        </div>
+        </StaggerGrid>
 
         <div className="text-center mt-12">
           <Link
