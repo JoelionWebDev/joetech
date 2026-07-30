@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllPosts, SITE_URL } from "../../lib/blog";
 
+export const revalidate = 3600;
+
 export const metadata = {
   title:
     "Blog — Tech Insights, AI Guides & Digital Marketing Tips | Joetech",

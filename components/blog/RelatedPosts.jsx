@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getRelatedPosts } from "../../lib/blog";
 
 export default function RelatedPosts({ currentSlug }) {
@@ -16,12 +17,16 @@ export default function RelatedPosts({ currentSlug }) {
             className="group bg-white rounded-xl p-4 border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all"
           >
             {post.coverImage && (
-              <img
-                src={post.coverImage}
-                alt={`${post.title} - related article from Joetech blog`}
-                className="w-full aspect-video object-cover rounded-lg mb-3"
-                loading="lazy"
-              />
+              <div className="relative w-full aspect-video mb-3 overflow-hidden rounded-lg">
+                <Image
+                  src={post.coverImage}
+                  alt={`${post.title} - related article from Joetech blog`}
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
             )}
             <span className="text-xs bg-blue-100 text-blue-800 font-semibold px-2 py-0.5 rounded-full">
               {post.category}
