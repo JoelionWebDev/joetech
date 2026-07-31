@@ -8,7 +8,7 @@ const services = [
     title: "Web & App Development",
     description:
       "Custom web development and mobile app solutions built with cutting-edge technologies. From responsive websites to complex web applications, we deliver scalable digital experiences that drive business growth.",
-    link: "/services/web-development",
+    link: "/services",
     ariaLabel: "Learn more about our web and app development services",
   },
   {
@@ -17,7 +17,7 @@ const services = [
     title: "Graphics & Branding",
     description:
       "Complete branding solutions including logo design, visual identity, and brand strategy. Our creative team crafts memorable brand experiences that resonate with your target audience and establish market presence.",
-    link: "/services/branding",
+    link: "/services",
     ariaLabel: "Learn more about our graphics and branding services",
   },
   {
@@ -26,7 +26,7 @@ const services = [
     title: "Video Editing & Production",
     description:
       "Professional video editing and production services for marketing campaigns, corporate content, and social media. Transform your ideas into compelling visual stories that engage and convert your audience.",
-    link: "/services/video-production",
+    link: "/services",
     ariaLabel: "Learn more about our video editing and production services",
   },
   {
@@ -35,7 +35,7 @@ const services = [
     title: "Digital Marketing",
     description:
       "Comprehensive digital marketing strategies including SEO, social media management, and paid advertising. Boost your online presence and drive targeted traffic with data-driven marketing campaigns that deliver results.",
-    link: "/services/digital-marketing",
+    link: "/services",
     ariaLabel: "Learn more about our digital marketing services",
   },
 ];

@@ -588,25 +588,25 @@ const JoetechAboutPage = () => {
               <h4 className="font-semibold mb-4">Services</h4>
               <nav className="space-y-2">
                 <a
-                  href="/services/web-development"
+                  href="/services"
                   className="block text-gray-400 hover:text-white transition-colors"
                 >
                   Web Development
                 </a>
                 <a
-                  href="/services/design"
+                  href="/services"
                   className="block text-gray-400 hover:text-white transition-colors"
                 >
                   Design
                 </a>
                 <a
-                  href="/services/marketing"
+                  href="/services"
                   className="block text-gray-400 hover:text-white transition-colors"
                 >
                   Digital Marketing
                 </a>
                 <a
-                  href="/services/consulting"
+                  href="/services"
                   className="block text-gray-400 hover:text-white transition-colors"
                 >
                   Consulting
