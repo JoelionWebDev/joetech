@@ -133,7 +133,9 @@ export default async function BlogPostPage({ params }) {
     image: frontmatter.coverImage,
     datePublished: frontmatter.publishDate,
     dateModified: frontmatter.updatedDate || frontmatter.publishDate,
-    author: { "@type": "Organization", name: "Joetech", url: SITE_URL },
+    author: frontmatter.author
+      ? { "@type": "Person", name: frontmatter.author }
+      : { "@type": "Organization", name: "Joetech", url: SITE_URL },
     publisher: {
       "@type": "Organization",
       name: "Joetech",

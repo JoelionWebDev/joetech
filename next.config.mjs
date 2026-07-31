@@ -20,6 +20,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog/building-personal-brand-tech",
+        destination: "/blog/building-personal-brand-tech-professional",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
