@@ -1,0 +1,221 @@
+---
+title: "Setting Up a Professional React Native Development Environment on Windows and Mac for Absolute Beginners"
+slug: react-native-setup-windows-mac-beginners
+excerpt: "The exact, step-by-step setup to get a professional React Native + Expo development environment running on Windows or Mac in 2026 — with no confusing choices."
+publishDate: "2026-08-03"
+updatedDate: "2026-08-03"
+author: "Igono Joel"
+category: "Mobile App Development"
+tags:
+  - React Native
+  - Expo
+  - Windows
+  - Mac
+  - Developer Tools
+  - Tech Education
+  - Nigeria
+readingTime: "14 min read"
+coverImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80"
+metaTitle: "React Native Setup on Windows & Mac for Beginners (2026)"
+metaDescription: "Set up a professional React Native + Expo environment on Windows or Mac in 2026. Exact install steps, tools, and phone testing without confusion."
+canonicalUrl: "https://joetech.name.ng/blog/react-native-setup-windows-mac-beginners"
+keywords: "react native setup windows mac beginners, install react native windows, expo setup, react native environment, node install react native, Joetech"
+featured: false
+faq:
+  - question: "Which is better for React Native: Windows or Mac?"
+    answer: "Both work great for React Native with Expo. Mac has one extra advantage: you can build and test iOS apps natively. Windows developers build for Android first and use cloud services like EAS for iOS."
+  - question: "Do I need to install Android Studio to start React Native?"
+    answer: "No. With Expo and Expo Go, you can test on a real phone without Android Studio. Android Studio is only needed later for native modules or special builds."
+  - question: "What's the first thing to install for React Native on Windows?"
+    answer: "Node.js LTS first. Everything else — Expo CLI, VS Code, Cursor — builds on top of it. Install Node, then run npx create-expo-app."
+  - question: "Can I develop React Native on a low-spec laptop in Nigeria?"
+    answer: "Yes, if you use Expo and test on your phone instead of running Android emulators, which are heavy. A modest Windows laptop with 8GB RAM is fine for learning and most apps."
+  - question: "How do I test my app on a real phone?"
+    answer: "Install the free Expo Go app, connect your phone and laptop to the same network (or use tunnel mode), and scan the QR code shown by npx expo start."
+---
+
+Every React Native tutorial assumes you already have everything installed. Nobody tells you the actual order, the version traps, or which tools to skip so you do not waste hours. This guide fixes that.
+
+This is the exact, step-by-step setup to get a professional React Native development environment running on Windows or Mac in 2026 — written for absolute beginners in Nigeria who want to see their app on a real phone fast. No "and then install these 14 things" ambiguity. You will follow a clear path, understand what each piece does, and have your first screen running on your phone by the end.
+
+## Before You Start: What You Actually Need
+
+Here is the honest list — less than you think:
+
+- **A Windows or Mac laptop.** Windows 10/11 or macOS 12+. Even 8GB RAM works if you test on your phone (more below).
+- **A phone** — ideally Android, with the free **Expo Go** app installed from the Play Store.
+- **An internet connection** for downloads and the dev server.
+- **Node.js** — the only critical prerequisite, free.
+- **A code editor** — VS Code or Cursor, both free.
+
+That is it. No Android Studio, no Xcode, no expensive hardware. This is the professional-but-simple path.
+
+## Step 1: Install Node.js (The Foundation)
+
+React Native runs on JavaScript, and Node.js is the engine that powers the whole toolchain. It is the one piece that must be correct.
+
+**On Windows:**
+1. Go to [nodejs.org](https://nodejs.org) and download the **LTS** version (not the "current" version — LTS is stable).
+2. Run the installer. Accept defaults and let it add Node to your PATH.
+3. Open a new terminal (PowerShell) and verify:
+
+```bash
+node --version
+npm --version
+```
+
+You should see a version like `v22.x.x` and `10.x.x`. If `node` is not recognized, close and reopen the terminal, or restart your PC — PATH changes need a fresh session.
+
+**On Mac:**
+1. Go to [nodejs.org](https://nodejs.org) and download the **LTS** `.pkg` installer.
+2. Run it and follow the prompts.
+3. Verify with the same `node --version` command.
+
+> **Naira/network tip:** The Node installer is about 30–40MB. If your data is limited, download it on a free Wi-Fi or late at night, and keep the installer file — it does not expire.
+
+## Step 2: Install Your Code Editor
+
+You need a place to write code. Two excellent free options:
+
+- **VS Code** — the industry standard. Free, fast, huge ecosystem.
+- **Cursor** — VS Code's AI-powered cousin. Free tier available, and it supercharges your learning. Given that AI tools are the [2026 way to learn React Native](/blog/best-ai-tools-react-native-2026), Cursor is worth trying from day one.
+
+Install either from their official sites (code.visualstudio.com or cursor.com). You can install both — they share the same habits.
+
+**Recommended VS Code extensions** (from the Extensions tab):
+- `ES7+ React/Redux/React-Native snippets` — for React Native autocomplete
+- `Prettier` — formats your code automatically
+- `ESLint` — catches mistakes as you type
+
+## Step 3: Create Your First Expo Project
+
+Now the magic command. Open your terminal and run:
+
+```bash
+npx create-expo-app@latest my-first-app
+```
+
+Then move into the folder:
+
+```bash
+cd my-first-app
+```
+
+**What just happened?** `npx` fetched the Expo starter template and created a full, modern React Native project with TypeScript and Expo Router already configured. This is the same structure professional teams use — you are not on some toy scaffold.
+
+If the download is slow, it is normal on Nigerian networks. Let it finish; you will not repeat this step for every project — later you can start from the template you already downloaded.
+
+## Step 4: Run It on Your Real Phone
+
+This is the moment that makes it real. Follow these exact steps:
+
+1. **Install Expo Go** from the Google Play Store on your Android phone.
+2. **Connect your laptop and phone to the same Wi-Fi** — ideally your laptop's hotspot or the same router. This is the #1 source of "it won't connect" problems, so get it right.
+3. In the project folder, run:
+
+```bash
+npx expo start
+```
+
+4. A QR code appears in your terminal. Open **Expo Go** on your phone, tap **Scan QR code**, and point it at the terminal.
+5. Your app loads on the phone. Edit `app/index.tsx`, save, and watch the phone update **instantly** with hot reload.
+
+**If the QR scan fails:** check that both devices are on the same network, disable any firewall blocking, and try Expo's tunnel mode (`npx expo start --tunnel`) which works even across different networks.
+
+## Step 5: Platform Notes for Windows vs Mac
+
+**On Windows:**
+- You are Android-first. Android phones are everywhere in Nigeria, and Expo Go covers your testing needs.
+- When you are ready for iOS, you do not need a Mac: **Expo EAS Build** compiles iOS apps in the cloud for you. You only need an Apple Developer account ($99/year). This is covered in our [publishing guide](/blog/publish-react-native-app-google-play-nigeria).
+- Optional later: install **Android Studio** only if you need the emulator or native modules. Not needed to start.
+
+**On Mac:**
+- You have the full picture: you can run the **iOS Simulator** (comes with Xcode) and test iOS apps without a physical iPhone.
+- Install **Xcode** from the App Store if you want iOS. It is a large download (several GB), so plan data carefully — many Nigerians update Xcode on office or café Wi-Fi.
+- Android works identically to Windows via Expo Go.
+
+## Step 6: Organize Your Project Like a Pro
+
+A professional setup is not just about tools — it is about habits. From the first day, keep a clean structure:
+
+```
+my-first-app/
+  app/          # Expo Router screens (your pages)
+  components/   # Reusable UI pieces
+  constants/    # Colors, config
+  assets/       # Images, fonts, icons
+  app.json      # App name, icon, splash config
+```
+
+And learn these two commands by heart:
+
+```bash
+npx expo start        # start the dev server
+npx expo start --tunnel  # run when same-network fails
+```
+
+## The Windows/Mac Setup Comparison
+
+| Task | Windows | Mac |
+| --- | --- | --- |
+| Install Node.js | LTS .msi | LTS .pkg |
+| Test Android | Expo Go on phone | Expo Go on phone |
+| Test iOS | Not natively (use EAS cloud) | iOS Simulator + Xcode |
+| Build iOS release | EAS Build (cloud) | Xcode or EAS |
+| Cost to start | Free | Free |
+| Best for | Android-first Nigerian market | iOS-focused or full-stack devs |
+
+## Common Setup Pitfalls (and Instant Fixes)
+
+- **`node` is not recognized** → PATH not updated. Reopen terminal or reboot, then re-run `node --version`.
+- **Expo QR won't load** → both devices must be on the same network. Use `--tunnel` as a fallback.
+- **Slow downloads** → use a stable hotspot, and let the first create-expo-app finish once — then reuse the template.
+- **App looks huge on phone** → normal at first; styling with Flexbox comes next. See the [beginner guide](/blog/react-native-beginners-nigeria) for the styling foundation.
+- **Emulator too heavy on your laptop** → skip it entirely and test on your real phone with Expo Go. This is the smart Nigerian-budget path.
+
+## Frequently Asked Questions
+
+**Can I use an Android emulator instead of my phone?**
+
+Yes, but it is resource-heavy and often frustrating on lower-spec laptops. Testing on your real phone with Expo Go is faster, more representative of real Nigerian users, and completely free. Prefer the phone.
+
+**Do I need to pay for anything in this setup?**
+
+No. Node.js, VS Code, Cursor, Expo, and Expo Go are all free. The only future cost is the $25 Google Play developer fee when you publish, and optionally $99/year for Apple.
+
+**How long does this whole setup take?**
+
+Most people go from zero to app-on-phone in 30–60 minutes, depending on download speeds. The create-expo-app step is the longest single piece.
+
+**Is it better to learn on Windows or Mac?**
+
+Whichever you already own. Windows is Android-first (perfect for Nigeria). Mac adds iOS ability. Both are professional and both are used in real jobs. Do not buy hardware you do not need.
+
+**What should I learn after setup?**
+
+Follow the [30-day React Native with AI roadmap](/blog/build-mobile-app-react-native-ai-30-days) — it takes you from this setup to a real portfolio app, with AI as your tutor.
+
+## The Setup Checklist
+
+- [ ] Node.js LTS installed and verified (`node --version`)
+- [ ] VS Code or Cursor installed
+- [ ] React Native snippets + Prettier extensions added
+- [ ] Expo Go installed on your phone
+- [ ] `npx create-expo-app@latest my-first-app` completed
+- [ ] Phone and laptop on the same network
+- [ ] `npx expo start` and QR scan working
+- [ ] Edited `app/index.tsx` and seen hot reload on the phone
+
+## What to Do Next
+
+1. **Complete the checklist above today** — the whole setup is under an hour.
+2. **Change the text** in `app/index.tsx` and watch it appear on your phone. You are now a mobile developer with a working pipeline.
+3. **Start the [30-day roadmap](/blog/build-mobile-app-react-native-ai-30-days)** to build your first real app, using AI to keep you moving.
+
+## Conclusion: The Setup Is the Smallest Part of the Journey
+
+Thirty minutes of setup unlocks the entire mobile development world. What comes after — the ideas, the apps, the clients, the income — is built on top of this simple foundation. You do not need a Mac, you do not need Android Studio, and you do not need to spend a naira to get started.
+
+Open your terminal, run `npx create-expo-app`, and put your first app on your phone today. Every professional React Native developer you admire once sat exactly where you are — one install away from their first screen.
+
+If you get stuck at any step, our [React Native beginner guide](/blog/react-native-beginners-nigeria) and the [Learn Tech App Development path](/learnTech) have your back, and the team at [Joetech](/services) is one message away. [Let's talk](/contact) if you want a guided hand.

@@ -73,11 +73,11 @@ export default function Home() {
         </title>
         <meta
           name="description"
-          content="Learn Web Development, App Development, UI/UX Design, and Digital Marketing using AI tools. A complete beginner-friendly guide to becoming a tech expert faster with artificial intelligence."
+          content="Learn Web Development, React Native App Development, UI/UX Design, and Digital Marketing using AI tools. A complete beginner-friendly guide to becoming a tech expert faster with artificial intelligence."
         />
         <meta
           name="keywords"
-          content="learn web development with AI, become a tech expert, AI-powered web development, app development with AI, UI/UX design with AI, digital marketing with AI, AI tools for developers"
+          content="learn web development with AI, become a tech expert, AI-powered web development, app development with AI, learn react native nigeria, react native for beginners, UI/UX design with AI, digital marketing with AI, AI tools for developers, mobile app development with AI"
         />
         <meta name="robots" content="index, follow" />
         <meta
@@ -132,6 +132,9 @@ export default function Home() {
               </a>
               <a href="#app-dev" className="hover:text-white transition-colors">
                 App Dev
+              </a>
+              <a href="#react-native" className="hover:text-white transition-colors">
+                React Native
               </a>
               <a href="#uiux" className="hover:text-white transition-colors">
                 UI/UX
@@ -473,6 +476,345 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* REACT NATIVE SECTION */}
+          <section
+            id="react-native"
+            className="border-t border-slate-800 bg-slate-900/40 py-20"
+          >
+            <div className="max-w-6xl mx-auto px-6">
+              {/* header */}
+              <div className="text-center mb-14">
+                <span className="inline-block bg-rose-950 border border-rose-800 text-rose-300 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5">
+                  App Development with AI
+                </span>
+                <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4 leading-tight">
+                  How to Learn Mobile App Development with React Native —{" "}
+                  <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-violet-400 bg-clip-text text-transparent">
+                    Complete Beginner Guide (2026)
+                  </span>
+                </h2>
+                <p className="text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                  React Native is the best first framework for beginners in
+                  Nigeria and Africa in 2026: one codebase runs on both
+                  Android and iOS, you write it in JavaScript, Expo removes
+                  the painful setup, AI accelerates your learning, and the
+                  demand for React talent across Lagos is enormous. All you
+                  need is a laptop and a phone — no Mac, no big data budget.
+                </p>
+              </div>
+
+              {/* prerequisites */}
+              <div className="grid md:grid-cols-3 gap-4 mb-12">
+                {[
+                  {
+                    icon: "💻",
+                    title: "Any Laptop",
+                    desc: "Windows, Mac, or Linux. Even 8GB RAM works because you test on your real phone instead of a heavy emulator.",
+                  },
+                  {
+                    icon: "📱",
+                    title: "An Android Phone",
+                    desc: "Install the free Expo Go app and run your app on real hardware. Most Nigerian users are Android-first anyway.",
+                  },
+                  {
+                    icon: "🤖",
+                    title: "AI as Your Tutor",
+                    desc: "ChatGPT, Cursor, and Copilot explain concepts, write boilerplate, and fix bugs 24/7 while you learn.",
+                  },
+                ].map((c) => (
+                  <article
+                    key={c.title}
+                    className="bg-slate-900 border border-slate-800 rounded-2xl p-6"
+                  >
+                    <span className="text-3xl mb-3 block">{c.icon}</span>
+                    <h3 className="font-display font-semibold text-white mb-2">
+                      {c.title}
+                    </h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      {c.desc}
+                    </p>
+                  </article>
+                ))}
+              </div>
+
+              {/* learning phases */}
+              <div className="bg-gradient-to-br from-rose-950/50 via-slate-900 to-violet-950/40 border border-slate-800 rounded-3xl p-8 md:p-10 mb-10">
+                <div className="flex items-center gap-3 mb-8">
+                  <span className="font-display font-extrabold text-4xl text-rose-700">
+                    5
+                  </span>
+                  <div>
+                    <h3 className="font-display font-bold text-2xl text-white">
+                      The Complete React Native Learning Path
+                    </h3>
+                    <p className="text-slate-400 text-sm">
+                      Tap each phase to expand the details. Follow in order and
+                      use AI at every step.
+                    </p>
+                  </div>
+                </div>
+
+                {[
+                  {
+                    phase: "Phase 1",
+                    time: "Week 1–2",
+                    title: "Foundations",
+                    points: [
+                      "JavaScript essentials you actually need: variables, const/let, functions, arrays, objects, and async/await.",
+                      "React basics: components, props, state, and hooks (useState, useEffect).",
+                      "How AI accelerates this phase: ask ChatGPT to explain each concept, generate mini-examples, and quiz you daily.",
+                    ],
+                  },
+                  {
+                    phase: "Phase 2",
+                    time: "Day 1–2",
+                    title: "Environment Setup",
+                    points: [
+                      "Install Node.js (LTS), Expo CLI, and VS Code or Cursor.",
+                      "Create your first project with npx create-expo-app@latest.",
+                      "Run it on a real Android phone with Expo Go — no Android Studio needed at the start.",
+                      "Windows vs Mac: Windows is Android-first (perfect for Nigeria); Mac adds iOS testing via the simulator.",
+                    ],
+                  },
+                  {
+                    phase: "Phase 3",
+                    time: "Week 3–5",
+                    title: "Core React Native",
+                    points: [
+                      "Core components: View, Text, Image, ScrollView, FlatList, TextInput, Button.",
+                      "Styling with StyleSheet and basic Flexbox for layouts.",
+                      "Navigation with React Navigation or expo-router.",
+                      "Handling user input and forms.",
+                      "Local storage with AsyncStorage for offline-friendly apps.",
+                      "Fetching data from APIs with fetch and loading states.",
+                    ],
+                  },
+                  {
+                    phase: "Phase 4",
+                    time: "Week 6–10",
+                    title: "Build Real Projects",
+                    points: [
+                      "Project 1: A Todo / Notes app that saves data locally.",
+                      "Project 2: A simple weather or news app that fetches live data from an API.",
+                      "Project 3: A CRUD app with authentication using Supabase or Firebase.",
+                      "Use AI to generate boilerplate, fix bugs, and explain every error you hit.",
+                    ],
+                  },
+                  {
+                    phase: "Phase 5",
+                    time: "Month 3+",
+                    title: "Advanced & Production",
+                    points: [
+                      "State management with Context or Zustand.",
+                      "Offline-first techniques for low-bandwidth markets.",
+                      "Push notifications for retention.",
+                      "App icons, splash screens, and app.json configuration.",
+                      "Building APK/AAB and publishing to Google Play ($25 one-time fee, payable from Nigeria).",
+                      "Optional iOS: build and submit via Expo EAS Build — no Mac required.",
+                    ],
+                  },
+                ].map((ph) => (
+                  <details
+                    key={ph.title}
+                    className="group bg-slate-900/70 border border-slate-700/70 rounded-2xl mb-4 open:border-rose-700/60"
+                  >
+                    <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
+                      <span className="flex-shrink-0 inline-block bg-rose-950 border border-rose-800 text-rose-300 text-xs font-mono px-2 py-1 rounded">
+                        {ph.phase}
+                      </span>
+                      <span className="flex-shrink-0 inline-block bg-slate-800 text-slate-300 text-xs font-mono px-2 py-1 rounded">
+                        {ph.time}
+                      </span>
+                      <span className="font-display font-semibold text-white flex-1">
+                        {ph.title}
+                      </span>
+                      <span className="text-slate-500 group-open:rotate-180 transition-transform">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </summary>
+                    <ul className="px-5 pb-5 space-y-2 text-slate-400 text-sm leading-relaxed">
+                      {ph.points.map((p) => (
+                        <li key={p} className="flex items-start gap-2">
+                          <span className="text-rose-400 mt-0.5">✦</span>
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                ))}
+              </div>
+
+              {/* resources + schedule */}
+              <div className="grid md:grid-cols-2 gap-8 mb-10">
+                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
+                  <h3 className="font-display font-semibold text-white text-lg mb-4">
+                    📚 Recommended Resources
+                  </h3>
+                  <ul className="space-y-2 text-slate-400 text-sm">
+                    {[
+                      "Official docs: reactnative.dev and docs.expo.dev (free, authoritative)",
+                      "Expo's learning portal and Snack playground",
+                      "Free YouTube: Fireship, The Net Ninja, Programming with Mosh",
+                      "AI tools: ChatGPT, Cursor, GitHub Copilot — your 24/7 tutors",
+                      "Our blog series: the React Native beginner guide, 30-Day AI roadmap, and best AI tools (links below)",
+                    ].map((r) => (
+                      <li key={r} className="flex items-start gap-2">
+                        <span className="text-violet-400 mt-0.5">✦</span>
+                        <span>{r}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
+                  <h3 className="font-display font-semibold text-white text-lg mb-4">
+                    🗓️ Weekly Study Schedule (30–60 min/day)
+                  </h3>
+                  <ul className="space-y-2 text-slate-400 text-sm">
+                    {[
+                      "Mon: Learn a concept with AI (30–45 min)",
+                      "Tue: Code along on a small exercise (45–60 min)",
+                      "Wed: Review + fix yesterday's code with AI (30 min)",
+                      "Thu: Build a tiny feature into your project (45 min)",
+                      "Fri: Read/watch one resource + take notes (30 min)",
+                      "Sat: Longer project session (60+ min)",
+                      "Sun: Rest, or 15 min of light review — consistency beats marathons",
+                    ].map((d) => (
+                      <li key={d} className="flex items-start gap-2">
+                        <span className="text-emerald-400 mt-0.5">✦</span>
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* pitfalls + monetization */}
+              <div className="grid md:grid-cols-2 gap-8 mb-10">
+                <div className="bg-gradient-to-br from-amber-950/40 to-orange-950/30 border border-amber-900/40 rounded-2xl p-7">
+                  <h3 className="font-display font-semibold text-white text-lg mb-4">
+                    ⚠️ Common Pitfalls & How AI Avoids Them
+                  </h3>
+                  <ul className="space-y-2 text-slate-400 text-sm">
+                    {[
+                      "Skipping JavaScript basics → spend Week 1 on fundamentals",
+                      "Testing only on a simulator → test on a real Android phone",
+                      "Aiming too big too fast → build a tiny MVP first",
+                      "Ignoring errors → copy the full error into AI, don't panic",
+                      "No error handling → use try/catch so offline users never crash",
+                    ].map((p) => (
+                      <li key={p} className="flex items-start gap-2">
+                        <span className="text-amber-400 mt-0.5">✦</span>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="/blog/react-native-beginner-mistakes-ai"
+                    className="inline-block mt-5 text-rose-300 text-sm font-semibold hover:text-rose-200"
+                  >
+                    Read the full beginner mistakes guide →
+                  </a>
+                </div>
+
+                <div className="bg-gradient-to-br from-emerald-950/40 to-teal-950/30 border border-emerald-900/40 rounded-2xl p-7">
+                  <h3 className="font-display font-semibold text-white text-lg mb-4">
+                    💰 Portfolio & Monetization Path
+                  </h3>
+                  <ul className="space-y-2 text-slate-400 text-sm">
+                    {[
+                      "Ship 2–3 real projects (notes app, weather app, CRUD app)",
+                      "Publish one to Google Play — a live app is your strongest portfolio piece",
+                      "Monetize with ads, in-app purchases, or Naira subscriptions",
+                      "Freelance: offer React Native apps to local businesses and international clients",
+                      "Level up through our App Development with AI mentorship track",
+                    ].map((m) => (
+                      <li key={m} className="flex items-start gap-2">
+                        <span className="text-emerald-400 mt-0.5">✦</span>
+                        {m}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="/blog/monetize-react-native-app-nigeria"
+                    className="inline-block mt-5 text-rose-300 text-sm font-semibold hover:text-rose-200"
+                  >
+                    Read the full monetization guide →
+                  </a>
+                </div>
+              </div>
+
+              {/* the react native blog series */}
+              <div className="mb-10">
+                <h3 className="font-display font-semibold text-white text-lg mb-4">
+                  📖 The Complete React Native Blog Series
+                </h3>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {[
+                    ["React Native for Beginners in Nigeria", "react-native-beginners-nigeria"],
+                    ["Build Your First App with AI in 30 Days", "build-mobile-app-react-native-ai-30-days"],
+                    ["Best Free AI Tools for React Native 2026", "best-ai-tools-react-native-2026"],
+                    ["React Native vs Flutter in 2026", "react-native-vs-flutter-2026-nigeria"],
+                    ["Launch a Mobile App on a Budget in Nigeria", "launch-mobile-app-budget-react-native-nigeria"],
+                    ["Publishing on Google Play & App Store from Nigeria", "publish-react-native-app-google-play-nigeria"],
+                    ["Common React Native Beginner Mistakes & AI Fixes", "react-native-beginner-mistakes-ai"],
+                    ["How to Monetize React Native Apps in Nigeria", "monetize-react-native-app-nigeria"],
+                    ["Setting Up RN on Windows & Mac", "react-native-setup-windows-mac-beginners"],
+                    ["Offline-First Apps for African Markets", "offline-first-mobile-apps-nigeria"],
+                  ].map(([label, slug]) => (
+                    <a
+                      key={slug}
+                      href={`/blog/${slug}`}
+                      className="group bg-slate-900 border border-slate-800 hover:border-rose-700/60 rounded-xl p-4 flex items-center justify-between gap-3 transition-colors"
+                    >
+                      <span className="text-slate-300 text-sm group-hover:text-white">
+                        {label}
+                      </span>
+                      <svg className="w-4 h-4 text-slate-500 group-hover:text-rose-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="bg-gradient-to-r from-rose-950/50 to-violet-950/40 border border-rose-900/40 rounded-2xl p-8 md:p-10 text-center">
+                <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
+                  Start Your React Native Journey This Week
+                </h3>
+                <p className="text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+                  Follow the 5 phases above with consistency and AI as your
+                  co-pilot — you can go from zero to a published app in 3–4
+                  months. Want a guided hand with real mentorship and project
+                  work?
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="/blog/react-native-beginners-nigeria"
+                    className="bg-rose-600 hover:bg-rose-500 text-white font-semibold px-8 py-4 rounded-xl transition-all hover:scale-105 shadow-lg shadow-rose-900/40"
+                  >
+                    Start with the Beginner Guide
+                  </a>
+                  <a
+                    href="/blog/build-mobile-app-react-native-ai-30-days"
+                    className="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-8 py-4 rounded-xl transition-all hover:scale-105 border border-slate-700"
+                  >
+                    Follow the 30-Day AI Roadmap
+                  </a>
+                  <a
+                    href="/contact"
+                    className="bg-white hover:bg-slate-100 text-slate-900 font-semibold px-8 py-4 rounded-xl transition-all hover:scale-105"
+                  >
+                    Get Mentorship
+                  </a>
                 </div>
               </div>
             </div>

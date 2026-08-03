@@ -1,0 +1,251 @@
+---
+title: "From Zero to App Store: Publishing Your React Native App on Google Play and Apple App Store from Nigeria"
+slug: publish-react-native-app-google-play-nigeria
+excerpt: "Got a React Native app and ready to publish? Here's the complete, Nigeria-focused guide to getting your app live on Google Play and the Apple App Store in 2026 — fees, accounts, setup, and the exact steps."
+publishDate: "2026-08-03"
+updatedDate: "2026-08-03"
+author: "Igono Joel"
+category: "Mobile App Development"
+tags:
+  - React Native
+  - App Store
+  - Google Play
+  - Mobile App Development
+  - Nigeria
+  - App Launch
+  - Expo
+readingTime: "16 min read"
+coverImage: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&q=80"
+metaTitle: "Publish React Native App to Google Play from Nigeria (2026 Guide)"
+metaDescription: "Step-by-step guide to publishing your React Native app on Google Play and Apple App Store from Nigeria. Fees, developer accounts, EAS Build, and review tips."
+canonicalUrl: "https://joetech.name.ng/blog/publish-react-native-app-google-play-nigeria"
+keywords: "publish react native app google play nigeria, react native app store, expo eas build, publish app play store, apple developer nigeria, google play console nigeria, Joetech"
+featured: false
+faq:
+  - question: "How much does it cost to publish an app on the Google Play Store from Nigeria?"
+    answer: "A one-time $25 fee for a personal Google Play developer account, payable with a Naira debit card that supports international payments. Apple charges $99 per year."
+  - question: "Do I need to pay for the Apple developer account from Nigeria?"
+    answer: "Yes, Apple's developer program costs $99 per year. It's paid online with an international card, and you can publish from Nigeria once your account is active."
+  - question: "Do I need a Mac to publish a React Native app on iOS?"
+    answer: "Not for the build itself. With Expo EAS Build you can compile an iOS build in the cloud without a Mac. You still need an Apple Developer account ($99/year) to upload to the App Store."
+  - question: "Why was my app rejected from the Google Play Store?"
+    answer: "Most rejections come from missing privacy policy, broken ads or payment code, poor app quality, or incomplete store listing details. Test on a real device and fill in every field before submitting."
+  - question: "How long does the Google Play review take from Nigeria?"
+    answer: "Usually 1 to 7 days. New developer accounts often take longer than experienced ones. Plan your marketing launch after the review, not before."
+---
+
+You have finished building your React Native app. The code works, the buttons respond, the icons look sharp. Now comes the part that stops more Nigerian developers than any bug ever did: actually getting it live on the stores. The good news? It is entirely doable from Nigeria, with a debit card and a few hours of careful setup.
+
+This is the complete, Nigeria-focused guide to publishing your React Native app on Google Play and the Apple App Store in 2026. We cover the exact fees in naira, how to create developer accounts without an international credit card, how to build your app in the cloud with Expo EAS Build, and how to submit clean listings that sail through review. By the end, you will know precisely what to click, what to pay, and what to avoid.
+
+## The Two Stores and What They Cost
+
+Before anything else, know your targets. There are two main stores, and they have very different rules.
+
+| Item | Google Play | Apple App Store |
+| --- | --- | --- |
+| Developer fee | $25 (one-time) | $99 (per year) |
+| Renewal | Never | Every year |
+| Payment method | Debit/credit card, some banks support Naira cards | International credit/debit card |
+| Review time | 1–7 days typically | 1–2 days typically, strict on policies |
+| Where Nigerians make money | Most downloads | Growing, but smaller user base |
+
+For most Nigerian developers, **Google Play comes first**. Android dominates the market, the fee is a one-time $25, and the review process is more forgiving for beginners. You can tackle Apple later when you have a reason — revenue, a client request, or a global audience.
+
+## Step 1: Set Up Your Google Play Developer Account
+
+This is the foundation. Everything else follows.
+
+1. **Go to the Play Console** at `play.google.com/console` and sign in with your Gmail address.
+2. **Click "Create app"** and choose a name, language, and whether the app is an app or a game.
+3. **Pay the one-time $25 fee.** This is where Nigerians sometimes get stuck. The payment screen accepts credit and debit cards. In practice, Naira debit cards from most Nigerian banks that support international transactions (usually Visa or Mastercard) work here. If your card fails, enable international usage in your bank's app, or try a different card.
+4. **Verify your identity.** Google now requires a developer verification step that can include your name, address, and government ID. Allow a few days for this to complete — it does not slow you down during development, only at publishing time.
+
+One important note for 2026: Google has tightened requirements for new developers. Your account must be verified and your app will face a "testing period" requirement — you must run a closed test with a small group of real testers for a set number of days before you can submit for production. We cover this in Step 6.
+
+## Step 2: Set Up Your Apple Developer Account (When You're Ready)
+
+Apple's process is stricter but manageable:
+
+1. **Create an Apple ID** at `appleid.apple.com` if you don't have one.
+2. **Enroll in the Apple Developer Program** at `developer.apple.com/programs/enroll`.
+3. **Pay the $99/year fee.** Apple accepts credit cards and some debit cards. Naira cards work if they are enabled for international payments.
+4. **Complete identity verification.** Apple may ask you to verify your identity and phone number. This is normal and takes a few days.
+
+Note: Apple requires you to accept a paid application agreement before you can upload builds. You can start this now and finish it later — no rush.
+
+## Step 3: Prepare Your App Before Building
+
+Before you build a release version, spend 20 minutes on these prep items. They prevent the most common rejections:
+
+- **A privacy policy page.** Both stores require a live URL for apps that collect any data. Create a simple page on your own site (see [Joetech's privacy policy](/privacy-policy) as a model) and link to it.
+- **App icons.** React Native apps need a `1024×1024` icon without transparency. You can generate one easily with AI tools.
+- **Splash screen.** Expo templates include one by default. Customize it so it matches your brand.
+- **Screenshots.** Each store wants 2–8 phone screenshots (Google: 2–8, Apple: 6.5-inch iPhone required). Capture them from a real device or simulator at the correct resolution.
+- **Short and full descriptions.** Write these now, on paper. Store listing writing is a skill — see our [app store optimization guide](/blog/app-store-optimisation-aso-guide) for what actually ranks.
+- **Content rating questionnaire.** Google asks you a series of questions about your app's content. Answer honestly.
+
+## Step 4: Build Your Release Version with Expo EAS Build
+
+Here is the part that surprises a lot of beginners: you do not need to run a giant build process on your own laptop. **Expo EAS Build compiles your app in the cloud** — free tier included. This is huge for Nigerian developers with modest hardware or slow internet.
+
+First, install EAS CLI and log in:
+
+```bash
+npm install -g eas-cli
+eas login
+```
+
+Then configure your project. EAS needs a small config file. Create `eas.json` in your project root:
+
+```json
+{
+  "cli": { "version": ">= 12.0.0" },
+  "build": {
+    "development": { "distribution": "internal" },
+    "preview": { "distribution": "internal" },
+    "production": { "autoIncrement": true }
+  },
+  "submit": {
+    "production": {}
+  }
+}
+```
+
+Now trigger a production build for Android:
+
+```bash
+eas build --platform android --profile production
+```
+
+EAS walks you through setting up your app ID and bundle identifier the first time, then uploads your code to Expo's servers and builds a `.aab` (Android App Bundle) file for you. The `.aab` is what Google Play wants in 2026 — it lets Google optimize downloads per device.
+
+For iOS, you run:
+
+```bash
+eas build --platform ios --profile production
+```
+
+EAS can build iOS **without a Mac** using its cloud service. You only need an Apple Developer account and a valid bundle identifier. This removes the biggest hardware blocker for Nigerian iOS developers.
+
+If the cloud build fails, the most common causes are missing environment variables (check `eas.json` and `.env`), an invalid app icon, or a misconfigured bundle ID. EAS prints clear errors — read them before panicking.
+
+## Step 5: Set the App ID and Version Details
+
+Every app needs a unique identifier. For Android this is called a **package name** (e.g. `com.yourname.yourapp`) and for iOS it is a **bundle identifier** (e.g. `com.yourname.yourapp`). In an Expo project, you set these in `app.json`:
+
+```json
+{
+  "expo": {
+    "name": "My App",
+    "slug": "my-app",
+    "version": "1.0.0",
+    "android": {
+      "package": "com.yourname.myapp"
+    },
+    "ios": {
+      "bundleIdentifier": "com.yourname.myapp"
+    }
+  }
+}
+```
+
+**Choose this identifier carefully.** You cannot easily change it after your first release, and it must be unique worldwide. Using `com.yourname.appname` is a safe pattern.
+
+## Step 6: Submit to Google Play — The Exact Steps
+
+Now the moment you have been working toward. Here is the exact flow in the Play Console:
+
+1. **Create your app entry** if you have not yet, and fill in the **Store listing** tab: name (under 30 characters if possible), short description, full description, category, screenshots, and icon. Our [ASO guide](/blog/app-store-optimisation-aso-guide) helps here.
+2. **Fill the Data safety form** honestly. Google requires accurate data-sharing disclosures.
+3. **Complete the Content rating** questionnaire.
+4. **Set up the App content** tab: privacy policy URL, ads declaration (if you show ads — see our [monetization guide](/blog/monetize-react-native-app-nigeria) for ad setup), and target audience.
+5. **Upload your `.aab`** under the "Production" track in the "Release" section. EAS gives you a download link; `eas submit` can even upload it directly for you:
+
+```bash
+eas submit --platform android --profile production
+```
+
+6. **Run a closed test.** In 2026, new accounts must open their app to a closed testing group (5+ testers who opt in) before production review. Google sometimes requires up to 14 days of continuous testing. Use the "Testing" section in the Play Console to set this up and share the opt-in link with friends or clients.
+7. **Click "Send for review"** when the testing period is satisfied. Google reviews within 1–7 days. You will get an email with the result.
+
+Watch the email closely — if the review comes back with "App rejected," read the reason carefully, fix it, and resubmit. Rejections are almost always fixable.
+
+## Step 7: Submit to the Apple App Store — The Exact Steps
+
+Apple's flow is different but similar in spirit:
+
+1. In **App Store Connect** (`appstoreconnect.apple.com`), create your app with the same bundle identifier you used in `app.json`.
+2. **Fill in the app information**: name, subtitle, category, and screenshots (Apple requires a 6.5-inch iPhone screenshot set).
+3. **Upload your build.** If you built with EAS for iOS, you can use:
+
+```bash
+eas submit --platform ios --profile production
+```
+
+EAS uploads the build to App Store Connect for you. If you built locally, use the Xcode `Organizer` (only on a Mac).
+4. **Complete the Export Compliance and App Privacy** questionnaires.
+5. **Add a TestFlight build** and test on a real device — Apple reviewers are strict about crashes.
+6. **Submit for review.** Apple typically responds in 1–2 days. Read the rejection reason carefully; common ones include a missing privacy policy, a broken login flow, or placeholder content.
+
+Apple requires your app to be at least 6.5 inches (iPhone 14 Pro Max and later) when you target modern devices — design accordingly. For deep platform details, the official [React Native app store guides](https://reactnative.dev/docs/publishing-to-app-store) are your best friend.
+
+## The Nigerian Publishing Checklist
+
+Print this. Tick each item:
+
+- [ ] Google Play developer account created and verified ($25 one-time)
+- [ ] Apple Developer account enrolled ($99/year) — optional for Android-first
+- [ ] Privacy policy published at a live URL
+- [ ] 1024×1024 app icon without transparency
+- [ ] Custom splash screen
+- [ ] 2–8 phone screenshots captured for each store
+- [ ] Short and full descriptions written
+- [ ] Unique package/bundle ID chosen (com.yourname.appname)
+- [ ] `eas.json` configured
+- [ ] `eas build` completed successfully for Android (and iOS if ready)
+- [ ] Data safety and content rating forms completed
+- [ ] Closed test run with real testers (Google's 2026 requirement)
+- [ ] Submitted for review and tracked by email
+
+## Frequently Asked Questions
+
+**Can I publish to the Play Store with a Naira-only debit card?**
+
+Yes, if your card is enabled for international transactions. Many Nigerian banks' Naira Mastercard/Visa debit cards work for the $25 fee. If the payment fails, enable international usage in your bank's app or use a Naira card from a different bank.
+
+**Is there any way to publish on Google Play for free?**
+
+No. The $25 developer fee is mandatory and non-refundable. There is no free tier for publishing on the official Play Store.
+
+**Can I publish my app on third-party stores to save money?**
+
+Yes. You can distribute your Android `.apk`/`.aab` on stores like the Amazon Appstore, Huawei AppGallery, or directly from your website. But Google Play remains where most Nigerian downloads happen, so it is usually worth the $25.
+
+**My app was rejected. What do I do?**
+
+Read the rejection email carefully. Fix exactly what it describes — a missing privacy policy, a broken flow, or listing issues — then resubmit. Rejections are reversible; there is no permanent ban for a first rejection. If you are stuck, [contact Joetech](/contact) and we can help diagnose.
+
+**How do I update my app after launch?**
+
+Build a new version with `eas build`, bump the version number in `app.json`, and upload the new build to the same production track. Existing users receive the update through the store automatically.
+
+**Do I need a Mac at all?**
+
+No. With Expo EAS Build, you can compile both Android and iOS releases in the cloud from a Windows laptop. You only need an Apple Developer account for iOS distribution — no Mac hardware required.
+
+## What to Do Next
+
+Your next three steps, in order:
+
+1. **Create your Google Play developer account today** and pay the $25. Even if your app is not finished, verification and the testing clock start now.
+2. **Run `eas build --platform android`** on your current project to confirm the pipeline works before launch day.
+3. **Write your privacy policy and descriptions** so they are ready the moment the build is done.
+
+## Conclusion: Your App Is Closer to the Stores Than You Think
+
+Publishing from Nigeria is not a mystery — it is a checklist. A $25 one-time fee, a cloud build with EAS, a clean listing, and a week of patience. That is the whole secret. Every app you use on your phone was pushed through the same funnel, and most were built by people just like you.
+
+Start the account today, prepare your listing, and let the review clock run while you keep building. Your app's journey to a thousand Nigerian phones begins with a single click in the Play Console.
+
+If the publishing process feels overwhelming, that is exactly what we do every week at Joetech. We build, submit, and manage React Native apps for clients across Nigeria and beyond — from first commit to first download. [Let's talk](/contact) about launching your app, or explore [our services](/services).
