@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Script from "next/script";
 import DynamicChatWidget from "../components/chat/DynamicChatWidget";
+import { PHONE_SCHEMA } from "../lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -80,7 +81,7 @@ const organizationSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+234-8167-099131",
+    telephone: PHONE_SCHEMA,
     contactType: "customer service",
     availableLanguage: ["English"],
   },

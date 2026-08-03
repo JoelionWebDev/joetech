@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import Groq from "groq-sdk";
+import { PHONE_NUMBER, CONTACT_EMAIL } from "../../../lib/site";
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
@@ -41,8 +42,8 @@ Joetech is a digital agency that helps small-to-large businesses build, grow, an
 
 CONTACT INFORMATION
 - Website: www.joetech.name.ng
-- Email: joetechorg@gmail.com
-- WhatsApp/Phone: +234 816 709 9131
+- Email: ${CONTACT_EMAIL}
+- WhatsApp/Phone: ${PHONE_NUMBER}
 - YouTube: youtube.com/@joetechstudio
 - Location: Lagos, Nigeria
 - Hours: Mon–Fri 9am–6pm | Sat 10am–3pm | Sun Closed

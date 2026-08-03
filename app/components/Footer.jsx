@@ -1,4 +1,5 @@
 import ClientButton from "../../components/ClientButton";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL } from "../../lib/site";
 
 const currentYear = new Date().getFullYear();
 
@@ -150,8 +151,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-white mb-1">Phone</h4>
-                  <a href="tel:+2348167099131" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-400 focus:underline" aria-label="Call Joetech at +234 816 709 9131">
-                    +234 816 709 9131
+                  <a href={`tel:${PHONE_TEL}`} className="text-gray-400 hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-400 focus:underline" aria-label={`Call Joetech at ${PHONE_NUMBER}`}>
+                    {PHONE_NUMBER}
                   </a>
                 </div>
               </div>
@@ -164,8 +165,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-white mb-1">Email</h4>
-                  <a href="mailto:joetechorg@gmail.com" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-400 focus:underline">
-                    joetechorg@gmail.com
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-400 hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-400 focus:underline">
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>

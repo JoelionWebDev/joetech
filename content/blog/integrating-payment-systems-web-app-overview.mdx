@@ -1,11 +1,11 @@
----
+﻿---
 title: "Integrating Payment Systems into Your Web App: A Step-by-Step Overview"
 slug: integrating-payment-systems-web-app-overview
 excerpt: "Payment integration is critical for any web app that processes transactions. Learn how Paystack and Flutterwave work and what business owners should confirm before going live."
 publishDate: "2026-07-30"
 updatedDate: "2026-07-30"
 author: "Igono Joel"
-category: "Web Apps"
+category: "Web Development"
 tags:
   - payment integration
   - Paystack
@@ -32,13 +32,13 @@ A payment gateway is a service that processes payments on your behalf. When a cu
 
 You never handle or store sensitive card details. The gateway handles everything securely. This is important because handling card data directly requires PCI DSS compliance certification, which is expensive and complex.
 
-Paystack and Flutterwave are the dominant gateways in Nigeria. Both support card payments, bank transfers, USSD, and mobile money. Both handle settlement — moving funds from the customer's bank to your business account.
+Paystack and Flutterwave are the dominant gateways in Nigeria. Both support card payments, bank transfers, USSD, and mobile money. Both handle settlement â€” moving funds from the customer's bank to your business account.
 
 ## The Integration Process
 
 Your development team creates an account with your chosen payment gateway. You provide business documentation for verification. Verification takes one to three business days.
 
-The development team receives API keys from the gateway — a public key for the frontend and a secret key for the backend. These keys authenticate your web app's communication with the gateway.
+The development team receives API keys from the gateway â€” a public key for the frontend and a secret key for the backend. These keys authenticate your web app's communication with the gateway.
 
 The frontend integration displays payment options to the customer and collects payment details. The gateway provides a checkout form or popup that handles card entry securely.
 
@@ -52,7 +52,7 @@ After successful testing, you switch to live mode. Real transactions process and
 
 ## What to Confirm Before Going Live
 
-Transaction fees affect your margins. Paystack charges 1.5% plus ₦100 per transaction. Flutterwave charges a similar rate. Confirm the exact fees and how they affect your pricing.
+Transaction fees affect your margins. Paystack charges 1.5% plus â‚¦100 per transaction. Flutterwave charges a similar rate. Confirm the exact fees and how they affect your pricing.
 
 Settlement timing determines when you can access funds. Paystack settles in 24 to 48 hours. Flutterwave settles in 24 hours to one week depending on the transaction type.
 

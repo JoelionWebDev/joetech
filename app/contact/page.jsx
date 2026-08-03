@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL } from "../../lib/site";
 
 const CONTACT_INFO = [
   {
@@ -9,8 +10,8 @@ const CONTACT_INFO = [
       </svg>
     ),
     label: "Email",
-    value: "joetechorg@gmail.com",
-    href: "mailto:joetechorg@gmail.com",
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
     color: "from-blue-500 to-blue-600",
   },
   {
@@ -20,8 +21,8 @@ const CONTACT_INFO = [
       </svg>
     ),
     label: "Phone",
-    value: "+234 8167 099 131",
-    href: "tel:+2348167099131",
+    value: PHONE_NUMBER,
+    href: `tel:${PHONE_TEL}`,
     color: "from-green-500 to-emerald-600",
   },
   {

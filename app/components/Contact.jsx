@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL } from "../../lib/site";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -216,7 +217,7 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     aria-label="Enter your phone number for direct contact"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md"
-                    placeholder="+234 816 709 9131"
+                    placeholder={PHONE_NUMBER}
                   />
                 </div>
 
@@ -393,11 +394,11 @@ const ContactSection = () => {
                         Call Us
                       </h4>
                       <a
-                        href="tel:+2348167099131"
+                        href={`tel:${PHONE_TEL}`}
                         className="text-blue-600 hover:text-blue-800 transition-colors duration-300 font-medium"
-                        aria-label="Call Joetech at 08167099131"
+                        aria-label={`Call Joetech at ${PHONE_NUMBER}`}
                       >
-                        +234 816 709 9131
+                        {PHONE_NUMBER}
                       </a>
                     </div>
                   </div>
@@ -424,11 +425,11 @@ const ContactSection = () => {
                         Email Us
                       </h4>
                       <a
-                        href="mailto:joetechorg@gmail.com"
+                        href={`mailto:${CONTACT_EMAIL}`}
                         className="text-blue-600 hover:text-blue-800 transition-colors duration-300 font-medium"
                         aria-label="Send email to Joetech"
                       >
-                        joetechorg@gmail.com
+                        {CONTACT_EMAIL}
                       </a>
                     </div>
                   </div>

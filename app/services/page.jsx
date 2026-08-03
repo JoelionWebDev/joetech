@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { PHONE_NUMBER, PHONE_TEL } from "../../lib/site";
 import {
   ChevronRight,
   Code,
@@ -403,10 +404,10 @@ const JoetechServicesPage = () => {
                 </a>
 
                 <a
-                  href="tel:+2348167099131"
+                  href={`tel:${PHONE_TEL}`}
                   className="inline-flex items-center border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
                 >
-                  Call Now: +234 816 709 9131
+                  Call Now: {PHONE_NUMBER}
                 </a>
               </div>
 

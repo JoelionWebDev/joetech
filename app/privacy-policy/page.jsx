@@ -1,5 +1,6 @@
 // app/privacy-policy/page.jsx
 import Link from "next/link";
+import { PHONE_NUMBER, PHONE_TEL } from "../../lib/site";
 
 export const metadata = {
   title: "Privacy Policy",
@@ -125,10 +126,10 @@ export default function PrivacyPolicyPage() {
               </a>{" "}
               or call{" "}
               <a
-                href="tel:+2348167099131"
+                href={`tel:${PHONE_TEL}`}
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                +234 816 709 9131
+                {PHONE_NUMBER}
               </a>
               . Our office is located at Tulip Heaven Gate, Opposite Hampton
               Lake Estate, Chevron Alternative Route, Lekki, Lagos, Nigeria.

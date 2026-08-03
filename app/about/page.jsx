@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   ChevronRight,
   Users,
@@ -14,10 +14,14 @@ import {
 } from "lucide-react";
 
 // Animated Counter Component
-const AnimatedCounter = ({ end, duration = 2000, suffix = "" }) => {
-  const [count, setCount] = useState(0);
+const AnimatedCounter = ({ end, duration = 2000, suffix = "", inView = false }) => {
+  const [count, setCount] = useState(end);
+  const started = useRef(false);
 
   useEffect(() => {
+    if (!inView || started.current) return;
+    started.current = true;
+
     let startTime;
     let animationId;
 
@@ -34,7 +38,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "" }) => {
 
     animationId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationId);
-  }, [end, duration]);
+  }, [inView, end, duration]);
 
   return (
     <span>
@@ -471,9 +475,11 @@ const JoetechAboutPage = () => {
                 className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                  {statsInView ?
-                    <AnimatedCounter end={stat.number} suffix={stat.suffix} />
-                  : "0"}
+                  <AnimatedCounter
+                    end={stat.number}
+                    suffix={stat.suffix}
+                    inView={statsInView}
+                  />
                 </div>
                 <p className="text-gray-700 font-medium">{stat.label}</p>
               </div>
