@@ -25,7 +25,7 @@ const BlogInsights = () => {
 
   return (
     <section
-      className="py-16 md:py-24 bg-gray-50 dark:bg-slate-950"
+      className="py-16 md:py-24 bg-gray-50"
       aria-labelledby="blog-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,14 +33,14 @@ const BlogInsights = () => {
         <header className="text-center mb-16">
           <h2
             id="blog-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 dark:text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Insights &{" "}
             <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Articles
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed dark:text-slate-400">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Explore the latest in <strong>tech trends</strong>,{" "}
             <strong>digital marketing</strong> strategies, and{" "}
             <strong>branding tips</strong> to accelerate your business growth
@@ -53,7 +53,7 @@ const BlogInsights = () => {
           {blogPosts.map((post) => (
             <article
               key={post.slug}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out transform hover:-translate-y-2 overflow-hidden dark:bg-slate-900 dark:hover:shadow-slate-950/50"
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out transform hover:-translate-y-2 overflow-hidden"
               itemScope
               itemType="https://schema.org/BlogPosting"
             >
@@ -74,7 +74,7 @@ const BlogInsights = () => {
                 {/* Category Badge */}
                 {post.category && (
                   <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 shadow-sm dark:bg-blue-950 dark:text-blue-300">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 shadow-sm">
                       {post.category}
                     </span>
                   </div>
@@ -84,7 +84,7 @@ const BlogInsights = () => {
               {/* Content */}
               <div className="p-6 md:p-8">
                 {/* Metadata */}
-                <div className="flex items-center text-sm text-gray-500 mb-4 space-x-4 dark:text-slate-400">
+                <div className="flex items-center text-sm text-gray-500 mb-4 space-x-4">
                   <time
                     dateTime={post.publishDate}
                     itemProp="datePublished"
@@ -133,7 +133,7 @@ const BlogInsights = () => {
 
                 {/* Title */}
                 <h3
-                  className="text-xl md:text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300 line-clamp-2 dark:text-white"
+                  className="text-xl md:text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300 line-clamp-2"
                   itemProp="headline"
                 >
                   {post.title}
@@ -142,7 +142,7 @@ const BlogInsights = () => {
                 {/* Excerpt */}
                 {post.excerpt && (
                   <p
-                    className="text-gray-600 mb-6 leading-relaxed line-clamp-3 dark:text-slate-400"
+                    className="text-gray-600 mb-6 leading-relaxed line-clamp-3"
                     itemProp="description"
                   >
                     {post.excerpt}

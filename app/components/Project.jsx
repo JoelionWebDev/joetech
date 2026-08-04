@@ -36,33 +36,33 @@ const projects = [
 ];
 
 const tagColors = {
-  "Web Development": "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300",
-  "Real Estate": "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300",
-  Hospitality: "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300",
-  "Electrical & Smart Tech": "bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300",
-  Construction: "bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-300",
-  "E-commerce": "bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300",
-  "Music & Media": "bg-pink-100 text-pink-800 dark:bg-pink-950 dark:text-pink-300",
-  Blog: "bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300",
-  "Travel & Hospitality": "bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300",
-  Technology: "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200",
+  "Web Development": "bg-blue-100 text-blue-800",
+  "Real Estate": "bg-emerald-100 text-emerald-800",
+  Hospitality: "bg-amber-100 text-amber-800",
+  "Electrical & Smart Tech": "bg-cyan-100 text-cyan-800",
+  Construction: "bg-orange-100 text-orange-800",
+  "E-commerce": "bg-purple-100 text-purple-800",
+  "Music & Media": "bg-pink-100 text-pink-800",
+  Blog: "bg-indigo-100 text-indigo-800",
+  "Travel & Hospitality": "bg-teal-100 text-teal-800",
+  Technology: "bg-slate-100 text-slate-800",
 };
 
 const ProjectsPortfolio = () => {
   return (
     <section
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-slate-950"
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
       aria-labelledby="projects-heading"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2
             id="projects-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 dark:text-white"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
           >
             Our Projects
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed dark:text-slate-400">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Showcasing Joetech's work in web development, branding design, video
             editing, and digital marketing campaigns that drive results for our
             clients.
@@ -73,7 +73,7 @@ const ProjectsPortfolio = () => {
           {projects.map((project) => (
             <article
               key={project.id}
-              className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1 dark:bg-slate-900 dark:hover:shadow-slate-950/50"
+              className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
             >
               <div className="relative overflow-hidden aspect-[16/10]">
                 <Image
@@ -87,11 +87,11 @@ const ProjectsPortfolio = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200 dark:text-white">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-600 mb-4 leading-relaxed dark:text-slate-400">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -100,7 +100,7 @@ const ProjectsPortfolio = () => {
                     <span
                       key={tagIndex}
                       className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        tagColors[tag] || "bg-gray-100 text-gray-800 dark:bg-slate-800 dark:text-slate-200"
+                        tagColors[tag] || "bg-gray-100 text-gray-800"
                       }`}
                     >
                       {tag}

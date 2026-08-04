@@ -70,7 +70,7 @@ export default function TechAISection() {
   return (
     <section
       aria-labelledby="tech-ai-heading"
-      className="relative bg-white py-20 md:py-28 overflow-hidden dark:bg-slate-950"
+      className="relative bg-white py-20 md:py-28 overflow-hidden"
     >
       {/* subtle background decoration */}
       <div
@@ -85,7 +85,7 @@ export default function TechAISection() {
       <div className="relative max-w-6xl mx-auto px-6">
         {/* ── TOP LABEL ── */}
         <div className="flex justify-center mb-6">
-          <span className="inline-flex items-center gap-2 bg-violet-50 border border-violet-200 text-violet-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full dark:bg-violet-950 dark:border-violet-800 dark:text-violet-300">
+          <span className="inline-flex items-center gap-2 bg-violet-50 border border-violet-200 text-violet-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
             AI-Powered Tech Education
           </span>
@@ -94,7 +94,7 @@ export default function TechAISection() {
         {/* ── H2 HEADLINE ── */}
         <h2
           id="tech-ai-heading"
-          className={`text-center text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6 dark:text-white ${syne.className}`}
+          className={`text-center text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6 ${syne.className}`}
         >
           You Too Can Become a{" "}
           <span className="bg-gradient-to-r from-violet-600 via-pink-500 to-indigo-500 bg-clip-text text-transparent">
@@ -103,20 +103,20 @@ export default function TechAISection() {
         </h2>
 
         {/* ── SUPPORTING PARAGRAPH ── */}
-        <p className="text-center text-slate-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-14 dark:text-slate-400">
+        <p className="text-center text-slate-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-14">
           Anyone can learn tech skills faster using AI. Whether you want to
           master{" "}
-          <strong className="text-slate-700 font-semibold dark:text-slate-200 dark:text-slate-200">
+          <strong className="text-slate-700 font-semibold">
             web development
           </strong>
           ,{" "}
-          <strong className="text-slate-700 font-semibold dark:text-slate-200">
+          <strong className="text-slate-700 font-semibold">
             app development
           </strong>
           ,{" "}
-          <strong className="text-slate-700 font-semibold dark:text-slate-200">UI/UX design</strong>
+          <strong className="text-slate-700 font-semibold">UI/UX design</strong>
           , or{" "}
-          <strong className="text-slate-700 font-semibold dark:text-slate-200">
+          <strong className="text-slate-700 font-semibold">
             digital marketing
           </strong>{" "}
           — AI tools give you a personal mentor, debugger, and creative partner
@@ -125,7 +125,7 @@ export default function TechAISection() {
 
         {/* ── PROMPT QUESTION ── */}
         <div className="text-center mb-10">
-          <h3 className="inline-block text-xl md:text-2xl font-bold text-slate-800 border-b-4 border-violet-400 pb-1 dark:text-slate-100">
+          <h3 className="inline-block text-xl md:text-2xl font-bold text-slate-800 border-b-4 border-violet-400 pb-1">
             What would you like to learn in the tech space today?
           </h3>
         </div>
@@ -135,7 +135,7 @@ export default function TechAISection() {
           {skills.map((skill) => (
             <article
               key={skill.title}
-              className={`group bg-white border-2 border-slate-100 rounded-2xl p-6 shadow-sm transition-all duration-300 cursor-pointer dark:bg-slate-900 dark:border-slate-800 ${skill.accent} hover:shadow-lg hover:-translate-y-1`}
+              className={`group bg-white border-2 border-slate-100 rounded-2xl p-6 shadow-sm transition-all duration-300 cursor-pointer ${skill.accent} hover:shadow-lg hover:-translate-y-1`}
             >
               {/* icon */}
               <div
@@ -151,10 +151,10 @@ export default function TechAISection() {
                 {skill.badge}
               </span>
 
-              <h3 className="font-bold text-slate-900 text-base leading-snug mb-2 dark:text-white">
+              <h3 className="font-bold text-slate-900 text-base leading-snug mb-2">
                 {skill.title}
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed dark:text-slate-400">
+              <p className="text-slate-500 text-sm leading-relaxed">
                 {skill.desc}
               </p>
 
@@ -179,11 +179,11 @@ export default function TechAISection() {
         </div>
 
         {/* ── 3-STEP MINI GUIDE ── */}
-        <div className="bg-slate-50 border border-slate-200 rounded-3xl px-8 py-12 mb-16 dark:bg-slate-900/60 dark:border-slate-800">
-          <p className="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 dark:text-slate-500">
+        <div className="bg-slate-50 border border-slate-200 rounded-3xl px-8 py-12 mb-16">
+          <p className="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
             How It Works
           </p>
-          <h3 className="text-center text-2xl md:text-3xl font-extrabold text-slate-900 mb-10 dark:text-white">
+          <h3 className="text-center text-2xl md:text-3xl font-extrabold text-slate-900 mb-10">
             Your 3-Step Path to Becoming a Tech Expert
           </h3>
 
@@ -201,16 +201,16 @@ export default function TechAISection() {
               >
                 {/* number circle */}
                 <div
-                  className={`w-16 h-16 rounded-2xl bg-white border-2 border-slate-200 shadow-sm flex items-center justify-center mb-5 z-10 dark:bg-slate-900 dark:border-slate-700 ${step.color}`}
+                  className={`w-16 h-16 rounded-2xl bg-white border-2 border-slate-200 shadow-sm flex items-center justify-center mb-5 z-10 ${step.color}`}
                 >
                     <span className={`text-2xl font-extrabold ${syne.className}`}>
                     {step.number}
                   </span>
                 </div>
-                <h4 className="font-bold text-slate-900 text-base mb-2 dark:text-white">
+                <h4 className="font-bold text-slate-900 text-base mb-2">
                   {step.title}
                 </h4>
-                <p className="text-slate-500 text-sm leading-relaxed max-w-xs dark:text-slate-400">
+                <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
                   {step.desc}
                 </p>
               </div>
@@ -242,7 +242,7 @@ export default function TechAISection() {
 
           <Link
             href="/learnTech"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-bold text-base px-8 py-4 rounded-xl border-2 border-slate-200 hover:border-violet-300 shadow-sm transition-all hover:scale-105 dark:bg-slate-900 dark:text-slate-200 dark:border-slate-700 dark:hover:bg-slate-800 dark:hover:border-violet-700"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-bold text-base px-8 py-4 rounded-xl border-2 border-slate-200 hover:border-violet-300 shadow-sm transition-all hover:scale-105"
           >
             <svg
               className="w-5 h-5 text-violet-500"
@@ -262,17 +262,17 @@ export default function TechAISection() {
         </div>
 
         {/* ── SOCIAL PROOF MICRO BAR ── */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mt-14 pt-10 border-t border-slate-100 dark:border-slate-800">
+        <div className="flex flex-wrap items-center justify-center gap-6 mt-14 pt-10 border-t border-slate-100">
           {[
             { stat: "4 Tracks", label: "Web · App · Design · Marketing" },
             { stat: "AI-First", label: "Learn with ChatGPT, Copilot & more" },
             { stat: "Beginner Friendly", label: "No prior experience needed" },
           ].map((item) => (
             <div key={item.stat} className="text-center">
-              <p className="font-extrabold text-slate-900 text-lg dark:text-white">
+              <p className="font-extrabold text-slate-900 text-lg">
                 {item.stat}
               </p>
-              <p className="text-slate-400 text-xs dark:text-slate-500">{item.label}</p>
+              <p className="text-slate-400 text-xs">{item.label}</p>
             </div>
           ))}
         </div>

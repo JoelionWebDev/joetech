@@ -39,7 +39,7 @@ const testimonials = [
 
 const StarIcon = ({ filled }) => (
   <svg
-    className={`w-5 h-5 ${filled ? "text-yellow-400" : "text-gray-300 dark:text-slate-700"}`}
+    className={`w-5 h-5 ${filled ? "text-yellow-400" : "text-gray-300"}`}
     fill="currentColor"
     viewBox="0 0 20 20"
     aria-hidden="true"
@@ -60,18 +60,18 @@ const renderStars = (rating) => (
 const TestimonialsSection = () => {
   return (
     <section
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950"
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-white"
       aria-labelledby="testimonials-heading"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2
             id="testimonials-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 dark:text-white"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
           >
             What Our Clients Say
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed dark:text-slate-400">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Trusted by businesses for web development, branding, and digital
             marketing. Read genuine client reviews and customer feedback about
             Joetech's services.
@@ -82,7 +82,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial) => (
             <article
               key={testimonial.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100 transition-all duration-300 overflow-hidden transform hover:-translate-y-2 dark:bg-slate-900 dark:border-slate-800"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl border border-gray-100 transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
             >
               <div className="p-6 h-full flex flex-col">
                 <div className="flex-grow">
@@ -106,20 +106,20 @@ const TestimonialsSection = () => {
                       />
                     </div>
                   ) : null}
-                  <p className="text-gray-700 mb-6 leading-relaxed italic dark:text-slate-300">
+                  <p className="text-gray-700 mb-6 leading-relaxed italic">
                     &ldquo;{testimonial.feedback}&rdquo;
                   </p>
                 </div>
-                <div className="flex items-center mt-auto pt-4 border-t border-gray-100 dark:border-slate-800">
+                <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</h3>
+                    <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
                     {testimonial.position && (
-                      <p className="text-gray-600 text-sm dark:text-slate-400">
+                      <p className="text-gray-600 text-sm">
                         {testimonial.position}, {testimonial.company}
                       </p>
                     )}
                     {!testimonial.position && (
-                      <p className="text-gray-600 text-sm dark:text-slate-400">{testimonial.company}</p>
+                      <p className="text-gray-600 text-sm">{testimonial.company}</p>
                     )}
                     {testimonial.url && (
                       <a
@@ -142,19 +142,19 @@ const TestimonialsSection = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-              <div className="text-gray-600 text-sm dark:text-slate-400">Happy Clients</div>
+              <div className="text-gray-600 text-sm">Happy Clients</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
-              <div className="text-gray-600 text-sm dark:text-slate-400">Projects Completed</div>
+              <div className="text-gray-600 text-sm">Projects Completed</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">5&star;</div>
-              <div className="text-gray-600 text-sm dark:text-slate-400">Average Rating</div>
+              <div className="text-gray-600 text-sm">Average Rating</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-gray-600 text-sm dark:text-slate-400">Support Available</div>
+              <div className="text-gray-600 text-sm">Support Available</div>
             </div>
           </div>
         </div>
@@ -172,7 +172,7 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-lg text-gray-600 mb-6 dark:text-slate-400">
+          <p className="text-lg text-gray-600 mb-6">
             Ready to join our satisfied clients and grow your business?
           </p>
           <a

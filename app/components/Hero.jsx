@@ -2,7 +2,7 @@ export default function JoetechHero() {
   return (
     <section
       aria-label="Joetech hero"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-[#0A0A0A]"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
     >
       {/* Subtle grid texture */}
       <div
@@ -29,23 +29,23 @@ export default function JoetechHero() {
           className="inline-flex items-center mb-8 animate-fade-up"
           style={{ animationDelay: "0ms" }}
         >
-          <span className="inline-block px-4 py-1.5 text-xs font-medium text-slate-600 border border-slate-300/80 dark:text-slate-400 dark:border-white/[0.08] rounded-full tracking-wide uppercase">
+          <span className="inline-block px-4 py-1.5 text-xs font-medium text-slate-400 border border-white/[0.08] rounded-full tracking-wide uppercase">
             Now accepting new projects
           </span>
         </div>
 
         {/* Headline */}
         <h1
-          className="font-sans text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold text-slate-900 leading-[1.05] tracking-tight mb-6 animate-fade-up dark:text-white"
+          className="font-sans text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold text-white leading-[1.05] tracking-tight mb-6 animate-fade-up"
           style={{ animationDelay: "100ms" }}
         >
           Your Brand, Built for the{" "}
-          <span className="text-blue-500 dark:text-blue-400">Digital</span> World
+          <span className="text-blue-400">Digital</span> World
         </h1>
 
         {/* Supporting line */}
         <p
-          className="font-sans text-base sm:text-lg text-slate-500 dark:text-slate-400 leading-relaxed max-w-lg mx-auto mb-10 animate-fade-up"
+          className="font-sans text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg mx-auto mb-10 animate-fade-up"
           style={{ animationDelay: "200ms" }}
         >
           Full-service agency building, designing, and promoting brands that perform in the digital age.
@@ -67,7 +67,7 @@ export default function JoetechHero() {
           </a>
           <a
             href="/projects"
-            className="text-sm text-slate-500 hover:text-slate-900 underline underline-offset-4 decoration-slate-300 hover:decoration-slate-500 dark:text-slate-400 dark:hover:text-white dark:decoration-white/20 dark:hover:decoration-white/60 transition-all duration-200"
+            className="text-sm text-slate-500 hover:text-white underline underline-offset-4 decoration-white/20 hover:decoration-white/60 transition-all duration-200"
           >
             View our work
           </a>

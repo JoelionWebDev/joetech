@@ -43,18 +43,18 @@ const services = [
 const FeaturedServices = () => {
   return (
     <section
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950"
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50"
       aria-labelledby="services-heading"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2
             id="services-heading"
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-white"
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
           >
             Our Core Services
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed dark:text-slate-400">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Joetech delivers end-to-end solutions to build, brand, and promote
             your business with innovative technology and creative expertise.
           </p>
@@ -66,20 +66,20 @@ const FeaturedServices = () => {
             return (
               <article
                 key={service.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-105 hover:-translate-y-2 border border-gray-100 overflow-hidden flex flex-col dark:bg-slate-900 dark:border-slate-800 dark:hover:shadow-slate-950/50"
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 ease-out transform hover:scale-105 hover:-translate-y-2 border border-gray-100 overflow-hidden flex flex-col"
               >
                 <div className="p-6 h-full flex flex-col">
                   <div className="mb-6 flex justify-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center dark:bg-slate-800">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
                       <IconComponent className="w-8 h-8 text-blue-600" aria-hidden="true" />
                     </div>
                   </div>
 
                   <div className="flex-grow text-center">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3 dark:text-white">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-6 dark:text-slate-400">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6">
                       {service.description}
                     </p>
                   </div>
@@ -101,7 +101,7 @@ const FeaturedServices = () => {
         </StaggerGrid>
 
         <div className="text-center mt-16">
-          <p className="text-gray-600 mb-6 dark:text-slate-400">
+          <p className="text-gray-600 mb-6">
             Ready to transform your business with our comprehensive tech solutions?
           </p>
           <a

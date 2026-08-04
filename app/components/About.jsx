@@ -46,7 +46,7 @@ const iconMap = {
 const AboutSection = () => {
   return (
     <section
-      className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950"
+      className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-blue-50"
       aria-labelledby="about-joetech-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,11 +54,11 @@ const AboutSection = () => {
         <div className="text-center mb-16">
           <h2
             id="about-joetech-heading"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 dark:text-white"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
           >
-            About <span className="text-blue-600 dark:text-blue-500">Joetech</span>
+            About <span className="text-blue-600">Joetech</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed dark:text-slate-400">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Your all-in-one partner for business growth in the digital age.
           </p>
         </div>
@@ -76,10 +76,10 @@ const AboutSection = () => {
                 className="w-full h-80 md:h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
-              <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg dark:bg-slate-900/90">
+              <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
                 <div className="flex items-center space-x-2">
-                  <Users className="w-4 h-4 text-blue-600 dark:text-blue-500" />
-                  <span className="text-sm font-semibold text-gray-800 dark:text-white">
+                  <Users className="w-4 h-4 text-blue-600" />
+                  <span className="text-sm font-semibold text-gray-800">
                     Expert Team
                   </span>
                 </div>
@@ -90,20 +90,20 @@ const AboutSection = () => {
           {/* Content Section */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed dark:text-slate-300">
+              <p className="text-lg text-gray-700 leading-relaxed">
                 At Joetech, we transform ambitious ideas into digital reality.
                 As a comprehensive tech solutions provider, we specialize in{" "}
-                <strong className="text-gray-900 dark:text-white">web development</strong>,
-                innovative <strong className="text-gray-900 dark:text-white">branding</strong>,
+                <strong className="text-gray-900">web development</strong>,
+                innovative <strong className="text-gray-900">branding</strong>,
                 professional{" "}
-                <strong className="text-gray-900 dark:text-white">video editing</strong>, and
+                <strong className="text-gray-900">video editing</strong>, and
                 results-driven{" "}
-                <strong className="text-gray-900 dark:text-white">digital marketing</strong>
+                <strong className="text-gray-900">digital marketing</strong>
                 strategies that propel businesses forward in today's competitive
                 landscape.
               </p>
 
-              <p className="text-gray-600 leading-relaxed dark:text-slate-400">
+              <p className="text-gray-600 leading-relaxed">
                 Our mission is simple: to be your trusted partner in navigating
                 the digital transformation journey, delivering exceptional tech
                 solutions that drive growth, engagement, and success.
@@ -111,7 +111,7 @@ const AboutSection = () => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6 dark:text-white">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">
                 Why Choose Joetech?
               </h3>
               <ul className="space-y-4" role="list">
@@ -120,10 +120,10 @@ const AboutSection = () => {
                     key={index}
                     className="flex items-start space-x-4"
                   >
-                    <div className="flex-shrink-0 mt-1 p-2 bg-blue-50 rounded-lg dark:bg-slate-800">
+                    <div className="flex-shrink-0 mt-1 p-2 bg-blue-50 rounded-lg">
                       {iconMap[item.icon]}
                     </div>
-                    <p className="text-gray-700 leading-relaxed font-medium dark:text-slate-300">
+                    <p className="text-gray-700 leading-relaxed font-medium">
                       {item.text}
                     </p>
                   </li>
@@ -155,10 +155,10 @@ const AboutSection = () => {
             { number: "24/7", label: "Support Available" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-2 dark:text-blue-500">
+              <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-2">
                 {stat.number}
               </div>
-              <div className="text-sm md:text-base text-gray-600 font-medium dark:text-slate-400">
+              <div className="text-sm md:text-base text-gray-600 font-medium">
                 {stat.label}
               </div>
             </div>

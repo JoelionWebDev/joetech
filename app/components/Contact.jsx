@@ -125,7 +125,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact-section"
-      className="py-16 md:py-24 bg-white dark:bg-slate-950"
+      className="py-16 md:py-24 bg-white"
       aria-labelledby="contact-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,14 +133,14 @@ const ContactSection = () => {
         <header className="text-center mb-16">
           <h2
             id="contact-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 dark:text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Get in{" "}
             <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               Touch
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto dark:text-slate-400">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Ready to start your next project? <strong>Contact Joetech</strong>{" "}
             today! We'd love to hear from you and discuss how we can help
             transform your business ideas into reality.
@@ -151,8 +151,8 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
           <div className="order-2 lg:order-1">
-            <div className="bg-gray-50 rounded-2xl p-8 md:p-10 shadow-lg dark:bg-slate-900 dark:border dark:border-slate-800">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-white">
+            <div className="bg-gray-50 rounded-2xl p-8 md:p-10 shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Send us a message for business inquiries
               </h3>
 
@@ -161,7 +161,7 @@ const ContactSection = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-2 dark:text-slate-300"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Full Name *
                   </label>
@@ -174,7 +174,7 @@ const ContactSection = () => {
                     required
                     aria-describedby="name-error"
                     aria-label="Enter your full name for contact purposes"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md"
                     placeholder="John Doe"
                   />
                 </div>
@@ -183,7 +183,7 @@ const ContactSection = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2 dark:text-slate-300"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Email Address *
                   </label>
@@ -196,7 +196,7 @@ const ContactSection = () => {
                     required
                     aria-describedby="email-error"
                     aria-label="Enter your email address for our response"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -205,7 +205,7 @@ const ContactSection = () => {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-2 dark:text-slate-300"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Phone Number
                   </label>
@@ -216,7 +216,7 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     aria-label="Enter your phone number for direct contact"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md"
                     placeholder={PHONE_NUMBER}
                   />
                 </div>
@@ -225,7 +225,7 @@ const ContactSection = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2 dark:text-slate-300"
+                    className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Message *
                   </label>
@@ -238,7 +238,7 @@ const ContactSection = () => {
                     rows={5}
                     aria-describedby="message-error"
                     aria-label="Enter your message describing your project or inquiry"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md resize-none"
                     placeholder="Tell us about your project or how we can help you..."
                   />
                 </div>
@@ -302,8 +302,8 @@ const ContactSection = () => {
 
                 {/* Status Messages */}
                 {submitStatus === "success" && (
-                  <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg dark:bg-green-950 dark:border-green-900">
-                    <p className="text-green-800 font-medium dark:text-green-300">
+                  <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <p className="text-green-800 font-medium">
                       ✅ Thank you! Your message has been sent successfully.
                       We'll get back to you within 24 hours.
                     </p>
@@ -311,8 +311,8 @@ const ContactSection = () => {
                 )}
 
                 {submitStatus === "error" && (
-                  <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg dark:bg-red-950 dark:border-red-900">
-                    <p className="text-red-800 font-medium dark:text-red-300">
+                  <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-800 font-medium">
                       ❌ Sorry, there was an error sending your message. Please
                       try again or contact us directly.
                     </p>
@@ -327,10 +327,10 @@ const ContactSection = () => {
             <div className="space-y-8">
               {/* Contact Information */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
                   Let's start a conversation
                 </h3>
-                <p className="text-gray-600 mb-8 leading-relaxed dark:text-slate-400">
+                <p className="text-gray-600 mb-8 leading-relaxed">
                   Whether you need web development, digital marketing, or tech
                   consulting, our expert team is here to help.{" "}
                   <strong>Get in touch</strong> with us today!
@@ -339,7 +339,7 @@ const ContactSection = () => {
                 <address className="not-italic space-y-6">
                   {/* Location */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center dark:bg-slate-800">
+                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                       <svg
                         className="w-6 h-6 text-blue-600"
                         fill="none"
@@ -361,10 +361,10 @@ const ContactSection = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1 dark:text-white">
+                      <h4 className="font-semibold text-gray-900 mb-1">
                         Our Location
                       </h4>
-                      <p className="text-gray-600 leading-relaxed dark:text-slate-400">
+                      <p className="text-gray-600 leading-relaxed">
                         Tulip Heaven Gate, Opposite Hampton Lake Estate,
                         <br />
                         Chevron Alternative Route, Lekki, Lagos, Nigeria
@@ -374,7 +374,7 @@ const ContactSection = () => {
 
                   {/* Phone */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center dark:bg-slate-800">
+                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                       <svg
                         className="w-6 h-6 text-blue-600"
                         fill="none"
@@ -390,7 +390,7 @@ const ContactSection = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1 dark:text-white">
+                      <h4 className="font-semibold text-gray-900 mb-1">
                         Call Us
                       </h4>
                       <a
@@ -405,7 +405,7 @@ const ContactSection = () => {
 
                   {/* Email */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center dark:bg-slate-800">
+                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                       <svg
                         className="w-6 h-6 text-blue-600"
                         fill="none"
@@ -421,7 +421,7 @@ const ContactSection = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1 dark:text-white">
+                      <h4 className="font-semibold text-gray-900 mb-1">
                         Email Us
                       </h4>
                       <a
@@ -438,7 +438,7 @@ const ContactSection = () => {
 
               {/* Social Media */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-4 dark:text-white">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
                   Follow Us
                 </h4>
                 <div className="flex space-x-4">
@@ -449,7 +449,7 @@ const ContactSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Follow Joetech on ${social.name}`}
-                      className="w-12 h-12 bg-gray-100 hover:bg-blue-100 rounded-lg flex items-center justify-center text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg dark:bg-slate-800 dark:hover:bg-blue-950 dark:text-slate-400 dark:hover:text-blue-400"
+                      className="w-12 h-12 bg-gray-100 hover:bg-blue-100 rounded-lg flex items-center justify-center text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
                     >
                       {social.icon}
                     </a>
@@ -458,11 +458,11 @@ const ContactSection = () => {
               </div>
 
               {/* Business Hours */}
-              <div className="bg-gray-50 rounded-2xl p-6 dark:bg-slate-900 dark:border dark:border-slate-800">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4 dark:text-white">
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">
                   Business Hours
                 </h4>
-                <div className="space-y-2 text-gray-600 dark:text-slate-400">
+                <div className="space-y-2 text-gray-600">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
                     <span className="font-medium">9:00 AM - 6:00 PM</span>
