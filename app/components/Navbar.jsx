@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import Image from "next/image";
+import { useTheme } from "./ThemeProvider";
 
 const NAV_LINKS = [
   { name: "Home", href: "/" },
@@ -26,6 +27,7 @@ const SOCIALS = [
 ];
 
 export default function Navbar() {
+  const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
@@ -44,8 +46,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#060b18]/80 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.06)]"
-          : "bg-transparent"
+          ? "bg-white/95 shadow-[0_1px_0_rgba(0,0,0,0.06)] dark:bg-[#060b18]/95 dark:shadow-[0_1px_0_rgba(255,255,255,0.06)]"
+          : "bg-white/90 backdrop-blur-xl border-b border-slate-200/60 dark:bg-[#060b18]/90 dark:border-white/5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,7 +59,7 @@ export default function Navbar() {
             aria-label="Joetech homepage"
           >
             <Image src="/logo.png" alt="Joetech logo — home" width="42" height="42" className="lg:w-[46px]" priority />
-            <span className="text-white font-bold text-lg lg:text-xl tracking-tight">
+            <span className="text-slate-900 dark:text-white font-bold text-lg lg:text-xl tracking-tight">
               Joetech
             </span>
           </a>
@@ -70,8 +72,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                   isActive(link.href)
-                    ? "text-white bg-white/10"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                    ? "text-slate-900 bg-slate-900/10 dark:text-white dark:bg-white/10"
+                    : "text-slate-700 hover:text-slate-950 hover:bg-slate-900/5 dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5"
                 }`}
               >
                 {link.name}
@@ -81,6 +83,13 @@ export default function Navbar() {
 
           {/* Desktop right */}
           <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={toggle}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              className="text-slate-600 hover:text-slate-900 hover:bg-slate-900/5 dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/10 p-2 rounded-xl transition-all duration-200"
+            >
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
             {SOCIALS.map((s) => (
               <a
                 key={s.name}
@@ -88,7 +97,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit our ${s.name}`}
-                className="text-slate-400 hover:text-white hover:bg-white/10 p-2 rounded-xl transition-all duration-200"
+                className="text-slate-500 hover:text-slate-900 hover:bg-slate-900/10 dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/10 p-2 rounded-xl transition-all duration-200"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d={s.path} />
@@ -106,14 +115,23 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="lg:hidden relative z-10 p-2 text-white hover:bg-white/10 rounded-xl transition-colors"
-            aria-label="Toggle navigation"
-          >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile actions */}
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              onClick={toggle}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              className="relative z-10 p-2 text-slate-700 dark:text-white hover:bg-slate-900/5 dark:hover:bg-white/10 rounded-xl transition-colors"
+            >
+              {theme === "dark" ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+            </button>
+            <button
+              onClick={() => setOpen(!open)}
+              className="relative z-10 p-2 text-slate-700 dark:text-white hover:bg-slate-900/5 dark:hover:bg-white/10 rounded-xl transition-colors"
+              aria-label="Toggle navigation"
+            >
+              {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -131,7 +149,7 @@ export default function Navbar() {
 
         {/* Drawer panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-[#060b18] border-l border-white/5 shadow-2xl transition-transform duration-500 ${
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-white dark:bg-[#060b18] border-l border-slate-200 dark:border-white/5 shadow-2xl transition-transform duration-500 ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -144,8 +162,8 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
                     isActive(link.href)
-                      ? "text-white bg-white/10"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
+                      ? "text-slate-900 bg-slate-900/10 dark:text-white dark:bg-white/10"
+                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-900/5 dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5"
                   }`}
                 >
                   {link.name}
@@ -162,7 +180,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit our ${s.name}`}
-                    className="text-slate-400 hover:text-white hover:bg-white/10 p-2.5 rounded-xl transition-all"
+                    className="text-slate-500 hover:text-slate-900 hover:bg-slate-900/10 dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/10 p-2.5 rounded-xl transition-all"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d={s.path} />

@@ -68,7 +68,7 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer
-      className="bg-gray-900 text-gray-300"
+      className="bg-white text-slate-600 border-t border-slate-200 dark:bg-gray-900 dark:text-gray-300 dark:border-transparent"
       role="contentinfo"
       aria-label="Joetech website footer"
     >
@@ -76,17 +76,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-white mb-4">
-                Joe<span className="text-blue-400">tech</span>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                Joe<span className="text-blue-500 dark:text-blue-400">tech</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-slate-500 dark:text-gray-400 leading-relaxed">
                 Transforming businesses through innovative technology solutions.
                 Your trusted partner for web development, digital marketing, and
                 tech consulting.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">Follow Us</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <a
@@ -95,7 +95,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.ariaLabel}
-                    className="group w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                    className="group w-10 h-10 bg-slate-100 hover:bg-blue-600 dark:bg-gray-800 dark:hover:bg-blue-600 rounded-lg flex items-center justify-center text-slate-500 hover:text-white dark:text-gray-400 dark:hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900"
                   >
                     {social.icon}
                   </a>
@@ -105,7 +105,7 @@ const Footer = () => {
           </div>
 
           <div className="lg:col-span-1">
-            <h3 className="text-lg font-semibold text-white mb-6">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">Quick Links</h3>
             <nav aria-label="Footer navigation">
               <ul className="space-y-4">
                 {quickLinks.map((link) => (
@@ -113,7 +113,7 @@ const Footer = () => {
                     <a
                       href={link.href}
                       aria-label={link.ariaLabel}
-                      className="text-gray-400 hover:text-white hover:pl-2 transition-all duration-300 ease-out focus:outline-none focus:text-white focus:pl-2 focus:underline inline-block"
+                      className="text-slate-500 hover:text-slate-900 hover:pl-2 dark:text-gray-400 dark:hover:text-white transition-all duration-300 ease-out focus:outline-none focus:text-slate-900 dark:focus:text-white focus:pl-2 focus:underline inline-block"
                     >
                       {link.name}
                     </a>
@@ -124,18 +124,18 @@ const Footer = () => {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="text-lg font-semibold text-white mb-6">Contact Information</h3>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">Contact Information</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 w-6 h-6 mt-1">
-                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg className="w-6 h-6 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white mb-1">Our Location</h4>
-                  <p className="text-gray-400 leading-relaxed">
+                  <h4 className="font-medium text-slate-900 dark:text-white mb-1">Our Location</h4>
+                  <p className="text-slate-500 dark:text-gray-400 leading-relaxed">
                     Tulip Heaven Gate, Opposite Hampton Lake Estate,
                     <br />
                     Chevron Alternative Route, Lekki, Lagos, Nigeria
@@ -145,13 +145,13 @@ const Footer = () => {
 
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 w-6 h-6 mt-1">
-                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg className="w-6 h-6 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white mb-1">Phone</h4>
-                  <a href={`tel:${PHONE_TEL}`} className="text-gray-400 hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-400 focus:underline" aria-label={`Call Joetech at ${PHONE_NUMBER}`}>
+                  <h4 className="font-medium text-slate-900 dark:text-white mb-1">Phone</h4>
+                  <a href={`tel:${PHONE_TEL}`} className="text-slate-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-600 dark:focus:text-blue-400 focus:underline" aria-label={`Call Joetech at ${PHONE_NUMBER}`}>
                     {PHONE_NUMBER}
                   </a>
                 </div>
@@ -159,13 +159,13 @@ const Footer = () => {
 
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 w-6 h-6 mt-1">
-                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg className="w-6 h-6 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white mb-1">Email</h4>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-400 hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-400 focus:underline">
+                  <h4 className="font-medium text-slate-900 dark:text-white mb-1">Email</h4>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-slate-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:text-blue-600 dark:focus:text-blue-400 focus:underline">
                     {CONTACT_EMAIL}
                   </a>
                 </div>
@@ -173,13 +173,13 @@ const Footer = () => {
 
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0 w-6 h-6 mt-1">
-                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg className="w-6 h-6 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white mb-1">Business Hours</h4>
-                  <p className="text-gray-400">
+                  <h4 className="font-medium text-slate-900 dark:text-white mb-1">Business Hours</h4>
+                  <p className="text-slate-500 dark:text-gray-400">
                     Mon - Fri: 9:00 AM - 6:00 PM
                     <br />
                     Sat: 10:00 AM - 4:00 PM
@@ -191,28 +191,28 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-gray-800">
+      <div className="border-t border-slate-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
+            <p className="text-slate-500 dark:text-gray-400 text-sm">
               &copy; {currentYear}{" "}
-              <span className="text-white font-medium">Joetech</span>. All
+              <span className="text-slate-900 dark:text-white font-medium">Joetech</span>. All
               rights reserved.
             </p>
             <nav aria-label="Footer legal navigation">
               <ul className="flex space-x-6 text-sm">
                 <li>
-                  <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-300 focus:outline-none focus:text-white focus:underline">
+                  <a href="/privacy-policy" className="text-slate-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-300 focus:outline-none focus:text-slate-900 dark:focus:text-white focus:underline">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors duration-300 focus:outline-none focus:text-white focus:underline">
+                  <a href="/terms-of-service" className="text-slate-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-300 focus:outline-none focus:text-slate-900 dark:focus:text-white focus:underline">
                     Terms of Service
                   </a>
                 </li>
                 <li>
-                  <a href="/sitemap.xml" className="text-gray-400 hover:text-white transition-colors duration-300 focus:outline-none focus:text-white focus:underline">
+                  <a href="/sitemap.xml" className="text-slate-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-300 focus:outline-none focus:text-slate-900 dark:focus:text-white focus:underline">
                     Sitemap
                   </a>
                 </li>
@@ -224,7 +224,7 @@ const Footer = () => {
 
       <ClientButton
         scrollToTop
-        className="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 z-50"
+        className="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 z-50"
         ariaLabel="Scroll back to top of page"
       >
         <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

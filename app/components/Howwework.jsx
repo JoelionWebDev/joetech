@@ -62,18 +62,18 @@ const processSteps = [
 const ProcessSection = () => {
   return (
     <section
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50"
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-slate-950"
       aria-labelledby="process-heading"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2
             id="process-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 dark:text-white"
           >
             Our Process
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed dark:text-slate-400">
             A simple 4-step approach to building and promoting your business
             through strategic consultation, planning &amp; design, development &amp;
             marketing, and delivery &amp; support.
@@ -83,7 +83,7 @@ const ProcessSection = () => {
         {/* Desktop Timeline */}
         <div className="hidden lg:block mb-16">
           <div className="relative">
-            <div className="absolute top-24 left-0 right-0 h-0.5 bg-gray-300 z-0"></div>
+            <div className="absolute top-24 left-0 right-0 h-0.5 bg-gray-300 z-0 dark:bg-slate-700"></div>
 
             <StaggerGrid className="grid grid-cols-4 gap-8 relative z-20" staggerDelay={200}>
               {processSteps.map((step) => (
@@ -94,11 +94,11 @@ const ProcessSection = () => {
                     </div>
                   </div>
 
-                  <div className="text-sm font-semibold text-gray-500 mb-2">
+                  <div className="text-sm font-semibold text-gray-500 mb-2 dark:text-slate-400">
                     STEP {step.number}
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200 dark:text-white">
                     {step.title}
                   </h3>
 
@@ -106,7 +106,7 @@ const ProcessSection = () => {
                     {step.subtitle}
                   </p>
 
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed dark:text-slate-400">
                     {step.description}
                   </p>
                 </article>
@@ -119,7 +119,7 @@ const ProcessSection = () => {
         <div className="lg:hidden space-y-8">
           <StaggerGrid staggerDelay={150}>
             {processSteps.map((step) => (
-              <article key={step.id} className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-500 overflow-hidden">
+              <article key={step.id} className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-500 overflow-hidden dark:bg-slate-900">
                 <div className="p-6 sm:p-8 flex items-start space-x-4">
                   <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full ${step.color} text-white flex items-center justify-center flex-shrink-0 shadow-lg`}>
                     <div aria-label={`Step ${step.number}: ${step.title}`}>
@@ -128,16 +128,16 @@ const ProcessSection = () => {
                   </div>
 
                   <div className="flex-grow">
-                    <div className="text-xs sm:text-sm font-semibold text-gray-500 mb-2">
+                    <div className="text-xs sm:text-sm font-semibold text-gray-500 mb-2 dark:text-slate-400">
                       STEP {step.number}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 dark:text-white">
                       {step.title}
                     </h3>
                     <p className="text-blue-600 font-medium mb-3">
                       {step.subtitle}
                     </p>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed dark:text-slate-400">
                       {step.description}
                     </p>
                   </div>
@@ -148,12 +148,12 @@ const ProcessSection = () => {
         </div>
 
         {/* Process Summary */}
-        <div className="mt-16 bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+        <div className="mt-16 bg-white rounded-2xl shadow-lg p-8 sm:p-12 dark:bg-slate-900">
           <div className="text-center max-w-4xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 dark:text-white">
               Why Choose Joetech&apos;s Process?
             </h3>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed dark:text-slate-400">
               Our proven methodology ensures successful project delivery through
               structured consultation, strategic planning &amp; design,
               comprehensive development &amp; marketing, and reliable delivery &amp;
@@ -163,37 +163,37 @@ const ProcessSection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-slate-800">
                   <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Fast Delivery</h4>
-                <p className="text-gray-600 text-sm">
+                <h4 className="font-semibold text-gray-900 mb-2 dark:text-white">Fast Delivery</h4>
+                <p className="text-gray-600 text-sm dark:text-slate-400">
                   Efficient process ensures timely project completion without compromising quality.
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-slate-800">
                   <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Quality Assured</h4>
-                <p className="text-gray-600 text-sm">
+                <h4 className="font-semibold text-gray-900 mb-2 dark:text-white">Quality Assured</h4>
+                <p className="text-gray-600 text-sm dark:text-slate-400">
                   Rigorous testing and review at each step guarantees exceptional results.
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-slate-800">
                   <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Client-Focused</h4>
-                <p className="text-gray-600 text-sm">
+                <h4 className="font-semibold text-gray-900 mb-2 dark:text-white">Client-Focused</h4>
+                <p className="text-gray-600 text-sm dark:text-slate-400">
                   Transparent communication and collaboration throughout every project phase.
                 </p>
               </div>
@@ -202,7 +202,7 @@ const ProcessSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-gray-600 mb-6 dark:text-slate-400">
             Ready to start your project with our proven process?
           </p>
           <a
