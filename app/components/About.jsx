@@ -69,7 +69,7 @@ const AboutSection = () => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-blue-100 to-indigo-100">
               <Image
-                src="/joelion2.jpg"
+                src="/joelion2.PNG"
                 alt="Diverse team of professionals collaborating on digital solutions at Joetech, representing teamwork, creativity, and modern technology expertise"
                 width={600}
                 height={400}

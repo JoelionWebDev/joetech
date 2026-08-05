@@ -129,7 +129,7 @@ const JoetechAboutPage = () => {
       role: "Lead Developer",
       description:
         "Full-stack expert in modern web technologies and scalable digital solutions.",
-      image: "/dev.jpg",
+      image: "/dev.PNG",
     },
     {
       name: "Blessing Eze",
