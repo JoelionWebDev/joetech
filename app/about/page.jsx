@@ -393,7 +393,7 @@ const JoetechAboutPage = () => {
             </div>
             <div className="relative">
               <img
-                src="team.png"
+                src="/team.png"
                 alt="Joetech team collaborating on digital solutions and web development projects"
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
