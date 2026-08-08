@@ -1,11 +1,12 @@
-"use client";
-import React, { useState, useEffect } from "react";
 import { PHONE_NUMBER, PHONE_TEL } from "../../lib/site";
 import {
   ChevronRight,
   Code,
-  Smartphone,
   Palette,
+  Clapperboard,
+  Globe,
+  Sparkles,
+  Utensils,
   TrendingUp,
   Target,
   Settings,
@@ -16,206 +17,290 @@ import {
   Award,
   Headphones,
   Star,
+  Landmark,
+  Construction,
 } from "lucide-react";
+import StaggerGrid from "../../components/StaggerGrid";
+import FadeInSection from "../../components/FadeInSection";
 
-// Intersection Observer Hook for Animations
-const useInView = (threshold = 0.1) => {
-  const [ref, setRef] = useState(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    if (!ref) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold }
-    );
-
-    observer.observe(ref);
-    return () => observer.disconnect();
-  }, [ref, threshold]);
-
-  return [setRef, inView];
+export const metadata = {
+  title: "Our Services - Web Development, 360 Virtual Tours & Digital Marketing | Joetech",
+  description:
+    "Explore Joetech's comprehensive services: web & app development, branding, video editing, 360° virtual tours, AI video generation, digital menus & digital marketing. Turn your business into a complete digital presence.",
+  keywords:
+    "360 virtual tour Lagos, AI video generation Nigeria, digital menu Lagos, hospitality tech solutions Nigeria, web development, digital marketing, branding agency Lagos, video production",
+  alternates: { canonical: "https://joetech.name.ng/services" },
+  openGraph: {
+    title: "Professional Tech Solutions & Digital Services | Joetech",
+    description:
+      "Transform your business with Joetech's web development, branding, 360° virtual tours, AI video and digital marketing services. Get a free consultation today!",
+    url: "https://joetech.name.ng/services",
+  },
 };
 
 // Service Card Component
-const ServiceCard = ({ service, index, inView }) => (
-  <article
-    className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 group border border-gray-100 ${
-      inView ? `opacity-100 translate-y-0` : "opacity-0 translate-y-8"
-    }`}
-    style={{ transitionDelay: `${index * 100}ms` }}
-  >
+const ServiceCard = ({ service, index }) => (
+  <article className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 group border border-gray-100 flex flex-col h-full">
     <div className="text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
       {service.icon}
     </div>
     <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
       {service.title}
     </h3>
-    <p className="text-gray-600 leading-relaxed mb-6 text-base">
+    <p className="text-gray-600 leading-relaxed mb-6 text-base flex-grow">
       {service.description}
     </p>
     <ul className="space-y-2 mb-8">
       {service.features.map((feature, idx) => (
-        <li key={idx} className="flex items-center text-sm text-gray-600">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+        <li key={idx} className="flex items-start text-sm text-gray-600">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
           {feature}
         </li>
       ))}
     </ul>
-                <a
-                  href="/contact"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group-hover:shadow-lg flex items-center justify-center"
-                >
-                  Get a Quote
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </a>
+    <a
+      href="/contact"
+      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group-hover:shadow-lg flex items-center justify-center mt-auto"
+    >
+      Get a Quote
+      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+    </a>
   </article>
 );
 
+// Pillar Section Component
+const PillarSection = ({ pillar }) => {
+  return (
+    <FadeInSection className="rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-lg">
+      <div
+        className={`px-8 py-10 text-white ${
+          pillar.headerClass || "bg-gradient-to-r from-blue-600 to-indigo-700"
+        }`}
+      >
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center">
+            {pillar.icon}
+          </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider opacity-80">
+              Pillar
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold">{pillar.title}</h2>
+          </div>
+        </div>
+        <p className="text-lg opacity-95 max-w-2xl leading-relaxed">
+          {pillar.intro}
+        </p>
+      </div>
+      <div className="grid md:grid-cols-2 gap-8 p-8 lg:p-10">
+        {pillar.services.map((service, index) => (
+          <ServiceCard key={index} service={service} index={index} />
+        ))}
+      </div>
+    </FadeInSection>
+  );
+};
+
+const pillars = [
+  {
+    title: "Build & Brand",
+    icon: <Code className="w-7 h-7" />,
+    headerClass: "bg-gradient-to-r from-blue-600 to-indigo-700",
+    intro:
+      "We lay the digital foundation — building your website or app and shaping the brand identity behind it, so your business looks professional and works flawlessly.",
+    services: [
+      {
+        icon: <Code className="w-9 h-9" />,
+        title: "Web & App Development",
+        description:
+          "Custom responsive websites, powerful web applications, and native iOS/Android apps. Our development team creates scalable solutions that drive business growth and enhance user experience.",
+        features: [
+          "Responsive & Mobile-First Design",
+          "Custom CMS Solutions",
+          "E-commerce & Web Applications",
+          "Native iOS & Android Apps",
+          "App Store Optimization",
+          "Ongoing Maintenance & Updates",
+        ],
+      },
+      {
+        icon: <Palette className="w-9 h-9" />,
+        title: "Graphics & Branding",
+        description:
+          "Complete branding solutions including logo design, visual identity, and brand strategy. Our team crafts memorable brand experiences that resonate with your audience and establish market presence.",
+        features: [
+          "Logo Design & Visual Identity",
+          "Brand Identity Development",
+          "UI/UX & Design Systems",
+          "Market & Competitive Research",
+          "Digital Brand Guidelines",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Show & Sell",
+    icon: <Clapperboard className="w-7 h-7" />,
+    headerClass: "bg-gradient-to-r from-purple-600 to-fuchsia-700",
+    intro:
+      "Showcase your space, products, and services to customers visually — with video, immersive 360° tours, and digital tools that make it easy to explore and buy.",
+    services: [
+      {
+        icon: <Clapperboard className="w-9 h-9" />,
+        title: "Video Editing & Production",
+        description:
+          "Professional video editing and production for marketing campaigns, corporate content, and social media. We transform ideas into compelling visual stories that engage and convert.",
+        features: [
+          "Marketing & Promotional Videos",
+          "Corporate Content",
+          "Social Media Videos",
+          "Color Grading & Sound Design",
+        ],
+      },
+      {
+        icon: <Globe className="w-9 h-9" />,
+        title: "360° Virtual Tours",
+        description:
+          "Full 360° camera walkthroughs of properties and business locations. Perfect for Google Business Profile listings, hotel room previews, apartment and real estate showings — letting customers explore a location before visiting.",
+        features: [
+          "Google Business Profile Ready",
+          "Hotel & Short-let Room Previews",
+          "Real Estate & Apartment Showings",
+          "Property & Business Location Walkthroughs",
+        ],
+      },
+      {
+        icon: <Sparkles className="w-9 h-9" />,
+        title: "AI Video Generation",
+        description:
+          "AI-powered video content for real estate listings, construction progress updates, and business promotional content — faster and more affordable than traditional production.",
+        features: [
+          "Real Estate Property Videos",
+          "Construction Progress Updates",
+          "Business Promotional Content",
+          "Cost-Effective AI Production",
+        ],
+      },
+      {
+        icon: <Utensils className="w-9 h-9" />,
+        title: "Digital Menus",
+        description:
+          "Interactive digital menus for restaurants, bars, and hotels. Easy to update, beautiful to present, and ready for Google Business — raising average orders and delighting customers.",
+        features: [
+          "Interactive & Animated Menus",
+          "QR Code Access & Updates",
+          "Restaurant, Bar & Hotel Menus",
+          "Full Branding Included",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Grow",
+    icon: <TrendingUp className="w-7 h-7" />,
+    headerClass: "bg-gradient-to-r from-emerald-600 to-teal-700",
+    intro:
+      "We promote your business to the right people — with SEO, social media, and paid advertising that turn attention into customers and grow your bottom line.",
+    services: [
+      {
+        icon: <TrendingUp className="w-9 h-9" />,
+        title: "Digital Marketing",
+        description:
+          "Comprehensive digital marketing strategies including SEO, social media marketing, and content creation. We help businesses increase online visibility and drive qualified traffic that converts.",
+        features: [
+          "Search Engine Optimization (SEO)",
+          "Social Media Management",
+          "Content Marketing Strategy",
+          "Pay-Per-Click (PPC) Advertising",
+        ],
+      },
+      {
+        icon: <Target className="w-9 h-9" />,
+        title: "Brand Strategy & Growth",
+        description:
+          "Strategic brand development and digital presence optimization. Our business growth strategies help establish strong market positioning and create lasting connections with your target audience.",
+        features: [
+          "Brand Identity Development",
+          "Market Research & Analysis",
+          "Competitive Analysis",
+          "Digital Brand Guidelines",
+        ],
+      },
+      {
+        icon: <Settings className="w-9 h-9" />,
+        title: "IT Support & Maintenance",
+        description:
+          "Reliable ongoing technical support and website maintenance services. Our dedicated team ensures your digital assets remain secure, updated, and performing at peak efficiency around the clock.",
+        features: [
+          "Website Maintenance & Updates",
+          "Security Monitoring",
+          "Performance Optimization",
+          "Technical Support & Troubleshooting",
+        ],
+      },
+    ],
+  },
+];
+
+const industries = [
+  {
+    title: "Hospitality",
+    subtitle: "Hotels & Restaurants",
+    description:
+      "Complete guest-facing digital presence, from website to room previews to digital menus.",
+    icon: <Utensils className="w-7 h-7" />,
+    iconWrap: "bg-amber-100 text-amber-600",
+    bundle: ["Web Development", "360° Virtual Tours", "Digital Menus", "Branding"],
+    linkLabel: "Case Study: De Phantom Hotel Group",
+    linkHref: "https://www.dephantomhotelgroup.com",
+  },
+  {
+    title: "Real Estate",
+    subtitle: "Properties & Investments",
+    description:
+      "List, show, and sell properties anywhere with immersive 360° tours and AI video.",
+    icon: <Landmark className="w-7 h-7" />,
+    iconWrap: "bg-emerald-100 text-emerald-600",
+    bundle: ["Web Development", "360° Virtual Tours", "AI Video Generation", "Branding"],
+    linkLabel: "Case Study: First Choice Afro Villa",
+    linkHref: "https://www.firstchoiceafrovilla.com",
+  },
+  {
+    title: "Construction",
+    subtitle: "Builders & Projects",
+    description:
+      "Keep clients engaged with project progress videos and a brand that reflects trust and quality.",
+    icon: <Construction className="w-7 h-7" />,
+    iconWrap: "bg-orange-100 text-orange-600",
+    bundle: ["Web Development", "AI Video Generation", "Branding"],
+    linkLabel: "View Our Work",
+    linkHref: "/projects",
+  },
+];
+
+const trustSignals = [
+  { icon: <Clock className="w-8 h-8" />, title: "5+ Years", subtitle: "of Experience" },
+  { icon: <Star className="w-8 h-8" />, title: "98%", subtitle: "Client Satisfaction" },
+  { icon: <Award className="w-8 h-8" />, title: "250+", subtitle: "Projects Completed" },
+  { icon: <Headphones className="w-8 h-8" />, title: "24/7", subtitle: "Support Available" },
+];
+
 const JoetechServicesPage = () => {
-  const [heroRef, heroInView] = useInView(0.3);
-  const [servicesRef, servicesInView] = useInView(0.2);
-  const [trustRef, trustInView] = useInView(0.3);
-  const [ctaRef, ctaInView] = useInView(0.3);
-
-  const services = [
-    {
-      icon: <Code className="w-12 h-12" />,
-      title: "Web Development",
-      description:
-        "Custom responsive websites and powerful web applications built with cutting-edge technology. Our expert web development team creates scalable solutions that drive business growth and enhance user experience.",
-      features: [
-        "Responsive & Mobile-First Design",
-        "Custom CMS Solutions",
-        "E-commerce Development",
-        "Performance Optimization",
-      ],
-    },
-    {
-      icon: <Smartphone className="w-12 h-12" />,
-      title: "Mobile App Development",
-      description:
-        "Native iOS and Android applications that engage users and boost your digital presence. Our mobile development expertise ensures seamless performance across all devices and platforms.",
-      features: [
-        "Native iOS & Android Apps",
-        "Cross-Platform Solutions",
-        "App Store Optimization",
-        "Ongoing Maintenance & Updates",
-      ],
-    },
-    {
-      icon: <Palette className="w-12 h-12" />,
-      title: "UI/UX Design",
-      description:
-        "Beautiful, user-centered designs that convert visitors into customers. Our design team combines aesthetics with functionality to create exceptional digital experiences that align with your brand.",
-      features: [
-        "User Research & Testing",
-        "Wireframing & Prototyping",
-        "Brand Identity Design",
-        "Design System Development",
-      ],
-    },
-    {
-      icon: <TrendingUp className="w-12 h-12" />,
-      title: "Digital Marketing",
-      description:
-        "Comprehensive digital marketing strategies including SEO, social media marketing, and content creation. We help businesses increase online visibility and drive qualified traffic that converts.",
-      features: [
-        "Search Engine Optimization (SEO)",
-        "Social Media Management",
-        "Content Marketing Strategy",
-        "Pay-Per-Click (PPC) Advertising",
-      ],
-    },
-    {
-      icon: <Target className="w-12 h-12" />,
-      title: "Brand Strategy",
-      description:
-        "Strategic brand development and digital presence optimization. Our business growth strategies help establish strong market positioning and create lasting connections with your target audience.",
-      features: [
-        "Brand Identity Development",
-        "Market Research & Analysis",
-        "Competitive Analysis",
-        "Digital Brand Guidelines",
-      ],
-    },
-    {
-      icon: <Settings className="w-12 h-12" />,
-      title: "IT Support & Maintenance",
-      description:
-        "Reliable ongoing technical support and website maintenance services. Our dedicated team ensures your digital assets remain secure, updated, and performing at peak efficiency around the clock.",
-      features: [
-        "Website Maintenance & Updates",
-        "Security Monitoring",
-        "Performance Optimization",
-        "Technical Support & Troubleshooting",
-      ],
-    },
-  ];
-
-  const trustSignals = [
-    {
-      icon: <Clock className="w-8 h-8" />,
-      title: "5+ Years",
-      subtitle: "of Experience",
-    },
-    {
-      icon: <Star className="w-8 h-8" />,
-      title: "98%",
-      subtitle: "Client Satisfaction",
-    },
-    {
-      icon: <Award className="w-8 h-8" />,
-      title: "250+",
-      subtitle: "Projects Completed",
-    },
-    {
-      icon: <Headphones className="w-8 h-8" />,
-      title: "24/7",
-      subtitle: "Support Available",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white">
-      {/* SEO Head Section */}
-      <head>
-        <title>
-          Our Services - Tech Solutions, Web Development & Digital Marketing |
-          Joetech
-        </title>
-        <meta
-          name="description"
-          content="Explore Joetech's comprehensive tech solutions: web development, mobile apps, UI/UX design, digital marketing, brand strategy & IT support. Drive business growth with our expert services."
-        />
-        <meta
-          name="keywords"
-          content="tech solutions, digital marketing, web development, UI/UX design, business growth strategies, mobile app development, IT support, brand strategy"
-        />
-        <meta
-          property="og:title"
-          content="Professional Tech Solutions & Digital Services | Joetech"
-        />
-        <meta
-          property="og:description"
-          content="Transform your business with our expert tech solutions, web development, and digital marketing services. Get a free consultation today!"
-        />
-        <link rel="canonical" href="https://joetech.name.ng/services" />
-        <script type="application/ld+json">
-          {JSON.stringify({
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            provider: {
-              "@type": "Organization",
-              name: "Joetech",
-            },
+            provider: { "@type": "Organization", name: "Joetech" },
             serviceType: "Tech Solutions and Digital Marketing",
             description:
-              "Comprehensive tech solutions including web development, mobile apps, digital marketing, and business growth strategies",
-          })}
-        </script>
-      </head>
+              "Comprehensive services including web development, branding, 360° virtual tours, AI video generation, digital menus, and marketing",
+          }),
+        }}
+      />
 
       {/* Breadcrumb Navigation */}
       <nav
@@ -241,21 +326,13 @@ const JoetechServicesPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="relative h-96 bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-700 flex items-center justify-center overflow-hidden"
-      >
+      <section className="relative h-96 bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-700 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div
-          className={`relative z-10 text-center text-white px-4 transition-all duration-1000 ${
-            heroInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
+        <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Services</h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-            Comprehensive tech solutions and digital marketing services designed
-            to accelerate your business growth and establish a powerful online
-            presence.
+            One partner to build, brand, and promote your business — from web and
+            app development to 360° virtual tours, AI video, and digital marketing.
           </p>
         </div>
 
@@ -265,40 +342,79 @@ const JoetechServicesPage = () => {
       </section>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Services Grid */}
-        <section ref={servicesRef} className="py-20">
+        {/* Pillars Section */}
+        <section className="py-20">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Professional Tech Solutions for Modern Businesses
+              Build, Show & Sell, and Grow — All Under One Roof
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              From web development to digital marketing, we provide end-to-end
-              tech solutions that drive business growth and create exceptional
-              user experiences.
+              We organise our services into three pillars that take your business
+              from brand and product to visibility and growth — end to end.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                service={service}
-                index={index}
-                inView={servicesInView}
-              />
+          <div className="space-y-16">
+            {pillars.map((pillar, idx) => (
+              <PillarSection key={idx} pillar={pillar} />
             ))}
           </div>
         </section>
 
+        {/* Industries We Serve */}
+        <section className="py-20 bg-gray-50 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Industries We Serve
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                We package our services into complete solutions for the industries
+                that depend on seamless digital experiences and immersive visual content.
+              </p>
+            </div>
+
+            <StaggerGrid className="grid md:grid-cols-3 gap-8" staggerDelay={150}>
+              {industries.map((ind, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 flex flex-col"
+                >
+                  <div
+                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${ind.iconWrap}`}
+                  >
+                    {ind.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {ind.title}
+                  </h3>
+                  <p className="text-gray-500 font-medium mb-2">{ind.subtitle}</p>
+                  <p className="text-gray-600 mb-6 flex-grow">{ind.description}</p>
+                  <ul className="space-y-2 mb-6">
+                    {ind.bundle.map((f) => (
+                      <li key={f} className="flex items-center text-sm text-gray-600">
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={ind.linkHref}
+                    target={ind.linkHref.startsWith("http") ? "_blank" : undefined}
+                    rel={ind.linkHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700"
+                  >
+                    {ind.linkLabel}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                </div>
+              ))}
+            </StaggerGrid>
+          </div>
+        </section>
+
         {/* Trust & Social Proof Section */}
-        <section
-          ref={trustRef}
-          className={`py-20 bg-gray-50 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
-            trustInView
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
-          }`}
-        >
+        <section className="py-20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -310,16 +426,11 @@ const JoetechServicesPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <StaggerGrid className="grid grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={150}>
               {trustSignals.map((signal, index) => (
                 <div
                   key={index}
-                  className={`text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
-                    trustInView
-                      ? `opacity-100 translate-y-0`
-                      : "opacity-0 translate-y-8"
-                  }`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
+                  className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
                 >
                   <div className="text-blue-600 mb-4 flex justify-center">
                     {signal.icon}
@@ -330,7 +441,7 @@ const JoetechServicesPage = () => {
                   <p className="text-gray-600 font-medium">{signal.subtitle}</p>
                 </div>
               ))}
-            </div>
+            </StaggerGrid>
 
             {/* Additional Trust Elements */}
             <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
@@ -341,7 +452,7 @@ const JoetechServicesPage = () => {
                 </h3>
                 <p className="text-gray-600">
                   Certified professionals with extensive experience in tech
-                  solutions and digital marketing strategies.
+                  solutions, immersive 360° content, and digital marketing strategies.
                 </p>
               </div>
               <div className="p-6">
@@ -369,12 +480,7 @@ const JoetechServicesPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section
-          ref={ctaRef}
-          className={`py-20 transition-all duration-1000 ${
-            ctaInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
+        <section className="py-20">
           <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-12 lg:p-16 text-center text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-black opacity-10"></div>
 
@@ -389,9 +495,9 @@ const JoetechServicesPage = () => {
                 Let's Build Something Great Together!
               </h2>
               <p className="text-xl lg:text-2xl mb-10 opacity-90 max-w-3xl mx-auto leading-relaxed">
-                Ready to transform your business with our expert tech solutions
-                and digital marketing services? Let's discuss your project and
-                create a strategy that drives results.
+                Ready to transform your business with our expert tech solutions,
+                immersive 360° tours, AI video, and digital marketing services?
+                Let's discuss your project and create a strategy that drives results.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -429,7 +535,6 @@ const JoetechServicesPage = () => {
           </div>
         </section>
       </main>
-
     </div>
   );
 };

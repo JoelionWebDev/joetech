@@ -1,40 +1,37 @@
-import { Code, Palette, Video, TrendingUp, ArrowRight } from "lucide-react";
+import {
+  Code,
+  Palette,
+  Clapperboard,
+  TrendingUp,
+  ArrowRight,
+} from "lucide-react";
 import StaggerGrid from "../../components/StaggerGrid";
 
 const services = [
   {
     id: 1,
     icon: Code,
-    title: "Web & App Development",
+    title: "Build & Brand",
     description:
-      "Custom web development and mobile app solutions built with cutting-edge technologies. From responsive websites to complex web applications, we deliver scalable digital experiences that drive business growth.",
+      "Web & app development, graphics and branding that lay the digital foundation for your business — a professional website or app with a brand identity customers remember.",
     link: "/services",
-    ariaLabel: "Learn more about our web and app development services",
+    ariaLabel: "Learn more about our web development and branding services",
   },
   {
     id: 2,
     icon: Palette,
-    title: "Graphics & Branding",
+    title: "Show & Sell",
     description:
-      "Complete branding solutions including logo design, visual identity, and brand strategy. Our creative team crafts memorable brand experiences that resonate with your target audience and establish market presence.",
+      "Video editing & production, 360° virtual tours, AI video generation and digital menus — visually showcase your space, products and services to customers before they even visit.",
     link: "/services",
-    ariaLabel: "Learn more about our graphics and branding services",
+    ariaLabel: "Learn more about our video, 360 virtual tour and digital menu services",
   },
   {
     id: 3,
-    icon: Video,
-    title: "Video Editing & Production",
+    icon: Clapperboard,
+    title: "Grow",
     description:
-      "Professional video editing and production services for marketing campaigns, corporate content, and social media. Transform your ideas into compelling visual stories that engage and convert your audience.",
-    link: "/services",
-    ariaLabel: "Learn more about our video editing and production services",
-  },
-  {
-    id: 4,
-    icon: TrendingUp,
-    title: "Digital Marketing",
-    description:
-      "Comprehensive digital marketing strategies including SEO, social media management, and paid advertising. Boost your online presence and drive targeted traffic with data-driven marketing campaigns that deliver results.",
+      "Digital marketing, SEO, social media management and paid advertising that drive targeted traffic and turn visibility into customers and revenue.",
     link: "/services",
     ariaLabel: "Learn more about our digital marketing services",
   },
@@ -55,12 +52,13 @@ const FeaturedServices = () => {
             Our Core Services
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Joetech delivers end-to-end solutions to build, brand, and promote
-            your business with innovative technology and creative expertise.
+            Joetech delivers end-to-end solutions across three pillars — Build
+            & Brand, Show & Sell, and Grow — so your business has one partner
+            from first idea to full growth.
           </p>
         </div>
 
-        <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={150}>
+        <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={150}>
           {services.map((service) => {
             const IconComponent = service.icon;
             return (

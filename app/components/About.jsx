@@ -12,7 +12,7 @@ const strengthItems = [
   },
   {
     icon: "video",
-    text: "Professional video production & editing for compelling storytelling",
+    text: "Professional, immersive visual content — including 360° virtual tours and AI video generation — that showcases your space and services like a showroom",
   },
   {
     icon: "trending",
