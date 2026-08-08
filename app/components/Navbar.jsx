@@ -43,9 +43,9 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[#060b18]/80 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.06)]"
-          : "bg-transparent"
+        scrolled ?
+          "bg-[#060b18]/80 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.06)]"
+        : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,7 +56,14 @@ export default function Navbar() {
             className="relative z-10 flex items-center gap-2 shrink-0"
             aria-label="Joetech homepage"
           >
-            <Image src="/logo.png" alt="Joetech logo — home" width="42" height="42" className="lg:w-[46px]" priority />
+            <Image
+              src="/logo.png"
+              alt="Joetech logo — home"
+              width="42"
+              height="42"
+              className="lg:w-[46px]"
+              priority
+            />
             <span className="text-white font-bold text-lg lg:text-xl tracking-tight">
               Joetech
             </span>
@@ -69,9 +76,9 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
-                  isActive(link.href)
-                    ? "text-white bg-white/10"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                  isActive(link.href) ?
+                    "text-white bg-white/10"
+                  : "text-slate-300 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {link.name}
@@ -90,7 +97,11 @@ export default function Navbar() {
                 aria-label={`Visit our ${s.name}`}
                 className="text-slate-400 hover:text-white hover:bg-white/10 p-2 rounded-xl transition-all duration-200"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d={s.path} />
                 </svg>
               </a>
@@ -100,8 +111,18 @@ export default function Navbar() {
               className="ml-2 inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-400 hover:to-indigo-400 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-500/25"
             >
               Start a Project
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
               </svg>
             </a>
           </div>
@@ -112,7 +133,9 @@ export default function Navbar() {
             className="lg:hidden relative z-10 p-2 text-white hover:bg-white/10 rounded-xl transition-colors"
             aria-label="Toggle navigation"
           >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {open ?
+              <X className="w-6 h-6" />
+            : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -120,7 +143,9 @@ export default function Navbar() {
       {/* Mobile drawer */}
       <div
         className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ${
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          open ?
+            "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
         }`}
       >
         {/* Backdrop */}
@@ -143,9 +168,9 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
-                    isActive(link.href)
-                      ? "text-white bg-white/10"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
+                    isActive(link.href) ?
+                      "text-white bg-white/20 hover:bg-white/25"
+                    : "text-slate-300 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {link.name}
@@ -164,7 +189,11 @@ export default function Navbar() {
                     aria-label={`Visit our ${s.name}`}
                     className="text-slate-400 hover:text-white hover:bg-white/10 p-2.5 rounded-xl transition-all"
                   >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d={s.path} />
                     </svg>
                   </a>
@@ -176,8 +205,18 @@ export default function Navbar() {
                 className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold px-5 py-3 rounded-xl shadow-lg shadow-blue-500/25"
               >
                 Start a Project
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
                 </svg>
               </a>
             </div>
