@@ -73,6 +73,27 @@ export default async function BlogListingPage({ searchParams }) {
     return `/blog${q.toString() ? `?${q.toString()}` : ""}`;
   }
 
+  function getPageWindow(page, total, maxVisible = 7) {
+    if (total <= maxVisible) {
+      return Array.from({ length: total }, (_, i) => i + 1);
+    }
+    const pages = new Set([1, total]);
+    let start = Math.max(2, page - 2);
+    let end = Math.min(total - 1, page + 2);
+    while (end - start + 1 < maxVisible - 2 && start > 2) start--;
+    while (end - start + 1 < maxVisible - 2 && end < total - 1) end++;
+    for (let i = start; i <= end; i++) pages.add(i);
+    const sorted = [...pages].sort((a, b) => a - b);
+    const items = [];
+    let prev = 0;
+    for (const p of sorted) {
+      if (p - prev > 1) items.push("ellipsis");
+      items.push(p);
+      prev = p;
+    }
+    return items;
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Featured Hero */}
@@ -244,34 +265,48 @@ export default async function BlogListingPage({ searchParams }) {
             </section>
 
             {totalPages > 1 && (
-              <nav aria-label="Blog pagination" className="mt-16 flex justify-center gap-2">
+              <nav
+                aria-label="Blog pagination"
+                className="mt-16 flex flex-wrap items-center justify-center gap-2 max-w-full"
+              >
                 {page > 1 && (
                   <Link
                     href={buildPageUrl(page - 1, category, tag, search)}
-                    className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-600 hover:border-blue-300 hover:text-blue-600 transition-colors"
+                    className="px-3.5 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-600 hover:border-blue-300 hover:text-blue-600 transition-colors"
                   >
-                    Previous
+                    <span aria-hidden="true">&larr;</span> Previous
                   </Link>
                 )}
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                  <Link
-                    key={p}
-                    href={buildPageUrl(p, category, tag, search)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      p === page
-                        ? "bg-blue-600 text-white"
-                        : "border border-gray-200 text-gray-600 hover:border-blue-300 hover:text-blue-600"
-                    }`}
-                  >
-                    {p}
-                  </Link>
-                ))}
+                {getPageWindow(page, totalPages).map((item, i) =>
+                  item === "ellipsis" ? (
+                    <span
+                      key={`ellipsis-${i}`}
+                      className="px-1.5 py-2 text-sm text-gray-400 select-none"
+                      aria-hidden="true"
+                    >
+                      &hellip;
+                    </span>
+                  ) : (
+                    <Link
+                      key={item}
+                      href={buildPageUrl(item, category, tag, search)}
+                      className={`w-9 h-9 flex items-center justify-center rounded-lg text-sm font-medium transition-colors ${
+                        item === page
+                          ? "bg-blue-600 text-white shadow-md"
+                          : "border border-gray-200 text-gray-600 hover:border-blue-300 hover:text-blue-600"
+                      }`}
+                      aria-current={item === page ? "page" : undefined}
+                    >
+                      {item}
+                    </Link>
+                  )
+                )}
                 {page < totalPages && (
                   <Link
                     href={buildPageUrl(page + 1, category, tag, search)}
-                    className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-600 hover:border-blue-300 hover:text-blue-600 transition-colors"
+                    className="px-3.5 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-600 hover:border-blue-300 hover:text-blue-600 transition-colors"
                   >
-                    Next
+                    Next <span aria-hidden="true">&rarr;</span>
                   </Link>
                 )}
               </nav>

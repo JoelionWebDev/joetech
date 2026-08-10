@@ -156,7 +156,7 @@ export default function Navbar() {
 
         {/* Drawer panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-[#060b18] border-l border-white/5 shadow-2xl transition-transform duration-500 ${
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-gradient-to-b from-blue-950 via-[#0a1128] to-[#060b18] border-l border-white/5 shadow-2xl transition-transform duration-500 ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
