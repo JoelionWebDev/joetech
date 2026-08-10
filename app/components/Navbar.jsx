@@ -44,8 +44,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ?
-          "bg-[#060b18]/80 backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.06)]"
-        : "bg-transparent"
+          "bg-[#060b18] backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.06)]"
+        : "bg-[#060b18]/95 backdrop-blur-xl"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,7 +78,7 @@ export default function Navbar() {
                 className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                   isActive(link.href) ?
                     "text-white bg-white/10"
-                  : "text-slate-300 hover:text-white hover:bg-white/5"
+                  : "text-gray-100 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {link.name}
@@ -95,7 +95,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit our ${s.name}`}
-                className="text-slate-400 hover:text-white hover:bg-white/10 p-2 rounded-xl transition-all duration-200"
+                className="text-gray-100 hover:text-white hover:bg-white/10 p-2 rounded-xl transition-all duration-200"
               >
                 <svg
                   className="w-5 h-5"
@@ -170,7 +170,7 @@ export default function Navbar() {
                   className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
                     isActive(link.href) ?
                       "text-white bg-white/20 hover:bg-white/25"
-                    : "text-slate-300 hover:text-white hover:bg-white/10"
+                    : "text-gray-100 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {link.name}
@@ -187,7 +187,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit our ${s.name}`}
-                    className="text-slate-400 hover:text-white hover:bg-white/10 p-2.5 rounded-xl transition-all"
+                    className="text-gray-100 hover:text-white hover:bg-white/10 p-2.5 rounded-xl transition-all"
                   >
                     <svg
                       className="w-5 h-5"
