@@ -1,0 +1,195 @@
+---
+title: "From Zero to Deployed: Building and Selling Your First Micro-SaaS in 90 Days Without Investors"
+slug: building-selling-first-micro-saas-90-days
+excerpt: "A realistic, no-VC roadmap to launch a profitable micro-SaaS in 90 days from Nigeria: how to validate an idea before writing code, pick a low-cost stack, handle payments with Paystack or Stripe, price for early revenue, and manage the legal and tax basics."
+publishDate: "2026-08-12"
+updatedDate: "2026-08-12"
+author: "Igono Joel"
+category: "Business Strategy"
+tags:
+  - micro SaaS
+  - bootstrapping
+  - SaaS pricing
+  - Paystack
+  - Stripe
+  - Next.js
+  - Nigeria tech
+readingTime: "10 min read"
+coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80"
+metaTitle: "Build & Sell a Micro-SaaS in 90 Days (No Investors) | Joetech"
+metaDescription: "Validate an idea, pick a low-cost stack, and launch a profitable micro-SaaS in 90 days. Weekly timeline, USD and Naira cost tables, payments, pricing, and legal basics included."
+canonicalUrl: "https://joetech.name.ng/blog/building-selling-first-micro-saas-90-days"
+keywords: "micro SaaS, bootstrap SaaS Nigeria, SaaS 90 day timeline, validate SaaS idea, Paystack integration, Stripe integration SaaS, Next.js boilerplate, SaaS pricing strategy, product led growth, register limited liability company Nigeria"
+featured: false
+---
+
+A micro-SaaS is a small, focused software product serving one narrow problem for a specific audience — no investors, no sales team, no office, and usually one founder running everything. Done right, it produces steady, repeatable revenue from a few dozen to a few hundred paying customers. Done wrong, it produces a beautiful dashboard nobody uses, built on assumptions nobody tested. This guide walks a realistic 90-day path from problem-finding to a deployed product with paying users, including the costs in both US dollars and Nigerian Naira, the payments plumbing, the legal basics, and the honest math of whether to build at all.
+
+## Why Micro-SaaS Beats "A Big Startup Idea"
+
+Your first product should be small on purpose. A narrow tool solves a problem precisely, which means it can be built fast, marketed with a single message, and abandoned at any time without ruin. A micro-SaaS that makes $1,000-$3,000 per month in profit is already a success story for a solo founder in Nigeria — roughly 2 to 5 million Naira a year in recurring revenue, more than many full-time jobs, while you keep your day role as a safety net.
+
+Big startups need traction, funding, and luck. A micro-SaaS needs ten customers who would be annoyed if you shut down. That is the entire bar, and it is reachable in a quarter if you spend the first weeks validating instead of coding.
+
+## Step 1: Validate Before You Build
+
+Every wasted coding month begins with a skipped validation week. Validation is not asking your friends "is this a good idea?" — it is finding strangers who will pay. Two tools do the work.
+
+### Problem Interviews (weeks 1-2)
+
+Interview 15-25 people inside your target audience. Not users of your future product — owners of the problem. Software engineers, accountants, shop owners, freight forwarders; whoever hits the pain daily. Ask structured questions, and let them talk for most of the interview:
+
+- What is the last time this problem cost you money or time? Tell me the story.
+- How do you solve it today? What does that solution cost you?
+- What have you tried that failed?
+- If a tool fixed this completely, what would it be worth to you monthly?
+
+You are hunting for two signals: pain so specific they can recount a recent incident, and a number they volunteer without prompting. If interviewees give vague "it's annoying" answers with no cost story, the problem is not painful enough — move on. After fifteen interviews, you typically know whether the opportunity is real.
+
+### The Landing-Page Test (week 3)
+
+Before any code, build a one-page landing page: a headline stating the problem, one benefits section, a price, and a pre-order or join-waitlist button. Drive it to the exact communities that feel the pain — relevant LinkedIn groups, X threads, Telegram channels, Reddit communities, industry WhatsApp groups in your region. Measure: how many people click "pre-order" or "join waitlist" in two weeks?
+
+A healthy signal is 30-plus qualified signups, or a handful who will actually prepay. If the page converts near zero, either the message or the problem is wrong, and iterating on a landing page costs a weekend while iterating on code costs a month.
+
+## Step 2: Selecting a Narrowly Scoped Problem
+
+The validation sharpens the arb at the problem — now scope it brutally narrow. A good micro-SaaS problem statement has four properties:
+
+1. **One job.** The product does one thing excellently. "Generate monthly invoices for freelancers from a bank export" beats "an all-in-one finance suite."
+2. **Repeatable and urgent.** The problem recurs weekly or monthly, and the cost of ignoring it is tangible (penalties, missed deadlines, lost clients).
+3. **A visible target audience.** You can name ten of them today, because you already know where they gather.
+4. **Buildable alone in weeks, not months.** If the full vision of the product takes a year, pick a slice that takes four weeks.
+
+Then protect the scope like a fortress. Write the feature list, delete everything that is not in service of the one job, and keep the version 1 facing page count small — a dashboard, an input screen, an output, and a settings page is a healthy micro-SaaS ship.
+
+## Step 3: Tech Stack Decisions (With Real Costs)
+
+You need speed and low cost, not scale. The most boring, well-trodden stack is usually the winner.
+
+**The recommended baseline:**
+
+- **Frontend and backend in one:** Next.js (React) on Vercel. One language, one deployment, mature hosting, free tier generous enough for early usage.
+- **Database:** PostgreSQL — Supabase (generous free tier) or Neon. Both give you auth, a database, and storage in one place.
+- **Boilerplates:** products like Supabase's auth template, the Next.js starter kit, or `create-t3-app` give you auth, payments hooks, and a database wired in hours. Your Open Source or a paid starter kit (ShipFast, SaaStrPricing-style templates) is worth the money if it saves you a week; from Nigeria, a paid boilerplate costs the same as a few days of your time in Naira.
+- **Payments:** Paystack (Nigeria domiciled, ideal for Naira and African payments) or Stripe (global cards and subscriptions). Both have solid Node.js SDKs and webhooks.
+- **Email:** Resend or Mailgun for transactionals; a free Mailchimp tier for the waitlist.
+- **Hosting:** Vercel free tier, then ~$20/month once you outgrow it.
+
+**Realistic monthly cost table (version 1, one-user 20 customers):**
+
+| Line item | Cost (USD/month) | Cost (Naira/month, ~1,550/USD) |
+| --- | --- | --- |
+| Vercel hosting (free tier) | $0 | N0 |
+| Supabase free tier | $0 (upgrade ~$25) | N0 (upgrade ~N39,000) |
+| Domain name (annual, prorated) | ~$1.50 | ~N2,300 |
+| Email sending | $0 (free tiers) | N0 |
+| Card/payment processing | ~3% + $0.20 per transaction | Varies with gateway |
+| Total at launch | ~$2/month | ~N3,000/month |
+
+Total: under $5 monthly in the first months. Compare that to a full-stack SaaS built on AWS, and you save several thousand Naira a month while keeping one-fifth the moving parts.
+
+## Step 4: Auth, Payments, and Infrastructure Done Right
+
+Three pieces of plumbing decide whether you can take money and sleep at night.
+
+**Auth.** Use Supabase Auth or NextAuth instead of hand-rolling sessions. Email magic-link or Google OAuth gets you to revenue fastest. Never store passwords yourself in version one; use a purpose-built provider and move on.
+
+**Payments.** Wire Paystack and Stripe the same way:
+
+- Copy the SDK client secret from your backend; the customer enters card details on their own screen — never send card data through your server.
+- Register the subscription plan in your dashboard; reference prices from your code, not hard-coded strings.
+- Build the webhook endpoint that listens for `subscription.created`, `invoice.paid`, and `subscription.cancelled`, and mark the customer active or inactive in your database.
+- On the front end, use the gateway's checkout page or a redirect session; on completion, verify with the webhook rather than trusting the redirect.
+- Test in test mode with the 4242 4242 4242 4242 test card before going live.
+
+**Infrastructure hygiene.** Version your code (git) from day one, back up your database weekly, and set up basic monitoring (a free uptime check on UptimeRobot, or Vercel's built-in analytics). When a customer emails "it's down," your job is to react, not to debug blindly.
+
+## Step 5: Pricing and Customer Acquisition
+
+Price the product to what the problem costs, not to what it costs you to build. If the tool saves a Nigerian freelancer four hours a month, pricing it at a meaningful fraction of four hours' billable time — roughly N5,000-N15,000 per month for that profile — is defensible. Two pricing models dominate at micro-SaaS scale:
+
+- **Flat monthly (recommended for version 1):** simple, one button, no plans page. Upgrade later to tiers.
+- **Freemium with a paywall:** free for light use, paid for the core value. Great for product-led growth — free users become your marketing — but only if a natural limit exists (exporting, accounts, history).
+
+**Acquisition, in order of lowest cost to highest:**
+
+1. **Product-led growth:** make the free/cheap tier so good that users sign up organically, then convert through in-app upgrade prompts.
+2. **SEO:** write one focused landing page and three long-tail articles ("freelance invoice generator Nigeria," "how to invoice from my bank statement"). A single post that ranks for a strong keyword can feed signups for years.
+3. **Communities:** answer real questions (unspammy) in the exact groups your validation interviews came from. You already know where they gather — that is your distribution channel.
+4. **Founder-led outreach:** personally onboard your first ten users; strong early churn feedback improves the product faster than any dashboard.
+
+Do not outsource marketing yet. In a micro-SaaS, the founder is the growth engine for the first six months.
+
+## Step 6: Support Systems That Keep the First Customers
+
+First customers churn for one reason more than any other: they felt abandoned. A two-file support system prevents that:
+
+- **Email inbox + a support address** (support@yoursite.com) that forwards to your personal mail. Answer within 24 hours; in the first weeks, answer within hours.
+- **A short onboarding sequence** using an email drip: welcome message (what to do in minute one), a "how to get your first value" walkthrough on day two, and a "still here?" nudged on day five. Three emails, tool of your choice (Resend + a lightweight flow, or MailChimp's automation).
+- **An internal feedback file.** Every support email gets a row: problem, date, "did they say what they'd pay?" Review weekly and turn the top recurring complaint into the next shipped feature.
+
+Support is not just retention — it is the nearest market-research department you will ever own.
+
+## Step 7: Legal and Tax Basics (Nigeria Edition)
+
+Operating informally is fine at zero revenue and increasingly risky at real revenue. From Nigeria, three steps matter:
+
+1. **Business registration.** Register a company with the CAC (Corporate Affairs Commission) — a limited company or, to keep it light, start as a business name then upgrade. The CAC processes registrations online; plan on finishing before the first paying customers so payments settle to a business account cleanly.
+2. **Banking and payments.** Open a business or dedicated personal account for the product, and keep personal and product money separated from day one. Paystack settles to Naira; if you sell globally, Stripe and a Wise/Payoneer account simplify international payouts.
+3. **Taxes.** Understand that as revenue grows you will owe company income tax; a simple ledger of invoices and expenses plus a quarterly review with an accountant keeps you safe. If your buyers are foreign clients, confirm whether export incentives (like pioneer status provisions for software exports) could apply — your accountant can advise. Contracts also matter: a written terms of service and privacy policy on your site, plus a simple customer agreement, protect you from the worst disputes.
+
+None of this needs to be elaborate. It needs to be real, so that when the product works, the business is legitimate enough to keep the money.
+
+## Step 8: Scale or Exit Options
+
+Once you have paying users and a stable base, define what the product is for. Three honest paths:
+
+- **Scale slowly.** Add the second platform, second pricing tier, or second integration, and hire your first virtual assistant or part-time developer from the growing revenue. The goal becomes a 5,000 USD a month solo business.
+- **Sell the micro-SaaS.** Small, cash-flowing products change hands on marketplaces (Acquire and similar) and in private deals. Buyers pay multiples of monthly recurring revenue — often 20-40x for healthy, low-maintenance products. A $2,000/month product has an exit value of $40,000-$80,000.
+- **Keep it quiet as cashflow.** Operate it as a passive-style income stream that funds your main freelancing or product studio. Many founders deliberately cap growth to protect their time.
+
+Whichever you choose, choose deliberately — drifting between all three is how micro-SaaS businesses silently stall.
+
+## A Realistic 90-Day Timeline, Week by Week
+
+| Weeks | Focus | Key deliverables | Budget (USD) |
+| --- | --- | --- | --- |
+| 1-2 | Validation | 15-20 problem interviews, problem statement | $0 |
+| 3 | Validation | Landing page + waitlist, first traffic push | $0-$15 |
+| 4 | Decision gate | Convert or kill decision; final scope | $0 |
+| 5-6 | Setup | Next.js + Supabase project, auth, boilerplate, domain | $15-$50 |
+| 7-8 | Build | Core workflow: input, processing, output (the one job) | $0 |
+| 9 | Payments | Paystack and/or Stripe integration, test payments, webhooks | $5-$10 |
+| 10 | Build-to-finish | Polish, onboarding emails, support inbox, terms/privacy pages | $0 |
+| 11 | Soft launch | 10 founding users onboarded personally, feedback loop | $10 |
+| 12+ | Launch & iterate | Public launch, pricing live, weekly iteration from support data | $20-$50 |
+
+Total realistic budget for the full 90 days: approximately $100-$150 in the US (roughly N155,000-N230,000), most of which is optional tooling and launch spend — not infrastructure. Time commitment is the real cost: 8-15 focused hours per week over the quarter, which is realistic alongside a job.
+
+## Conclusion
+
+A micro-SaaS is the most reachable version of software entrepreneurship, specifically because it is small. Validate the problem in two weeks of interviews and a landing-page test, commit to a narrowly scoped one-job product, and build it on a boring, low-cost stack — Next.js on Vercel, Supabase for data and auth, and Paystack or Stripe for revenue. Set the price against the cost of the problem, acquire your first ten users by hand in the communities you already know, and support them like the founding customers they are. Handle registration, bank separation, and taxes before revenue becomes serious. In 90 days you can be deployed with paying users and a business that is legal, low-cost, and genuinely yours — and your only investors will be the customers who pay you.
+
+## Your Next Actions
+
+1. This week, list your top three candidate problems and run the problem-interview script with at least five people from each audience.
+2. Weekend two, build the one-page landing page with a price and a join-waitlist button, and drive it to the exact communities you named in your interviews.
+3. At the week-4 gate, decide convert, pivot the problem statement, or kill the idea — and do not build until the signal is real.
+4. Week 5, scaffold with a Next.js + Supabase boilerplate and get auth running before any feature work.
+5. Week 9, integrate Paystack and/or Stripe payments and test the full checkout with test cards before going live.
+6. From week 11, personally onboard your first ten users, run the weekly feedback-file review, and ship one improvement per week from real support signals.
+
+**Ready to build your micro-SaaS?** [Talk to Joetech](/contact) for development support, explore our [services](/services), or [learn tech with AI](/learnTech). Watch the [blog](/blog) for more business and tech strategy.
+
+<!--
+IMAGE GENERATION PROMPTS FOR THIS ARTICLE:
+
+1. Clean corporate editorial photograph of a young Nigerian entrepreneur working alone at a bright minimal desk: one laptop showing a simple paid-product dashboard with a subscriber counter, one phone with a card-payment checkout screen, and a small printed 90-day timeline stuck to the wall. Natural daylight, white-teal palette with warm wood accents, medium shot from a slight high angle. Mood: focused, optimistic, achievable.
+
+2. Isometric 3D illustration of a micro-SaaS product pipeline: a small laptop icon feeding into a gear wheel with five orbiting icons (payment card, database cylinder, email envelope, chart line, shield), over a light grid floor with scattered Naira and dollar coin symbols. Soft turquoise, cream, and amber palette against a white-to-light-blue gradient background. Style: clean, friendly, fast, startup-starter aesthetic.
+
+3. Cinematic tech flat-lay on a desk showing the full validation toolkit: a notebook open to interview notes with circled quotes, a printed landing-page wireframe sketch, a domain name tag, and a phone running a waitlist form. Overhead 45-degree angle, warm directional light with cool shadow, palette of slate, cream, and one amber accent. Mood: disciplined, methodical, first-step energy.
+
+4. Photorealistic editorial portrait of a happy African founder with crossed arms standing before a small whiteboard that reads "One job, ten paying users, $1,000 MRR" in front of a softly blurred office with a poster of a Nigerian bank-transfer receipt. Warm mixed lighting, composition slightly wide with the founder on the left third and the board on the right. Palette of deep green and warm gold. Mood: proud, grounded, small-but-real success.
+-->
