@@ -44,8 +44,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ?
-          "bg-[#060b18] backdrop-blur-xl shadow-[0_1px_0_rgba(255,255,255,0.06)]"
-        : "bg-[#060b18]/95 backdrop-blur-xl"
+          "bg-[#060b18] shadow-[0_1px_0_rgba(255,255,255,0.06)]"
+        : "bg-[#060b18]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -150,13 +150,13 @@ export default function Navbar() {
       >
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+          className="absolute inset-0 bg-[#060b18]"
           onClick={() => setOpen(false)}
         />
 
         {/* Drawer panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-gradient-to-b from-blue-950 via-[#0a1128] to-[#060b18] border-l border-white/5 shadow-2xl transition-transform duration-500 ${
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-gradient-to-b from-blue-950 via-[#0a1128] to-[#060b18] shadow-2xl transition-transform duration-500 ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -167,10 +167,10 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                  className={`px-4 py-3 rounded-xl text-base font-semibold transition-all ${
                     isActive(link.href) ?
                       "text-white bg-white/20 hover:bg-white/25"
-                    : "text-gray-100 hover:text-white hover:bg-white/10"
+                    : "text-white hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {link.name}
