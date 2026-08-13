@@ -7,7 +7,7 @@ const testimonials = [
     company: "De Phantom Continental Hotel Group",
     position: "Manager",
     feedback:
-      "The website Joetech built for us is fantastic. It's beautiful, and we love how it turned out.",
+      "Joetech rebuilt our hotel group's site with dedicated pages for each property and confirmed this page loads noticeably faster. What impressed me most is that guests can check availability and reach each branch directly — and we've seen more direct enquiries since launch.",
     rating: 5,
     image: "/testimony/dephantom-rep.jpeg",
     url: "https://www.dephantomhotelgroup.com",
@@ -18,7 +18,7 @@ const testimonials = [
     company: "First Choice Afro Villa",
     position: "CEO",
     feedback:
-      "What Joetech built for us is beautiful — we love everything about it.",
+      "For a villa business, first impressions are everything. Joetech gave us a clean, elegant site that presents each property properly and loads fast on mobile, where most of our guests browse. Managing the content is straightforward now, and it has genuinely strengthened our brand.",
     rating: 5,
     image: "/testimony/firstchoice-rep.jpeg",
     url: "https://www.firstchoiceafrovilla.com",
@@ -29,7 +29,7 @@ const testimonials = [
     company: "Enamis Systems",
     position: null,
     feedback:
-      "This is wonderful. Beautiful work from Joetech — we love what they built for us.",
+      "As an electrical and smart solutions company, we needed a site that could explain six different services clearly and capture serious quote requests. Joetech delivered exactly that — the detailed quote form has brought in better-qualified leads, and the site is easy for our team to update.",
     rating: 5,
     image: "/testimony/enamis-logo.png",
     useLogo: true,
