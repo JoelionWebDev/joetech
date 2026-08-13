@@ -365,8 +365,6 @@ const ContactSection = () => {
                         Our Location
                       </h4>
                       <p className="text-gray-600 leading-relaxed">
-                        Tulip Heaven Gate, Opposite Hampton Lake Estate,
-                        <br />
                         Chevron Alternative Route, Lekki, Lagos, Nigeria
                       </p>
                     </div>

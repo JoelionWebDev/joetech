@@ -76,8 +76,8 @@ const JoetechAboutPage = () => {
   const [valuesRef, valuesInView] = useInView(0.3);
 
   const stats = [
-    { number: 250, suffix: "+", label: "Projects Delivered" },
-    { number: 95, suffix: "%", label: "Happy Clients" },
+    { number: 100, suffix: "+", label: "Projects Completed" },
+    { number: 50, suffix: "+", label: "Happy Clients" },
     { number: 5, suffix: "+", label: "Years Experience" },
     { number: 12, suffix: "", label: "Awards Won" },
   ];

@@ -136,8 +136,6 @@ const Footer = () => {
                 <div>
                   <h4 className="font-medium text-white mb-1">Our Location</h4>
                   <p className="text-gray-400 leading-relaxed">
-                    Tulip Heaven Gate, Opposite Hampton Lake Estate,
-                    <br />
                     Chevron Alternative Route, Lekki, Lagos, Nigeria
                   </p>
                 </div>

@@ -176,9 +176,9 @@ const CATEGORY_META = {
 };
 
 const STATS = [
-  { value: "50+", label: "Projects Delivered" },
+  { value: "100+", label: "Projects Completed" },
   { value: "98%", label: "Client Satisfaction" },
-  { value: "25+", label: "Happy Clients" },
+  { value: "50+", label: "Happy Clients" },
   { value: "5★", label: "Average Rating" },
 ];
 
@@ -479,7 +479,7 @@ export default function JoetechProjectsPage() {
           >
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-slate-300 text-xs font-medium px-4 py-2 rounded-full mb-6 animate-fadeup">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              50+ Projects Delivered Across Nigeria & Beyond
+              100+ Projects Completed Across Nigeria & Beyond
             </div>
 
             <h1

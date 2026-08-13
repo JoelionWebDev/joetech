@@ -44,7 +44,7 @@ const CONTACT_INFO = [
       </svg>
     ),
     label: "Office",
-    value: "Lagos, Nigeria",
+    value: "Chevron Alternative Route, Lekki, Lagos, Nigeria",
     href: null,
     color: "from-purple-500 to-violet-600",
   },

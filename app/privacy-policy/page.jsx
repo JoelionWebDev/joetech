@@ -131,8 +131,8 @@ export default function PrivacyPolicyPage() {
               >
                 {PHONE_NUMBER}
               </a>
-              . Our office is located at Tulip Heaven Gate, Opposite Hampton
-              Lake Estate, Chevron Alternative Route, Lekki, Lagos, Nigeria.
+              . Our office is located at Chevron Alternative Route, Lekki,
+              Lagos, Nigeria.
             </p>
           </section>
 
