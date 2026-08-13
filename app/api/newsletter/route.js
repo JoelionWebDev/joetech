@@ -22,7 +22,7 @@ export async function POST(request) {
     // Send notification to admin
     if (resend) {
       await resend.emails.send({
-        from: "Joetech <noreply@mail.joetech.name.ng>",
+        from: "Joetech <info@joetech.name.ng>",
         to: [ADMIN_EMAIL],
         subject: "New Newsletter Subscriber",
         html: `

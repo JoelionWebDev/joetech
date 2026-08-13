@@ -119,10 +119,10 @@ export default function PrivacyPolicyPage() {
               If you have any questions about this privacy policy or how we
               handle your information, contact us at{" "}
               <a
-                href="mailto:joetechorg@gmail.com"
+                href="mailto:info@joetech.name.ng"
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                joetechorg@gmail.com
+                info@joetech.name.ng
               </a>{" "}
               or call{" "}
               <a
