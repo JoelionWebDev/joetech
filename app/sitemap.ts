@@ -10,9 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/contact`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${SITE_URL}/blog`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${SITE_URL}/testimonials`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-    { url: `${SITE_URL}/Freelance`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${SITE_URL}/tenAiTools`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${SITE_URL}/learnTech`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${SITE_URL}/freelance`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${SITE_URL}/ten-ai-tools`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${SITE_URL}/learn-tech`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${SITE_URL}/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.3 },
     { url: `${SITE_URL}/terms-of-service`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.3 },
   ];

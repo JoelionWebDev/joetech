@@ -23,6 +23,21 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/Freelance",
+        destination: "/freelance",
+        permanent: true,
+      },
+      {
+        source: "/learnTech",
+        destination: "/learn-tech",
+        permanent: true,
+      },
+      {
+        source: "/tenAiTools",
+        destination: "/ten-ai-tools",
+        permanent: true,
+      },
+      {
         source: "/blog/building-personal-brand-tech",
         destination: "/blog/building-personal-brand-tech-professional",
         permanent: true,
@@ -51,6 +66,22 @@ const nextConfig = {
         source: "/blog/website-vs-web-app-difference",
         destination: "/blog/website-vs-web-app-difference-business-owners",
         permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
       },
     ];
   },

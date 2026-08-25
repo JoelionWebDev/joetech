@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Joetech — Agency Website
+
+Marketing site for Joetech, a web/app development, branding, and digital marketing agency based in Lekki, Lagos, Nigeria. Live at [joetech.name.ng](https://joetech.name.ng).
+
+## Tech Stack
+
+- **Next.js 15** (App Router) + **React 19**
+- **Tailwind CSS 4**
+- **MDX blog** — 360+ articles in `content/blog/`, rendered with `next-mdx-remote`
+- **Groq AI chat widget** (`llama-3.1-8b-instant`) with streaming responses and rate limiting
+- **Resend** for contact form and newsletter email notifications
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file (see `.env.local` keys below):
 
-## Learn More
+| Variable         | Required for                        |
+| ---------------- | ----------------------------------- |
+| `GROQ_API_KEY`   | AI chat assistant (`/api/chat`)     |
+| `RESEND_API_KEY` | Contact & newsletter APIs           |
 
-To learn more about Next.js, take a look at the following resources:
+Without keys, the site builds and runs fine — only the AI chat and email-sending APIs return errors.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Command          | Description                              |
+| ---------------- | ---------------------------------------- |
+| `npm run dev`    | Start dev server (Turbopack)             |
+| `npm run build`  | Production build                         |
+| `npm run start`  | Serve the production build               |
+| `npm run lint`   | Run ESLint                               |
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/                  # App Router pages & API routes
+  api/chat/           # Groq-powered streaming AI chat
+  api/contact/        # Contact form → Resend email
+  api/newsletter/     # Newsletter signup → Resend email
+  blog/[slug]/        # MDX blog posts (SSG)
+components/           # Shared UI (chat widget, animations)
+app/components/       # Page-level components (Navbar, Footer)
+content/blog/         # MDX articles with frontmatter
+lib/                  # Blog utilities, site constants, rate limiting
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- All routes use lowercase-hyphenated URLs; legacy mixed-case paths (`/Freelance`, `/learnTech`, `/tenAiTools`) 301-redirect via `next.config.mjs`.
+- Security headers set globally in `next.config.mjs`.
+- Blog posts live in `content/blog/*.mdx`; frontmatter supports `title`, `excerpt`, `publishDate`, `updatedDate`, `category`, `tags`, `coverImage`, and more.

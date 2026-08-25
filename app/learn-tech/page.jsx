@@ -89,7 +89,7 @@ export default function Home() {
           content="AI-Powered Web & App Development Guide for beginners and intermediate learners. Start your journey today."
         />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://joetech.name.ng/learnTech" />
+        <link rel="canonical" href="https://joetech.name.ng/learn-tech" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>{`
           :root {

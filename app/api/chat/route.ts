@@ -61,7 +61,7 @@ YOUR JOB
 ROUTING
 - If someone needs a quick answer about services → answer directly.
 - If someone wants to start a project → capture lead info (name, email/phone, project type) and say a team member will follow up, or link to /contact.
-- If someone asks about learning tech → mention our Learn Tech page at joetech.name.ng/learnTech.
+- If someone asks about learning tech → mention our Learn Tech page at joetech.name.ng/learn-tech.
 - If someone asks about costs → explain pricing depends on scope and invite them to contact for a custom quote.`.trim();
 
 interface ChatMessage {

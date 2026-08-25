@@ -6,14 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.20",
     "gray-matter": "^4.0.3",
     "groq-sdk": "^0.37.0",
     "lucide-react": "^0.539.0",
-    "next": "15.4.10",
+    "next": "^15.5.23",
     "next-mdx-remote": "^6.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -23,9 +23,12 @@
     "resend": "^6.18.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
     "@tailwindcss/postcss": "^4",
     "@types/node": "25.0.3",
     "@types/react": "19.2.7",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.23",
     "tailwindcss": "^4",
     "typescript": "5.9.3"
   }

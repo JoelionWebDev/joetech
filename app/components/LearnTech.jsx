@@ -221,7 +221,7 @@ export default function TechAISection() {
         {/* ── CTA BUTTONS ── */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            href="/learnTech"
+            href="/learn-tech"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 active:bg-violet-700 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-violet-200 transition-all hover:scale-105 hover:shadow-violet-300"
           >
             <svg
@@ -241,7 +241,7 @@ export default function TechAISection() {
           </Link>
 
           <Link
-            href="/learnTech"
+            href="/learn-tech"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-bold text-base px-8 py-4 rounded-xl border-2 border-slate-200 hover:border-violet-300 shadow-sm transition-all hover:scale-105"
           >
             <svg
