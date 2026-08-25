@@ -33,7 +33,7 @@ const BlogInsights = () => {
         <header className="text-center mb-16">
           <h2
             id="blog-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Insights &{" "}
             <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">

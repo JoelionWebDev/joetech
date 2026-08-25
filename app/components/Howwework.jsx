@@ -69,7 +69,7 @@ const ProcessSection = () => {
         <div className="text-center mb-16">
           <h2
             id="process-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
           >
             Our Process
           </h2>

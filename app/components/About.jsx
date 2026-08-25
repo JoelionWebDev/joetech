@@ -54,7 +54,7 @@ const AboutSection = () => {
         <div className="text-center mb-16">
           <h2
             id="about-joetech-heading"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
           >
             About <span className="text-blue-600">Joetech</span>
           </h2>
