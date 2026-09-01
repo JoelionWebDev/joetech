@@ -26,7 +26,8 @@ export const metadata = {
     google: "017dd4ca92c4e3ae",
   },
   title: {
-    default: "Joetech — Web Dev, Branding & Digital Marketing Agency in Lagos, Nigeria",
+    default:
+      "Joetech — Web Dev, Branding & Digital Marketing Agency in Lagos, Nigeria",
     template: "%s | Joetech",
   },
   description:
@@ -105,7 +106,9 @@ export default function RootLayout({ children }) {
           id="schema-org"
           type="application/ld+json"
           strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
         {/* Google Analytics */}
         <Script
@@ -120,6 +123,7 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-TKTH13W8EM');
           `}
         </Script>
+        <meta name="monetag" content="6dcf449a7b1c18b13902530309563e88"></meta>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
