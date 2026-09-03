@@ -102,6 +102,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="275492"
+          async
+          data-cfasync="false"
+        ></script>
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -124,19 +130,8 @@ export default function RootLayout({ children }) {
           `}
         </Script>
         <meta name="monetag" content="6dcf449a7b1c18b13902530309563e88"></meta>
-        <script
-          src="https://quge5.com/88/tag.min.js"
-          data-zone="275492"
-          async
-          data-cfasync="false"
-        ></script>
       </head>
-      <script
-        src="https://quge5.com/88/tag.min.js"
-        data-zone="275492"
-        async
-        data-cfasync="false"
-      ></script>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
       >
