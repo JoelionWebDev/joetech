@@ -65,6 +65,9 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  other: {
+    monetag: "6dcf449a7b1c18b13902530309563e88", // moved the meta tag here
+  },
 };
 
 const siteUrl = "https://joetech.name.ng";
@@ -101,13 +104,15 @@ const organizationSchema = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          src="https://quge5.com/88/tag.min.js"
-          data-zone="275492"
-          async
-          data-cfasync="false"
-        ></script>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
+      >
+        <Navbar />
+        {children}
+        <Footer />
+        <DynamicChatWidget />
+
+        {/* Schema.org */}
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -116,6 +121,7 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify(organizationSchema),
           }}
         />
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TKTH13W8EM"
@@ -129,16 +135,14 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-TKTH13W8EM');
           `}
         </Script>
-        <meta name="monetag" content="6dcf449a7b1c18b13902530309563e88"></meta>
-      </head>
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
-      >
-        <Navbar />
-        {children}
-        <Footer />
-        <DynamicChatWidget />
+        {/* Monetag / MoneyTag Script - Correct way */}
+        <Script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="275492"
+          data-cfasync="false"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
