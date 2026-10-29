@@ -138,12 +138,12 @@ export default function RootLayout({ children }) {
         </Script>
 
         {/* Monetag / MoneyTag Script - Correct way */}
-        <Script
+        {/* <Script
           src="https://quge5.com/88/tag.min.js"
           data-zone="275492"
           data-cfasync="false"
           strategy="afterInteractive"
-        />
+        /> */}
       </body>
     </html>
   );
