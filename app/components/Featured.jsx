@@ -1,7 +1,8 @@
 import {
   Code,
   Palette,
-  Clapperboard,
+  Megaphone,
+  Smartphone,
   ArrowRight,
 } from "lucide-react";
 import StaggerGrid from "../../components/StaggerGrid";
@@ -10,29 +11,38 @@ const services = [
   {
     id: 1,
     icon: Code,
-    title: "Build & Brand",
+    title: "Website",
     description:
-      "Web & app development, graphics and branding that lay the digital foundation for your business — a professional website or app with a brand identity customers remember.",
+      "Business websites, landing pages and booking sites that load fast on mobile, look professional, and turn visitors into enquiries and sales.",
     link: "/services",
-    ariaLabel: "Learn more about our web development and branding services",
+    ariaLabel: "Learn more about our website services",
   },
   {
     id: 2,
     icon: Palette,
-    title: "Show & Sell",
+    title: "Graphics & Branding",
     description:
-      "Video editing & production, 360° virtual tours, AI video generation and digital menus — visually showcase your space, products and services to customers before they even visit.",
+      "Logos, visual identity and marketing graphics that make your business instantly recognisable — and consistent everywhere customers see you.",
     link: "/services",
-    ariaLabel: "Learn more about our video, 360 virtual tour and digital menu services",
+    ariaLabel: "Learn more about our graphics and branding services",
   },
   {
     id: 3,
-    icon: Clapperboard,
-    title: "Grow",
+    icon: Megaphone,
+    title: "Advertising",
     description:
-      "Digital marketing, SEO, social media management and paid advertising that drive targeted traffic and turn visibility into customers and revenue.",
+      "Paid ads, SEO and social media campaigns that put your website and brand in front of the right customers — and track what actually brings sales.",
     link: "/services",
-    ariaLabel: "Learn more about our digital marketing services",
+    ariaLabel: "Learn more about our advertising services",
+  },
+  {
+    id: 4,
+    icon: Smartphone,
+    title: "App Development",
+    description:
+      "Web apps and cross-platform mobile apps — booking systems, online stores, dashboards and customer apps, built for Android and iOS from one codebase.",
+    link: "/services",
+    ariaLabel: "Learn more about our app development services",
   },
 ];
 
@@ -64,13 +74,13 @@ const FeaturedServices = () => {
             Our Core Services
           </h2>
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Joetech delivers end-to-end solutions across three pillars — Build
-            &amp; Brand, Show &amp; Sell, and Grow — so your business has one partner
-            from first idea to full growth.
+            Joetech delivers Business Digital Branding across four pillars —
+            Website, Graphics &amp; Branding, Advertising, and App Development —
+            so your business has one partner from first idea to full growth.
           </p>
         </div>
 
-        <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={150}>
+        <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={150}>
           {services.map((service) => {
             const IconComponent = service.icon;
             return (

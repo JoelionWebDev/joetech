@@ -48,7 +48,7 @@ export default function JoetechHero() {
           className="font-sans text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg mx-auto mb-10 animate-fade-up"
           style={{ animationDelay: "200ms" }}
         >
-          Full-service agency building, designing, and promoting brands that perform in the digital age.
+          Business Digital Branding for growing businesses — websites, graphics, advertising and apps that turn attention into customers.
         </p>
 
         {/* CTAs */}

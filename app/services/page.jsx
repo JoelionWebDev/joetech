@@ -3,9 +3,9 @@ import {
   ChevronRight,
   Code,
   Palette,
-  Clapperboard,
+  Megaphone,
+  Smartphone,
   Globe,
-  Sparkles,
   Utensils,
   TrendingUp,
   Target,
@@ -24,16 +24,16 @@ import StaggerGrid from "../../components/StaggerGrid";
 import FadeInSection from "../../components/FadeInSection";
 
 export const metadata = {
-  title: "Our Services - Web Development, 360 Virtual Tours & Digital Marketing | Joetech",
+  title: "Our Services - Business Digital Branding: Websites, Graphics, Advertising & Apps | Joetech",
   description:
-    "Explore Joetech's comprehensive services: web & app development, branding, video editing, 360° virtual tours, AI video generation, digital menus & digital marketing. Turn your business into a complete digital presence.",
+    "Explore Joetech's Business Digital Branding services: business websites, graphics & branding, advertising, and web & cross-platform mobile app development. One partner to build, brand and promote your business.",
   keywords:
-    "360 virtual tour Lagos, AI video generation Nigeria, digital menu Lagos, hospitality tech solutions Nigeria, web development, digital marketing, branding agency Lagos, video production",
+    "business digital branding Lagos, website development Lagos, logo design Nigeria, graphics and branding agency Lagos, advertising agency Lagos, app development Nigeria, digital marketing Lagos",
   alternates: { canonical: "https://joetech.name.ng/services" },
   openGraph: {
-    title: "Professional Tech Solutions & Digital Services | Joetech",
+    title: "Business Digital Branding Services | Joetech",
     description:
-      "Transform your business with Joetech's web development, branding, 360° virtual tours, AI video and digital marketing services. Get a free consultation today!",
+      "Transform your business with Joetech's websites, graphics & branding, advertising and app development services. Get a free consultation today!",
     url: "https://joetech.name.ng/services",
   },
 };
@@ -103,139 +103,141 @@ const PillarSection = ({ pillar }) => {
 
 const pillars = [
   {
-    title: "Build & Brand",
-    icon: <Code className="w-7 h-7" />,
+    title: "Website",
+    icon: <Globe className="w-7 h-7" />,
     headerClass: "bg-gradient-to-r from-blue-600 to-indigo-700",
     intro:
-      "We lay the digital foundation — building your website or app and shaping the brand identity behind it, so your business looks professional and works flawlessly.",
+      "Your business, online and ready to sell — fast, professional websites that turn visitors into enquiries, bookings and sales.",
     services: [
       {
-        icon: <Code className="w-9 h-9" />,
-        title: "Web & App Development",
+        icon: <Globe className="w-9 h-9" />,
+        title: "Business Websites",
         description:
-          "Custom responsive websites, powerful web applications, and native iOS/Android apps. Our development team creates scalable solutions that drive business growth and enhance user experience.",
+          "Custom responsive business websites built for speed, mobile and search — with clear calls to action, enquiry and WhatsApp forms, and pages that explain what you sell.",
         features: [
           "Responsive & Mobile-First Design",
-          "Custom CMS Solutions",
-          "E-commerce & Web Applications",
-          "Native iOS & Android Apps",
-          "App Store Optimization",
+          "SEO-Ready Structure",
+          "Enquiry & WhatsApp Forms",
+          "Fast Loading on Mobile",
+          "Booking & Contact Pages",
           "Ongoing Maintenance & Updates",
         ],
       },
       {
-        icon: <Palette className="w-9 h-9" />,
-        title: "Graphics & Branding",
+        icon: <Target className="w-9 h-9" />,
+        title: "Landing Pages & Booking Sites",
         description:
-          "Complete branding solutions including logo design, visual identity, and brand strategy. Our team crafts memorable brand experiences that resonate with your audience and establish market presence.",
+          "High-converting landing pages and booking sites for hotels, venues, real estate, clinics and service businesses — designed around one clear action: enquire, book or buy.",
+        features: [
+          "High-Converting Landing Pages",
+          "Hotel, Venue & Event Booking Pages",
+          "Lead Capture & WhatsApp Enquiries",
+          "Clear Calls to Action",
+          "Mobile-First Layout",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Graphics & Branding",
+    icon: <Palette className="w-7 h-7" />,
+    headerClass: "bg-gradient-to-r from-purple-600 to-fuchsia-700",
+    intro:
+      "A brand customers recognise instantly — logos, colours, fonts and graphics that stay consistent everywhere your business appears.",
+    services: [
+      {
+        icon: <Palette className="w-9 h-9" />,
+        title: "Logo & Brand Identity",
+        description:
+          "Complete brand identity including logo design, colour and font systems, and brand guidelines — so your business looks established and trustworthy from day one.",
         features: [
           "Logo Design & Visual Identity",
           "Brand Identity Development",
-          "UI/UX & Design Systems",
-          "Market & Competitive Research",
+          "Colour & Font Systems",
           "Digital Brand Guidelines",
+          "Market & Competitive Research",
+        ],
+      },
+      {
+        icon: <Megaphone className="w-9 h-9" />,
+        title: "Social & Marketing Graphics",
+        description:
+          "Social media templates, ad creatives, flyers and brand kits that keep your marketing looking sharp — and make your ads and posts stop the scroll.",
+        features: [
+          "Social Media Templates",
+          "Ad Creatives & Banners",
+          "Flyers & Marketing Materials",
+          "Complete Brand Kits",
+          "Consistent Visual Style",
         ],
       },
     ],
   },
   {
-    title: "Show & Sell",
-    icon: <Clapperboard className="w-7 h-7" />,
-    headerClass: "bg-gradient-to-r from-purple-600 to-fuchsia-700",
-    intro:
-      "Showcase your space, products, and services to customers visually — with video, immersive 360° tours, and digital tools that make it easy to explore and buy.",
-    services: [
-      {
-        icon: <Clapperboard className="w-9 h-9" />,
-        title: "Video Editing & Production",
-        description:
-          "Professional video editing and production for marketing campaigns, corporate content, and social media. We transform ideas into compelling visual stories that engage and convert.",
-        features: [
-          "Marketing & Promotional Videos",
-          "Corporate Content",
-          "Social Media Videos",
-          "Color Grading & Sound Design",
-        ],
-      },
-      {
-        icon: <Globe className="w-9 h-9" />,
-        title: "360° Virtual Tours",
-        description:
-          "Full 360° camera walkthroughs of properties and business locations. Perfect for Google Business Profile listings, hotel room previews, apartment and real estate showings — letting customers explore a location before visiting.",
-        features: [
-          "Google Business Profile Ready",
-          "Hotel & Short-let Room Previews",
-          "Real Estate & Apartment Showings",
-          "Property & Business Location Walkthroughs",
-        ],
-      },
-      {
-        icon: <Sparkles className="w-9 h-9" />,
-        title: "AI Video Generation",
-        description:
-          "AI-powered video content for real estate listings, construction progress updates, and business promotional content — faster and more affordable than traditional production.",
-        features: [
-          "Real Estate Property Videos",
-          "Construction Progress Updates",
-          "Business Promotional Content",
-          "Cost-Effective AI Production",
-        ],
-      },
-      {
-        icon: <Utensils className="w-9 h-9" />,
-        title: "Digital Menus",
-        description:
-          "Interactive digital menus for restaurants, bars, and hotels. Easy to update, beautiful to present, and ready for Google Business — raising average orders and delighting customers.",
-        features: [
-          "Interactive & Animated Menus",
-          "QR Code Access & Updates",
-          "Restaurant, Bar & Hotel Menus",
-          "Full Branding Included",
-        ],
-      },
-    ],
-  },
-  {
-    title: "Grow",
+    title: "Advertising",
     icon: <TrendingUp className="w-7 h-7" />,
     headerClass: "bg-gradient-to-r from-emerald-600 to-teal-700",
     intro:
-      "We promote your business to the right people — with SEO, social media, and paid advertising that turn attention into customers and grow your bottom line.",
+      "We promote your business to the right people — with paid ads, SEO and social media that turn attention into customers and grow your bottom line.",
     services: [
       {
-        icon: <TrendingUp className="w-9 h-9" />,
-        title: "Digital Marketing",
+        icon: <Megaphone className="w-9 h-9" />,
+        title: "Paid Advertising",
         description:
-          "Comprehensive digital marketing strategies including SEO, social media marketing, and content creation. We help businesses increase online visibility and drive qualified traffic that converts.",
+          "Google, Meta and social media advertising matched to a landing page that converts — with clear tracking, so you know what each campaign actually brings in.",
+        features: [
+          "Google & Meta Advertising",
+          "Social Media Advertising",
+          "Landing Pages Matched to Ads",
+          "Pay-Per-Click (PPC) Campaigns",
+          "Campaign Tracking & Reporting",
+        ],
+      },
+      {
+        icon: <TrendingUp className="w-9 h-9" />,
+        title: "SEO & Social Media Growth",
+        description:
+          "Search engine optimisation, social media management and content that increase online visibility and drive qualified traffic that converts.",
         features: [
           "Search Engine Optimization (SEO)",
           "Social Media Management",
           "Content Marketing Strategy",
-          "Pay-Per-Click (PPC) Advertising",
+          "Google Business Profile Optimisation",
+        ],
+      },
+    ],
+  },
+  {
+    title: "App Development",
+    icon: <Smartphone className="w-7 h-7" />,
+    headerClass: "bg-gradient-to-r from-indigo-600 to-blue-700",
+    intro:
+      "When a website is not enough — functional apps that let customers book, order, manage and stay connected with your business.",
+    services: [
+      {
+        icon: <Code className="w-9 h-9" />,
+        title: "Web Apps",
+        description:
+          "Powerful web applications including booking systems, online stores, dashboards and customer portals — built to scale as your business grows.",
+        features: [
+          "Booking & Order Systems",
+          "Online Stores & Customer Portals",
+          "Dashboards & Admin Panels",
+          "Custom CMS Solutions",
+          "Ongoing Maintenance & Updates",
         ],
       },
       {
-        icon: <Target className="w-9 h-9" />,
-        title: "Brand Strategy & Growth",
+        icon: <Smartphone className="w-9 h-9" />,
+        title: "Cross-Platform Mobile Apps",
         description:
-          "Strategic brand development and digital presence optimization. Our business growth strategies help establish strong market positioning and create lasting connections with your target audience.",
+          "Mobile apps for Android and iOS built from one codebase — faster and more affordable than building two separate native apps, with a web-app (PWA) option where it fits.",
         features: [
-          "Brand Identity Development",
-          "Market Research & Analysis",
-          "Competitive Analysis",
-          "Digital Brand Guidelines",
-        ],
-      },
-      {
-        icon: <Settings className="w-9 h-9" />,
-        title: "IT Support & Maintenance",
-        description:
-          "Reliable ongoing technical support and website maintenance services. Our dedicated team ensures your digital assets remain secure, updated, and performing at peak efficiency around the clock.",
-        features: [
-          "Website Maintenance & Updates",
-          "Security Monitoring",
-          "Performance Optimization",
-          "Technical Support & Troubleshooting",
+          "Android & iOS from One Codebase",
+          "Booking, Store & Customer Apps",
+          "Push-Ready, Mobile-First Design",
+          "App Store & Google Play Guidance",
+          "Ongoing Maintenance & Updates",
         ],
       },
     ],
@@ -247,10 +249,10 @@ const industries = [
     title: "Hospitality",
     subtitle: "Hotels & Restaurants",
     description:
-      "Complete guest-facing digital presence, from website to room previews to digital menus.",
+      "Complete guest-facing digital presence, from website and booking pages to branding and advertising that fills rooms.",
     icon: <Utensils className="w-7 h-7" />,
     iconWrap: "bg-amber-100 text-amber-600",
-    bundle: ["Web Development", "360° Virtual Tours", "Digital Menus", "Branding"],
+    bundle: ["Website", "Graphics & Branding", "Advertising", "Booking Pages"],
     linkLabel: "Case Study: De Phantom Hotel Group",
     linkHref: "https://www.dephantomhotelgroup.com",
   },
@@ -258,10 +260,10 @@ const industries = [
     title: "Real Estate",
     subtitle: "Properties & Investments",
     description:
-      "List, show, and sell properties anywhere with immersive 360° tours and AI video.",
+      "List, show, and sell properties anywhere with a fast website, strong branding and ads that bring qualified buyers.",
     icon: <Landmark className="w-7 h-7" />,
     iconWrap: "bg-emerald-100 text-emerald-600",
-    bundle: ["Web Development", "360° Virtual Tours", "AI Video Generation", "Branding"],
+    bundle: ["Website", "Graphics & Branding", "Advertising", "App Development"],
     linkLabel: "Case Study: First Choice Afro Villa",
     linkHref: "https://www.firstchoiceafrovilla.com",
   },
@@ -269,10 +271,10 @@ const industries = [
     title: "Construction",
     subtitle: "Builders & Projects",
     description:
-      "Keep clients engaged with project progress videos and a brand that reflects trust and quality.",
+      "Keep clients engaged with a professional website, clear project showcases and a brand that reflects trust and quality.",
     icon: <Construction className="w-7 h-7" />,
     iconWrap: "bg-orange-100 text-orange-600",
-    bundle: ["Web Development", "AI Video Generation", "Branding"],
+    bundle: ["Website", "Advertising", "Branding"],
     linkLabel: "View Our Work",
     linkHref: "/projects",
   },
@@ -295,9 +297,9 @@ const JoetechServicesPage = () => {
             "@context": "https://schema.org",
             "@type": "Service",
             provider: { "@type": "Organization", name: "Joetech" },
-            serviceType: "Tech Solutions and Digital Marketing",
+            serviceType: "Business Digital Branding",
             description:
-              "Comprehensive services including web development, branding, 360° virtual tours, AI video generation, digital menus, and marketing",
+              "Business Digital Branding services including websites, graphics & branding, advertising, and web & cross-platform mobile app development",
           }),
         }}
       />
@@ -331,8 +333,8 @@ const JoetechServicesPage = () => {
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Services</h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-            One partner to build, brand, and promote your business — from web and
-            app development to 360° virtual tours, AI video, and digital marketing.
+            One partner to build, brand, and promote your business — with
+            websites, graphics, advertising and apps, under Business Digital Branding.
           </p>
         </div>
 
@@ -346,10 +348,10 @@ const JoetechServicesPage = () => {
         <section className="py-20">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Build, Show & Sell, and Grow — All Under One Roof
+              Website, Graphics, Advertising & Apps — All Under One Roof
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We organise our services into three pillars that take your business
+              We organise our services into four pillars that take your business
               from brand and product to visibility and growth — end to end.
             </p>
           </div>
@@ -370,7 +372,7 @@ const JoetechServicesPage = () => {
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We package our services into complete solutions for the industries
-                that depend on seamless digital experiences and immersive visual content.
+                that depend on strong websites, branding and advertising to win customers.
               </p>
             </div>
 
@@ -451,8 +453,8 @@ const JoetechServicesPage = () => {
                   Expert Team
                 </h3>
                 <p className="text-gray-600">
-                  Certified professionals with extensive experience in tech
-                  solutions, immersive 360° content, and digital marketing strategies.
+                  Certified professionals with extensive experience in websites,
+                  branding, advertising and app development.
                 </p>
               </div>
               <div className="p-6">
@@ -495,8 +497,8 @@ const JoetechServicesPage = () => {
                 Let's Build Something Great Together!
               </h2>
               <p className="text-xl lg:text-2xl mb-10 opacity-90 max-w-3xl mx-auto leading-relaxed">
-                Ready to transform your business with our expert tech solutions,
-                immersive 360° tours, AI video, and digital marketing services?
+                Ready to transform your business with websites, graphics,
+                advertising and apps that bring customers?
                 Let's discuss your project and create a strategy that drives results.
               </p>
 

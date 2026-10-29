@@ -4,19 +4,19 @@ import Image from "next/image";
 const strengthItems = [
   {
     icon: "code",
-    text: "Expertise in modern web & app development with cutting-edge technologies",
+    text: "Expertise in modern website and web app development with cutting-edge technologies",
   },
   {
     icon: "palette",
-    text: "Creative branding and visual design that makes your business stand out",
-  },
-  {
-    icon: "video",
-    text: "Professional, immersive visual content — including 360° virtual tours and AI video generation — that showcases your space and services like a showroom",
+    text: "Creative branding and graphic design that makes your business stand out",
   },
   {
     icon: "trending",
-    text: "Strategic digital marketing campaigns that drive measurable results",
+    text: "Advertising that turns attention into customers — paid ads, SEO and social media that drive enquiries and sales",
+  },
+  {
+    icon: "smartphone",
+    text: "Cross-platform mobile apps and web apps that put your business in your customers' pockets",
   },
 ];
 
@@ -31,9 +31,10 @@ const iconMap = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
     </svg>
   ),
-  video: (
+  smartphone: (
     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      <rect x="7" y="2" width="10" height="20" rx="2" strokeWidth={2} />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 18h2" />
     </svg>
   ),
   trending: (
@@ -92,14 +93,13 @@ const AboutSection = () => {
             <div className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
                 At Joetech, we transform ambitious ideas into digital reality.
-                As a comprehensive tech solutions provider, we specialize in{" "}
-                <strong className="text-gray-900">web development</strong>,
-                innovative <strong className="text-gray-900">branding</strong>,
-                professional{" "}
-                <strong className="text-gray-900">video editing</strong>, and
+                As a Business Digital Branding partner, we specialize in{" "}
+                <strong className="text-gray-900">websites</strong>,{" "}
+                <strong className="text-gray-900">graphics &amp; branding</strong>,
                 results-driven{" "}
-                <strong className="text-gray-900">digital marketing</strong>
-                strategies that propel businesses forward in today's competitive
+                <strong className="text-gray-900">advertising</strong>, and{" "}
+                <strong className="text-gray-900">app development</strong>{" "}
+                that propel businesses forward in today's competitive
                 landscape.
               </p>
 

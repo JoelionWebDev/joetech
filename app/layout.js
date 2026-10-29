@@ -31,14 +31,15 @@ export const metadata = {
     template: "%s | Joetech",
   },
   description:
-    "Joetech is a web/app development, branding, and digital marketing agency based in Lekki, Lagos, Nigeria. We build, design, and promote your brand digitally.",
+    "Joetech is a Business Digital Branding agency based in Lekki, Lagos, Nigeria. We build websites, graphics & branding, advertising, and apps — and promote your brand digitally.",
   keywords: [
+    "business digital branding Lagos",
     "web development Lagos",
     "digital marketing agency Nigeria",
     "branding agency Lagos",
     "Joetech",
     "app development Nigeria",
-    "tech training AI",
+    "advertising agency Lagos",
     "Lekki digital agency",
   ],
   alternates: { canonical: "https://joetech.name.ng" },
@@ -46,9 +47,9 @@ export const metadata = {
     type: "website",
     locale: "en_NG",
     siteName: "Joetech",
-    title: "Joetech — We Build, Design & Promote Your Brand Digitally",
+    title: "Joetech — Business Digital Branding in Lagos, Nigeria",
     description:
-      "Web/app development, branding, and digital marketing agency based in Lekki, Lagos, Nigeria. We build, design, and promote your brand digitally.",
+      "Business Digital Branding agency based in Lekki, Lagos, Nigeria. Websites, graphics & branding, advertising, and apps — we build, design, and promote your brand digitally.",
     url: "https://joetech.name.ng",
   },
   twitter: {
