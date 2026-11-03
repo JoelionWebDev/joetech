@@ -1,0 +1,135 @@
+---
+title: "Core Web Vitals Explained in Plain English (And Why Speed Costs You Sales)"
+slug: core-web-vitals-explained-nigerian-businesses
+excerpt: "Core Web Vitals are Google's way of measuring how fast and stable your website feels. Here is what the three metrics mean and how to fix them."
+publishDate: "2026-11-03"
+updatedDate: "2026-11-03"
+author: "Igono Joel"
+category: "Web Development"
+tags:
+  - Website Speed
+  - Core Web Vitals
+  - SEO
+  - Google
+readingTime: "8 min read"
+coverImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&q=80"
+metaTitle: "Core Web Vitals Explained in Plain English | Joetech"
+metaDescription: "Understand Google's Core Web Vitals in plain English: what LCP, INP and CLS mean, how to check them, and how to fix them."
+canonicalUrl: "https://joetech.name.ng/blog/core-web-vitals-explained-nigerian-businesses"
+keywords: "Core Web Vitals, website speed, LCP INP CLS, Google PageSpeed, website performance Nigeria"
+featured: false
+---
+
+You have probably heard that a slow website loses customers. What many business owners do not hear is how Google actually measures that slowness. Google uses a set of measurements called Core Web Vitals. They describe how a real visitor experiences your site: how fast the main content appears, how quickly the page responds when tapped, and whether things jump around while loading.
+
+You do not need to be a developer to understand them. This guide explains what each one means, how to check your own scores, and what to ask your developer to fix.
+
+If you want the bigger picture on why speed affects sales in the first place, read our guide on [how website speed impacts sales](/blog/website-speed-impact-sales). This post goes one level deeper, into the specific measurements behind that effect.
+
+## What Core Web Vitals actually are
+
+Core Web Vitals are measurements Google collects from real visitors, combined with lab tests that simulate a visit. They show up in tools like PageSpeed Insights and Google Search Console, and they matter because a site can look fine on a fast office connection yet score poorly for a customer on a slower phone.
+
+The three measurements are:
+
+- Largest Contentful Paint (LCP): how fast the main content loads
+- Interaction to Next Paint (INP): how quickly the page responds to taps and clicks
+- Cumulative Layout Shift (CLS): how much the page layout jumps around while loading
+
+Each one has a target range that Google considers good. Think of them as a health check, not a pass-or-fail exam. Improving a poor score usually improves the experience for your visitors too, which is the real point.
+
+## Largest Contentful Paint: how fast the main content appears
+
+Largest Contentful Paint measures how long it takes for the largest visible piece of content to appear on screen. That is usually the main headline image, a large banner, or the biggest block of text. Google considers a good LCP to be under two and a half seconds.
+
+When LCP is slow, a visitor stares at a blank or half-loaded page and wonders whether the site is broken. On mobile data, heavy images are the most common cause. A single uncompressed photo taken on a modern phone can be several megabytes, and a page with several such photos takes a long time to assemble.
+
+What usually fixes it:
+
+- Compress images before uploading them, and use modern image formats where your site supports them
+- Avoid one giant banner image that must load before anything else appears
+- Use a hosting setup that serves your pages quickly to visitors in Nigeria and beyond
+- Remove heavy elements above the top of the page that delay the main content
+
+Ask your developer a simple question: "What is our LCP on mobile, and which element is causing it?" That question alone often leads straight to the fix.
+
+## Interaction to Next Paint: how quickly the page responds
+
+Interaction to Next Paint measures responsiveness. When a visitor taps a button, opens a menu, or types in a form, INP measures how long it takes before the page visibly responds. Google considers a good INP to be under two hundred milliseconds, which is roughly the blink of an eye.
+
+Poor INP feels like a frozen or stubborn site. The visitor taps "Send" on a form and nothing seems to happen, so they tap again, or leave. The usual causes are too much JavaScript running at once, heavy third-party tools like chat widgets and trackers loading together, and long tasks that block the page from reacting.
+
+What usually fixes it:
+
+- Reduce the number of plugins, widgets, and tracking scripts loading on every page
+- Delay tools that are not needed immediately until after the page has loaded
+- Ask your developer to check which scripts take the longest to run on mobile
+
+Test INP yourself: open your site on a mid-range phone and tap through the menu and a form. If taps lag for you, they lag for your customers too.
+
+## Cumulative Layout Shift: whether things jump around
+
+Cumulative Layout Shift measures visual stability. It tracks how much visible content moves unexpectedly while the page loads. Google considers a good CLS score to be below zero point one. Lower is better, and zero means nothing moved at all.
+
+You have felt bad layout shift before. You are about to tap a button, an image loads above it, the button jumps down, and you tap the wrong thing instead. Or text you are reading suddenly shifts as an advert or image appears. It is annoying, and on a business site it can send a visitor to the wrong page or make a form feel broken.
+
+What usually fixes it:
+
+- Give images and videos set dimensions, so the page reserves space for them before they load
+- Avoid inserting banners, popups, or announcements above content after the page has started loading
+- Load web fonts in a way that does not swap text size dramatically partway through
+
+Layout shift is often the easiest of the three to fix, because it usually comes down to reserving space for content instead of letting the page guess.
+
+## How to check your own scores
+
+You do not need special software. Start with these two free tools:
+
+1. PageSpeed Insights: type in your website address and run the test. It shows scores for mobile and desktop, plus the three Core Web Vitals for your homepage and any other page you test. Test your homepage, one service page, and your contact page, since visitors land on all three.
+2. Google Search Console: if your site is connected to it, the experience section shows how your pages perform for real visitors over time, including which pages need attention.
+
+Run the test on mobile first. Most Nigerian customers will visit on a phone, so the mobile score is the one that reflects their experience. Take a screenshot of your results before any fixes, so you can compare afterwards and see what actually improved.
+
+## What to fix first
+
+If your scores need work, fix in this order for the biggest visible difference:
+
+1. Images: compress them, remove oversized ones, and give them set dimensions. This often improves both loading speed and layout stability at once.
+2. Third-party tools: audit chat widgets, social feeds, and trackers. Keep the ones that genuinely help customers, and remove or delay the rest.
+3. Hosting and caching: make sure your site uses caching, so returning visitors do not reload everything from scratch.
+4. Page structure: simplify heavy page builders, oversized sliders, and animations on the homepage and key service pages.
+
+## What to ask your developer
+
+If you work with a developer or agency, these questions will keep the conversation practical:
+
+- What are our current LCP, INP, and CLS scores on mobile for the homepage and top service pages?
+- Which images, scripts, or tools are causing the worst results?
+- What will you change first, and how will we measure the improvement?
+- Can we retest after the changes and compare with the earlier screenshots?
+
+A good developer will welcome those questions. If someone dismisses speed entirely or cannot show you a test result, that is a warning sign.
+
+## Frequently Asked Questions
+
+**Do Core Web Vitals affect my Google ranking?**
+
+They are one part of how Google judges page experience, alongside factors like mobile-friendliness and security. Good scores alone will not rank a poor site above a better one, but poor scores can hold back an otherwise good site, and they definitely affect whether visitors stay once they arrive.
+
+**How often should I check my scores?**
+
+Check after any redesign, after adding new tools or large images, and every few months as routine maintenance. Scores can change when your site changes, even if nothing looks different on the surface.
+
+**Is a perfect score necessary?**
+
+No. Aim for the good range on the pages that matter most: your homepage, your main service pages, and your contact page. A good, stable experience for real visitors matters more than a perfect number on a single test.
+
+**My site looks fine on my phone. Why is the score low?**
+
+Your phone, connection, and cached pages may be faster than a first-time visitor's experience. Testing tools simulate a slower connection and a fresh visit, which is closer to how a new customer experiences your site for the first time.
+
+## Make speed part of your website care
+
+Core Web Vitals sound technical, but they describe something simple: does your website feel fast, responsive, and steady to the person trying to reach you? For a business in Lagos or anywhere in Nigeria, where customers compare you with competitors in seconds, that feeling is part of your reputation.
+
+[Explore our services](/services) to see how Joetech builds and maintains fast, stable websites, or [contact us](/contact) to have your site's speed checked and improved.
