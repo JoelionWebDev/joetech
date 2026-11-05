@@ -144,6 +144,13 @@ export default function RootLayout({ children }) {
           data-cfasync="false"
           strategy="afterInteractive"
         /> */}
+
+        {/* Monetag tag - nap5k */}
+        <Script id="monetag-tag" strategy="afterInteractive">
+          {`
+            (function(s){s.dataset.zone='12200750',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
+          `}
+        </Script>
       </body>
     </html>
   );
