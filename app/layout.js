@@ -108,9 +108,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
       >
-        <Navbar />
+        <div className="print:hidden"><Navbar /></div>
         {children}
-        <Footer />
+        <div className="print:hidden"><Footer /></div>
         <DynamicChatWidget />
 
         {/* Schema.org */}
