@@ -28,56 +28,62 @@ export const metadata = {
 
 const liveTools = [
   {
-    name: "QR Code Generator",
+    name: "Free QR Code Generator",
     href: "/tools/qr-code-generator",
     icon: <QrCode className="w-8 h-8" />,
     description:
       "Create a QR code for your website, menu, WhatsApp chat or payment link — download it and print it free.",
     guide: "/blog/qr-codes-small-business-nigeria",
+    guideLabel: "Read the guide: QR codes for your small business",
   },
   {
-    name: "Digital Business Card",
+    name: "Free Digital Business Card",
     href: "/tools/digital-business-card",
     icon: <Contact className="w-8 h-8" />,
     description:
       "Build a simple online business card with your name, what you do and how to reach you — share it with one link.",
   },
   {
-    name: "Invoice, Receipt & Quotation Generator",
+    name: "Free Invoice, Receipt & Quotation Generator",
     href: "/tools/invoice-generator",
     icon: <Receipt className="w-8 h-8" />,
     description:
       "Create professional invoices, receipts and quotations in naira, with VAT and discounts — then download or share them.",
   },
-];
-
-const comingSoonTools = [
   {
     name: "Free Sitemap Generator",
+    href: "/tools/sitemap-generator",
     icon: <Network className="w-8 h-8" />,
     description:
       "Generate a sitemap for your website so Google can find and index your pages.",
+    guide: "/blog/google-search-console-beginners-guide",
+    guideLabel: "Read the guide: Google Search Console for beginners",
   },
   {
-    name: "CV & Resume Builder",
+    name: "Free CV & Resume Builder",
+    href: "/tools/cv-resume-builder",
     icon: <FileText className="w-8 h-8" />,
     description:
       "Build a clean, professional CV in minutes and download it ready to send.",
   },
   {
-    name: "Broken Link & 404 Checker",
+    name: "Free Broken Link & 404 Checker",
+    href: "/tools/broken-link-checker",
     icon: <Link2Off className="w-8 h-8" />,
     description:
       "Find broken links and dead pages on your website before your visitors do.",
   },
+];
+
+const comingSoonTools = [
   {
-    name: "Website Audit",
+    name: "Free Website Audit",
     icon: <Gauge className="w-8 h-8" />,
     description:
       "A quick check of your website's basics — speed, mobile-friendliness and the things Google looks for.",
   },
   {
-    name: "Website Value Checker",
+    name: "Free Website Value Checker",
     icon: <TrendingUp className="w-8 h-8" />,
     description:
       "An honest estimate of what your website could be worth, with the method shown so you can see how it was calculated.",
@@ -182,7 +188,7 @@ export default function FreeToolsPage() {
                       href={tool.guide}
                       className="text-blue-600 hover:text-blue-800 font-medium"
                     >
-                      Read the guide: QR codes for your small business
+                      {tool.guideLabel || "Read the guide"}
                     </a>
                   </p>
                 )}
