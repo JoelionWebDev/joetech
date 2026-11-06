@@ -3,16 +3,16 @@ import { ArrowRight, Wrench } from "lucide-react";
 import InvoiceTool from "./InvoiceTool";
 
 export const metadata = {
-  title: "Free Invoice, Receipt & Quotation Generator for Nigerian Businesses | Joetech",
+  title: "Free Invoice, Receipt & Quotation Generator for Small Businesses | Joetech",
   description:
-    "Create professional quotes, invoices and receipts in Naira — free, no sign-up. Add your logo, set discounts and 7.5% VAT, then print to PDF or share on WhatsApp. Built by Joetech.",
+    "Create professional quotes, invoices and receipts in your own currency — free, no sign-up. Pick your country, add your logo, set discounts and tax, then print to PDF or share on WhatsApp. Built by Joetech.",
   keywords:
-    "free invoice generator Nigeria, free receipt generator Nigeria, free quotation generator Nigeria, invoice maker Naira, receipt maker Nigeria, Joetech",
+    "free invoice generator, free receipt generator, free quotation generator, invoice maker, receipt maker, free invoice generator Nigeria, free receipt generator Nigeria, free quotation generator Nigeria, invoice maker Naira, receipt maker Nigeria, Joetech",
   alternates: { canonical: "https://joetech.name.ng/tools/invoice-generator" },
   openGraph: {
     title: "Free Invoice, Receipt & Quotation Generator | Joetech",
     description:
-      "Create quotes, invoices and receipts in Naira — free, no sign-up. Print to PDF or share on WhatsApp.",
+      "Create quotes, invoices and receipts in your currency — free, no sign-up. Print to PDF or share on WhatsApp.",
     url: "https://joetech.name.ng/tools/invoice-generator",
   },
 };
@@ -24,11 +24,11 @@ const steps = [
   },
   {
     title: "Add your client and items",
-    text: "Add who the document is for, then list each item or service with its quantity and unit price in Naira.",
+    text: "Add who the document is for, then list each item or service with its quantity and unit price in your currency.",
   },
   {
-    title: "Set discount and VAT",
-    text: "Add a discount as an amount or a percentage, and switch on 7.5% VAT if it applies. Totals update as you type.",
+    title: "Set discount and tax",
+    text: "Pick your country to set the currency, add a discount as an amount or a percentage, and switch on tax (VAT, GST or sales tax) at your country's rate if it applies. Totals update as you type.",
   },
   {
     title: "Print, copy or share",
@@ -48,6 +48,10 @@ const faqs = [
   {
     q: "What is the difference between a quote, an invoice and a receipt?",
     a: "A quote is a price offer you send before work starts. An invoice is what you send when payment is due. A receipt confirms that payment has been received — switch to Receipt and the document gets a PAID stamp and a “Received with thanks” line.",
+  },
+  {
+    q: "Can I use a currency other than Naira?",
+    a: "Yes — pick your country at the top of the document and every amount switches to that country's currency: Naira (₦), US dollars ($), British pounds (£), euros (€), Ghana cedis (GH₵), Kenyan shillings (KSh) and more. The tax rate is yours to set too, so VAT, GST or sales tax works the way your country charges it.",
   },
   {
     q: "Where are my saved drafts stored?",
@@ -79,11 +83,11 @@ export default function InvoiceGeneratorPage() {
             </span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400 sm:text-xl">
-            Professional quotes, invoices and receipts in Naira — free, no sign-up. Make one in
-            minutes, then print it or share it on WhatsApp.
+            Professional quotes, invoices and receipts in your currency — free, no sign-up. Make
+            one in minutes, then print it or share it on WhatsApp.
           </p>
           <p className="mt-4 text-sm font-medium text-slate-500">
-            Free forever • No sign-up • Works in Naira
+            Free forever • No sign-up • Works in any currency
           </p>
         </div>
       </section>
