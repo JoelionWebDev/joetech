@@ -161,7 +161,9 @@ export async function POST(request) {
     }
 
     const hrefs = new Set();
-    const regex = /href\s*=\s*["']([^"']+)["']/gi;
+    // Anchor links only — <link> tags (stylesheets, fonts) and <script>
+    // sources are resources, not links a visitor can click.
+    const regex = /<a\s[^>]*?href\s*=\s*["']([^"']+)["']/gi;
     let match;
     while ((match = regex.exec(html)) !== null && hrefs.size < MAX_LINKS) {
       const raw = match[1].trim();
