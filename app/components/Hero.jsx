@@ -7,7 +7,7 @@ export default function JoetechHero() {
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
     >
       {/* Founder portrait, faded into the background behind the text */}
-      <div aria-hidden="true" className="absolute inset-[10%] pointer-events-none">
+      <div aria-hidden="true" className="absolute inset-[20%] pointer-events-none">
         <Image
           src="/images/joel-hero.jpg"
           alt=""
