@@ -301,6 +301,18 @@ export default function BrokenLinkChecker() {
             </div>
           )}
 
+          {result.brokenCount > 0 && (
+            <p className="mt-3 flex items-start gap-2 text-sm text-slate-500">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+              <span>
+                A note: some sites, like LinkedIn and Facebook, block
+                automated checks, so their links can show as broken here
+                even when they open fine in a browser. Open any flagged
+                link yourself before removing it.
+              </span>
+            </p>
+          )}
+
           {result.brokenCount === 0 && result.total > 0 && (
             <div className="mt-6 flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-800">
               <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
