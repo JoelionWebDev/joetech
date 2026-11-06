@@ -5,12 +5,25 @@ import { Copy, FilePlus2, Printer, Save, Share2, Sparkles } from "lucide-react";
 
 const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 const today = () => new Date().toISOString().slice(0, 10);
-const fmt = (n) =>
-  new Intl.NumberFormat("en-NG", {
-    style: "currency",
-    currency: "NGN",
-    maximumFractionDigits: 0,
-  }).format(n);
+
+// Picking a country sets the currency used on every amount in the
+// document — quote, invoice and receipt. Nigeria is the default.
+const COUNTRIES = [
+  { code: "NG", name: "Nigeria", currency: "NGN", symbol: "₦", locale: "en-NG" },
+  { code: "GH", name: "Ghana", currency: "GHS", symbol: "GH₵", locale: "en-GH" },
+  { code: "KE", name: "Kenya", currency: "KES", symbol: "KSh", locale: "en-KE" },
+  { code: "ZA", name: "South Africa", currency: "ZAR", symbol: "R", locale: "en-ZA" },
+  { code: "UG", name: "Uganda", currency: "UGX", symbol: "USh", locale: "en-UG" },
+  { code: "TZ", name: "Tanzania", currency: "TZS", symbol: "TSh", locale: "en-TZ" },
+  { code: "CM", name: "Cameroon", currency: "XAF", symbol: "FCFA", locale: "fr-CM" },
+  { code: "US", name: "United States", currency: "USD", symbol: "$", locale: "en-US" },
+  { code: "GB", name: "United Kingdom", currency: "GBP", symbol: "£", locale: "en-GB" },
+  { code: "CA", name: "Canada", currency: "CAD", symbol: "$", locale: "en-CA" },
+  { code: "EU", name: "Eurozone", currency: "EUR", symbol: "€", locale: "en-IE" },
+  { code: "IN", name: "India", currency: "INR", symbol: "₹", locale: "en-IN" },
+  { code: "AE", name: "United Arab Emirates", currency: "AED", symbol: "AED", locale: "en-AE" },
+  { code: "AU", name: "Australia", currency: "AUD", symbol: "$", locale: "en-AU" },
+];
 
 const emptyBusiness = { name: "", phone: "", email: "", address: "", logo: "" };
 const emptyClient = { name: "", phone: "", email: "", address: "" };
@@ -43,6 +56,8 @@ const sample = () => ({
   discountKind: "amount",
   discountValue: 0,
   vatOn: false,
+  taxRate: 7.5,
+  country: "NG",
   payment: { bankName: "", accountNumber: "", accountName: "" },
   paymentMethod: "Bank transfer",
   notes:
@@ -79,12 +94,22 @@ export default function InvoiceTool() {
   const [discountKind, setDiscountKind] = useState("amount");
   const [discountValue, setDiscountValue] = useState(0);
   const [vatOn, setVatOn] = useState(false);
+  const [taxRate, setTaxRate] = useState(7.5);
+  const [country, setCountry] = useState("NG");
   const [payment, setPayment] = useState({ bankName: "", accountNumber: "", accountName: "" });
   const [paymentMethod, setPaymentMethod] = useState("Bank transfer");
   const [notes, setNotes] = useState("");
   const [drafts, setDrafts] = useState([]);
   const [message, setMessage] = useState("");
   const [mobileTab, setMobileTab] = useState("edit");
+
+  const countryInfo = COUNTRIES.find((c) => c.code === country) || COUNTRIES[0];
+  const fmt = (n) =>
+    new Intl.NumberFormat(countryInfo.locale, {
+      style: "currency",
+      currency: countryInfo.currency,
+      maximumFractionDigits: 0,
+    }).format(n);
 
   useEffect(() => {
     try {
@@ -111,7 +136,7 @@ export default function InvoiceTool() {
   const discount =
     discountKind === "percent" ? (subtotal * (discountValue || 0)) / 100 : discountValue || 0;
   const afterDiscount = Math.max(0, subtotal - discount);
-  const vat = vatOn ? afterDiscount * 0.075 : 0;
+  const vat = vatOn ? (afterDiscount * (taxRate || 0)) / 100 : 0;
   const grandTotal = afterDiscount + vat;
 
   const summaryText = () => {
@@ -125,7 +150,7 @@ export default function InvoiceTool() {
       `${lines}\n` +
       `Subtotal: ${fmt(subtotal)}\n` +
       (discount ? `Discount: -${fmt(discount)}\n` : "") +
-      (vatOn ? `VAT (7.5%): ${fmt(vat)}\n` : "") +
+      (vatOn ? `Tax (${taxRate}%): ${fmt(vat)}\n` : "") +
       (docType === "Receipt" ? `Payment method: ${paymentMethod}\n` : "") +
       `Total: ${fmt(grandTotal)}`
     );
@@ -146,6 +171,8 @@ export default function InvoiceTool() {
     setDiscountKind(s.discountKind);
     setDiscountValue(s.discountValue);
     setVatOn(s.vatOn);
+    setTaxRate(s.taxRate);
+    setCountry(s.country);
     setPayment(s.payment);
     setPaymentMethod(s.paymentMethod);
     setNotes(s.notes);
@@ -165,7 +192,9 @@ export default function InvoiceTool() {
         (i) => i.description.trim() !== "" || Number(i.quantity) !== 1 || Number(i.unitPrice) !== 0,
       ) ||
       discountValue !== 0 ||
-      vatOn;
+      vatOn ||
+      taxRate !== 7.5 ||
+      country !== "NG";
     if (
       hasContent &&
       !window.confirm("Start a new document? This clears everything on this page.")
@@ -181,6 +210,8 @@ export default function InvoiceTool() {
     setDiscountKind("amount");
     setDiscountValue(0);
     setVatOn(false);
+    setTaxRate(7.5);
+    setCountry("NG");
     setPayment({ bankName: "", accountNumber: "", accountName: "" });
     setPaymentMethod("Bank transfer");
     setNotes("");
@@ -191,7 +222,7 @@ export default function InvoiceTool() {
   const saveDraft = () => {
     const draft = {
       id: uid(),
-      savedAt: new Date().toLocaleString("en-NG"),
+      savedAt: new Date().toLocaleString(countryInfo.locale),
       docType,
       docNumber,
       business,
@@ -200,6 +231,8 @@ export default function InvoiceTool() {
       discountKind,
       discountValue,
       vatOn,
+      taxRate,
+      country,
       payment,
       paymentMethod,
       notes,
@@ -217,6 +250,8 @@ export default function InvoiceTool() {
     setDiscountKind(d.discountKind);
     setDiscountValue(d.discountValue);
     setVatOn(d.vatOn);
+    setTaxRate(d.taxRate ?? 7.5);
+    setCountry(d.country || "NG");
     setPayment(d.payment);
     setPaymentMethod(d.paymentMethod || "Bank transfer");
     setNotes(d.notes);
@@ -284,6 +319,21 @@ export default function InvoiceTool() {
           <Field label="Date">
             <input type="date" className={inputCls} value={docDate} onChange={(e) => setDocDate(e.target.value)} />
           </Field>
+        </div>
+        <div className="mt-4">
+          <Field label="Country — sets the currency">
+            <select className={inputCls} value={country} onChange={(e) => setCountry(e.target.value)}>
+              {COUNTRIES.map((c) => (
+                <option key={c.code} value={c.code}>
+                  {c.name} — {c.symbol} ({c.currency})
+                </option>
+              ))}
+            </select>
+          </Field>
+          <p className="mt-1 text-xs text-slate-400">
+            Every amount on this document — the preview, the PDF and the WhatsApp summary — uses{" "}
+            {countryInfo.name}&apos;s currency ({countryInfo.symbol} {countryInfo.currency}).
+          </p>
         </div>
       </section>
 
@@ -376,8 +426,8 @@ export default function InvoiceTool() {
                   <Field label="Qty">
                     <input type="number" min={0} step={1} className={inputCls} value={item.quantity} onChange={(e) => setItem(item.id, { quantity: Number(e.target.value) })} />
                   </Field>
-                  <Field label="Unit price (₦)">
-                    <input type="number" min={0} step={1000} className={inputCls} value={item.unitPrice} onChange={(e) => setItem(item.id, { unitPrice: Number(e.target.value) })} />
+                  <Field label={`Unit price (${countryInfo.symbol})`}>
+                    <input type="number" min={0} step={1} className={inputCls} value={item.unitPrice} onChange={(e) => setItem(item.id, { unitPrice: Number(e.target.value) })} />
                   </Field>
                   <div>
                     <span className={labelCls}>Line total</span>
@@ -392,27 +442,43 @@ export default function InvoiceTool() {
 
       {/* Totals */}
       <section className={cardCls}>
-        <h2 className="text-base font-bold">Discount &amp; VAT</h2>
+        <h2 className="text-base font-bold">Discount &amp; tax</h2>
         <div className="mt-4 grid grid-cols-2 gap-3">
           <Field label="Discount type">
             <select className={inputCls} value={discountKind} onChange={(e) => setDiscountKind(e.target.value)}>
-              <option value="amount">Amount (₦)</option>
+              <option value="amount">Amount ({countryInfo.symbol})</option>
               <option value="percent">Percentage (%)</option>
             </select>
           </Field>
-          <Field label={discountKind === "percent" ? "Discount (%)" : "Discount (₦)"}>
+          <Field label={discountKind === "percent" ? "Discount (%)" : `Discount (${countryInfo.symbol})`}>
             <input type="number" min={0} className={inputCls} value={discountValue} onChange={(e) => setDiscountValue(Number(e.target.value))} />
           </Field>
         </div>
-        <label className="mt-4 flex cursor-pointer items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3">
-          <input type="checkbox" className="h-5 w-5 accent-blue-600" checked={vatOn} onChange={(e) => setVatOn(e.target.checked)} />
-          <span className="text-sm font-semibold">Add 7.5% VAT</span>
-          <span className="ml-auto text-sm font-bold">{fmt(vat)}</span>
-        </label>
+        <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3">
+          <label className="flex cursor-pointer items-center gap-3">
+            <input type="checkbox" className="h-5 w-5 accent-blue-600" checked={vatOn} onChange={(e) => setVatOn(e.target.checked)} />
+            <span className="text-sm font-semibold">Add tax</span>
+          </label>
+          <label className="ml-auto flex items-center gap-2 text-sm">
+            <span className="text-slate-500">Rate</span>
+            <input
+              type="number"
+              min={0}
+              max={100}
+              step={0.5}
+              className="w-20 rounded-lg border border-slate-200 px-2 py-1.5 text-sm font-semibold outline-none focus:border-blue-500 disabled:opacity-40"
+              value={taxRate}
+              disabled={!vatOn}
+              onChange={(e) => setTaxRate(Number(e.target.value))}
+            />
+            <span className="font-semibold">%</span>
+          </label>
+          <span className="text-sm font-bold">{fmt(vat)}</span>
+        </div>
         <div className="mt-4 space-y-1 text-sm">
           <p className="flex justify-between"><span className="text-slate-500">Subtotal</span><b>{fmt(subtotal)}</b></p>
           <p className="flex justify-between"><span className="text-slate-500">Discount</span><b>-{fmt(discount)}</b></p>
-          <p className="flex justify-between"><span className="text-slate-500">VAT (7.5%)</span><b>{fmt(vat)}</b></p>
+          <p className="flex justify-between"><span className="text-slate-500">Tax ({taxRate}%)</span><b>{fmt(vat)}</b></p>
           <p className="flex justify-between border-t border-slate-200 pt-2 text-base"><span>Grand total</span><b className="text-blue-700">{fmt(grandTotal)}</b></p>
         </div>
       </section>
@@ -534,7 +600,7 @@ export default function InvoiceTool() {
       <div className="ml-auto mt-4 w-full max-w-xs space-y-1 text-sm">
         <p className="flex justify-between"><span className="text-slate-500">Subtotal</span><b>{fmt(subtotal)}</b></p>
         {discount > 0 && <p className="flex justify-between"><span className="text-slate-500">Discount</span><b>-{fmt(discount)}</b></p>}
-        {vatOn && <p className="flex justify-between"><span className="text-slate-500">VAT (7.5%)</span><b>{fmt(vat)}</b></p>}
+        {vatOn && <p className="flex justify-between"><span className="text-slate-500">Tax ({taxRate}%)</span><b>{fmt(vat)}</b></p>}
         <p className="flex justify-between border-t border-slate-900 pt-2 text-base">
           <span className="font-bold">{docType === "Receipt" ? "Amount received" : "Total"}</span>
           <b className="text-blue-700">{fmt(grandTotal)}</b>
