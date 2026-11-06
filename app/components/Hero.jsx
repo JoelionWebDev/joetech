@@ -1,9 +1,24 @@
+import Image from "next/image";
+
 export default function JoetechHero() {
   return (
     <section
       aria-label="Joetech hero"
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
     >
+      {/* Founder portrait, faded into the background behind the text */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/images/joel-hero.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-[center_20%] opacity-40"
+        />
+        {/* Blend the photo into the dark background, top and bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
+      </div>
+
       {/* Subtle grid texture */}
       <div
         aria-hidden="true"
