@@ -250,6 +250,17 @@ export default function SitemapGenerator() {
                 </li>
               ))}
             </ul>
+            {result.partial && (
+              <p className="mt-3 flex items-start gap-2 text-sm text-amber-700">
+                <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>
+                  This is a large site, so the crawl stopped early — these
+                  are the first pages found. Run the generator again from a
+                  section of your site (for example yoursite.com/blog) to
+                  cover the rest.
+                </span>
+              </p>
+            )}
             <p className="mt-3 flex items-start gap-2 text-sm text-slate-500">
               <FileCode className="mt-0.5 h-4 w-4 shrink-0" />
               <span>
