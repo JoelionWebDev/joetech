@@ -6,18 +6,19 @@ export default function JoetechHero() {
       aria-label="Joetech hero"
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
     >
-      {/* Founder portrait, faded into the background behind the text */}
-      <div aria-hidden="true" className="absolute inset-[20%] pointer-events-none">
+      {/* Founder portrait — background removed, standing at the right, fading into the dark */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 right-0 h-[48%] opacity-50 sm:h-[70%] sm:opacity-75 lg:h-[88%] lg:opacity-90"
+      >
         <Image
-          src="/images/joel-hero.jpg"
+          src="/images/joel-cutout.png"
           alt=""
-          fill
+          width={700}
+          height={933}
           priority
-          className="object-cover object-[center_20%] opacity-40"
+          className="h-full w-auto"
         />
-        {/* Blend the photo into the dark background on all four sides */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
       </div>
 
       {/* Subtle grid texture */}
