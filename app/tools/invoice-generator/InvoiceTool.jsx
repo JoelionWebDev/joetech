@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Copy, Printer, Save, Share2, Sparkles } from "lucide-react";
+import { Copy, FilePlus2, Printer, Save, Share2, Sparkles } from "lucide-react";
 
 const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 const today = () => new Date().toISOString().slice(0, 10);
@@ -152,6 +152,40 @@ export default function InvoiceTool() {
     setDocDate(today());
     setMessage("Sample quote loaded — edit any field to make it yours.");
     setMobileTab("preview");
+  };
+
+  const clearAll = () => {
+    const filled = (o) => Object.values(o).some((v) => String(v || "").trim() !== "");
+    const hasContent =
+      filled(business) ||
+      filled(client) ||
+      filled(payment) ||
+      notes.trim() !== "" ||
+      items.some(
+        (i) => i.description.trim() !== "" || Number(i.quantity) !== 1 || Number(i.unitPrice) !== 0,
+      ) ||
+      discountValue !== 0 ||
+      vatOn;
+    if (
+      hasContent &&
+      !window.confirm("Start a new document? This clears everything on this page.")
+    ) {
+      return;
+    }
+    setDocType("Quote");
+    setDocNumber("QT-2026-001");
+    setDocDate(today());
+    setBusiness(emptyBusiness);
+    setClient(emptyClient);
+    setItems([{ id: uid(), description: "", quantity: 1, unitPrice: 0 }]);
+    setDiscountKind("amount");
+    setDiscountValue(0);
+    setVatOn(false);
+    setPayment({ bankName: "", accountNumber: "", accountName: "" });
+    setPaymentMethod("Bank transfer");
+    setNotes("");
+    setMessage("Cleared — ready for a new document.");
+    setMobileTab("edit");
   };
 
   const saveDraft = () => {
@@ -543,6 +577,7 @@ export default function InvoiceTool() {
             <h2 className="text-lg font-extrabold text-slate-900">Make your document</h2>
             <p className="text-sm text-slate-500">Fill in the details — the preview updates as you type.</p>
           </div>
+          <button type="button" className={btnSoft} onClick={clearAll}><FilePlus2 className="h-4 w-4" /> New</button>
           <button type="button" className={btnSoft} onClick={loadSample}><Sparkles className="h-4 w-4" /> Load sample</button>
           <button type="button" className={btnSoft} onClick={saveDraft}><Save className="h-4 w-4" /> Save draft</button>
           <button type="button" className={btnSoft} onClick={copySummary}><Copy className="h-4 w-4" /> Copy summary</button>
