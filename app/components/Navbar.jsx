@@ -30,6 +30,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
+  const [showInstall, setShowInstall] = useState(false);
+  const [installPrompt, setInstallPrompt] = useState(null);
+  const [isIOS, setIsIOS] = useState(false);
+  const [showInstallHelp, setShowInstallHelp] = useState(false);
 
   useEffect(() => {
     setActive(window.location.pathname);
@@ -37,6 +41,77 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Install-app banner: appears 4 seconds after the page opens and hides
+  // 2 minutes after it appears (or sooner if dismissed/installed). Once
+  // dismissed it stays hidden for 7 days; never shown inside the installed app.
+  useEffect(() => {
+    if (window.matchMedia("(display-mode: standalone)").matches) return;
+    try {
+      const dismissed = Number(
+        localStorage.getItem("joetech-install-dismissed") || 0,
+      );
+      if (dismissed && Date.now() - dismissed < 7 * 24 * 60 * 60 * 1000)
+        return;
+    } catch {
+      // Storage unavailable — show the banner anyway.
+    }
+    // Register the PWA service worker (separate from the Monetag sw.js).
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/pwa-sw.js").catch(() => {});
+    }
+    setIsIOS(/iphone|ipad|ipod/i.test(window.navigator.userAgent));
+    const onPrompt = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+    window.addEventListener("beforeinstallprompt", onPrompt);
+    const showTimer = setTimeout(() => setShowInstall(true), 4000);
+    const hideTimer = setTimeout(
+      () => setShowInstall(false),
+      4000 + 120000,
+    );
+    return () => {
+      window.removeEventListener("beforeinstallprompt", onPrompt);
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
+
+  const dismissInstall = () => {
+    setShowInstall(false);
+    try {
+      localStorage.setItem(
+        "joetech-install-dismissed",
+        String(Date.now()),
+      );
+    } catch {
+      // Ignore storage errors.
+    }
+  };
+
+  const installApp = async () => {
+    if (installPrompt) {
+      installPrompt.prompt();
+      const choice = await installPrompt.userChoice.catch(() => null);
+      if (choice && choice.outcome === "accepted") {
+        try {
+          localStorage.setItem(
+            "joetech-install-dismissed",
+            String(Date.now()),
+          );
+        } catch {
+          // Ignore storage errors.
+        }
+      }
+      setInstallPrompt(null);
+      setShowInstall(false);
+      return;
+    }
+    // No native install prompt (iPhone, or a browser without install
+    // support) — show the manual steps instead.
+    setShowInstallHelp(true);
+  };
 
   const isActive = (href) =>
     href === "/" ? active === "/" : active.startsWith(href);
@@ -231,7 +306,9 @@ export default function Navbar() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Joetech on WhatsApp"
-        className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-[#25d366] px-4 py-3 text-white shadow-xl shadow-green-500/30 transition-all hover:scale-105 hover:bg-[#1eb856]"
+        className={`fixed right-5 z-40 flex items-center gap-2 rounded-full bg-[#25d366] px-4 py-3 text-white shadow-xl shadow-green-500/30 transition-all hover:scale-105 hover:bg-[#1eb856] ${
+          showInstall && !open ? "bottom-24" : "bottom-5"
+        }`}
       >
         <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -240,6 +317,50 @@ export default function Navbar() {
           Chat with us
         </span>
       </a>
+
+      {/* Install-app banner — bottom bar, hidden while the mobile menu is open */}
+      {showInstall && !open && (
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#060b18]/95 px-4 py-3 shadow-2xl backdrop-blur">
+          <div className="mx-auto flex max-w-7xl items-center gap-3">
+            <Image
+              src="/icons/icon-192.png"
+              alt="Joetech app icon"
+              width={40}
+              height={40}
+              className="h-10 w-10 shrink-0 rounded-xl"
+            />
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-sm font-semibold text-white">
+                Get the Joetech app
+              </p>
+              <p className="truncate text-xs text-slate-400">
+                Our services, right from your home screen — no app store
+                needed.
+              </p>
+            </div>
+            <button
+              onClick={installApp}
+              className="shrink-0 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+            >
+              Install app
+            </button>
+            <button
+              onClick={dismissInstall}
+              aria-label="Dismiss"
+              className="shrink-0 rounded-full p-2 text-slate-400 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          {showInstallHelp && (
+            <p className="mx-auto mt-2 max-w-7xl text-xs leading-relaxed text-slate-300">
+              {isIOS ?
+                "On iPhone: tap Share, then “Add to Home Screen”."
+              : "On Android: tap the menu (⋮), then “Install app” or “Add to Home screen”."}
+            </p>
+          )}
+        </div>
+      )}
     </header>
   );
 }
