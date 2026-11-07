@@ -31,8 +31,7 @@ export const metadata = {
   },
   description:
     "Joetech is a Business Digital Branding agency based in Lekki, Lagos, Nigeria. We build websites, graphics & branding, advertising, and apps — and promote your brand digitally.",
-    icons: { apple: "/apple-icon.png" },
-      appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "Joetech" },
+          appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "Joetech" },
   keywords: [
     "business digital branding Lagos",
     "web development Lagos",
@@ -66,6 +65,7 @@ export const metadata = {
   },
   icons: {
     icon: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
   other: {
     monetag: "6dcf449a7b1c18b13902530309563e88", // moved the meta tag here
