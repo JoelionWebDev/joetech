@@ -393,7 +393,9 @@ export default function WebsiteAuditTool() {
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 <a
-                  href="/contact"
+                  href="https://wa.me/message/RKDWPWCNYQKTG1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-blue-700 hover:bg-gray-100"
                 >
                   <Search className="h-4 w-4" />
