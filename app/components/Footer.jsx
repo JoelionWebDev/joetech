@@ -1,4 +1,4 @@
-import ClientButton from "../../components/ClientButton";
+import BackToTop from "../../components/BackToTop";
 import { PHONE_NUMBER, PHONE_TEL, CONTACT_EMAIL } from "../../lib/site";
 
 const currentYear = new Date().getFullYear();
@@ -220,15 +220,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <ClientButton
-        scrollToTop
-        className="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 z-50"
-        ariaLabel="Scroll back to top of page"
-      >
-        <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-      </ClientButton>
+      <BackToTop />
     </footer>
   );
 };
