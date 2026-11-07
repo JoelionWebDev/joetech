@@ -9,7 +9,6 @@ import TableOfContents from "../../../components/blog/TableOfContents";
 import RelatedPosts from "../../../components/blog/RelatedPosts";
 import SocialShare from "../../../components/blog/SocialShare";
 import NewsletterSignup from "../../../components/blog/NewsletterSignup";
-import BackToTop from "../../../components/BackToTop";
 
 export async function generateStaticParams() {
   return getAllPostSlugs();
@@ -337,7 +336,6 @@ export default async function BlogPostPage({ params }) {
           </div>
         </div>
       </article>
-      <BackToTop />
     </>
   );
 }
