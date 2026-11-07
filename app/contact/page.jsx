@@ -63,7 +63,7 @@ const SOCIALS = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/igono-joel-88b680185/",
+    href: "https://www.linkedin.com/in/igonojoe/",
     path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
   },
 ];
@@ -169,12 +169,14 @@ export default function ContactPage() {
 function ContactForm() {
   const [data, setData] = useState({ fullName: "", email: "", phone: "", service: "", message: "" });
   const [status, setStatus] = useState("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => setData((p) => ({ ...p, [e.target.name]: e.target.value }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!data.fullName || !data.email || !data.message) {
+      setErrorMsg("Please fill in all required fields.");
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
       return;
@@ -188,6 +190,7 @@ function ContactForm() {
           name: data.fullName,
           email: data.email,
           phone: data.phone,
+          service: data.service,
           message: data.message,
         }),
       });
@@ -199,9 +202,10 @@ function ContactForm() {
       setStatus("success");
       setData({ fullName: "", email: "", phone: "", service: "", message: "" });
       setTimeout(() => setStatus("idle"), 5000);
-    } catch {
+    } catch (err) {
+      setErrorMsg(err?.message || "Could not send your message. Please try again, or reach us on WhatsApp instead.");
       setStatus("error");
-      setTimeout(() => setStatus("idle"), 3000);
+      setTimeout(() => setStatus("idle"), 5000);
     }
   };
 
@@ -212,7 +216,7 @@ function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="fullName" className="block text-sm font-medium text-slate-300 mb-1.5">Full Name <span className="text-red-400">*</span></label>
-          <input type="text" id="fullName" name="fullName" value={data.fullName} onChange={handleChange} required className={inputClass} placeholder="Joelion" />
+          <input type="text" id="fullName" name="fullName" value={data.fullName} onChange={handleChange} required className={inputClass} placeholder="Your full name" />
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1.5">Email <span className="text-red-400">*</span></label>
@@ -274,7 +278,7 @@ function ContactForm() {
       )}
       {status === "error" && (
         <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
-          <p className="text-red-300 text-sm font-medium">✗ Please fill in all required fields.</p>
+          <p className="text-red-300 text-sm font-medium">✗ {errorMsg}</p>
         </div>
       )}
     </form>
