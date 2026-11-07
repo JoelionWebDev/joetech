@@ -98,7 +98,7 @@ const organizationSchema = {
   sameAs: [
     "https://www.facebook.com/profile.php?id=100094879577107",
     "https://www.youtube.com/@joetechstudio",
-    "https://www.linkedin.com/in/igono-joel-88b680185/",
+    "https://www.linkedin.com/in/igonojoe/",
   ],
 };
 
