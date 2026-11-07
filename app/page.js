@@ -11,6 +11,14 @@ import CTABanner from "./components/CalltoAction";
 import LearnTech from "./components/LearnTech";
 import FadeInSection from "../components/FadeInSection";
 
+// Homepage title and description are kept short so Google shows them in
+// full in search results (title under 60 characters, description under 160).
+export const metadata = {
+  title: "Joetech — Websites, Branding & Apps in Lagos, Nigeria",
+  description:
+    "Joetech is a Business Digital Branding agency in Lekki, Lagos. We build websites, graphics, advertising and apps for Nigerian businesses.",
+};
+
 const page = () => {
   return (
     <div>
