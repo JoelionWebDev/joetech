@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Script from "next/script";
-import DynamicChatWidget from "../components/chat/DynamicChatWidget";
 import { PHONE_SCHEMA } from "../lib/site";
 
 const geistSans = Geist({
@@ -33,6 +32,7 @@ export const metadata = {
   description:
     "Joetech is a Business Digital Branding agency based in Lekki, Lagos, Nigeria. We build websites, graphics & branding, advertising, and apps — and promote your brand digitally.",
     icons: { apple: "/apple-icon.png" },
+      appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "Joetech" },
   keywords: [
     "business digital branding Lagos",
     "web development Lagos",
@@ -112,7 +112,6 @@ export default function RootLayout({ children }) {
         <div className="print:hidden"><Navbar /></div>
         {children}
         <div className="print:hidden"><Footer /></div>
-        <DynamicChatWidget />
 
         {/* Schema.org */}
         <Script
