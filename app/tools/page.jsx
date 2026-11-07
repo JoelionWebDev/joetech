@@ -73,15 +73,18 @@ const liveTools = [
     description:
       "Find broken links and dead pages on your website before your visitors do.",
   },
+  {
+    name: "Free Website Audit",
+    href: "/tools/website-audit",
+    icon: <Gauge className="w-8 h-8" />,
+    description:
+      "A quick check of your website's basics — speed, mobile-friendliness and the things Google looks for, with a clear score and plain-English fixes.",
+    guide: "/blog/audit-your-business-website-nigeria",
+    guideLabel: "Read the guide: how to audit your business website",
+  },
 ];
 
 const comingSoonTools = [
-  {
-    name: "Free Website Audit",
-    icon: <Gauge className="w-8 h-8" />,
-    description:
-      "A quick check of your website's basics — speed, mobile-friendliness and the things Google looks for.",
-  },
   {
     name: "Free Website Value Checker",
     icon: <TrendingUp className="w-8 h-8" />,
