@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -34,6 +34,9 @@ export default function Navbar() {
   const [installPrompt, setInstallPrompt] = useState(null);
   const [isIOS, setIsIOS] = useState(false);
   const [showInstallHelp, setShowInstallHelp] = useState(false);
+  // Once the visitor taps Install, the banner stays put so the install
+  // steps stay readable instead of vanishing under them.
+  const installInteracted = useRef(false);
 
   useEffect(() => {
     setActive(window.location.pathname);
@@ -43,8 +46,10 @@ export default function Navbar() {
   }, []);
 
   // Install-app banner: appears 4 seconds after the page opens and hides
-  // 2 minutes after it appears (or sooner if dismissed/installed). Once
+  // 30 seconds after it appears (or sooner if dismissed/installed). Once
   // dismissed it stays hidden for 7 days; never shown inside the installed app.
+  // If the visitor taps Install, the banner stays until they finish, so the
+  // iPhone install steps stay readable.
   useEffect(() => {
     if (window.matchMedia("(display-mode: standalone)").matches) return;
     try {
@@ -67,10 +72,9 @@ export default function Navbar() {
     };
     window.addEventListener("beforeinstallprompt", onPrompt);
     const showTimer = setTimeout(() => setShowInstall(true), 4000);
-    const hideTimer = setTimeout(
-      () => setShowInstall(false),
-      4000 + 120000,
-    );
+    const hideTimer = setTimeout(() => {
+      if (!installInteracted.current) setShowInstall(false);
+    }, 4000 + 30000);
     return () => {
       window.removeEventListener("beforeinstallprompt", onPrompt);
       clearTimeout(showTimer);
@@ -91,6 +95,7 @@ export default function Navbar() {
   };
 
   const installApp = async () => {
+    installInteracted.current = true;
     if (installPrompt) {
       installPrompt.prompt();
       const choice = await installPrompt.userChoice.catch(() => null);
