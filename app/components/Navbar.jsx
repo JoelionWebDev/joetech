@@ -410,13 +410,18 @@ export default function Navbar() {
 
       {/* Floating WhatsApp button — draggable; default spot is 3rem (48px)
           from the bottom, and it lifts above the install banner while the
-          banner is showing so the two never overlap. */}
+          banner is showing so the two never overlap. draggable={false} and
+          the dragstart prevention stop the browser's native link-drag from
+          hijacking the pointer — without them the button only nudges a few
+          pixels and then stops following the pointer. */}
       <a
         ref={waRef}
         href="https://wa.me/message/RKDWPWCNYQKTG1"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Joetech on WhatsApp"
+        draggable={false}
+        onDragStart={(e) => e.preventDefault()}
         onPointerDown={onWaPointerDown}
         onPointerMove={onWaPointerMove}
         onPointerUp={onWaPointerUp}
