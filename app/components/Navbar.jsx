@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Share } from "lucide-react";
 import Image from "next/image";
 
 const NAV_LINKS = [
@@ -327,13 +327,20 @@ export default function Navbar() {
       {showInstall && !open && (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#060b18]/95 px-4 py-3 shadow-2xl backdrop-blur">
           <div className="mx-auto flex max-w-7xl items-center gap-3">
-            <Image
-              src="/icons/icon-192.png"
-              alt="Joetech app icon"
-              width={40}
-              height={40}
-              className="h-10 w-10 shrink-0 rounded-xl"
-            />
+            {/* The app icon is tappable too — it starts the install flow. */}
+            <button
+              onClick={installApp}
+              aria-label="Install the Joetech app"
+              className="shrink-0 rounded-xl transition-transform hover:scale-105"
+            >
+              <Image
+                src="/icons/icon-192.png"
+                alt="Joetech app icon"
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-xl"
+              />
+            </button>
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-semibold text-white">
                 Get the Joetech app
@@ -343,12 +350,21 @@ export default function Navbar() {
                 needed.
               </p>
             </div>
-            <button
-              onClick={installApp}
-              className="shrink-0 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
-            >
-              Install app
-            </button>
+            {showInstallHelp ? (
+              <button
+                onClick={dismissInstall}
+                className="shrink-0 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+              >
+                Got it
+              </button>
+            ) : (
+              <button
+                onClick={installApp}
+                className="shrink-0 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+              >
+                {isIOS ? "Install on iPhone" : "Install app"}
+              </button>
+            )}
             <button
               onClick={dismissInstall}
               aria-label="Dismiss"
@@ -357,12 +373,66 @@ export default function Navbar() {
               <X className="h-5 w-5" />
             </button>
           </div>
+          {/* iPhone (and browsers without one-tap install) get a clear,
+              unmissable step card instead of one small line of text. */}
           {showInstallHelp && (
-            <p className="mx-auto mt-2 max-w-7xl text-xs leading-relaxed text-slate-300">
-              {isIOS ?
-                "On iPhone: tap Share, then “Add to Home Screen”."
-              : "On Android: tap the menu (⋮), then “Install app” or “Add to Home screen”."}
-            </p>
+            <div className="mx-auto mt-3 max-w-7xl rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4">
+              <p className="mb-2 flex items-center gap-2 text-sm font-semibold text-white">
+                <Share className="h-4 w-4 shrink-0 text-blue-400" />
+                {isIOS ?
+                  "Install on iPhone — 3 quick steps"
+                : "Install the app — 3 quick steps"}
+              </p>
+              <ol className="space-y-1.5 text-sm leading-relaxed text-slate-200">
+                {isIOS ?
+                  <>
+                    <li>
+                      <span className="font-semibold text-white">1.</span>{" "}
+                      Tap the{" "}
+                      <span className="font-semibold text-white">Share</span>{" "}
+                      button at the bottom of Safari (the square with an
+                      arrow pointing up).
+                    </li>
+                    <li>
+                      <span className="font-semibold text-white">2.</span>{" "}
+                      Scroll down and tap{" "}
+                      <span className="font-semibold text-white">
+                        “Add to Home Screen”
+                      </span>
+                      .
+                    </li>
+                    <li>
+                      <span className="font-semibold text-white">3.</span>{" "}
+                      Tap{" "}
+                      <span className="font-semibold text-white">Add</span>{" "}
+                      at the top right — Joetech will appear on your home
+                      screen.
+                    </li>
+                  </>
+                : <>
+                    <li>
+                      <span className="font-semibold text-white">1.</span>{" "}
+                      Tap the menu{" "}
+                      <span className="font-semibold text-white">(⋮)</span>{" "}
+                      at the top right of your browser.
+                    </li>
+                    <li>
+                      <span className="font-semibold text-white">2.</span>{" "}
+                      Tap{" "}
+                      <span className="font-semibold text-white">
+                        “Install app”
+                      </span>{" "}
+                      (or “Add to Home screen”).
+                    </li>
+                    <li>
+                      <span className="font-semibold text-white">3.</span>{" "}
+                      Joetech will appear on your home screen — open it like
+                      any app.
+                    </li>
+                  </>
+                }
+              </ol>
+            </div>
           )}
         </div>
       )}
