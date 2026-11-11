@@ -38,7 +38,7 @@ const sample = () => ({
   business: {
     name: "Joetech",
     phone: "+234 816 709 9131",
-    email: "info@joetech.name.ng",
+    email: "info@joetech360.ng",
     address: "Chevron Alternative Route, Lekki, Lagos, Nigeria",
     logo: "",
   },
