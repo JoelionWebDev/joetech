@@ -135,10 +135,10 @@ export default function TermsOfServicePage() {
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Questions about these terms can be sent to{" "}
               <a
-                href="mailto:info@joetech.name.ng"
+                href="mailto:info@joetech360.ng"
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                info@joetech.name.ng
+                info@joetech360.ng
               </a>{" "}
               or{" "}
               <a
