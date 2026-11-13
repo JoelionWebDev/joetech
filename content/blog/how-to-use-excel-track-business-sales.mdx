@@ -1,0 +1,117 @@
+---
+title: "How to Use Excel to Track Business Sales"
+slug: how-to-use-excel-track-business-sales
+excerpt: "You do not need expensive software to know how your business is doing. Learn how to set up a simple Excel sheet to record daily sales, track your best products and see your profit at a glance."
+publishDate: "2026-11-13"
+updatedDate: "2026-11-13"
+author: "Igono Joel"
+category: "Business Growth for SMEs"
+tags:
+  - excel
+  - sales tracking
+  - business records
+  - spreadsheet
+readingTime: "14 min read"
+coverImage: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&q=80"
+metaTitle: "How to Use Excel to Track Business Sales | Joetech"
+metaDescription: "Learn how to build a simple Excel sales tracker for your small business — record daily sales, track best sellers, and see your profit clearly."
+canonicalUrl: "https://joetech360.ng/blog/how-to-use-excel-track-business-sales"
+keywords: "excel sales tracker, track business sales excel, small business records, sales spreadsheet nigeria, excel for business"
+featured: false
+---
+
+Many small business owners in Nigeria run their business from memory. They know they sold "plenty" yesterday, but they cannot say exactly how much came in, which product sold best, or whether the business actually made a profit after expenses. That is a problem, because a business you cannot measure is a business you cannot grow. The good news is that you do not need expensive accounting software to fix this. Microsoft Excel — or the free Google Sheets, which works almost the same way — is more than enough to track your sales properly.
+
+A simple Excel sales tracker tells you, at a glance, what you sold, how much money came in, what it cost you, and what is left as profit. It also shows you patterns: which days are your best, which products your customers love, and which ones are just sitting on the shelf. With that information, you can decide what to restock, what to promote, and where your money is leaking. This guide will walk you through setting up a sales tracker from scratch, even if you have never used Excel beyond typing numbers into cells.
+
+## Why Tracking Sales in Excel Makes Sense for a Small Business
+
+When your business is small, every naira matters, and Excel gives you control without a monthly subscription. You already have it on most Windows computers, and Google Sheets is free with any Google account and works on your phone too. Unlike a paper notebook, a spreadsheet adds up your figures for you, so you never have to sit with a calculator at the end of the month. And unlike your memory, it does not forget.
+
+Tracking sales also protects you from quiet losses. Many businesses that look busy are actually losing money, because the owner never compares what came in with what went out. When you record sales and costs side by side, the truth shows up in black and white. You might discover that your most popular product is the one with the smallest profit, or that a whole week of trading barely covered your transport costs. That kind of knowledge is uncomfortable, but it is exactly what helps you make better decisions — and a neat Excel sheet showing months of steady sales is far more convincing than "business is going well" if you ever apply for a loan or a grant.
+
+## What You Need Before You Start
+
+You do not need a fancy computer. Excel on a laptop or desktop is ideal, but Google Sheets on your phone will work fine if that is what you have. If you use a phone, turn it sideways to landscape mode so you can see more columns, and consider using a small Bluetooth keyboard if you will be entering many sales. The important thing is to pick one tool and stick with it.
+
+Before you build the sheet, decide what you want to know. For most small businesses — a shop, a food vendor, a fashion seller, a phone accessories dealer, a service provider — the essentials are the same: the date of the sale, what was sold, how many, the selling price, what it cost you, and how the customer paid. If you sell on credit, you also need a column for who owes you and how much. Keep it simple at first. You can always add more columns later, but a tracker with twenty columns that you never fill is worse than a simple one you update every day. Know the cost price of your main products — what you paid your supplier — because without cost price you cannot calculate profit, only revenue. If you do not know the cost price of an item, check your last supplier invoice or receipt before you enter it.
+
+## Setting Up Your Sales Tracker Step by Step
+
+Open a new workbook and give it a clear name, something like "Sales Tracker 2026". The first sheet will be your daily sales record. On the first row, type your column headings. A good set of headings for a product business is: Date, Receipt or Invoice Number, Product or Service, Quantity, Selling Price, Total Amount, Cost Price, Profit, Payment Method, and Customer Name. You can add a Notes column at the end for anything unusual, such as "customer returned item" or "sold at discount".
+
+Format the heading row so it stands out: make the text bold and give the row a fill colour. This is not decoration for its own sake — when your sheet grows to hundreds of rows, a bold header row helps you read it without losing your place. You can also use the "Freeze Panes" feature under the View menu to lock the header row at the top, so it stays visible while you scroll down through your sales.
+
+Next, set the format of each column. The Date column should be formatted as a date, and the money columns — Selling Price, Total Amount, Cost Price and Profit — as numbers with two decimal places. Getting the formats right at the start saves you from strange results later, such as Excel treating a date as a random number.
+
+Now enter your first sales. Type the date, the product name, the quantity and the selling price. For the Total Amount, instead of typing the number yourself, use a formula: in the Total Amount cell, type = followed by the Quantity cell multiplied by the Selling Price cell. For example, if quantity is in cell D2 and price is in E2, type =D2*E2. Excel will calculate the total for you, and if you later correct the quantity or price, the total updates by itself. This is the whole point of a spreadsheet: let it do the maths.
+
+## Adding Formulas That Do the Hard Work
+
+Once your rows are set up, add the formulas that turn raw entries into useful information. For Profit, the formula is Total Amount minus the total cost. If your Cost Price column holds the cost of one unit, the formula in the Profit cell would be =Total - (Quantity * Cost Price). Using the same example row, if Total Amount is F2, Quantity is D2 and Cost Price is G2, type =F2-(D2*G2). That single formula tells you exactly what you made on that sale.
+
+At the bottom of your sheet, add a totals row. Under the Total Amount column, use =SUM(F2:F100) to add up all your sales in that range — adjust the range to cover your rows. Do the same under the Profit column to see your total profit. You can also use =COUNT() to count how many sales you made, or =AVERAGE() to find your average sale value. These few formulas give you a monthly summary without any extra work.
+
+If you want to see which product sells best, use the SUMIF formula on a second sheet: it adds up only the rows that match a product name, giving you a best-seller ranking that would take hours to work out by hand.
+
+Do not be afraid of formulas. You only need four or five of them: SUM for totals, a multiplication for amounts, a subtraction for profit, and SUMIF for product totals. Type each one once, then copy it down the column by dragging the small square at the bottom-right corner of the cell. Excel adjusts the row numbers automatically. If a formula shows an error, check that you have not typed a letter where a number should be, or left a cell blank that the formula needs.
+
+## Recording Cash, Transfers and Credit Sales Properly
+
+Money comes in different ways, and your tracker should show that. The Payment Method column is where you record whether a sale was cash, bank transfer, POS, or on credit. At the end of the day, add up your cash sales and compare them with the cash in your drawer, and add up your transfer sales and compare them with your bank alerts.
+
+Credit sales deserve special attention. Every business that sells on credit has lost money to forgotten debts. When you sell on credit, enter the customer's name and phone number, the amount owed, and the date they promised to pay. Then, on a second sheet, keep a simple debtors list: Customer Name, Amount Owed, Date Given, Date Promised, and Amount Paid. Update it the moment a customer pays, even partly. At the end of each week, look at this list and follow up on the oldest debts first. A polite reminder message is usually enough — most people do not pay because they forgot, not because they refuse.
+
+Also record your daily expenses in the same workbook, on a separate sheet: Date, Description, Category and Amount. Rent, transport, airtime, packaging and supplier payments all reduce your profit, and a business that tracks sales but ignores expenses is only seeing half the picture. At the end of the month, subtract total expenses from total profit on sales, and you have your real net profit — the number that tells you whether the business is truly growing.
+
+## Turning Your Records Into Decisions
+
+A tracker you never read is just a diary. Set aside thirty minutes at the end of each week to look at your numbers. First, check your total sales and total profit for the week. Are they going up, down, or staying flat compared with last week? Next, look at your best sellers. The products at the top of the list deserve more shelf space, more stock, and maybe a small promotion. The products at the bottom deserve a question: is the price too high, is nobody seeing them, or should you stop stocking them?
+
+Look at your sales by day of the week too. Many businesses have strong weekends and slow Mondays, or the other way round. If you know your slow days, you can plan around them — run a small discount on a slow day, use the quiet time for stocktaking, or save your energy and marketing for the days that pay. If you take card or transfer payments, check whether most customers pay by transfer; if so, make sure your account details are easy to find at your shop or in your WhatsApp status.
+
+Monthly, do a slightly deeper review. Compare this month with last month. Which product grew? Which customer type buys most? Are your expenses growing faster than your sales? Write three short lines at the bottom of your monthly sheet: what sold best, what surprised you, and what you will do differently next month. That simple note turns raw numbers into a plan, and over a year it becomes a record of how your business thinking improved.
+
+## Common Mistakes to Avoid
+
+The most common mistake is entering sales in batches from memory days later. Memory fades, and small sales are the first to be forgotten. The best habit is to enter each sale as it happens, or at least at the end of each trading day before you close. Keep the file on your phone or in Google Sheets so you can update it wherever you are, and make it part of your closing routine, like counting the cash.
+
+Another mistake is mixing business money with personal money. If you take cash from the till for personal spending and do not record it, your tracker will show a profit that is not really there. Record every withdrawal from the business as an expense called "Owner withdrawal" or "Personal use". It keeps your profit figure honest and helps you see how much you are actually taking out of the business each month.
+
+A third mistake is overcomplicating the sheet. Some owners download complex templates with dozens of columns, charts and dashboards, use them for a week, and abandon them. Start with the simple columns in this guide and use them for a month. Only add a new column or a chart when you have a specific question it will answer. A simple tracker you use daily beats a clever one you abandon — and save a backup copy of your file to Google Drive or email it to yourself at the end of each month, so one lost phone never wipes out your business history.
+
+## Frequently Asked Questions
+
+### Is Excel or Google Sheets better for tracking sales?
+
+Both work well, and the choice depends on how you work. Excel is powerful and works offline, which matters if your internet is unreliable. Google Sheets is free, saves automatically, and you can open it on your phone, tablet or any computer, which makes it easier to update sales as they happen. If you are starting out and want something free and accessible everywhere, Google Sheets is a good choice. If you already have Microsoft Office on your computer, Excel is fine. The formulas in this guide work in both.
+
+### How often should I update my sales tracker?
+
+Daily is best. Enter your sales at the end of each trading day at the latest, while the day is still fresh in your mind. If you sell only a few items a day, you can enter each sale as it happens. What matters most is consistency — a tracker updated every day for a year is far more useful than one updated in a big rush at the end of the month, when half the details are already forgotten.
+
+### Do I need to know advanced Excel to track my sales?
+
+No. You need only a handful of basic skills: typing into cells, bolding a row, and four simple formulas — multiplication for totals, subtraction for profit, SUM for adding up a column, and SUMIF for adding up sales of one product. Everything else in this guide is organisation, not technical skill. If you can send a WhatsApp message, you can learn these formulas in one sitting.
+
+### What if I sell services instead of products?
+
+The same tracker works, with small changes. Instead of a product name, record the service you provided — for example, "haircut", "website design" or "delivery". Instead of cost price, record any direct cost of providing that service, such as materials used or transport to the client. The profit formula still works the same way: what the client paid minus what it cost you to deliver the service.
+
+### How do I handle refunds and returned items?
+
+Record them as a separate row with a negative amount, or add a column for returns. For example, if a customer returns an item worth 5,000 naira, enter a row with the same product and a quantity of minus one, so the totals adjust automatically. Add a note explaining the return. This keeps your totals honest and also shows you which products get returned most often, which is useful information on its own.
+
+### Can I track sales for more than one branch or staff member in Excel?
+
+Yes. The simplest way is to add a column for Branch or Staff Name, and then use SUMIF to add up sales per branch or per person, the same way you would for a product. Alternatively, give each branch its own sheet in the same workbook and add a summary sheet that pulls the totals together. Start with the single column — it is easier to maintain until your business grows enough to need separate sheets.
+
+### What should I do with my sales data at the end of the year?
+
+Keep it. Save a copy of the year's workbook, name it clearly, and start a fresh one for the new year. Your yearly totals show your growth, and the file is useful for tax records, loan applications and planning. Before you archive it, write a short summary: total sales for the year, total profit, your best product, and your biggest expense. That summary is the first page of next year's plan.
+
+## What to Do Next
+
+Open Excel or Google Sheets today and build the tracker in this guide. Start with the ten columns, enter your last three days of sales, and add the total and profit formulas. From tomorrow, update it daily — even if it takes only five minutes. At the end of your first week, look at the totals and ask: what sold best, what surprised me, and what will I do differently next week?
+
+Once the habit is in place, add the expenses sheet and the debtors list. If you send invoices, Joetech's free invoice generator at https://joetech360.ng/tools/invoice-generator can help you create neat, professional invoices in minutes. And when you are ready to take your business further — a proper website or a stronger online presence — [explore our services](/services) and [contact us](/contact) to talk about it.
