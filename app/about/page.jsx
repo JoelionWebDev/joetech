@@ -369,7 +369,7 @@ const JoetechAboutPage = () => {
               </h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Founded in 2019, <strong>Joetech</strong> emerged from a
+                  Founded in 2024, <strong>Joetech</strong> emerged from a
                   vision to bridge the gap between traditional businesses and
                   the digital world. Our mission is to empower companies with
                   innovative <em>digital solutions</em> that drive growth and
