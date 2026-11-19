@@ -17,12 +17,12 @@ export const metadata = {
     "Free online tools for Nigerian small businesses: create QR codes, digital business cards, invoices, receipts and quotations in minutes. No sign-up, no cost.",
   keywords:
     "free business tools Nigeria, free QR code generator Nigeria, free invoice generator Nigeria, free receipt generator Nigeria, digital business card Nigeria, free quotation generator",
-  alternates: { canonical: "https://joetech.name.ng/tools" },
+  alternates: { canonical: "https://joetech360.ng/tools" },
   openGraph: {
     title: "Free Business Tools for Nigerian Businesses | Joetech",
     description:
       "Free online tools for Nigerian small businesses: QR codes, digital business cards, invoices, receipts and quotations. No sign-up, no cost.",
-    url: "https://joetech.name.ng/tools",
+    url: "https://joetech360.ng/tools",
   },
 };
 
