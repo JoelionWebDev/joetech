@@ -7,13 +7,13 @@ export const metadata = {
   description:
     "How Joetech collects, uses, and protects your personal information when you visit our website or use our services.",
   keywords: ["Joetech privacy policy", "privacy policy Nigeria", "Joetech"],
-  alternates: { canonical: "https://joetech.name.ng/privacy-policy" },
+  alternates: { canonical: "https://joetech360.ng/privacy-policy" },
   openGraph: {
     type: "website",
     title: "Privacy Policy | Joetech",
     description:
       "How Joetech collects, uses, and protects your personal information when you visit our website or use our services.",
-    url: "https://joetech.name.ng/privacy-policy",
+    url: "https://joetech360.ng/privacy-policy",
   },
   robots: {
     index: true,
@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
             Joetech ("we", "us", or "our") operates the website{" "}
             <span className="text-blue-600 dark:text-blue-400">
-              joetech.name.ng
+              joetech360.ng
             </span>
             . This policy explains what personal information we collect, why we
             collect it, and how we protect it. By using our website or services,
