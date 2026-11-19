@@ -153,7 +153,7 @@ export default function BrokenLinkChecker() {
               type="text"
               inputMode="url"
               autoComplete="off"
-              placeholder="e.g. joetech.name.ng or https://example.com/blog"
+              placeholder="e.g. joetech360.ng or https://example.com/blog"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               className="flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-100"

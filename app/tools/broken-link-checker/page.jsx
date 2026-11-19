@@ -8,13 +8,13 @@ export const metadata = {
   keywords:
     "free broken link checker Nigeria, 404 checker, find broken links on website, dead link checker, check links on a page, broken link finder Lagos",
   alternates: {
-    canonical: "https://joetech.name.ng/tools/broken-link-checker",
+    canonical: "https://joetech360.ng/tools/broken-link-checker",
   },
   openGraph: {
     title: "Free Broken Link & 404 Checker | Joetech",
     description:
       "Find broken links and 404 errors on any web page in seconds — free, no sign-up.",
-    url: "https://joetech.name.ng/tools/broken-link-checker",
+    url: "https://joetech360.ng/tools/broken-link-checker",
     type: "website",
   },
 };
