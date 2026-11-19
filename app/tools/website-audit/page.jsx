@@ -8,13 +8,13 @@ export const metadata = {
   keywords:
     "free website audit Nigeria, website checker Nigeria, audit my website free, website speed test Nigeria, check website SEO free, free website audit tool Lagos",
   alternates: {
-    canonical: "https://joetech.name.ng/tools/website-audit",
+    canonical: "https://joetech360.ng/tools/website-audit",
   },
   openGraph: {
     title: "Free Website Audit Tool | Joetech",
     description:
       "Check your website for free — speed, mobile-friendliness and the things Google looks for, with a clear score and plain-English fixes. No sign-up.",
-    url: "https://joetech.name.ng/tools/website-audit",
+    url: "https://joetech360.ng/tools/website-audit",
     type: "website",
   },
 };

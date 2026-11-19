@@ -99,7 +99,7 @@ function buildReport(result) {
   lines.push(
     `Page: ${result.loadTimeMs}ms to load, ${result.sizeKb}KB, ${result.facts.imageCount} images, ${result.facts.internalLinks} internal links.`,
   );
-  lines.push("Free audit by Joetech — joetech.name.ng/tools/website-audit");
+  lines.push("Free audit by Joetech — joetech360.ng/tools/website-audit");
   return lines.join("\n");
 }
 
