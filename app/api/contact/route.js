@@ -97,7 +97,7 @@ export async function POST(request) {
             <tr><td style="padding:8px;background:#f3f4f6;font-weight:600">Service</td><td style="padding:8px">${sanitized.service}</td></tr>
             <tr><td style="padding:8px;background:#f3f4f6;font-weight:600">Message</td><td style="padding:8px">${escapeHtml(sanitized.message)}</td></tr>
           </table>
-          <p style="margin-top:16px;color:#6b7280;font-size:13px">Sent via joetech.name.ng contact form</p>
+          <p style="margin-top:16px;color:#6b7280;font-size:13px">Sent via joetech360.ng contact form</p>
         `,
     });
 
