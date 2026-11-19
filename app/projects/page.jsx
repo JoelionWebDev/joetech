@@ -145,7 +145,7 @@ const PROJECTS = [
     tags: ["Web Development", "Portfolio", "Technology"],
     image: "/images/joetech.name.ng.png",
     year: "2025",
-    url: "https://joetech.name.ng",
+    url: "https://joetech360.ng",
   },
 ];
 
@@ -323,7 +323,7 @@ export default function JoetechProjectsPage() {
     name: "Joetech Portfolio — Projects & Case Studies",
     description:
       "Portfolio of web development, mobile app, branding, and digital marketing projects delivered by Joetech, Lagos, Nigeria.",
-    url: "https://joetech.name.ng/projects",
+    url: "https://joetech360.ng/projects",
     creator: {
       "@type": "Organization",
       name: "Joetech",
@@ -368,13 +368,13 @@ export default function JoetechProjectsPage() {
           property="og:description"
           content="Award-worthy web development, mobile apps, branding and marketing projects. Real results for real businesses."
         />
-        <meta property="og:url" content="https://joetech.name.ng/projects" />
+        <meta property="og:url" content="https://joetech360.ng/projects" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
           content="Joetech Portfolio — Digital Projects & Case Studies"
         />
-        <link rel="canonical" href="https://joetech.name.ng/projects" />
+        <link rel="canonical" href="https://joetech360.ng/projects" />
 
         <script
           type="application/ld+json"
