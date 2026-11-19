@@ -8,13 +8,13 @@ export const metadata = {
   keywords:
     "free sitemap generator Nigeria, create sitemap.xml, sitemap generator Lagos, free sitemap maker, generate sitemap online, xml sitemap generator",
   alternates: {
-    canonical: "https://joetech.name.ng/tools/sitemap-generator",
+    canonical: "https://joetech360.ng/tools/sitemap-generator",
   },
   openGraph: {
     title: "Free Sitemap Generator | Joetech",
     description:
       "Generate a free sitemap.xml for your website — download the file and submit it to Google, no sign-up.",
-    url: "https://joetech.name.ng/tools/sitemap-generator",
+    url: "https://joetech360.ng/tools/sitemap-generator",
     type: "website",
   },
 };
