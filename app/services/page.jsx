@@ -29,12 +29,12 @@ export const metadata = {
     "Explore Joetech's Business Digital Branding services: business websites, graphics & branding, advertising, and web & cross-platform mobile app development. One partner to build, brand and promote your business.",
   keywords:
     "business digital branding Lagos, website development Lagos, logo design Nigeria, graphics and branding agency Lagos, advertising agency Lagos, app development Nigeria, digital marketing Lagos",
-  alternates: { canonical: "https://joetech.name.ng/services" },
+  alternates: { canonical: "https://joetech360.ng/services" },
   openGraph: {
     title: "Business Digital Branding Services | Joetech",
     description:
       "Transform your business with Joetech's websites, graphics & branding, advertising and app development services. Get a free consultation today!",
-    url: "https://joetech.name.ng/services",
+    url: "https://joetech360.ng/services",
   },
 };
 
