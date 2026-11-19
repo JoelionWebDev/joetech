@@ -629,7 +629,7 @@ export default function InvoiceTool() {
       )}
 
       <p className="mt-8 border-t border-slate-200 pt-4 text-center text-xs text-slate-400">
-        Built by Joetech — joetech.name.ng
+        Built by Joetech — joetech360.ng
       </p>
     </div>
   );

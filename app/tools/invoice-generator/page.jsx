@@ -8,12 +8,12 @@ export const metadata = {
     "Create professional quotes, invoices and receipts in your own currency — free, no sign-up. Pick your country, add your logo, set discounts and tax, then print to PDF or share on WhatsApp. Built by Joetech.",
   keywords:
     "free invoice generator, free receipt generator, free quotation generator, invoice maker, receipt maker, free invoice generator Nigeria, free receipt generator Nigeria, free quotation generator Nigeria, invoice maker Naira, receipt maker Nigeria, Joetech",
-  alternates: { canonical: "https://joetech.name.ng/tools/invoice-generator" },
+  alternates: { canonical: "https://joetech360.ng/tools/invoice-generator" },
   openGraph: {
     title: "Free Invoice, Receipt & Quotation Generator | Joetech",
     description:
       "Create quotes, invoices and receipts in your currency — free, no sign-up. Print to PDF or share on WhatsApp.",
-    url: "https://joetech.name.ng/tools/invoice-generator",
+    url: "https://joetech360.ng/tools/invoice-generator",
   },
 };
 
