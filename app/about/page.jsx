@@ -149,7 +149,7 @@ const JoetechAboutPage = () => {
           name="description"
           content="Learn about Joetech's story, values, and expert team. We are a Lagos-based web development, branding, and digital marketing agency driving digital transformation."
         />
-        <link rel="canonical" href="https://joetech.name.ng/about" />
+        <link rel="canonical" href="https://joetech360.ng/about" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -157,7 +157,7 @@ const JoetechAboutPage = () => {
             name: "Joetech",
             description:
               "Web development, design, and digital marketing agency in Lagos, Nigeria",
-            url: "https://joetech.name.ng",
+            url: "https://joetech360.ng",
             foundingDate: "2019",
           })}
         </script>
