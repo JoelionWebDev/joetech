@@ -413,7 +413,7 @@ export default function BusinessCardTool() {
       ctx.font = "400 20px Arial, sans-serif";
       ctx.fillStyle = theme.muted;
       ctx.globalAlpha = 0.8;
-      ctx.fillText("joetech.name.ng", leftX, H - 28);
+      ctx.fillText("joetech360.ng", leftX, H - 28);
       ctx.globalAlpha = 1;
 
       if (qrText) {
@@ -606,7 +606,7 @@ export default function BusinessCardTool() {
                 </div>
 
                 <p className="text-center text-xs text-gray-400 mt-4">
-                  joetech.name.ng
+                  joetech360.ng
                 </p>
 
                 {/* Theme picker */}

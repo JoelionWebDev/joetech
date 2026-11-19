@@ -8,13 +8,13 @@ export const metadata = {
   keywords:
     "free digital business card maker Nigeria, digital business card, online business card maker, free business card generator, vCard maker Nigeria, QR code business card",
   alternates: {
-    canonical: "https://joetech.name.ng/tools/digital-business-card",
+    canonical: "https://joetech360.ng/tools/digital-business-card",
   },
   openGraph: {
     title: "Free Digital Business Card Maker for Nigerian Businesses | Joetech",
     description:
       "Make a digital business card in minutes — free, no sign-up. Download it as a PNG or vCard and share it on WhatsApp, Instagram and email.",
-    url: "https://joetech.name.ng/tools/digital-business-card",
+    url: "https://joetech360.ng/tools/digital-business-card",
     type: "website",
   },
 };
