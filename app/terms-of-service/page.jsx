@@ -7,13 +7,13 @@ export const metadata = {
   description:
     "The terms and conditions that govern the use of Joetech's website and services, including web development, branding, and digital marketing.",
   keywords: ["Joetech terms of service", "terms and conditions Nigeria", "Joetech"],
-  alternates: { canonical: "https://joetech.name.ng/terms-of-service" },
+  alternates: { canonical: "https://joetech360.ng/terms-of-service" },
   openGraph: {
     type: "website",
     title: "Terms of Service | Joetech",
     description:
       "The terms and conditions that govern the use of Joetech's website and services, including web development, branding, and digital marketing.",
-    url: "https://joetech.name.ng/terms-of-service",
+    url: "https://joetech360.ng/terms-of-service",
   },
   robots: {
     index: true,
@@ -106,7 +106,7 @@ export default function TermsOfServicePage() {
             These terms and conditions govern your use of the Joetech website
             at{" "}
             <span className="text-blue-600 dark:text-blue-400">
-              joetech.name.ng
+              joetech360.ng
             </span>{" "}
             and your engagement of Joetech's services. Please read them
             carefully before using our website or commissioning our work.
