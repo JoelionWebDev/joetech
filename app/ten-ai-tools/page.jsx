@@ -17,13 +17,13 @@ export const metadata = {
     "AI code completion free",
     "developer productivity AI",
   ],
-  alternates: { canonical: "https://joetech.name.ng/blog/top-10-free-ai-tools" },
+  alternates: { canonical: "https://joetech360.ng/blog/top-10-free-ai-tools" },
   openGraph: {
     type: "article",
     title: "Top 10 Free AI Tools Every Developer Should Use (2025)",
     description:
       "The definitive guide to free AI tools that make developers faster, smarter, and more productive in 2025.",
-    url: "https://joetech.name.ng/blog/top-10-free-ai-tools",
+    url: "https://joetech360.ng/blog/top-10-free-ai-tools",
   },
   twitter: {
     card: "summary_large_image",
