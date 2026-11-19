@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://joetech.name.ng/sitemap.xml",
+    sitemap: "https://joetech360.ng/sitemap.xml",
   };
 }

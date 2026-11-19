@@ -42,7 +42,7 @@ export const metadata = {
     "advertising agency Lagos",
     "Lekki digital agency",
   ],
-  alternates: { canonical: "https://joetech.name.ng" },
+  alternates: { canonical: "https://joetech360.ng" },
   openGraph: {
     type: "website",
     locale: "en_NG",
@@ -50,7 +50,7 @@ export const metadata = {
     title: "Joetech — Business Digital Branding in Lagos, Nigeria",
     description:
       "Business Digital Branding agency based in Lekki, Lagos, Nigeria. Websites, graphics & branding, advertising, and apps — we build, design, and promote your brand digitally.",
-    url: "https://joetech.name.ng",
+    url: "https://joetech360.ng",
   },
   twitter: {
     card: "summary_large_image",
@@ -72,7 +72,7 @@ export const metadata = {
   },
 };
 
-const siteUrl = "https://joetech.name.ng";
+const siteUrl = "https://joetech360.ng";
 
 const organizationSchema = {
   "@context": "https://schema.org",

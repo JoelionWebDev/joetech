@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-// Web app manifest — makes joetech.name.ng installable as an app on
+// Web app manifest — makes joetech360.ng installable as an app on
 // visitors' phones (Add to Home Screen / Install app). Next.js serves this
 // at /manifest.webmanifest and adds the <link rel="manifest"> tag itself.
 export default function manifest(): MetadataRoute.Manifest {
