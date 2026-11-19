@@ -4,7 +4,7 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
-import { getAllPostSlugs, getPostBySlug, SITE_URL } from "../../../lib/blog";
+import { getAllPostSlugs, getPostBySlug, SITE_URL, canonicalFor, seoTitle, seoDescription } from "../../../lib/blog";
 import TableOfContents from "../../../components/blog/TableOfContents";
 import RelatedPosts from "../../../components/blog/RelatedPosts";
 import SocialShare from "../../../components/blog/SocialShare";
@@ -20,19 +20,24 @@ export async function generateMetadata({ params }) {
   if (!post) return {};
 
   const { frontmatter } = post;
+  const canonical = canonicalFor(frontmatter, slug);
+  const title = seoTitle(frontmatter.metaTitle || frontmatter.title);
+  const description = seoDescription(
+    frontmatter.metaDescription || frontmatter.excerpt
+  );
 
   return {
-    title: frontmatter.metaTitle || `${frontmatter.title} | Joetech Blog`,
-    description: frontmatter.metaDescription || frontmatter.excerpt,
+    title,
+    description,
     keywords: frontmatter.keywords || frontmatter.tags?.join(", "),
     alternates: {
-      canonical: frontmatter.canonicalUrl || `${SITE_URL}/blog/${slug}`,
+      canonical,
     },
     openGraph: {
       type: "article",
-      title: frontmatter.metaTitle || frontmatter.title,
-      description: frontmatter.metaDescription || frontmatter.excerpt,
-      url: frontmatter.canonicalUrl || `${SITE_URL}/blog/${slug}`,
+      title,
+      description,
+      url: canonical,
       images: frontmatter.coverImage ? [{ url: frontmatter.coverImage }] : [],
       publishedTime: frontmatter.publishDate,
       modifiedTime: frontmatter.updatedDate || frontmatter.publishDate,
@@ -41,8 +46,8 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: frontmatter.metaTitle || frontmatter.title,
-      description: frontmatter.metaDescription || frontmatter.excerpt,
+      title,
+      description,
       images: frontmatter.coverImage ? [frontmatter.coverImage] : [],
     },
     robots: { index: true, follow: true, "max-image-preview": "large" },
@@ -142,7 +147,7 @@ export default async function BlogPostPage({ params }) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": frontmatter.canonicalUrl || `${SITE_URL}/blog/${slug}`,
+      "@id": canonicalFor(frontmatter, slug),
     },
     keywords: frontmatter.keywords || frontmatter.tags?.join(", "),
   };
@@ -175,7 +180,7 @@ export default async function BlogPostPage({ params }) {
         "@type": "ListItem",
         position: 3,
         name: frontmatter.title,
-        item: frontmatter.canonicalUrl || `${SITE_URL}/blog/${slug}`,
+        item: canonicalFor(frontmatter, slug),
       },
     ],
   };
@@ -319,7 +324,7 @@ export default async function BlogPostPage({ params }) {
                 </div>
                 <SocialShare
                   title={frontmatter.title}
-                  url={frontmatter.canonicalUrl || `${SITE_URL}/blog/${slug}`}
+                  url={canonicalFor(frontmatter, slug)}
                 />
               </div>
 
