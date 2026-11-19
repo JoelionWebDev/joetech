@@ -8,13 +8,13 @@ export const metadata = {
   keywords:
     "free QR code generator Nigeria, QR code generator Lagos, WhatsApp QR code, QR code for small business Nigeria, free QR code maker, create QR code online",
   alternates: {
-    canonical: "https://joetech.name.ng/tools/qr-code-generator",
+    canonical: "https://joetech360.ng/tools/qr-code-generator",
   },
   openGraph: {
     title: "Free QR Code Generator | Joetech",
     description:
       "Make a free QR code for your website, WhatsApp, phone or email — download PNG or SVG, no sign-up.",
-    url: "https://joetech.name.ng/tools/qr-code-generator",
+    url: "https://joetech360.ng/tools/qr-code-generator",
     type: "website",
   },
 };
