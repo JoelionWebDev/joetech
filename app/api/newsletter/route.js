@@ -54,7 +54,7 @@ export async function POST(request) {
       html: `
           <h2>New Newsletter Subscription</h2>
           <p><strong>Email:</strong> ${sanitized}</p>
-          <p style="margin-top:16px;color:#6b7280;font-size:13px">Signed up via joetech.name.ng</p>
+          <p style="margin-top:16px;color:#6b7280;font-size:13px">Signed up via joetech360.ng</p>
         `,
     });
 
