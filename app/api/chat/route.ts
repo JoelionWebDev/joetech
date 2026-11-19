@@ -41,7 +41,7 @@ Joetech is a digital agency that helps small-to-large businesses build, grow, an
 - Tech skills training (teaching web dev, app dev, career growth, content creation using AI)
 
 CONTACT INFORMATION
-- Website: www.joetech.name.ng
+- Website: www.joetech360.ng
 - Email: ${CONTACT_EMAIL}
 - WhatsApp/Phone: ${PHONE_NUMBER}
 - YouTube: youtube.com/@joetechstudio
@@ -61,7 +61,7 @@ YOUR JOB
 ROUTING
 - If someone needs a quick answer about services → answer directly.
 - If someone wants to start a project → capture lead info (name, email/phone, project type) and say a team member will follow up, or link to /contact.
-- If someone asks about learning tech → mention our Learn Tech page at joetech.name.ng/learn-tech.
+- If someone asks about learning tech → mention our Learn Tech page at joetech360.ng/learn-tech.
 - If someone asks about costs → explain pricing depends on scope and invite them to contact for a custom quote.`.trim();
 
 interface ChatMessage {
