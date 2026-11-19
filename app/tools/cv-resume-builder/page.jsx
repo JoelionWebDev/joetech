@@ -8,13 +8,13 @@ export const metadata = {
   keywords:
     "free CV builder Nigeria, free resume builder Nigeria, CV maker Lagos, build CV online Nigeria, resume template Nigeria, job seeker CV builder",
   alternates: {
-    canonical: "https://joetech.name.ng/tools/cv-resume-builder",
+    canonical: "https://joetech360.ng/tools/cv-resume-builder",
   },
   openGraph: {
     title: "Free CV & Resume Builder | Joetech",
     description:
       "Build a professional CV in minutes — print it as a PDF or copy it as plain text. Free, no sign-up.",
-    url: "https://joetech.name.ng/tools/cv-resume-builder",
+    url: "https://joetech360.ng/tools/cv-resume-builder",
     type: "website",
   },
 };
