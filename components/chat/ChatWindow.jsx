@@ -214,7 +214,7 @@ export default function ChatWindow({ isOpen, onClose }) {
             <span className={styles.agentName}>Joetech AI Assistant</span>
             <span className={styles.agentStatus}>
               <span className={styles.statusDot} aria-hidden="true" />
-              Online · joetech.name.ng
+              Online · joetech360.ng
             </span>
           </div>
         </div>
@@ -312,7 +312,7 @@ export default function ChatWindow({ isOpen, onClose }) {
       <div className={styles.chatFooter}>
         Powered by{" "}
         <a
-          href="https://www.joetech.name.ng"
+          href="https://www.joetech360.ng"
           target="_blank"
           rel="noopener noreferrer"
         >
