@@ -1,0 +1,166 @@
+---
+title: "How to Use Google Sheets to Track Your Sales in Nigeria"
+slug: how-to-use-google-sheets-track-sales-nigeria
+excerpt: "A practical guide to tracking your sales with Google Sheets, from setting up a simple sales sheet to using formulas, spotting your best products, and knowing your real profit each month."
+publishDate: "2026-11-20"
+updatedDate: "2026-11-20"
+author: "Igono Joel"
+category: "AI & Productivity"
+tags:
+  - Google Sheets Nigeria
+  - track sales
+  - small business tools
+  - business record keeping
+  - free business tools
+readingTime: "14 min read"
+coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
+metaTitle: "How to Use Google Sheets to Track Your Sales in Nigeria | Joetech"
+metaDescription: "Learn how to track your sales with Google Sheets: build a simple sales sheet, use formulas, spot best sellers and know your real profit."
+canonicalUrl: "https://joetech360.ng/blog/how-to-use-google-sheets-track-sales-nigeria"
+keywords: "Google Sheets track sales Nigeria, sales tracking spreadsheet, small business record keeping, Google Sheets for business, track sales free"
+featured: false
+---
+
+Most small businesses in Nigeria run on memory and paper. The owner knows roughly what sold today, roughly what is owed, and roughly how much money should be in the account. Roughly is the problem. When you do not know your exact sales, you cannot know your real profit, your best products, or which customers owe you money. Google Sheets fixes this for free, and you already have it on your phone.
+
+This guide shows you how to use Google Sheets to track your sales: how to set up a simple sales sheet, which formulas do the maths for you, how to track expenses and profit, and how to use the numbers to make better decisions. It is written for Nigerian small businesses — traders, food sellers, fashion vendors, and service providers — and it assumes no spreadsheet experience. If you can use WhatsApp, you can use Google Sheets.
+
+## Why Track Sales in a Spreadsheet Instead of a Notebook
+
+A paper notebook feels easy, and many traders have used one for years. But a notebook has limits that cost you money. It cannot add up a column of figures instantly. It cannot show you which product sold best last month. If it gets lost, wet, or torn, your records are gone. And when your business grows, a notebook becomes harder to search, not easier.
+
+Google Sheets solves all of this. It adds up your sales automatically. It is saved online, so it survives a lost phone or a damaged notebook. You can open it on your phone in the market, on your laptop at home, or share it with your accountant or business partner. It costs nothing — all you need is a free Google account and a data connection.
+
+There is another advantage that matters in Nigeria: Sheets works offline. If your MTN or Glo network drops while you are recording a sale at Mile 12 market, the entry is saved on your phone and syncs when the network returns. You are not stuck waiting for signal to write down a sale.
+
+You do not need the most expensive phone or a laptop to start. The Google Sheets app on an Android phone is free, and it handles everything in this guide. A laptop makes the work faster, but it is not required.
+
+## Step 1: Create Your Google Account and Open Sheets
+
+If you already have a Gmail account, you already have Google Sheets. If you do not, create a free Gmail account first — it takes a few minutes and gives you access to Sheets, Drive, and Docs at the same time.
+
+On your phone, download the Google Sheets app from the Play Store or App Store. On a laptop, go to sheets.google.com and sign in with your Google account. Tap the plus button to create a blank spreadsheet, and name it clearly: "My Business Sales 2026" is a good name. Avoid vague names like "Sheet1," because you will have many sheets before long and you need to find the right one quickly.
+
+Before you type anything, make one decision: will you track sales daily, or weekly? Daily is better. A sale recorded the same day is accurate; a sale remembered on Sunday about what happened on Tuesday is a guess. Get into the habit of recording each sale as it happens, or at the end of each day before you close.
+
+Share the sheet with yourself properly. If you have two Google accounts — a personal one and a business one — use the business account for business records. Keeping business and personal money separate starts with keeping business records in their own place.
+
+## Step 2: Build Your Daily Sales Sheet
+
+Your sales sheet needs to be simple enough to use every day, and complete enough to tell you the truth. Open your blank sheet and set up the columns across the top row, one per column:
+
+**Date.** The day of the sale, written as 20/11/2026. Keeping the date in every row lets you add up sales by day, week, or month later.
+
+**Product or service.** What you sold: "Meat pie," "Ankara fabric 6 yards," "Hair installation," or "Chin chin 500g pack." Be specific. "Food" is too vague to be useful; "Jollof rice with chicken" is useful.
+
+**Quantity.** How many units you sold.
+
+**Price per unit.** The price of one unit in naira.
+
+**Total amount.** The quantity multiplied by the price. You will let a formula calculate this, so you do not need to work it out by hand.
+
+**Customer name.** Who bought it, or at least a description — "Mrs. Ade, Lekki" — so you can follow up or remember the sale.
+
+**Payment method.** Bank transfer, cash, POS, or Paystack. This matters when you reconcile your bank account later.
+
+**Payment status.** Paid, Part payment, or Owing. This is the column that saves you money, because it shows at a glance who still owes you.
+
+**Notes.** Anything worth remembering: "Customer wants 10 more next Friday," or "Delivered by rider."
+
+Type these headings into row 1, and make them bold. Then freeze row 1 so it stays visible while you scroll: on the app, tap the row number, then the three dots, then Freeze. On a laptop, click View, then Freeze, then 1 row. This small step makes the sheet much easier to use when you have hundreds of rows.
+
+## Step 3: Let Formulas Do the Maths
+
+Formulas are the reason a spreadsheet beats a notebook. You type them once, and the sheet calculates everything for you. You only need three to start, and they are all simple.
+
+**Total amount.** In the Total column, type =C2*D2 if quantity is in column C and price is in column D, adjusting the letters to match your sheet. This multiplies quantity by price. Copy it down the column and every row calculates itself.
+
+**Daily total.** At the bottom of your Total column, type =SUM(E2:E100) using your actual column letter and row range. This adds up all your sales in the sheet. As you add rows, extend the range, or use a large range like E2:E1000 so new rows are included automatically.
+
+**Monthly total.** If you keep one sheet per month, the SUM at the bottom is your monthly total. If you keep all months in one sheet, use =SUMIFS to add up only one month's sales — for example, =SUMIFS(E:E, A:A, ">=01/11/2026", A:A, "<=30/11/2026"). You can learn this formula later; the daily SUM is enough to start.
+
+Do not worry if formulas feel strange at first. Type one, check that the answer looks right, and you will trust it from then on. A formula that adds 200 sales in a second never makes an addition mistake, while a tired person adding figures at 10 p.m. often does.
+
+Add a second sheet in the same file for expenses. Name it "Expenses" and use similar columns: date, item, category, amount, and payment method. Your expenses sheet is just as important as your sales sheet, because profit is sales minus expenses — and you cannot know profit without both sides.
+
+## Step 4: Track Expenses and Know Your Real Profit
+
+Many Nigerian business owners know their sales but not their profit. They see ₦500,000 come in during a month and feel successful, forgetting that ₦380,000 went out on stock, transport, data, packaging, and rent. The profit is ₦120,000, not ₦500,000 — and if you spend like you made ₦500,000, the business will run dry.
+
+Your expenses sheet should record every business cost, no matter how small. A ₦500 transport fare, a ₦2,000 data bundle, a ₦15,000 gas refill — all of it goes in. Small expenses are the ones people forget, and together they can take 10 to 20 percent of your revenue.
+
+Group expenses into categories so you can see where the money goes: Stock, Transport, Packaging, Data and Airtime, Rent, Staff, and Other. At the end of the month, add up each category. You may discover that transport costs more than you thought, or that packaging is eating your margin. That knowledge tells you exactly what to fix.
+
+To find your monthly profit, subtract total expenses from total sales. In your sheet, you can put this on a simple summary sheet: total sales, total expenses, and profit, each pulled from the other sheets with a formula. If you do this every month, you will always know whether your business is growing, standing still, or quietly losing money.
+
+Set a rule for yourself: record expenses the same day you spend the money. A transport fare forgotten today becomes invisible money tomorrow. Keep receipts where you can — even a photo of a receipt on your phone is better than nothing.
+
+## Step 5: Use Your Sales Data to Find Your Best Products
+
+After a month or two of recording sales, your sheet becomes a source of business intelligence. You can answer questions that guesswork cannot.
+
+**Which product sells most?** Sort your sheet by product, or add up the quantities for each product. You may find that chin chin sells twice as fast as doughnuts, or that one particular wig style brings in half your revenue. That product deserves more of your attention, your stock money, and your marketing.
+
+**Which product makes the most profit?** Sales are not the same as profit. A product that sells for ₦5,000 but costs ₦4,500 to make earns you ₦500. A product that sells for ₦2,000 but costs ₦800 earns you ₦1,200. Record your cost per unit in a separate column or sheet, and calculate profit per product. The product with the best profit per unit — not the highest price — is often the one to promote.
+
+**Which days are busiest?** Add up sales by day of the week. If Saturdays bring double the sales of Tuesdays, you know when to stock up and when to rest. If you run a food business, this tells you when to cook more.
+
+**Who owes you money?** Filter your sheet by the Payment status column and look at every row marked "Owing." Add up the total. Many small businesses are shocked to find ₦50,000 or ₦100,000 owed by customers they had forgotten about. A polite WhatsApp message to each one, with the amount and your account details, often recovers a large part of it.
+
+Review these questions at the end of every month. It takes 30 minutes, and it is the closest thing to a free business consultant you will find.
+
+## Step 6: Build a Simple Monthly Dashboard
+
+Once you are comfortable with the daily sheet, build a one-page summary at the top of your file. This is your dashboard — the numbers you check every week to know how the business is doing.
+
+Create a new sheet tab called "Summary" and write these lines:
+
+- Total sales this month
+- Total expenses this month
+- Profit this month
+- Number of orders
+- Average order value (total sales divided by number of orders)
+- Best-selling product
+- Total amount owed by customers
+
+Each of these can be filled in with a formula that pulls from your sales and expenses sheets, or typed in by hand at month end if you prefer. The method matters less than the habit. A business owner who checks these seven numbers every month makes better decisions than one who never looks.
+
+Add a simple chart if you like. Select your monthly sales figures, tap Insert, then Chart, and Sheets will draw a bar chart showing your sales over time. A chart makes trends obvious: you can see at a glance whether sales are rising, falling, or flat. You do not need advanced charts — a simple bar chart of monthly sales is enough.
+
+Colour-code your summary. Make profit green, expenses red, and amounts owed orange. When you open the sheet, the colours tell you the story before you read a single number. This takes a minute to set up and makes the sheet far easier to scan on a small phone screen.
+
+## Step 7: Track Stock and Orders in the Same File
+
+Your sales sheet can also track your stock, which prevents the two most common stock problems: running out of your best product, and tying up money in products that do not sell.
+
+Add a sheet called "Stock" with these columns: product name, opening stock, quantity bought, quantity sold, closing stock, and reorder level. The quantity sold can be pulled from your sales sheet, or typed in at the end of each day. The closing stock is opening stock plus quantity bought minus quantity sold.
+
+Set a reorder level for each product — the quantity at which you must buy more. When chin chin drops below 20 packs, you order more flour. When your best wig style drops below 5 pieces, you contact your supplier. This simple rule stops the "sorry, it is finished" messages that send customers to your competitors.
+
+You can also track orders in the same file. Add a sheet called "Orders" for customer orders that are not yet delivered: customer name, product, quantity, amount, deposit paid, balance due, and delivery date. Check it every morning so no order is forgotten. A missed delivery is a lost customer, and a lost customer rarely comes back to complain — they simply buy elsewhere.
+
+Keep the file tidy. One file per year, with a tab for each month, is a clean system. Name the tabs clearly — "Nov 2026 Sales," "Nov 2026 Expenses" — so you can find any month in seconds.
+
+## Step 8: Share, Back Up, and Protect Your Records
+
+Your sales records are valuable, so protect them. Google Sheets saves automatically to your Google Drive, which means your data is backed up online as long as you have a connection. But do not rely on a single account. Once a month, download a copy: on a laptop, click File, then Download, then Microsoft Excel. Save the file on your phone or laptop as a backup.
+
+If you work with a partner, an assistant, or an accountant, share the sheet with them. Click Share, type their email address, and choose whether they can edit or only view. Give editing access only to people you trust, and view access to everyone else. An accountant with view access can prepare your records without the risk of someone accidentally deleting a month of sales.
+
+Be careful with sensitive information. Do not put your bank PIN, your full account password, or your customers' private details in a sheet. Customer names and phone numbers for business follow-up are fine, but keep the sheet focused on business records, not personal information.
+
+If your phone is stolen or damaged, your records are safe in your Google account. Sign in on a new phone, open Sheets, and everything is there. That alone is worth switching from a paper notebook, where a lost book means lost records forever.
+
+## A Simple 14-Day Plan to Start Tracking
+
+Days one to two: create your Google account if needed, install the Sheets app, and create your sales file with the columns from Step 2. Freeze the heading row.
+
+Days three to four: add your first week of sales, even if you have to reconstruct them from memory and your bank alerts. Add the total formula and check it against your own addition.
+
+Days five to seven: create your expenses sheet and record every business cost for the week. Be honest about the small ones.
+
+Days eight to ten: build your summary sheet with total sales, total expenses, and profit for the month so far. Add a chart of your daily sales.
+
+Days eleven to fourteen: add your stock sheet and your orders sheet. Share the file with your accountant or business partner if you have one, and download a backup copy.
+
+After two weeks, recording sales will feel natural. It takes five minutes a day, and it gives you something most small businesses in Nigeria do not have: a clear, honest picture of how the business is really doing. That picture is what turns a hustle into a business — one you can grow, borrow for, and eventually sell. Start today, with the sales you make today.
