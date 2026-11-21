@@ -8,6 +8,7 @@ const quickLinks = [
   { name: "Services", href: "/services", ariaLabel: "Explore our tech services and solutions" },
   { name: "Projects", href: "/projects", ariaLabel: "View our portfolio and case studies" },
   { name: "Blog", href: "/blog", ariaLabel: "Read our latest insights and articles" },
+  { name: "Forum", href: "/forum", ariaLabel: "Ask tech questions and show your builds in the Joetech forum" },
   { name: "Contact", href: "/contact", ariaLabel: "Get in touch with Joetech team" },
 ];
 

@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { name: "Projects", href: "/projects" },
   { name: "Learn Tech", href: "/learn-tech" },
   { name: "Blog", href: "/blog" },
+  { name: "Forum", href: "/forum" },
   { name: "Free Tools", href: "/tools" },
   { name: "Contact", href: "/contact" },
 ];
@@ -290,6 +291,12 @@ export default function Navbar() {
                 </svg>
               </a>
             ))}
+            <a
+              href="/auth/login"
+              className="text-sm font-medium text-gray-100 hover:text-white transition-colors duration-200"
+            >
+              Sign in
+            </a>
             <a
               href="/contact"
               className="ml-2 inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-400 hover:to-indigo-400 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-500/25"
