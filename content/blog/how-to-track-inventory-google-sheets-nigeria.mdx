@@ -1,0 +1,161 @@
+---
+title: "How to Track Your Inventory with Google Sheets in Nigeria"
+slug: how-to-track-inventory-google-sheets-nigeria
+excerpt: "Build a free inventory tracker in Google Sheets that stops stock-outs, finds dead stock and shows your real profit."
+publishDate: "2026-11-24"
+updatedDate: "2026-11-24"
+author: "Igono Joel"
+category: "Business Growth for SMEs"
+tags:
+  - inventory management
+  - google sheets
+  - stock tracking
+  - small business nigeria
+  - business tools
+readingTime: "13 min read"
+coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
+metaTitle: "How to Track Your Inventory with Google Sheets in Nigeria | Joetech"
+metaDescription: "A step-by-step guide to tracking stock with a free Google Sheets inventory system built for Nigerian small businesses."
+canonicalUrl: "https://joetech360.ng/blog/how-to-track-inventory-google-sheets-nigeria"
+keywords: "inventory tracking Google Sheets, stock management small business Nigeria, free inventory template, track stock Google Sheets, inventory spreadsheet Nigeria"
+featured: false
+---
+
+Every Nigerian trader knows the pain of a stock-out. A customer walks into your shop in Lekki, asks for the exact item they saw on your WhatsApp status, and you have to say it is finished. They leave, buy from your competitor, and may never come back. On the other side of the same problem sits dead stock: cartons of slow-moving goods gathering dust on a shelf in Ikeja, money you spent that is not coming back.
+
+Both problems have the same cause. You do not know what you have, what is selling, and what you need to reorder. Most small businesses in Nigeria track stock in their heads or in a paper notebook. The fix does not require expensive software. Google Sheets is free, works on any Android phone, syncs automatically, and can run a proper inventory system for a small business.
+
+## Why Google Sheets works for Nigerian small businesses
+
+Inventory software exists, but most of it is built for large companies and priced in dollars. A small provisions store in Surulere, a fashion retailer in Ajah, a phone accessories seller in Computer Village or an online vendor selling on WhatsApp and Instagram does not need a warehouse management system. They need to know three things: what is in stock, what is running low, and what each item cost and sold for.
+
+Google Sheets answers all three, and it costs nothing. You already have a Google account if you use Gmail. The app is free on Android and iPhone, and it works offline, which matters when MTN or Airtel data is unstable in your area. Changes save automatically, so a staff member can update stock from the shop floor while you check the same sheet from home. You can share the sheet with your shop assistant, your accountant, or your business partner, and everyone sees the same numbers.
+
+Sheets also grows with you. When you are ready for a bigger system, you can export your data to accounting software or move to a paid inventory tool without losing your history.
+
+## What you need before you start
+
+You do not need much. A Google account, which is free, and the Google Sheets app on your phone or a browser on a laptop. A list of everything you currently sell, your buying and selling prices for each item, and a little time to count your stock properly, because a tracker built on wrong opening numbers will mislead you from day one.
+
+Before you build anything, do a physical stock count. Close the shop for an hour if you must, count every item on the shelves, in the storeroom and in transit, and write the numbers down. This count becomes your opening stock. It is the most boring part of the whole exercise and also the most important, because every later calculation depends on it.
+
+Decide who will update the sheet. If you have staff, one person should own stock updates, even if others can view the sheet. When everyone updates stock, nobody is accountable and the numbers drift. If you work alone, build the habit of updating the sheet at the end of every selling day, before you go home.
+
+## Step 1: Set up your master stock sheet
+
+Open Google Sheets and create a new blank spreadsheet. Name it something clear, such as "Adaeze Fashion Stock 2026". Your first tab will be the master stock list, and it needs one row per product.
+
+Create these columns across the top row: Product Name, SKU or Code, Category, Supplier, Unit, Buying Price, Selling Price, Opening Stock, Stock In, Stock Out, Current Stock, Reorder Level, Stock Value, and Status.
+
+A SKU is a short code you invent to identify each product, such as "ANK-001" for an Ankara fabric. SKUs matter because product names can be confusing: two shades of the same lipstick or two sizes of the same shoe need different codes.
+
+Fill in your opening stock from your physical count. Leave Stock In and Stock Out at zero for now. Set a reorder level for each product: the number at which you should buy more. For a fast-selling item, the reorder level might be 10 units. For a slow item, it might be 2. You will adjust these levels as you learn how fast each item sells.
+
+## Step 2: Add formulas that do the maths for you
+
+The power of a spreadsheet is that it calculates for you. In the Current Stock column, enter a formula that adds opening stock and stock in, then subtracts stock out, and copy it down the whole column. In the Stock Value column, multiply current stock by buying price, so you always know how much money is sitting on your shelves. This number is a wake-up call for many business owners: seeing that ₦850,000 of your money is tied up in slow-moving stock changes how you buy.
+
+In the Status column, use a simple IF formula to flag low stock automatically, for example =IF(K2<=L2,"REORDER","OK"), which shows REORDER whenever current stock falls to or below your reorder level. With conditional formatting, you can make REORDER cells turn red, so a low-stock item is impossible to miss.
+
+## Step 3: Record every sale and every delivery
+
+A stock sheet only works if it is updated. Every time goods arrive from a supplier, add the quantity to the Stock In column for that product. Every time you sell, add the quantity to the Stock Out column. This is the discipline that makes or breaks the system.
+
+For a shop with a handful of sales a day, update the sheet directly after each sale or at the end of the day. For a busy shop, keep a simple sales notebook at the counter and transfer the numbers to the sheet each evening. The evening routine should take no more than ten minutes once you are used to it.
+
+If you sell online through WhatsApp or Instagram, update the sheet as soon as a payment is confirmed. A customer who pays on Paystack or Flutterwave at 2pm and gets a delivery rider at 4pm should have their items deducted from stock the same day, not three days later when you remember. Late updates are how you end up selling the same last item to two customers.
+
+When stock arrives, check the delivery against your supplier invoice before updating the sheet. Count the cartons, check for damaged items, and note the actual buying price if it has changed. Prices from suppliers in Lagos markets change often, so update the buying price column whenever a new delivery costs more or less than the last one.
+
+## Step 4: Build a sales log tab
+
+Your master stock sheet shows what you have. A sales log shows what you sold, when, and for how much. Create a second tab called "Sales Log" with these columns: Date, Product, SKU, Quantity Sold, Selling Price, Total Amount, Payment Method, and Customer Name or Phone.
+
+Each sale gets one row. The Total Amount column is quantity multiplied by selling price, and you can use a formula for it. At the bottom of the sheet, use the SUM formula to total the day, the week or the month. This log becomes your record of revenue, and it makes it easy to answer questions like "how much did I sell last week?" or "which product earned the most this month?"
+
+The payment method column matters more than most traders think. Recording whether a sale was cash, bank transfer, POS, Paystack or Flutterwave helps you reconcile your money at the end of the day. If your sales log says you sold ₦120,000 today but your bank account only shows ₦85,000 in transfers, you know to check the cash tin and the POS settlements before you assume money is missing.
+
+You can link the sales log to your stock sheet by deducting quantities, but for a small business it is often simpler to update the master sheet by hand each evening using the sales log as your source. The log is the evidence; the master sheet is the summary.
+
+## Step 5: Track your suppliers and purchase orders
+
+Create a third tab called "Suppliers" with the columns: Supplier Name, Contact Person, Phone Number, WhatsApp Number, Location, Products Supplied, Usual Price, and Payment Terms. This turns your supplier knowledge from memory into a record anyone in your business can use.
+
+A fourth tab, "Purchase Orders", tracks what you have ordered and what has arrived. When you order 50 units of an item from a supplier in Onitsha or Balogun Market, log it here. When the goods arrive, update the status to "Received" and add the quantity to your master sheet. This stops you from ordering the same goods twice, and it gives you a record if a supplier delivers short or late.
+
+## Step 6: Use the data to make better buying decisions
+
+After a month of consistent updates, your sheet becomes a decision-making tool, not just a list. Sort your products by quantity sold and you will see your best sellers clearly. These are the items to keep in stock and to buy in larger quantities, because they turn into cash quickly.
+
+Sort by stock value and you will see where your money is trapped. Items with high stock value and low sales are dead stock, and they need a decision: discount them, bundle them with a fast seller, or stop reordering them entirely. Many Nigerian traders keep buying what they like instead of what sells, and the sheet makes that habit visible.
+
+Look at your reorder flags every Monday morning. Make a shopping list from the items flagged REORDER, and buy only those items. This simple routine stops impulse buying at the market, where it is easy to spend ₦100,000 on goods you do not need while the item your customers actually want stays out of stock.
+
+## Step 7: Do a monthly stock count and reconcile
+
+Once a month, count your physical stock and compare it with the sheet. Differences will appear: a few units missing, a few extra, or an item recorded under the wrong SKU. This is normal, and finding the differences is the whole point of the count.
+
+Small differences usually come from mistakes: a sale not recorded, a damaged item thrown away without noting it, or a free sample given to a customer. Larger differences may mean theft or a supplier short delivery, and the monthly count is how you catch them early. When you find a difference, correct the sheet and note the reason, so you can see where your process is weak.
+
+## A worked example: a fashion shop in Lekki
+
+Imagine Adaeze runs a small fashion shop in Lekki selling Ankara dresses and handbags. She counts her stock on the first of the month and finds 20 Ankara dresses, each bought for ₦12,000 and sold for ₦25,000. Her opening stock value for dresses is ₦240,000, and she sets a reorder level of 5.
+
+During the month she sells 14 dresses and buys 10 more at ₦12,500 each. Her sheet shows opening stock 20, stock in 10, stock out 14, and current stock 16, comfortably above her reorder level. Her sales log shows the 14 dresses brought in ₦350,000 in revenue.
+
+Her handbags tell a different story: she has 18 in stock, bought for ₦8,000 each, but sold only 2 all month. That is ₦144,000 sitting on a shelf. The sheet tells her to stop buying handbags, discount the ones she has, and put the next ₦100,000 of buying budget into dresses, which are clearly what her customers want. That is the whole system in action: no guesswork, just numbers that tell her what to buy next.
+
+## Mistakes that break an inventory system
+
+The first mistake is starting without a physical count. If your opening stock is wrong, every number after it is wrong, and you will stop trusting the sheet within a week.
+
+The second mistake is updating the sheet only when you feel like it. A sheet updated once a week is better than nothing, but it is not a tracker. The evening routine matters more than the formulas.
+
+The third mistake is letting too many people edit the sheet. Give view access to everyone who needs it, but edit access to one person, so accountability never disappears.
+
+The fourth mistake is tracking too many details too soon. Start with the master stock sheet and the sales log, and add the other tabs after a month, when the basic habit is solid.
+
+The fifth mistake is ignoring the reorder flags. The sheet can only warn you. If you see REORDER in red and still do not buy, the stock-out is not the sheet's fault.
+
+## Tips for running your sheet from your phone
+
+Most Nigerian small business owners run their business from a phone, so your sheet must work well on a small screen. Install the Google Sheets app and pin your inventory file to the top of the app so you can open it in two taps. Use the app's offline mode so you can update stock even when data is down, and the changes will sync when you are back online.
+
+Keep your column widths narrow and your text short. Long product names are hard to read on a phone, which is another reason SKUs help. Use the filter feature to show only one category at a time, so you are not scrolling through hundreds of rows to find one item. Protect the formula cells if your staff uses the sheet, so a mistyped number does not overwrite a formula and break your calculations.
+
+If you need clean invoices for your sales, Joetech's free invoice generator at joetech360.ng/tools/invoice-generator can help you create them in minutes.
+
+## When to move beyond Google Sheets
+
+Google Sheets will serve most small businesses well for a long time, but there are signs that you have outgrown it. If you have more than a thousand products, several shop branches, or multiple staff updating stock at the same time, a dedicated inventory system will be easier to manage. If you need barcode scanning, automatic low-stock alerts by SMS, or integration with your POS system, a paid tool becomes worth the cost.
+
+When that day comes, your Sheets history makes the move easy. You already know your products, your suppliers, your prices and your sales patterns, and you can export all of it into the new system. The discipline you built with Sheets is what makes any inventory software work; the software alone never fixes a business that does not track stock.
+
+## Your inventory setup checklist
+
+- Do a full physical stock count and record opening stock
+- Create a Google Sheet with a master stock tab and a sales log tab
+- Give every product a short, unique SKU
+- Add formulas for current stock, stock value and reorder status
+- Set a reorder level for every product
+- Record every delivery and every sale the same day
+- Create supplier and purchase order tabs once the basics are routine
+- Review reorder flags every Monday and buy only what is flagged
+- Do a monthly physical count and reconcile the differences
+- Use the sales data to decide what to buy more of and what to stop buying
+
+## Frequently asked questions
+
+**Is Google Sheets really free for inventory tracking?** Yes. A personal Google account includes Google Sheets at no cost, with enough storage for a small business inventory system.
+
+**Can I use Google Sheets without internet?** Yes. The Google Sheets app lets you work offline, and your changes sync automatically when you reconnect.
+
+**How many products can I track in Google Sheets?** Hundreds of products work comfortably. You can split products into category tabs if the list grows very long.
+
+**What if my staff cannot use a spreadsheet?** Train one person to own the updates, and keep the sheet as simple as possible. A ten-minute walkthrough is usually enough to teach someone to add a sale or a delivery.
+
+**Should I still keep a paper notebook?** A paper notebook at the counter is a useful backup for recording sales during the day. Transfer the numbers to the sheet every evening so the sheet remains the single source of truth.
+
+## Final word
+
+Inventory is money sitting on your shelves, and you cannot manage money you cannot see. Google Sheets gives you that visibility for free: what you have, what is running low, what is selling, and what your stock is worth. Build the sheet this week, count your stock properly, and commit to the ten-minute evening update. Within a month, your buying decisions will be based on numbers instead of feelings.
