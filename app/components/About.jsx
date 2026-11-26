@@ -151,7 +151,7 @@ const AboutSection = () => {
           {[
             { number: "100+", label: "Projects Completed" },
             { number: "50+", label: "Happy Clients" },
-            { number: "5+", label: "Years Experience" },
+            { number: "6+", label: "Years of Experience" },
             { number: "24/7", label: "Support Available" },
           ].map((stat, index) => (
             <div key={index} className="text-center">

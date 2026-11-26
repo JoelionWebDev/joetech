@@ -85,7 +85,7 @@ export default function JoetechHero() {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-3 text-sm text-slate-400">
               <span className="inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
-                7+ years in business
+                6+ Years of Experience
               </span>
               <span className="inline-flex items-center gap-2">
                 <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
