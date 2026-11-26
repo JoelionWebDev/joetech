@@ -370,7 +370,7 @@ const JoetechAboutPage = () => {
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
                   Founded in February 2026 by Igono Joel, a web developer
-                  with 6 years of experience building websites for Nigerian
+                  with 6+ years of experience building websites for Nigerian
                   businesses, <strong>Joetech</strong> emerged from a
                   vision to bridge the gap between traditional businesses and
                   the digital world. Our mission is to empower companies with
