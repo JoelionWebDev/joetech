@@ -1,0 +1,183 @@
+---
+title: "How to Run Payroll for a Small Team With Google Sheets in Nigeria"
+slug: how-to-use-google-sheets-payroll-small-staff-nigeria
+excerpt: "You do not need expensive payroll software to pay a small team correctly. Learn how to build a simple Google Sheets payroll system that tracks salaries, deductions, allowances and payslips — and keeps your staff happy."
+publishDate: "2026-11-26"
+updatedDate: "2026-11-26"
+author: "Igono Joel"
+category: "Business Growth for SMEs"
+tags:
+  - payroll Nigeria
+  - Google Sheets
+  - small business staff
+  - salary tracking
+readingTime: "12 min read"
+coverImage: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=1200&q=80"
+metaTitle: "How to Run Payroll for a Small Team With Google Sheets in Nigeria | Joetech"
+metaDescription: "A practical guide for Nigerian small businesses on running payroll with Google Sheets: salary templates, PAYE, pension, allowances, payslips and common mistakes to avoid."
+canonicalUrl: "https://joetech360.ng/blog/how-to-use-google-sheets-payroll-small-staff-nigeria"
+keywords: "payroll Nigeria, Google Sheets payroll, small business salary Nigeria, PAYE Nigeria, staff salary tracking"
+featured: false
+---
+
+## Why Google Sheets Works for Small Team Payroll
+
+If you run a small business in Nigeria with three, five or ten staff, you probably do not need expensive payroll software yet. What you need is a system that is simple, transparent and consistent — one that makes sure every staff member is paid the right amount, on the right day, every month. Google Sheets gives you exactly that, for free.
+
+Many Nigerian small businesses still run payroll from memory, from WhatsApp chats, or from a paper notebook. The owner remembers that Musa earns ₦120,000, that Ada gets a transport allowance, and that somebody took a salary advance two weeks ago. Then payday arrives and something is forgotten. A staff member is underpaid, another is overpaid, and trust takes a knock. A spreadsheet fixes this because the numbers are written down, the formulas do the maths, and the record is there for anyone to check.
+
+This guide walks you through building a complete payroll system in Google Sheets, step by step. You will learn what columns to create, which formulas to use, how to handle allowances and deductions, how to deal with PAYE tax and pension contributions, and how to generate simple payslips your staff will actually understand. By the end, you will have a payroll process you can repeat every month in under an hour.
+
+## Before You Build: Gather the Information You Need
+
+A payroll sheet is only as good as the information in it. Before you open Google Sheets, collect the following details for every staff member. If you do not have some of them, now is the time to ask.
+
+First, get each person's full name, role, and date they joined the business. Then record their agreed monthly salary or wage, and whether they are paid monthly, weekly or daily. Note their bank name and account number, because you will need these on payday. Record their phone number and email address too, since payslips are often sent by email or WhatsApp.
+
+Next, list every allowance each person receives. Common allowances in Nigerian small businesses include transport allowance, housing allowance, feeding allowance, and data or airtime allowance. Some businesses pay a flat ₦20,000 transport allowance to everyone, while others pay different amounts depending on where the staff member lives. A staff member commuting from Ikorodu to Lekki spends far more on transport than one living in Surulere and working in Yaba, so allowances often differ. Write down the exact amount for each person.
+
+Then list the deductions. The most common are salary advances, loans, and penalties for lateness or absence where your company policy allows them. Some businesses also deduct for staff meals, uniforms or damaged goods. Whatever you deduct, it must be agreed with the staff member in advance and recorded in writing. Surprise deductions destroy trust faster than almost anything else in a small business.
+
+## Step 1: Create the Workbook Structure
+
+Open Google Sheets and create a new spreadsheet. Name it something clear, like "Payroll 2026" or "Staff Payroll — Your Business Name". Inside this workbook, you will create several tabs. Tabs keep the workbook organised and stop one month's data from overwriting another's.
+
+Create the following tabs:
+
+- **Staff List** — one row per staff member, with all their fixed details.
+- **Payroll — November 2026** — the monthly payroll run. You will duplicate this tab each month and rename it.
+- **Payslips** — a template you copy for each staff member, or a sheet that generates payslips automatically.
+- **Summary** — a yearly overview showing total salary cost per month.
+- **Settings** — your standard rates, allowance amounts, and tax bands, so you only enter them once.
+
+Keeping a separate tab for each month is important. Never overwrite last month's payroll with this month's figures. If a staff member questions their October pay in December, you need to open the October tab and show them exactly what happened. That is the whole point of a system.
+
+## Step 2: Build the Staff List Tab
+
+The Staff List tab is your single source of truth about your team. Set up these columns:
+
+- Staff ID (for example, STF001, STF002)
+- Full name
+- Role or job title
+- Date joined
+- Employment type (full-time, part-time, contract)
+- Basic monthly salary
+- Transport allowance
+- Housing allowance
+- Other allowances
+- Bank name
+- Account number
+- Phone number
+- Email address
+- Pension PIN (if applicable)
+- Status (active, on leave, exited)
+
+Fill in one row per staff member. The Staff ID is worth creating even for a tiny team, because names can repeat and IDs never do. If you have two people named Emmanuel, IDs keep them apart in every formula.
+
+Use the Staff List as the reference for your monthly payroll tab. When a salary changes, update the Staff List first, then the monthly tab. That way you always know where the current figure came from.
+
+## Step 3: Build the Monthly Payroll Tab
+
+This is the tab you will use every month. Create the following columns:
+
+- Staff ID
+- Staff name
+- Basic salary
+- Transport allowance
+- Housing allowance
+- Other allowances
+- Gross pay
+- PAYE tax
+- Pension contribution
+- Salary advance
+- Other deductions
+- Total deductions
+- Net pay
+- Payment date
+- Payment status (paid or pending)
+
+Gross pay is the total before deductions. In Google Sheets, use a formula so you never add it up by hand. If basic salary is in column C and allowances are in columns D, E and F, then gross pay in column G is `=SUM(C2:F2)`. Copy that formula down for every staff member.
+
+Total deductions work the same way. If PAYE is in column H, pension in column I, advance in column J and other deductions in column K, then total deductions in column L is `=SUM(H2:K2)`.
+
+Net pay — the amount that actually enters the staff member's bank account — is gross pay minus total deductions. In column M, enter `=G2-L2`. This is the most important number on the sheet, so double-check it every month.
+
+Once the formulas are in place, running payroll becomes a matter of updating the variable columns: advances taken that month, lateness deductions, and any overtime or bonus. The fixed columns can be pulled from the Staff List with a simple lookup formula, or copied across. Either way, the maths is automatic, and automatic maths does not make addition errors at 11pm on payday eve.
+
+## Step 4: Understanding PAYE Tax for Small Businesses
+
+PAYE stands for Pay As You Earn. It is the income tax deducted from an employee's salary and remitted to the state government where the employee lives. In Nigeria, the employer is legally required to deduct it and pay it over to the state internal revenue service.
+
+Many small business owners in Nigeria worry about PAYE because it sounds complicated. The good news is that the calculation follows a clear structure set by the Personal Income Tax Act. The first ₦300,000 of annual income is taxed at 7 percent, the next ₦300,000 at 11 percent, the next ₦500,000 at 15 percent, the next ₦500,000 at 19 percent, the next ₦1,600,000 at 21 percent, and income above ₦3,200,000 at 24 percent. There is also a consolidated relief allowance, which is the higher of ₦200,000 or 1 percent of gross income, plus 20 percent of gross income. These figures are the current statutory bands, but tax rules do change, so confirm the current rates with your state revenue service or your accountant before you rely on them for a full year.
+
+For a small business with staff earning modest salaries, the practical effect is simple: many junior staff will owe little or no PAYE after reliefs, while higher earners will owe a modest monthly amount. Do not guess. Build the calculation into your sheet once, or ask your accountant to set up the formula for you, and then it runs itself every month.
+
+## Step 5: Pension Contributions Made Simple
+
+Under the Pension Reform Act, employers with three or more employees are expected to contribute to a pension scheme. The standard contribution is 10 percent of the employee's monthly emoluments from the employer, and 8 percent from the employee. Monthly emoluments generally mean basic salary plus housing and transport allowances, though the exact definition is set by the National Pension Commission and your pension fund administrator can confirm it for your setup.
+
+In practice, many very small businesses delay pension registration until they are stable. That is understandable, but it is better to plan for it. Here is how to handle it in your sheet.
+
+Add two columns to your monthly payroll tab: one for the employee's 8 percent contribution and one for the employer's 10 percent contribution. The employee's share is deducted from their pay. The employer's share is an extra cost to the business, not a deduction from the staff member. So if a staff member's monthly emoluments are ₦150,000, the employee contributes ₦12,000 and the employer contributes ₦15,000, making ₦27,000 in total remitted to the pension fund administrator each month.
+
+## Step 6: Handling Allowances, Advances and Overtime
+
+Allowances and advances are where small business payroll usually goes wrong, because they change every month. The solution is to give each one its own column and its own rule.
+
+Transport allowance is usually fixed per person, agreed at hiring. Housing allowance is often paid monthly or quarterly. Feeding allowance may be a daily amount multiplied by working days. Whatever the pattern, record the rule in your Settings tab so a new manager or your accountant can follow it without asking you.
+
+Salary advances need a clear policy. Decide how much a staff member can take in advance — for example, no more than 50 percent of one month's salary — and how it is repaid. The simplest approach is to deduct the full advance from the next month's pay, but for larger advances, spread the deduction over two or three months. Record every advance in a separate tab or in a simple log: date, staff name, amount, repayment plan, and balance remaining. Then, each month, copy the due repayment into the advance column of the payroll tab. Never rely on memory for advances. Money lent and forgotten is money lost, and money deducted without a record is a dispute waiting to happen.
+
+Overtime should be agreed before the extra hours are worked, not after. Decide your overtime rate — for example, 1.5 times the normal hourly rate — and record overtime hours in the month they are worked. A simple column for overtime hours and a formula that multiplies hours by the hourly rate keeps it honest. The hourly rate itself is easy to calculate: divide the monthly salary by the number of working hours in a month. If a staff member earns ₦150,000 a month and works 176 hours, their hourly rate is about ₦852. Overtime at 1.5 times that rate is about ₦1,278 per hour.
+
+Bonuses deserve the same discipline. A December bonus, a performance bonus, or a 13th-month payment should appear as its own column so it is never confused with salary. Staff should be able to see exactly what they received and why.
+
+## Step 7: Generate Simple Payslips
+
+A payslip is not a luxury. It is proof that you paid, and proof of what you paid for. Staff need payslips for loan applications, visa applications, rent negotiations and tax clearance. Give them one every month, without being asked.
+
+You can generate payslips directly in Google Sheets. Create a Payslips tab with a simple template:
+
+- Business name and logo
+- Staff name and Staff ID
+- Pay period (for example, November 2026)
+- Basic salary
+- Each allowance listed separately
+- Gross pay
+- Each deduction listed separately
+- Total deductions
+- Net pay
+- Bank name and account number paid into
+- Payment date
+
+Use formulas to pull the figures from the monthly payroll tab so you do not retype them. Then either print the payslip to PDF from Google Sheets, or share the sheet with the staff member. Many small businesses in Nigeria send payslips as PDFs on WhatsApp, which works well because staff can save them on their phones.
+
+Make sure the payslip is clear enough that a staff member with no accounting background can understand it in thirty seconds. Gross pay at the top, deductions in the middle, net pay in bold at the bottom. If a staff member cannot understand their payslip, the payslip has failed.
+
+## Step 8: Paying Staff and Keeping Records
+
+Payday should be a fixed date that never moves without notice. The 28th of the month, the last working day of the month, or the 5th of the following month are all common choices in Nigeria. Pick one and stick to it. Staff plan their rent, their children's school fees and their market shopping around payday. A payday that drifts by a week without explanation damages morale more than a small salary delay that is honestly communicated.
+
+On payday, transfer the net pay from your business account to each staff member's account. Avoid paying salaries in cash where possible. Bank transfers create a record automatically, and that record protects both you and the staff member. If you use your bank's bulk transfer feature or a payment platform, you can pay the whole team in one batch. Keep the transfer receipts or download the statement showing each payment.
+
+After payment, update the Payment Status column to "Paid" and fill in the Payment Date. Then save a copy of the month's tab as a PDF or make a dated copy of the whole workbook, and store it in a payroll folder in Google Drive. At the end of the year, you will have twelve tabs and twelve records, and your accountant will be delighted.
+
+If you pay staff through a fintech platform like Moniepoint, Opay or a bank app, the same rule applies: the transfer record is your proof of payment. Do not delete transfer confirmations. Screenshot them into a folder if you have to, but keep them.
+
+## Step 9: Common Payroll Mistakes to Avoid
+
+The first mistake is paying different amounts for the same role without a reason. If two sales assistants do the same work and one earns ₦20,000 more for no documented reason, the lower-paid one will find out eventually, and the conversation will be painful. Pay differences should reflect experience, responsibility or hours, and the reason should be written down.
+
+The third mistake is mixing business money and personal money. If salaries are paid from the same account you use for personal spending, you will never be sure whether the salary budget is intact. Open a separate business account, fund it with the monthly payroll total a few days before payday, and pay from there. Your future self will thank you.
+
+The fourth mistake is not keeping payslips and records. A staff member who leaves and later claims they were underpaid for six months is a serious problem if you have no records. With a spreadsheet and a payment history, the answer takes two minutes. Without them, it takes weeks of argument.
+
+The fifth mistake is changing pay without telling the staff member first. If a deduction is coming, if an allowance is stopping, or if a salary is being reviewed, communicate it before payday, not on the payslip. Surprises on a payslip feel like theft, even when they are legitimate.
+
+## Final Thoughts
+
+Payroll is one of the most trust-sensitive things a small business does. Staff may forgive a late delivery or a slow month, but they rarely forgive being paid wrongly or late without explanation. A Google Sheets payroll system is not glamorous, but it is honest, transparent and repeatable — and those three qualities are exactly what your team needs.
+
+Start this month. Build the workbook, fill in the Staff List, and run one payroll cycle through it. The first month will take a little longer while you set up the formulas. The second month will be faster. By the third month, you will wonder why you ever ran payroll from memory.
+
+Your staff deserve to be paid correctly and on time. Your business deserves records that stand up to scrutiny. A free spreadsheet, used properly, delivers both.
