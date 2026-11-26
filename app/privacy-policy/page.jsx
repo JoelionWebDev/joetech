@@ -41,6 +41,7 @@ const sections = [
     title: "3. Cookies",
     body: [
       "Our website may use cookies and similar technologies to remember your preferences, understand how the site is used, and improve your experience. You can disable cookies in your browser settings at any time, though some parts of the site may then not work as smoothly.",
+      "Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet. You may opt out of personalised advertising by visiting Google Ads Settings (adssettings.google.com) and www.aboutads.info/choices.",
     ],
   },
   {
