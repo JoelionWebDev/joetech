@@ -78,7 +78,7 @@ const JoetechAboutPage = () => {
   const stats = [
     { number: 100, suffix: "+", label: "Projects Completed" },
     { number: 50, suffix: "+", label: "Happy Clients" },
-    { number: 5, suffix: "+", label: "Years Experience" },
+    { number: 6, suffix: "+", label: "Years of Experience" },
     { number: 12, suffix: "", label: "Awards Won" },
   ];
 
@@ -158,7 +158,7 @@ const JoetechAboutPage = () => {
             description:
               "Web development, design, and digital marketing agency in Lagos, Nigeria",
             url: "https://joetech360.ng",
-            foundingDate: "2019",
+            foundingDate: "2026-02",
           })}
         </script>
       </head>
@@ -369,7 +369,9 @@ const JoetechAboutPage = () => {
               </h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Founded in 2024, <strong>Joetech</strong> emerged from a
+                  Founded in February 2026 by Igono Joel, a web developer
+                  with 6 years of experience building websites for Nigerian
+                  businesses, <strong>Joetech</strong> emerged from a
                   vision to bridge the gap between traditional businesses and
                   the digital world. Our mission is to empower companies with
                   innovative <em>digital solutions</em> that drive growth and
@@ -398,8 +400,7 @@ const JoetechAboutPage = () => {
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
               <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-xl shadow-lg">
-                <p className="font-semibold text-lg">5+ Years</p>
-                <p className="text-sm opacity-90">of Innovation</p>
+                <p className="font-semibold text-lg">Founded Feb 2026</p>
               </div>
             </div>
           </div>
