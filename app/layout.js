@@ -82,7 +82,7 @@ const organizationSchema = {
   logo: `${siteUrl}/logo.png`,
   description:
     "Web/app development, branding, and digital marketing agency based in Lekki, Lagos, Nigeria.",
-  foundingDate: "2019",
+  foundingDate: "2026-02",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Lekki Phase 1",
