@@ -281,7 +281,7 @@ const industries = [
 ];
 
 const trustSignals = [
-  { icon: <Clock className="w-8 h-8" />, title: "5+ Years", subtitle: "of Experience" },
+  { icon: <Clock className="w-8 h-8" />, title: "6+ Years", subtitle: "of Experience" },
   { icon: <Star className="w-8 h-8" />, title: "98%", subtitle: "Client Satisfaction" },
   { icon: <Award className="w-8 h-8" />, title: "100+", subtitle: "Projects Completed" },
   { icon: <Headphones className="w-8 h-8" />, title: "24/7", subtitle: "Support Available" },
