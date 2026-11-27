@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Share } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const NAV_LINKS = [
@@ -31,13 +31,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
-  const [showInstall, setShowInstall] = useState(false);
-  const [installPrompt, setInstallPrompt] = useState(null);
-  const [isIOS, setIsIOS] = useState(false);
-  const [showInstallHelp, setShowInstallHelp] = useState(false);
-  // Once the visitor taps Install, the banner stays put so the install
-  // steps stay readable instead of vanishing under them.
-  const installInteracted = useRef(false);
   // Draggable WhatsApp button: waPos is the dragged position (left/top in
   // pixels); null means "use the default spot". The position is remembered
   // in localStorage so it stays where the visitor left it.
@@ -54,54 +47,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Install-app banner: appears 4 seconds after the page opens and hides
-  // 30 seconds after it appears (or sooner if dismissed/installed). Once
-  // dismissed it stays hidden for 7 days; never shown inside the installed app.
-  // If the visitor taps Install, the banner stays until they finish, so the
-  // iPhone install steps stay readable.
-  useEffect(() => {
-    if (window.matchMedia("(display-mode: standalone)").matches) return;
-    try {
-      const dismissed = Number(
-        localStorage.getItem("joetech-install-dismissed") || 0,
-      );
-      if (dismissed && Date.now() - dismissed < 7 * 24 * 60 * 60 * 1000)
-        return;
-    } catch {
-      // Storage unavailable — show the banner anyway.
-    }
-    // Register the PWA service worker (separate from the Monetag sw.js).
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/pwa-sw.js").catch(() => {});
-    }
-    setIsIOS(/iphone|ipad|ipod/i.test(window.navigator.userAgent));
-    const onPrompt = (e) => {
-      e.preventDefault();
-      setInstallPrompt(e);
-    };
-    window.addEventListener("beforeinstallprompt", onPrompt);
-    const showTimer = setTimeout(() => setShowInstall(true), 4000);
-    const hideTimer = setTimeout(() => {
-      if (!installInteracted.current) setShowInstall(false);
-    }, 4000 + 30000);
-    return () => {
-      window.removeEventListener("beforeinstallprompt", onPrompt);
-      clearTimeout(showTimer);
-      clearTimeout(hideTimer);
-    };
-  }, []);
 
-  const dismissInstall = () => {
-    setShowInstall(false);
-    try {
-      localStorage.setItem(
-        "joetech-install-dismissed",
-        String(Date.now()),
-      );
-    } catch {
-      // Ignore storage errors.
-    }
-  };
 
   // Load the visitor's saved WhatsApp button position (if any), clamped
   // into the current viewport in case the screen size changed.
@@ -196,30 +142,6 @@ export default function Navbar() {
       e.preventDefault();
       waSuppressClick.current = false;
     }
-  };
-
-  const installApp = async () => {
-    installInteracted.current = true;
-    if (installPrompt) {
-      installPrompt.prompt();
-      const choice = await installPrompt.userChoice.catch(() => null);
-      if (choice && choice.outcome === "accepted") {
-        try {
-          localStorage.setItem(
-            "joetech-install-dismissed",
-            String(Date.now()),
-          );
-        } catch {
-          // Ignore storage errors.
-        }
-      }
-      setInstallPrompt(null);
-      setShowInstall(false);
-      return;
-    }
-    // No native install prompt (iPhone, or a browser without install
-    // support) — show the manual steps instead.
-    setShowInstallHelp(true);
   };
 
   const isActive = (href) =>
@@ -416,11 +338,10 @@ export default function Navbar() {
       </div>
 
       {/* Floating WhatsApp button — draggable; default spot is 3rem (48px)
-          from the bottom, and it lifts above the install banner while the
-          banner is showing so the two never overlap. draggable={false} and
-          the dragstart prevention stop the browser's native link-drag from
-          hijacking the pointer — without them the button only nudges a few
-          pixels and then stops following the pointer. */}
+          from the bottom. draggable={false} and the dragstart prevention
+          stop the browser's native link-drag from hijacking the pointer —
+          without them the button only nudges a few pixels and then stops
+          following the pointer. */}
       <a
         ref={waRef}
         href="https://wa.me/message/RKDWPWCNYQKTG1"
@@ -437,7 +358,7 @@ export default function Navbar() {
         style={waPos ? { left: waPos.x, top: waPos.y } : undefined}
         className={`fixed z-40 flex touch-none items-center gap-2 rounded-full bg-[#25d366] px-4 py-3 text-white shadow-xl shadow-green-500/30 hover:bg-[#1eb856] ${
           waDragging ? "" : "transition-all"
-        } ${waPos ? "" : showInstallHelp ? "bottom-[280px] right-5" : showInstall && !open ? "bottom-44 right-5" : "bottom-12 right-5"}`}
+        } ${waPos ? "" : "bottom-12 right-5"}`}
       >
         <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -447,119 +368,6 @@ export default function Navbar() {
         </span>
       </a>
 
-      {/* Install-app banner — bottom bar, hidden while the mobile menu is open */}
-      {showInstall && !open && (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#060b18]/95 px-4 py-3 shadow-2xl backdrop-blur">
-          <div className="mx-auto flex max-w-7xl items-center gap-3">
-            {/* The app icon is tappable too — it starts the install flow. */}
-            <button
-              onClick={installApp}
-              aria-label="Install the Joetech app"
-              className="shrink-0 rounded-xl transition-transform hover:scale-105"
-            >
-              <Image
-                src="/icons/icon-192.png"
-                alt="Joetech app icon"
-                width={40}
-                height={40}
-                className="h-10 w-10 rounded-xl"
-              />
-            </button>
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-semibold text-white">
-                Get the Joetech app
-              </p>
-              <p className="truncate text-xs text-slate-400">
-                Our services, right from your home screen — no app store
-                needed.
-              </p>
-            </div>
-            {showInstallHelp ? (
-              <button
-                onClick={dismissInstall}
-                className="shrink-0 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
-              >
-                Got it
-              </button>
-            ) : (
-              <button
-                onClick={installApp}
-                className="shrink-0 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
-              >
-                {isIOS ? "Install on iPhone" : "Install app"}
-              </button>
-            )}
-            <button
-              onClick={dismissInstall}
-              aria-label="Dismiss"
-              className="shrink-0 rounded-full p-2 text-slate-400 transition-colors hover:bg-white/10 hover:text-white"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-          {/* iPhone (and browsers without one-tap install) get a clear,
-              unmissable step card instead of one small line of text. */}
-          {showInstallHelp && (
-            <div className="mx-auto mt-3 max-w-7xl rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4">
-              <p className="mb-2 flex items-center gap-2 text-sm font-semibold text-white">
-                <Share className="h-4 w-4 shrink-0 text-blue-400" />
-                {isIOS ?
-                  "Install on iPhone — 3 quick steps"
-                : "Install the app — 3 quick steps"}
-              </p>
-              <ol className="space-y-1.5 text-sm leading-relaxed text-slate-200">
-                {isIOS ?
-                  <>
-                    <li>
-                      <span className="font-semibold text-white">1.</span>{" "}
-                      Tap the{" "}
-                      <span className="font-semibold text-white">Share</span>{" "}
-                      button at the bottom of Safari (the square with an
-                      arrow pointing up).
-                    </li>
-                    <li>
-                      <span className="font-semibold text-white">2.</span>{" "}
-                      Scroll down and tap{" "}
-                      <span className="font-semibold text-white">
-                        “Add to Home Screen”
-                      </span>
-                      .
-                    </li>
-                    <li>
-                      <span className="font-semibold text-white">3.</span>{" "}
-                      Tap{" "}
-                      <span className="font-semibold text-white">Add</span>{" "}
-                      at the top right — Joetech will appear on your home
-                      screen.
-                    </li>
-                  </>
-                : <>
-                    <li>
-                      <span className="font-semibold text-white">1.</span>{" "}
-                      Tap the menu{" "}
-                      <span className="font-semibold text-white">(⋮)</span>{" "}
-                      at the top right of your browser.
-                    </li>
-                    <li>
-                      <span className="font-semibold text-white">2.</span>{" "}
-                      Tap{" "}
-                      <span className="font-semibold text-white">
-                        “Install app”
-                      </span>{" "}
-                      (or “Add to Home screen”).
-                    </li>
-                    <li>
-                      <span className="font-semibold text-white">3.</span>{" "}
-                      Joetech will appear on your home screen — open it like
-                      any app.
-                    </li>
-                  </>
-                }
-              </ol>
-            </div>
-          )}
-        </div>
-      )}
     </header>
   );
 }
