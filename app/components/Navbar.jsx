@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { name: "Projects", href: "/projects" },
   { name: "Learn Tech", href: "/learn-tech" },
   { name: "Blog", href: "/blog" },
+  { name: "Videos", href: "/videos" },
   { name: "Forum", href: "/forum" },
   { name: "Free Tools", href: "/tools" },
   { name: "Contact", href: "/contact" },
