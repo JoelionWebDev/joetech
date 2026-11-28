@@ -300,6 +300,33 @@ export default async function BlogPostPage({ params }) {
                 </div>
               )}
 
+              {frontmatter.videoId && (
+                <div className="mb-12">
+                  <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-900">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${frontmatter.videoId}`}
+                      title={frontmatter.videoTitle || `Watch: ${frontmatter.title}`}
+                      className="absolute inset-0 w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-500 mt-3">
+                    Watch the video version of this guide on{" "}
+                    <a
+                      href={`https://www.youtube.com/watch?v=${frontmatter.videoId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      JoeTech Studio
+                    </a>
+                    .
+                  </p>
+                </div>
+              )}
+
               <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
